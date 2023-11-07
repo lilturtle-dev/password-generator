@@ -216,7 +216,6 @@ export default function App() {
   ));
   // Create a separate array for the first password
   const firstPasswordInput = passwords.length > 0 ? passwordInputs[0] : null;
-  console.log(passwords);
 
   // Create an array for the rest of the passwords (excluding the first one)
   const restPasswordInputs = passwords.length > 1 ? passwordInputs.slice(1) : [];
