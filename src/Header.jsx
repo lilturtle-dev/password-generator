@@ -75,8 +75,6 @@ const Header = ({ onLanguageChange }) => {
   );
 
 
-  console.log('language selected',language)
-
   const handleLanguageChange = (event) => {
     const lang = event.target.value;
     setLanguage(lang);
