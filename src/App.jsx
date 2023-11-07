@@ -233,7 +233,7 @@ export default function App() {
           color="bg-[#2A4E63]"
         />
 
-        <div className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 bg-[#E5F6FF] w-[90%] lg:w-[100%] rounded-72 pt-10 md:pt-32`}>
+        <div className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 bg-[#E5F6FF] w-full lg:w-[100%] rounded-72 pt-10 md:pt-32`}>
           <h2 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
             {language == "en"
               ? "Need a Unique, Secure"
@@ -271,7 +271,7 @@ export default function App() {
               <p className="pt-[10px]">*******</p>
             </div>
             {firstPasswordInput}
-            <div className=" text-[#2A4E63] text-[12px] md:text-[18px] mt-28 lg:mt-3 lg:flex">
+            <div className=" text-[#2A4E63] text-[12px] md:text-[18px] lg:mt-3 lg:flex">
               {/* {language == "en"
                   ? "Strong! Could take 317,098 years to crack."
                   : "Сильний! На злам може знадобитися 317 098 років."} */}
