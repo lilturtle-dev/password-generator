@@ -343,16 +343,16 @@ export default function App() {
             {restPasswordInputs}
           </div>
         </div>
-        <div className=" mt-48 lg:mt-40 w-full">
+        <div className="w-full mt-10">
           <AdBanner language={language} />
         </div>
-        <div className="my-20 w-full">
+        <div className="lg:my-20 w-full">
           <SeoText language={language} />
         </div>
-        <div id="howtouse" className="my-20 w-full">
+        <div id="howtouse" className="lg:my-20 w-full">
           <HowToUse language={language} />
         </div>
-        <div id="aboutus" className="my-20 w-full">
+        <div id="aboutus" className="lg:my-20 w-full">
           <AboutUs language={language} />
         </div>
         <div className="mb-4 w-full">

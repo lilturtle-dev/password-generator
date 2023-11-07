@@ -339,3 +339,6 @@ header a, footer a {
   line-height: 18px; /* 100% */
   text-decoration: none;
 }
+.sepia-60{
+  filter: sepia(60%);
+}

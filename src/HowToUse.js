@@ -5,9 +5,9 @@ function HowToUse(props) {
     const [seeMore, setSeeMore] = useState(false)
     return (
         <div className='mt-6 bottom-16 mx-auto h-auto'>
-            <div className='items-center justify-between m-3'>
+            <div className='items-center justify-between'>
                 <h2 className='text-[40px] text-[#071016] font-semibold'>{language === 'en' ? 'How to Use' : 'Як використовувати:'}</h2>
-                <div className='text-[18px] text-[#071016]'>
+                <div className='text-[18px] text-[#071016] m-3'>
                     {language === 'en' ? (
                         <>
                             <p className='font-bold py-6'>Using the password generator is simple. Just follow these steps:</p>
