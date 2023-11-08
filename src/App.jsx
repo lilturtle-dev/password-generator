@@ -300,7 +300,7 @@ export default function App() {
   // Create an array for the rest of the passwords (excluding the first one)
   const restPasswordInputs = passwords.length > 1 ? passwordInputs.slice(1) : [];
   return (
-    <div class="container mx-auto px-4">
+    <div class={`container ${language} mx-auto px-4`}>
 
       <div className="flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans">
         <Header language={language} onLanguageChange={handleLanguageChange} />

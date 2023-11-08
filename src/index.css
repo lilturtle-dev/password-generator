@@ -193,11 +193,23 @@
   font-weight: 200;
   font-style: normal;
 }
-@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:ital,wght@0,400;0,700;1,400&display=swap');
 * {
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Visby Round CF Oblique';
   font-weight: normal;
   font-style: normal;
+}
+.container.ua{
+  font-family: 'PT Sans', sans-serif;
+  font-style: italic;
+}
+.container.ua h2{
+  font-family: 'PT Sans', sans-serif;
+  font-style: normal;
+  font-weight: 700;
+}
+.container.ua header a, .container.ua footer a {
+  font-family: 'PT Sans', sans-serif;
 }
 #eng{
   cursor: pointer;
@@ -330,9 +342,9 @@ header {
   }
 }
 
-header a, footer a {
+.container.en header a, .container.en footer a {
   color: #071016;
-  font-family: Visby Round CF;
+  font-family: 'Visby Round CF';
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
