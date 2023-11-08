@@ -52,6 +52,7 @@ export default function App() {
   const [quantity, setQuantity] = useState(1);
   const [passwords, setPasswords] = useState([]);
   const maxquantity = 20;
+  const mode = 'production';
   const handleQuantityChange = (event) => {
     setQuantity('');
     const newQuantity = parseInt(event.target.value, 10);
@@ -238,9 +239,9 @@ export default function App() {
   //     { unit: 'minute', seconds: 60 },
   //     { unit: 'second', seconds: 1 },
   //   ];
-  
+
   //   const timeComponents = {};
-  
+
   //   for (const unit of timeUnits) {
   //     const unitValue = Math.floor(seconds / unit.seconds);
   //     if (unitValue > 0) {
@@ -248,27 +249,27 @@ export default function App() {
   //       seconds -= unitValue * unit.seconds;
   //     }
   //   }
-  
+
   //   let result = '';
   //   for (const unit of timeUnits) {
   //     if (timeComponents[unit.unit]) {
   //       result += `${timeComponents[unit.unit]} ${unit.unit}${timeComponents[unit.unit] > 1 ? 's' : ' '} `;
   //     }
   //   }
-  
-    // const resultUkrainian = result
-    // .replace(/years/g, 'р.')
-    // .replace(/year/g, 'р.')
-    // .replace(/months/g, 'м.')
-    // .replace(/month/g, 'м.')
-    // .replace(/days/g, 'дн.')
-    // .replace(/day/g, 'дн.')
-    // .replace(/hours/g, 'год.')
-    // .replace(/hour/g, 'год.')
-    // .replace(/minutes/g, 'хв.')
-    // .replace(/minute/g, 'хв.')
-    // .replace(/seconds/g, 'с.')
-    // .replace(/second/g, 'с.');
+
+  // const resultUkrainian = result
+  // .replace(/years/g, 'р.')
+  // .replace(/year/g, 'р.')
+  // .replace(/months/g, 'м.')
+  // .replace(/month/g, 'м.')
+  // .replace(/days/g, 'дн.')
+  // .replace(/day/g, 'дн.')
+  // .replace(/hours/g, 'год.')
+  // .replace(/hour/g, 'год.')
+  // .replace(/minutes/g, 'хв.')
+  // .replace(/minute/g, 'хв.')
+  // .replace(/seconds/g, 'с.')
+  // .replace(/second/g, 'с.');
 
   //   return { result, resultUkrainian };
   // }
@@ -280,21 +281,21 @@ export default function App() {
   const strengthWord = getStrengthWord(CrackScore, language);
   const strengthWordScoreEn = TimeToCrackResult ? TimeToCrackResult.crack_times_display.offline_slow_hashing_1e4_per_second : null;
   const strengthWordScoreUk = strengthWordScoreEn ? strengthWordScoreEn
-  .replace(/years/g, 'років')
-  .replace(/year/g, 'рік')
-  .replace(/months/g, 'місяці')
-  .replace(/month/g, 'місяць')
-  .replace(/days/g, 'днів')
-  .replace(/day/g, 'день')
-  .replace(/hours/g, 'годин')
-  .replace(/hour/g, 'година')
-  .replace(/minutes/g, 'хвилин')
-  .replace(/minute/g, 'хвилина')
-  .replace(/seconds/g, 'секунд')
-  .replace(/second/g, 'секунда')
-  .replace(/century/g, 'століття')
-  .replace(/centuries/g, 'століття')
-  .replace(/less than a/g, 'менше ніж') : null;
+    .replace(/years/g, 'років')
+    .replace(/year/g, 'рік')
+    .replace(/months/g, 'місяці')
+    .replace(/month/g, 'місяць')
+    .replace(/days/g, 'днів')
+    .replace(/day/g, 'день')
+    .replace(/hours/g, 'годин')
+    .replace(/hour/g, 'година')
+    .replace(/minutes/g, 'хвилин')
+    .replace(/minute/g, 'хвилина')
+    .replace(/seconds/g, 'секунд')
+    .replace(/second/g, 'секунда')
+    .replace(/century/g, 'століття')
+    .replace(/centuries/g, 'століття')
+    .replace(/less than a/g, 'менше ніж') : null;
 
   // Create an array for the rest of the passwords (excluding the first one)
   const restPasswordInputs = passwords.length > 1 ? passwordInputs.slice(1) : [];
@@ -352,8 +353,8 @@ export default function App() {
             {firstPasswordInput}
             <div className=" text-[#2A4E63] text-[12px] md:text-[18px] lg:mt-3 lg:flex">
               {language == "en"
-                  ? `${strengthWord} Could take ${strengthWordScoreEn} to crack.`
-                  : `${strengthWord} На злам може знадобитися ${strengthWordScoreUk}.`}
+                ? `${strengthWord} Could take ${strengthWordScoreEn} to crack.`
+                : `${strengthWord} На злам може знадобитися ${strengthWordScoreUk}.`}
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-1 lg:mt-3">
               <div className="flex flex-col gap-3 items-start mt-8 lg:mt-6">
@@ -423,21 +424,21 @@ export default function App() {
           </div>
         </div>
         <div className="w-full mt-10">
-          <AdBanner language={language} />
+          {mode == !'production' && <AdBanner language={language} />}
         </div>
-        <div className="lg:my-20 w-full">
+        <div className="lg:my-10 w-full">
           <SeoText language={language} />
         </div>
-        <div id="howtouse" className="lg:my-20 w-full">
+        <div id="howtouse" className="lg:my-10 w-full">
           <HowToUse language={language} />
         </div>
-        <div id="aboutus" className="lg:my-20 w-full">
+        <div id="aboutus" className="lg:my-10 w-full">
           <AboutUs language={language} />
         </div>
         <div className="mb-4 w-full">
-          <AdBanner language={language} />
+          {mode == !'production' && <AdBanner language={language} />}
         </div>
-        <div id="guide" className="lg:my-20 w-full">
+        <div id="guide" className="lg:my-10 w-full">
           <SeoList language={language} />
         </div>
         <Footer language={language} />

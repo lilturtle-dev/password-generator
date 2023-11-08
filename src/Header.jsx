@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Select, MenuItem, FormControl, InputLabel, Box } from "@material-ui/core";
 import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
@@ -9,9 +8,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import  hamburger from './images/hamburger.png'
+import hamburger from './images/hamburger.png'
 import Logo from "./logo.svg";
-import LanguageSelector from "./LanguageSelect";
+import Box from '@mui/material/Box';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
+import { Link } from "@material-ui/core";
+import InputLabel from '@mui/material/InputLabel';
+import Flag from 'react-world-flags';
 
 const useStyles = makeStyles(() => ({
   languageSelect: {
@@ -25,6 +29,18 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
+const menuItems = [
+  { label: 'About us', href: '#aboutus' },
+  { label: 'How to Use', href: '#howtouse' },
+  { label: 'Guide', href: '#guide' },
+];
+
+const languages = [
+  { label: 'English', value: 'en', flag: <Flag code="840" width={32} /> },
+  { label: 'Українська', value: 'ua', flag: <Flag code="804" width={32} /> },
+];
+
+
 const Header = ({ onLanguageChange }) => {
   const classes = useStyles();
   const [language, setLanguage] = useState(() => {
@@ -37,6 +53,15 @@ const Header = ({ onLanguageChange }) => {
     onLanguageChange(language);
   }, [language]);
 
+  // Create a mapping object from the array
+  const languageMapping = languages.reduce((acc, language) => {
+    acc[language.value] = language.label;
+    return acc;
+  }, {});
+
+  const valueToFind = language; // The value you want to find
+
+  const labelSelectLang = languageMapping[valueToFind];
 
   const [state, setState] = React.useState({
     top: false,
@@ -55,21 +80,39 @@ const Header = ({ onLanguageChange }) => {
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+    //onClick={toggleDrawer(anchor, false)}
+    // onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {['About', 'Why Choose Us', 'Uses'].map((text, index) => (
-          <ListItem key={text} disablePadding>
+        {menuItems.map((item, index) => (
+          <ListItem key={item} disablePadding>
             <ListItemButton>
-              <ListItemText primary={text}  sx={{fontSize:'22px',fontWeight:'bolder',color:'black'}}/>
+              <Link href={item.href} color="inherit" underline="none">
+                <ListItemText primary={item.label} sx={{ fontSize: '22px', fontWeight: 'bolder', color: 'black' }} />
+              </Link>
             </ListItemButton>
           </ListItem>
         ))}
-        <Divider/>
+        <Divider />
         <ListItem>
-      <LanguageSelector language={language} setLanguage={setLanguage}/> 
-      </ListItem>  
+          <InputLabel sx={{ width: '100%' }} id="demo-multiple-name-label">{language === 'en' ? 'Choose language' : 'Виберіть мову'}</InputLabel>
+          <Select
+            labelId="demo-simple-select-helper-label"
+            id="demo-simple-select-helper"
+            sx={{ width: '100%' }} // Set the width to 100%
+            value={language} // Use the currently selected language as the value
+            onChange={handleLanguageChange} // Handle language change
+          >
+            {languages.map((lang) => (
+              <MenuItem key={lang.value} value={lang.value}>
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                  {lang.flag}
+                  <span className="ml-2">{lang.label}</span>
+                </div>
+              </MenuItem>
+            ))}
+          </Select>
+        </ListItem>
       </List>
     </Box>
   );
@@ -90,33 +133,33 @@ const Header = ({ onLanguageChange }) => {
         />
       </div>
       <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
-        <li className=" cursor-pointer"><a href="#aboutus">{language=='en'? 'About us':'Про нас'}</a></li>
-        <li className=" cursor-pointer"><a href="#howtouse">{language=='en'?'How to Use':'Як користуватися?'}</a></li>
-        <li className=" cursor-pointer"><a href="#guide">{language=='en'?'Guide':'Посібник'}</a></li>
-        
+        <li className=" cursor-pointer"><a href="#aboutus">{language == 'en' ? 'About us' : 'Про нас'}</a></li>
+        <li className=" cursor-pointer"><a href="#howtouse">{language == 'en' ? 'How to Use' : 'Як користуватися?'}</a></li>
+        <li className=" cursor-pointer"><a href="#guide">{language == 'en' ? 'Guide' : 'Посібник'}</a></li>
+
       </ul>
 
       <select name="English" value={language} onChange={handleLanguageChange} id="eng" className=" py-3 lg:flex hidden px-4 pr-0 border-2 border-[#2A4E63] rounded-[60px] bg-transparent w-auto">
-         <option value="en">Eng</option>
+        <option value="en">Eng</option>
         <option value="ua">Українська</option>
-       </select>
+      </select>
 
-       <div className=" flex lg:hidden">
-      {[ 'top'].map((anchor) => (
-        <React.Fragment key={anchor}>
-          <img src={hamburger} alt="hamburger" onClick={toggleDrawer(anchor, true)} className=" cursor-pointer"/>
-          <Drawer
-            anchor={anchor}
-            open={state[anchor]}
-            onClose={toggleDrawer(anchor, false)}
-          >
-            {list(anchor)}
-          </Drawer>
-        </React.Fragment>
-      ))}
-    </div>
-      
-      
+      <div className=" flex lg:hidden">
+        {['top'].map((anchor) => (
+          <React.Fragment key={anchor}>
+            <img src={hamburger} alt="hamburger" onClick={toggleDrawer(anchor, true)} className=" cursor-pointer" />
+            <Drawer
+              anchor={anchor}
+              open={state[anchor]}
+              onClose={toggleDrawer(anchor, false)}
+            >
+              {list(anchor)}
+            </Drawer>
+          </React.Fragment>
+        ))}
+      </div>
+
+
     </header>
   );
 };

@@ -23,11 +23,11 @@ const Footer = ({ language }) => {
           <li className=" cursor-pointer"><a href="#howtouse">{language == 'en' ? 'How to use' : 'Як використовувати'}</a></li>
           <li className=" cursor-pointer"><a href="#guide">{language == 'en' ? 'Guide' : 'Посібник'}</a></li>
         </ul>
-        <ul className="flex items-center text-decoration-none gap-4 ">
+        {/* <ul className="flex items-center text-decoration-none gap-4 ">
           <li className=" cursor-pointer border-[1px] border-[#2A4E63]   w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={facebook} alt="facebook image" /></li>
           <li className=" cursor-pointer border-[1px] border-[#2A4E63]  w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={twitter} alt="facebook image" /></li>
           <li className=" cursor-pointer border-[1px] border-[#2A4E63]  w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={linkdIn} alt="facebook image" /></li>
-        </ul>
+        </ul> */}
       </footer>
       <div className="text-black text-[18px] w-full text-center font-medium my-5 ml-2 lg:text-left">{language == 'en' ? 'Copyright' : 'Авторське право'} © <span className=" text-[#96DBFF] font-bold">GeneratePasswordTo.Me </span>{currentYear}</div>
     </>
