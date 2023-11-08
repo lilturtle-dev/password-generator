@@ -195,7 +195,7 @@
 }
 
 * {
-  font-family: 'Visby Round CF';
+  font-family: 'Visby Round CF Oblique';
   font-weight: normal;
   font-style: normal;
 }
@@ -340,5 +340,8 @@ header a, footer a {
   text-decoration: none;
 }
 .sepia-60{
-  filter: sepia(60%);
+  filter: grayscale(1);
+}
+ol{
+  list-style: decimal;
 }

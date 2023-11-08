@@ -26,6 +26,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
+import SeoList from './SeoList';
+import zxcvbn from 'zxcvbn';
 
 
 
@@ -214,13 +216,90 @@ export default function App() {
       </button>
     </div>
   ));
+  function getStrengthWord(score, language) {
+    if (score >= 4) {
+      return language === 'en' ? 'Strong' : 'Сильний';
+    } else if (score >= 3) {
+      return language === 'en' ? 'Moderate' : 'Середній';
+    } else if (score >= 2) {
+      return language === 'en' ? 'Weak' : 'Слабкий';
+    } else if (score >= 1) {
+      return language === 'en' ? 'Very Weak' : 'Дуже слабкий';
+    } else {
+      return language === 'en' ? 'Very Weak' : 'Дуже слабкий';
+    }
+  }
+  // function convertTime(seconds) {
+  //   const timeUnits = [
+  //     { unit: 'year', seconds: 31536000 },
+  //     { unit: 'month', seconds: 2592000 },
+  //     { unit: 'day', seconds: 86400 },
+  //     { unit: 'hour', seconds: 3600 },
+  //     { unit: 'minute', seconds: 60 },
+  //     { unit: 'second', seconds: 1 },
+  //   ];
+  
+  //   const timeComponents = {};
+  
+  //   for (const unit of timeUnits) {
+  //     const unitValue = Math.floor(seconds / unit.seconds);
+  //     if (unitValue > 0) {
+  //       timeComponents[unit.unit] = unitValue;
+  //       seconds -= unitValue * unit.seconds;
+  //     }
+  //   }
+  
+  //   let result = '';
+  //   for (const unit of timeUnits) {
+  //     if (timeComponents[unit.unit]) {
+  //       result += `${timeComponents[unit.unit]} ${unit.unit}${timeComponents[unit.unit] > 1 ? 's' : ' '} `;
+  //     }
+  //   }
+  
+    // const resultUkrainian = result
+    // .replace(/years/g, 'р.')
+    // .replace(/year/g, 'р.')
+    // .replace(/months/g, 'м.')
+    // .replace(/month/g, 'м.')
+    // .replace(/days/g, 'дн.')
+    // .replace(/day/g, 'дн.')
+    // .replace(/hours/g, 'год.')
+    // .replace(/hour/g, 'год.')
+    // .replace(/minutes/g, 'хв.')
+    // .replace(/minute/g, 'хв.')
+    // .replace(/seconds/g, 'с.')
+    // .replace(/second/g, 'с.');
+
+  //   return { result, resultUkrainian };
+  // }
   // Create a separate array for the first password
   const firstPasswordInput = passwords.length > 0 ? passwordInputs[0] : null;
+  const TimeToCrackResult = passwords.length > 0 ? zxcvbn(passwords[0]) : null;
+  const timeInSeconds = TimeToCrackResult ? TimeToCrackResult.crack_times_seconds.offline_slow_hashing_1e4_per_second : null;
+  const CrackScore = TimeToCrackResult ? TimeToCrackResult.score : null;
+  const strengthWord = getStrengthWord(CrackScore, language);
+  const strengthWordScoreEn = TimeToCrackResult ? TimeToCrackResult.crack_times_display.offline_slow_hashing_1e4_per_second : null;
+  const strengthWordScoreUk = strengthWordScoreEn ? strengthWordScoreEn
+  .replace(/years/g, 'років')
+  .replace(/year/g, 'рік')
+  .replace(/months/g, 'місяці')
+  .replace(/month/g, 'місяць')
+  .replace(/days/g, 'днів')
+  .replace(/day/g, 'день')
+  .replace(/hours/g, 'годин')
+  .replace(/hour/g, 'година')
+  .replace(/minutes/g, 'хвилин')
+  .replace(/minute/g, 'хвилина')
+  .replace(/seconds/g, 'секунд')
+  .replace(/second/g, 'секунда')
+  .replace(/century/g, 'століття')
+  .replace(/centuries/g, 'століття')
+  .replace(/less than a/g, 'менше ніж') : null;
 
   // Create an array for the rest of the passwords (excluding the first one)
   const restPasswordInputs = passwords.length > 1 ? passwordInputs.slice(1) : [];
   return (
-    <div class="container mx-auto">
+    <div class="container mx-auto px-4">
 
       <div className="flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans">
         <Header language={language} onLanguageChange={handleLanguageChange} />
@@ -259,7 +338,7 @@ export default function App() {
               <p className="pt-[10px]">*******</p>
             </div>
             {/* bottom passaword lock */}
-            <div className="absolute hidden justify-start bg-white drop-shadow-lg  bottom-[55%] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2">
+            <div className="absolute hidden justify-start bg-white drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2">
               <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                 <img
                   src={passwordImage}
@@ -272,9 +351,9 @@ export default function App() {
             </div>
             {firstPasswordInput}
             <div className=" text-[#2A4E63] text-[12px] md:text-[18px] lg:mt-3 lg:flex">
-              {/* {language == "en"
-                  ? "Strong! Could take 317,098 years to crack."
-                  : "Сильний! На злам може знадобитися 317 098 років."} */}
+              {language == "en"
+                  ? `${strengthWord} Could take ${strengthWordScoreEn} to crack.`
+                  : `${strengthWord} На злам може знадобитися ${strengthWordScoreUk}.`}
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-1 lg:mt-3">
               <div className="flex flex-col gap-3 items-start mt-8 lg:mt-6">
@@ -357,6 +436,9 @@ export default function App() {
         </div>
         <div className="mb-4 w-full">
           <AdBanner language={language} />
+        </div>
+        <div id="guide" className="lg:my-20 w-full">
+          <SeoList language={language} />
         </div>
         <Footer language={language} />
         <PrivacyConsentPopup language={language} />

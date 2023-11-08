@@ -92,6 +92,8 @@ const Header = ({ onLanguageChange }) => {
       <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
         <li className=" cursor-pointer"><a href="#aboutus">{language=='en'? 'About us':'Про нас'}</a></li>
         <li className=" cursor-pointer"><a href="#howtouse">{language=='en'?'How to Use':'Як користуватися?'}</a></li>
+        <li className=" cursor-pointer"><a href="#guide">{language=='en'?'Guide':'Посібник'}</a></li>
+        
       </ul>
 
       <select name="English" value={language} onChange={handleLanguageChange} id="eng" className=" py-3 lg:flex hidden px-4 pr-0 border-2 border-[#2A4E63] rounded-[60px] bg-transparent w-auto">

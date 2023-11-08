@@ -21,6 +21,7 @@ const Footer = ({ language }) => {
         <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
           <li className=" cursor-pointer"><a href="#aboutus">{language == 'en' ? 'About us' : 'Про нас'}</a></li>
           <li className=" cursor-pointer"><a href="#howtouse">{language == 'en' ? 'How to use' : 'Як використовувати'}</a></li>
+          <li className=" cursor-pointer"><a href="#guide">{language == 'en' ? 'Guide' : 'Посібник'}</a></li>
         </ul>
         <ul className="flex items-center text-decoration-none gap-4 ">
           <li className=" cursor-pointer border-[1px] border-[#2A4E63]   w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={facebook} alt="facebook image" /></li>
