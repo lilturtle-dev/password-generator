@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;500;700&display=swap');
 @font-face {
   font-family: 'Visby Round CF';
   src: url('fonts/VisbyRoundCF-ExtraBold.eot');
@@ -193,9 +193,9 @@
   font-weight: 200;
   font-style: normal;
 }
-
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 * {
-  font-family: 'Visby Round CF Oblique';
+  font-family: 'Varela Round', sans-serif;
   font-weight: normal;
   font-style: normal;
 }
@@ -259,7 +259,7 @@ header {
   border-radius: 60px !important;
 }
 
-.css-eg0mwd-MuiSlider-thumb::after {
+.css-eg0mwd-MuiSlider-thumb::after, .css-7drnjp::after {
   position: absolute;
   content: "";
   border-radius: 50%;
@@ -267,7 +267,7 @@ header {
   height: 30px !important;
   background-repeat: no-repeat;
   background-size: contain;
-  background-image: url('./images/selector.png');
+  background-image: url('./images/selector.png') !important;
   top: 50%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
@@ -302,7 +302,7 @@ header {
 }
 
 
-.css-1gv0vcd-MuiSlider-track {
+.css-1gv0vcd-MuiSlider-track, .css-1t2bqnt {
   display: block;
   position: absolute;
   background-color: #133346 !important;
