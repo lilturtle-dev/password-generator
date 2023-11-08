@@ -105,9 +105,9 @@ const Header = ({ onLanguageChange }) => {
       <List>
         {menuItems.map((menuItem) => (
           <ListItem key={menuItem.href} disablePadding>
-            <ListItemButton>
+            <Link href={menuItem.href} underline="none">
               <ListItemText primary={menuItem.label[language]} sx={{ fontSize: '22px', fontWeight: 'bolder', color: 'black' }} />
-            </ListItemButton>
+              </Link>
           </ListItem>
         ))}
 
