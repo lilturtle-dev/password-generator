@@ -30,10 +30,29 @@ const useStyles = makeStyles(() => ({
 }));
 
 const menuItems = [
-  { label: 'About us', href: '#aboutus' },
-  { label: 'How to Use', href: '#howtouse' },
-  { label: 'Guide', href: '#guide' },
+  {
+    label: {
+      en: 'About us',
+      ua: 'Про нас',
+    },
+    href: '#aboutus',
+  },
+  {
+    label: {
+      en: 'How to Use',
+      ua: 'Як користуватися',
+    },
+    href: '#howtouse',
+  },
+  {
+    label: {
+      en: 'Guide',
+      ua: 'Посібник',
+    },
+    href: '#guide',
+  },
 ];
+
 
 const languages = [
   { label: 'English', value: 'en', flag: <Flag code="840" width={32} /> },
@@ -84,15 +103,14 @@ const Header = ({ onLanguageChange }) => {
     // onKeyDown={toggleDrawer(anchor, false)}
     >
       <List>
-        {menuItems.map((item, index) => (
-          <ListItem key={item} disablePadding>
+        {menuItems.map((menuItem) => (
+          <ListItem key={menuItem.href} disablePadding>
             <ListItemButton>
-              <Link href={item.href} color="inherit" underline="none">
-                <ListItemText primary={item.label} sx={{ fontSize: '22px', fontWeight: 'bolder', color: 'black' }} />
-              </Link>
+              <ListItemText primary={menuItem.label[language]} sx={{ fontSize: '22px', fontWeight: 'bolder', color: 'black' }} />
             </ListItemButton>
           </ListItem>
         ))}
+
         <Divider />
         <ListItem>
           <InputLabel sx={{ width: '100%' }} id="demo-multiple-name-label">{language === 'en' ? 'Choose language' : 'Виберіть мову'}</InputLabel>
