@@ -6,7 +6,7 @@ function SeoList(props) {
   return (
     <div className="mt-6 bottom-16 mx-auto h-auto">
       <div className="items-center justify-between">
-        <h2 className="text-[40px]  text-[#071016] font-semibold">
+        <h2 className="lg:text-[40px] text-[24px]  text-[#071016] font-semibold">
           {language === "en"
             ? "Ultimate Guide to Creating Strong and Secure Passwords: Tips and Tools for Online Safety"
             : "Найкращий Посібник з Створення Сильних та Безпечних Паролів: Поради та Інструменти для Онлайн Безпеки"}

@@ -26,10 +26,8 @@ import Checkbox from "@material-ui/core/Checkbox";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import { withStyles } from "@material-ui/core/styles";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
-import SeoList from './SeoList';
-import zxcvbn from 'zxcvbn';
-
-
+import SeoList from "./SeoList";
+import zxcvbn from "zxcvbn";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -47,19 +45,23 @@ export default function App() {
   const [isCopied, setIsCopied] = useState(false);
   const [passwordLength, setPasswordLength] = useState(12);
   const [characterSet, setCharacterSet] = useState("standard");
-  const [selectedCharacterSets, setSelectedCharacterSets] = useState(["123", "#$%", 'abc', 'ABC']);
+  const [selectedCharacterSets, setSelectedCharacterSets] = useState([
+    "123",
+    "#$%",
+    "abc",
+    "ABC",
+  ]);
   const [language, setLanguage] = useState("en");
   const [quantity, setQuantity] = useState(1);
   const [passwords, setPasswords] = useState([]);
   const maxquantity = 20;
-  const mode = 'production';
+  const mode = "production";
   const handleQuantityChange = (event) => {
-    setQuantity('');
+    setQuantity("");
     const newQuantity = parseInt(event.target.value, 10);
     if (newQuantity <= maxquantity) {
       setQuantity(newQuantity);
     }
-
   };
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
@@ -86,7 +88,6 @@ export default function App() {
     // This function will be executed on page load
     GeneratePasswords();
   }, [quantity, selectedCharacterSets]);
-
 
   const handleClick = () => {
     setOpen(true);
@@ -179,22 +180,25 @@ export default function App() {
   };
 
   const passwordInputs = passwords.map((password, index) => (
-    <div className="flex relative items-center flex-row lg:flex-row gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap" key={index}>
-      <div className="py-2 w-[100%] lg:w-[80%] flex items-center h-auto border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
+    <div
+      className="flex relative items-center flex-row lg:flex-row gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
+      key={index}
+    >
+      <div className="py-1 lg:px-4 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
         <input
           type="text"
           value={password || ""}
-          className="rounded-[40px] ml-[16px] border-none outline-none h-full w-[80%] lg:w-[80%] md:py-5 flex-grow-1"
+          className="rounded-[40px] ml-[16px] border-none outline-none h-full w-[80%] lg:w-[80%] md:py-5 flex-grow-1 text-base lg:text-lg"
         />
-        <div className="flex items-center justify-end flex-nowrap w-full lg:max-w-[300px] max-w-[150px] ">
+        <div className="flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
           <button
-            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[24px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:my-0 mx-2 whitespace-nowrap justify-center"
+            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[24px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
             onClick={() => handleGeneratePassword(index)}
           >
             {language === "en" ? "Generate Password" : "Генерувати"}
           </button>
           <button
-            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[12px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] my-2 lg:my-0 mx-2 whitespace-nowrap justify-center"
+            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
             onClick={() => handleGeneratePassword(index)}
           >
             {language === "en" ? "Generate" : "Генерувати"}
@@ -209,7 +213,7 @@ export default function App() {
       </div>
       <button
         disabled={password?.length < 1}
-        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[12px] md:text-[24px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
+        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[24px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
         style={password?.length < 1 ? { cursor: "not-allowed" } : {}}
         onClick={() => handleCopyClick(index)}
       >
@@ -219,15 +223,15 @@ export default function App() {
   ));
   function getStrengthWord(score, language) {
     if (score >= 4) {
-      return language === 'en' ? 'Strong' : 'Сильний';
+      return language === "en" ? "Strong" : "Сильний";
     } else if (score >= 3) {
-      return language === 'en' ? 'Moderate' : 'Середній';
+      return language === "en" ? "Moderate" : "Середній";
     } else if (score >= 2) {
-      return language === 'en' ? 'Weak' : 'Слабкий';
+      return language === "en" ? "Weak" : "Слабкий";
     } else if (score >= 1) {
-      return language === 'en' ? 'Very Weak' : 'Дуже слабкий';
+      return language === "en" ? "Very Weak" : "Дуже слабкий";
     } else {
-      return language === 'en' ? 'Very Weak' : 'Дуже слабкий';
+      return language === "en" ? "Very Weak" : "Дуже слабкий";
     }
   }
   // function convertTime(seconds) {
@@ -276,44 +280,71 @@ export default function App() {
   // Create a separate array for the first password
   const firstPasswordInput = passwords.length > 0 ? passwordInputs[0] : null;
   const TimeToCrackResult = passwords.length > 0 ? zxcvbn(passwords[0]) : null;
-  const timeInSeconds = TimeToCrackResult ? TimeToCrackResult.crack_times_seconds.offline_slow_hashing_1e4_per_second : null;
+  const timeInSeconds = TimeToCrackResult
+    ? TimeToCrackResult.crack_times_seconds.offline_slow_hashing_1e4_per_second
+    : null;
   const CrackScore = TimeToCrackResult ? TimeToCrackResult.score : null;
   const strengthWord = getStrengthWord(CrackScore, language);
-  const strengthWordScoreEn = TimeToCrackResult ? TimeToCrackResult.crack_times_display.offline_slow_hashing_1e4_per_second : null;
-  const strengthWordScoreUk = strengthWordScoreEn ? strengthWordScoreEn
-    .replace(/years/g, 'років')
-    .replace(/year/g, 'рік')
-    .replace(/months/g, 'місяці')
-    .replace(/month/g, 'місяць')
-    .replace(/days/g, 'днів')
-    .replace(/day/g, 'день')
-    .replace(/hours/g, 'годин')
-    .replace(/hour/g, 'година')
-    .replace(/minutes/g, 'хвилин')
-    .replace(/minute/g, 'хвилина')
-    .replace(/seconds/g, 'секунд')
-    .replace(/second/g, 'секунда')
-    .replace(/century/g, 'століття')
-    .replace(/centuries/g, 'століття')
-    .replace(/less than a/g, 'менше ніж') : null;
+  function rankColor(CrackScore) {
+    if (CrackScore >= 4) {
+      return "green";
+    } else if (CrackScore >= 3) {
+      return "orange";
+    } else if (CrackScore >= 2) {
+      return "red";
+    } else if (CrackScore >= 1) {
+      return "red";
+    } else {
+      return "red";
+    }
+  }
+  const scoreColor = rankColor(CrackScore);
+  const strengthColor = { color: scoreColor };
+  const strengthWordScoreEn = TimeToCrackResult
+    ? TimeToCrackResult.crack_times_display.offline_slow_hashing_1e4_per_second
+    : null;
+  const strengthWordScoreUk = strengthWordScoreEn
+    ? strengthWordScoreEn
+        .replace(/years/g, "років")
+        .replace(/year/g, "рік")
+        .replace(/months/g, "місяці")
+        .replace(/month/g, "місяць")
+        .replace(/days/g, "днів")
+        .replace(/day/g, "день")
+        .replace(/hours/g, "годин")
+        .replace(/hour/g, "година")
+        .replace(/minutes/g, "хвилин")
+        .replace(/minute/g, "хвилина")
+        .replace(/seconds/g, "секунд")
+        .replace(/second/g, "секунда")
+        .replace(/century/g, "століття")
+        .replace(/centuries/g, "століття")
+        .replace(/less than a/g, "менше ніж")
+    : null;
 
   // Create an array for the rest of the passwords (excluding the first one)
-  const restPasswordInputs = passwords.length > 1 ? passwordInputs.slice(1) : [];
+  const restPasswordInputs =
+    passwords.length > 1 ? passwordInputs.slice(1) : [];
   return (
-    <div class={`container ${language} mx-auto px-4`}>
-
+    <div class={`container ${language} mx-auto px-3`}>
       <div className="flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans">
         <Header language={language} onLanguageChange={handleLanguageChange} />
         <Snackbar
           open={open}
           autoHideDuration={6000}
           onClose={handleClose}
-          message={language == "en" ? "Password copied successfully" : "Пароль успішно згенеровано"}
+          message={
+            language == "en"
+              ? "Password copied successfully"
+              : "Пароль успішно згенеровано"
+          }
           action={action}
           color="bg-[#2A4E63]"
         />
 
-        <div className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 bg-[#E5F6FF] w-full lg:w-[100%] rounded-72 pt-10 md:pt-32`}>
+        <div
+          className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 bg-[#E5F6FF] w-full lg:w-[100%] rounded-72 pt-10 md:pt-32`}
+        >
           <h2 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
             {language == "en"
               ? "Need a Unique, Secure"
@@ -326,7 +357,7 @@ export default function App() {
               ? "With Generate Password to me"
               : `За допомогою" згенерувати пароль "для мене`}
           </p>
-          <div className="w-11/12 flex flex-col bg-white drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative">
+          <div className="w-full lg:w-9/12 flex flex-col bg-white drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative">
             <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
               <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                 <img
@@ -351,14 +382,20 @@ export default function App() {
               <p className="pt-[10px]">*******</p>
             </div>
             {firstPasswordInput}
-            <div className=" text-[#2A4E63] text-[12px] md:text-[18px] lg:mt-3 lg:flex">
+            <div
+              className=" text-[#2A4E63] text-[16px] md:text-[18px] lg:mt-3 lg:flex"
+              style={strengthColor}
+            >
               {language == "en"
                 ? `${strengthWord} Could take ${strengthWordScoreEn} to crack.`
                 : `${strengthWord} На злам може знадобитися ${strengthWordScoreUk}.`}
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-1 lg:mt-3">
               <div className="flex flex-col gap-3 items-start mt-8 lg:mt-6">
-                <label for="Password" className="text-[12px] md:text-[22px] text-[#2A4E63]">
+                <label
+                  for="Password"
+                  className="text-[16px] md:text-[22px] text-[#2A4E63]"
+                >
                   {language == "en" ? "Password length:" : "Довжина пароля:"}{" "}
                   {passwordLength}
                 </label>
@@ -372,14 +409,16 @@ export default function App() {
                     aria-label="Default"
                     valueLabelDisplay="auto"
                     className="h-[15px]"
-
                   />{" "}
                   <AddCircleOutlineIcon />
                 </div>
               </div>
 
               <div className="flex flex-col gap-3 items-start">
-                <label for="quantity" className="text-[12px] md:text-[22px] text-[#2A4E63]">
+                <label
+                  for="quantity"
+                  className="text-[16px] md:text-[22px] text-[#2A4E63]"
+                >
                   {language == "en" ? "Quantity" : "Кількість"}
                 </label>
                 <input
@@ -390,12 +429,15 @@ export default function App() {
                   max={maxquantity}
                   value={quantity}
                   onChange={handleQuantityChange}
-                  className="border-2 border-[#E5F6FF] border-solid rounded-[18px] text-[#071016] text-[12px] md:text-[20px] py-3 md:py-5 px-3 outline-none w-full"
+                  className="border-2 border-[#E5F6FF] border-solid rounded-[18px] text-[#071016] text-[18px] md:text-[20px] py-3 md:py-5 px-3 outline-none w-full"
                 />
               </div>
             </div>
             <div className="flex gap-3 flex-wrap items-center mt-9 ">
-              <label for="Character" className="text-[12px] md:text-[22px] text-[#2A4E63]">
+              <label
+                for="Character"
+                className="text-[16px] md:text-[22px] text-[#2A4E63]"
+              >
                 {language == "en" ? "Characters used:" : "Використати символи:"}
               </label>
               <div className="flex items-start flex-nowrap text-[10px] md:text-[20px]">
@@ -406,15 +448,18 @@ export default function App() {
                         <Checkbox
                           checked={selectedCharacterSets.includes(characterSet)}
                           onChange={() => handleCheckboxChange(characterSet)}
-                          checkedIcon={<CheckBoxOutlinedIcon color='#2A4E63' />}
+                          checkedIcon={<CheckBoxOutlinedIcon color="#2A4E63" />}
                           color="#2A4E63"
-                          style={{ borderRadius: 10, color: '#2A4E63' }}
-                          className="h-[12px] text-sm md:text-[22px]"
-
+                          style={{ borderRadius: 10, color: "#2A4E63" }}
+                          className="h-[24px] text-sm md:text-[22px]"
                         />
                       }
-                      className="text-[10px] md:text-[20px]"
-                      label={<span className="text-[10px] md:text-[16px]">{characterSet}</span>}
+                      className="text-[18px] md:text-[20px]"
+                      label={
+                        <span className="text-[18px] md:text-[16px]">
+                          {characterSet}
+                        </span>
+                      }
                     />
                   </div>
                 ))}
@@ -424,7 +469,7 @@ export default function App() {
           </div>
         </div>
         <div className="w-full mt-10">
-          {mode == !'production' && <AdBanner language={language} />}
+          {mode == !"production" && <AdBanner language={language} />}
         </div>
         <div className="lg:my-10 w-full">
           <SeoText language={language} />
@@ -436,7 +481,7 @@ export default function App() {
           <AboutUs language={language} />
         </div>
         <div className="mb-4 w-full">
-          {mode == !'production' && <AdBanner language={language} />}
+          {mode == !"production" && <AdBanner language={language} />}
         </div>
         <div id="guide" className="lg:my-10 w-full">
           <SeoList language={language} />

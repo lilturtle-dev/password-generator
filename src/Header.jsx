@@ -102,7 +102,7 @@ const Header = ({ onLanguageChange }) => {
     //onClick={toggleDrawer(anchor, false)}
     // onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List>
+      <List sx={{px:"20px"}}>
         {menuItems.map((menuItem) => (
           <ListItem key={menuItem.href} disablePadding>
             <Link href={menuItem.href} underline="none">
@@ -157,7 +157,7 @@ const Header = ({ onLanguageChange }) => {
 
       </ul>
 
-      <select name="English" value={language} onChange={handleLanguageChange} id="eng" className=" py-3 lg:flex hidden px-4 pr-0 border-2 border-[#2A4E63] rounded-[60px] bg-transparent w-auto">
+      <select name="English" value={language} onChange={handleLanguageChange} id="eng" className=" py-3 lg:flex hidden px-4 pr-5 justify-center pr-0 border-2 border-[#2A4E63] rounded-[60px] bg-transparent w-auto">
         <option value="en">Eng</option>
         <option value="ua">Українська</option>
       </select>

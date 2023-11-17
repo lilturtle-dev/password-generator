@@ -10,7 +10,7 @@ function SeoText(props) {
              <div className='grid grid-cols-1 gap-1 lg:grid-cols-2 items-center justify-between m-3'>
                  <img src={welcome} alt="welcome image" className='sepia-60 w-full' />
                  <div>
-                    <h2 className='text-[40px] text-[#071016] font-semibold'>{language=='en'?'Welcome to Generate Password To Me!':'Ласкаво просимо до Створення пароля онлайн!'}</h2>
+                    <h2 className='lg:text-[40px] text-[24px] text-[#071016] font-semibold'>{language=='en'?'Welcome to Generate Password To Me!':'Ласкаво просимо до Створення пароля онлайн!'}</h2>
                     <p className='text-[18px] text-[#071016] m-3'>{language=='en'?' We are here to provide you with a secure and reliable way to generate strong passwords.':'Ми тут, щоб надати вам безпечний і надійний спосіб створення надійних паролів.'}<br/> <br/>{language=='en'? 'With the ever-increasing threats of cyber attacks and data breaches,  crucial to have a robust password that can protect your sensitive information. Our online password generator offers a simple and effective solution.':'Оскільки загрози кібератак і витоку даних постійно зростають, дуже важливо мати надійний пароль, який зможе захистити вашу конфіденційну інформацію. Наш онлайн-генератор паролів пропонує просте та ефективне рішення.'}</p>
                  </div>
              </div>
