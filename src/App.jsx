@@ -28,6 +28,8 @@ import { withStyles } from "@material-ui/core/styles";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import SeoList from "./SeoList";
 import zxcvbn from "zxcvbn";
+import { Helmet } from "react-helmet";
+import seoData from "./SeoData";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -88,6 +90,14 @@ export default function App() {
     // This function will be executed on page load
     GeneratePasswords();
   }, [quantity, selectedCharacterSets]);
+  useEffect(() => {
+    const seoInfo = seoData.find((data) => data.language === language);
+  
+    if (seoInfo) {
+      document.title = seoInfo.title;
+      document.querySelector('meta[name="description"]').content = seoInfo.description;
+    }
+  }, [language]);  
 
   const handleClick = () => {
     setOpen(true);
@@ -192,7 +202,7 @@ export default function App() {
         />
         <div className="flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
           <button
-            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[24px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
+            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
             onClick={() => handleGeneratePassword(index)}
           >
             {language === "en" ? "Generate Password" : "Генерувати"}
@@ -213,7 +223,7 @@ export default function App() {
       </div>
       <button
         disabled={password?.length < 1}
-        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[24px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
+        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
         style={password?.length < 1 ? { cursor: "not-allowed" } : {}}
         onClick={() => handleCopyClick(index)}
       >
@@ -327,6 +337,17 @@ export default function App() {
     passwords.length > 1 ? passwordInputs.slice(1) : [];
   return (
     <div class={`container ${language} mx-auto px-3`}>
+      <Helmet>
+        <title>
+          {seoData.find((data) => data.language === language)?.title}
+        </title>
+        <meta
+          name="description"
+          content={
+            seoData.find((data) => data.language === language)?.description
+          }
+        />
+      </Helmet>
       <div className="flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans">
         <Header language={language} onLanguageChange={handleLanguageChange} />
         <Snackbar

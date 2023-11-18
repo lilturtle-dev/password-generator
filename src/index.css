@@ -8,6 +8,9 @@
   font-weight: normal;
   font-style: normal;
 }
+.container.ua strong{
+  font-weight: 700;
+}
 .container.ua *{
   font-family: 'Arsenal', sans-serif;
   font-weight: 400;
@@ -160,7 +163,6 @@ header {
 
 .container.en header a, .container.en footer a {
   color: #071016;
-  font-family: 'Visby Round CF';
   font-size: 18px;
   font-style: normal;
   font-weight: 500;

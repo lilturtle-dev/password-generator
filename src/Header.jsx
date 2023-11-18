@@ -102,7 +102,7 @@ const Header = ({ onLanguageChange }) => {
     //onClick={toggleDrawer(anchor, false)}
     // onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List sx={{px:"20px"}}>
+      <List sx={{px:"10px"}}>
         {menuItems.map((menuItem) => (
           <ListItem key={menuItem.href} disablePadding>
             <Link href={menuItem.href} underline="none">
