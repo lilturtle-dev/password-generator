@@ -32,7 +32,6 @@ import { Helmet } from "react-helmet";
 import seoData from "./SeoData";
 import { rankColor } from "./functions/RankColor";
 import { getStrengthWord } from "./functions/GetStrengthWord";
-import {motion} from 'framer-motion';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
