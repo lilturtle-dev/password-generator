@@ -32,6 +32,7 @@ import { Helmet } from "react-helmet";
 import seoData from "./SeoData";
 import { rankColor } from "./functions/RankColor";
 import { getStrengthWord } from "./functions/GetStrengthWord";
+import {motion} from 'framer-motion';
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -252,7 +253,8 @@ export default function App() {
   const restPasswordInputs =
     passwords.length > 1 ? passwordInputs.slice(1) : [];
   return (
-    <div class={`container ${language} mx-auto px-3`}>
+    <motion.div class={`container ${language} mx-auto px-3`}
+    initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
       <Helmet>
         <title>
           {seoData.find((data) => data.language === language)?.title}
@@ -427,6 +429,6 @@ export default function App() {
         <Footer language='en' />
         <PrivacyConsentPopup language='en' />
       </div>
-    </div>
+    </motion.div>
   );
 }
