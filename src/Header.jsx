@@ -16,6 +16,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { Link } from "@material-ui/core";
 import InputLabel from '@mui/material/InputLabel';
 import Flag from 'react-world-flags';
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   languageSelect: {
@@ -60,17 +61,50 @@ const languages = [
 ];
 
 
+
 const Header = ({ onLanguageChange }) => {
+
+  const navigate = useNavigate();
   const classes = useStyles();
   const [language, setLanguage] = useState(() => {
+    const pathSegments = window.location.pathname.split("/");
+    const languageFromURL = pathSegments[1];
+
+    if (languageFromURL === "en" || languageFromURL === "ua") {
+      return languageFromURL;
+    }
+
+    const browserLanguage = navigator.language || navigator.userLanguage;
+
+    // Extract the language code
+    const languageCode = browserLanguage.split(/[-_]/)[0];
+
+    // Map "uk" to "ua", otherwise return the language code
+    const mappedLanguageCode = languageCode === "uk" ? "ua" : languageCode;
+
+    // Check if the language is "en" or "ua", otherwise, return a default language
+    if (mappedLanguageCode === "en" || mappedLanguageCode === "ua") {
+      return mappedLanguageCode;
+    } else {
+      // You can set a default language here if needed
+      return "en";
+    }
+
+    // Fallback to localStorage or default to "en" if there's no stored language
     const savedLanguage = localStorage.getItem("language");
     return savedLanguage ? savedLanguage : "en";
   });
 
   useEffect(() => {
+    // Save the selected language to localStorage
     localStorage.setItem("language", language);
+
+    // Notify the parent component about the language change
     onLanguageChange(language);
-  }, [language]);
+
+    // Automatically navigate to the language-specific route
+    navigate(`/${language}`);
+  }, [language, onLanguageChange, navigate]);
 
   // Create a mapping object from the array
   const languageMapping = languages.reduce((acc, language) => {
@@ -102,12 +136,12 @@ const Header = ({ onLanguageChange }) => {
     //onClick={toggleDrawer(anchor, false)}
     // onKeyDown={toggleDrawer(anchor, false)}
     >
-      <List sx={{px:"10px"}}>
+      <List sx={{ px: "10px" }}>
         {menuItems.map((menuItem) => (
           <ListItem key={menuItem.href} disablePadding>
             <Link href={menuItem.href} underline="none">
               <ListItemText primary={menuItem.label[language]} sx={{ fontSize: '22px', fontWeight: 'bolder', color: 'black' }} />
-              </Link>
+            </Link>
           </ListItem>
         ))}
 
@@ -139,6 +173,7 @@ const Header = ({ onLanguageChange }) => {
   const handleLanguageChange = (event) => {
     const lang = event.target.value;
     setLanguage(lang);
+    navigate(`/${lang}`);
   };
 
   return (

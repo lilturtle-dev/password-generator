@@ -8,31 +8,38 @@
   font-weight: normal;
   font-style: normal;
 }
-.container.ua strong{
+
+.container.ua strong {
   font-weight: 700;
 }
-.container.ua *{
+
+.container.ua * {
   font-family: 'Arsenal', sans-serif;
   font-weight: 400;
 }
 
-.container.ua button{
+.container.ua button {
   font-family: 'Arsenal', sans-serif;
   font-style: normal;
   font-weight: 400;
 }
-.container.ua h2{
+
+.container.ua h2 {
   font-family: 'Arsenal', sans-serif;
   font-style: normal;
   font-weight: 700;
 }
-.container.ua header a, .container.ua footer a {
+
+.container.ua header a,
+.container.ua footer a {
   font-family: 'Arsenal', sans-serif;
   font-weight: 400;
-} 
-#eng{
+}
+
+#eng {
   cursor: pointer;
 }
+
 p {
   margin: 0;
 }
@@ -90,7 +97,8 @@ header {
   border-radius: 60px !important;
 }
 
-.css-eg0mwd-MuiSlider-thumb::after, .css-7drnjp::after {
+.css-eg0mwd-MuiSlider-thumb::after,
+.css-7drnjp::after {
   position: absolute;
   content: "";
   border-radius: 50%;
@@ -133,7 +141,8 @@ header {
 }
 
 
-.css-1gv0vcd-MuiSlider-track, .css-1t2bqnt {
+.css-1gv0vcd-MuiSlider-track,
+.css-1t2bqnt {
   display: block;
   position: absolute;
   background-color: #133346 !important;
@@ -161,17 +170,21 @@ header {
   }
 }
 
-.container.en header a, .container.en footer a {
+.container.en header a,
+.container.en footer a {
   color: #071016;
   font-size: 18px;
   font-style: normal;
   font-weight: 500;
-  line-height: 18px; /* 100% */
+  line-height: 18px;
+  /* 100% */
   text-decoration: none;
 }
-.sepia-60{
+
+.sepia-60 {
   filter: grayscale(1);
 }
-ol{
+
+ol {
   list-style: decimal;
 }
