@@ -253,8 +253,7 @@ export default function App() {
   const restPasswordInputs =
     passwords.length > 1 ? passwordInputs.slice(1) : [];
   return (
-    <motion.div class={`container ${language} mx-auto px-3`}
-    initial={{opacity:0}} animate={{opacity:1}} exit={{opacity:0}}>
+    <div class={`container ${language} mx-auto px-3`}>
       <Helmet>
         <title>
           {seoData.find((data) => data.language === language)?.title}
@@ -429,6 +428,6 @@ export default function App() {
         <Footer language='en' />
         <PrivacyConsentPopup language='en' />
       </div>
-    </motion.div>
+    </div>
   );
 }
