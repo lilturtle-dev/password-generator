@@ -333,7 +333,7 @@ export default function App() {
                 </label>
                 <div className="flex items-center gap-4 w-full">
                   <RemoveCircleOutlineIcon
-                    onClick={() => setPasswordLength((prev) => Math.max(1, prev - 1))}
+                    onClick={() => setPasswordLength((prev) => Math.max(4, prev - 1))}
                     style={{ cursor: "pointer" }}
                   />
                   <Slider
