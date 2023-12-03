@@ -357,7 +357,7 @@ export default function App() {
                                     />
                                     <Slider
                                         value={passwordLength}
-                                        min={1}
+                                        min={4}
                                         max={100}
                                         onChange={(e) => setPasswordLength(e.target.value)}
                                         aria-label="Default"
