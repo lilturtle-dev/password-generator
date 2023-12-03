@@ -8,5 +8,7 @@ export function rankColor(CrackScore) {
         return "red";
       case 1:
         return "red";
+      default:
+        return "red";
     }
   }

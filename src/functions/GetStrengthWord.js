@@ -8,6 +8,8 @@ export function getStrengthWord(score, language) {
         return language === "ua" ? "Середній" : "Moderate";
       case 4:
         return language === "ua" ? "Сильний" : "Strong";
+      default:
+        return language === "ua" ? "Дуже слабкий" : "Very Weak";
     }
   }
   
