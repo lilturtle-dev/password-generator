@@ -10,7 +10,6 @@ import { IconButton } from "@material-ui/core";
 import SeoText from "./SeoText";
 import HowToUse from "./HowToUse";
 import AboutUs from "./AboutUs";
-import FileCopyIcon from "@material-ui/icons/FileCopy";
 import AdBanner from "./Adbanner";
 import Slider from "@mui/material/Slider";
 import Header from "./Header";
@@ -32,6 +31,8 @@ import { Helmet } from "react-helmet";
 import seoData from "./SeoData";
 import { rankColor } from "./functions/RankColor";
 import { getStrengthWord } from "./functions/GetStrengthWord";
+import FileCopyIcon from "@mui/icons-material/FileCopy";
+import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 
 const useStyles = makeStyles((theme) => ({
   formControl: {
@@ -43,6 +44,39 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 export default function App() {
+  const handleCopyAllClick = () => {
+    const allPasswords = passwords.join("\n");
+    navigator.clipboard.writeText(allPasswords);
+
+    const newSnackbar = {
+      id: new Date().getTime(),
+      message:
+        language === "en"
+          ? "All passwords copied successfully"
+          : "Усі паролі успішно скопійовано",
+    };
+
+    setSnackbars((prevSnackbars) => [...prevSnackbars, newSnackbar]);
+
+    setTimeout(() => {
+      setSnackbars((prevSnackbars) =>
+        prevSnackbars.filter((snackbar) => snackbar.id !== newSnackbar.id)
+      );
+    }, 500);
+  };
+
+  const handleDownloadAllClick = () => {
+    const allPasswords = passwords.join("\n");
+    const blob = new Blob([allPasswords], { type: "text/plain" });
+    const link = document.createElement("a");
+    link.href = URL.createObjectURL(blob);
+    link.download = "passwords.txt";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const [snackbars, setSnackbars] = useState([]);
   const classes = useStyles();
   const [password, setPassword] = useState("");
   const [open, setOpen] = React.useState(false);
@@ -58,7 +92,7 @@ export default function App() {
   const [language, setLanguage] = useState("en");
   const [quantity, setQuantity] = useState(1);
   const [passwords, setPasswords] = useState([]);
-  const maxquantity = 20;
+  const maxquantity = 100;
   const mode = "production";
   const handleQuantityChange = (event) => {
     setQuantity("");
@@ -97,7 +131,8 @@ export default function App() {
 
     if (seoInfo) {
       document.title = seoInfo.title;
-      document.querySelector('meta[name="description"]').content = seoInfo.description;
+      document.querySelector('meta[name="description"]').content =
+        seoInfo.description;
     }
   }, [language]);
 
@@ -116,9 +151,24 @@ export default function App() {
   const handleCopyClick = (index) => {
     if (index >= 0 && index < passwords.length) {
       navigator.clipboard.writeText(passwords[index]);
-      handleClick();
-      setIsCopied(true);
-      setTimeout(() => setIsCopied(false), 500);
+
+      // Create a new snackbar and add it to the state
+      const newSnackbar = {
+        id: new Date().getTime(),
+        message:
+          language === "en"
+            ? "Password copied successfully"
+            : "Пароль успішно скопійовано",
+      };
+
+      setSnackbars((prevSnackbars) => [...prevSnackbars, newSnackbar]);
+
+      setTimeout(() => {
+        // Remove the snackbar after a certain duration
+        setSnackbars((prevSnackbars) =>
+          prevSnackbars.filter((snackbar) => snackbar.id !== newSnackbar.id)
+        );
+      }, 500);
     }
   };
 
@@ -137,6 +187,23 @@ export default function App() {
       </IconButton>
     </React.Fragment>
   );
+
+  const renderedSnackbars = snackbars.map((snackbar) => (
+    <Snackbar
+      key={snackbar.id}
+      open={true} // Automatically open the snackbar
+      autoHideDuration={6000}
+      onClose={() =>
+        setSnackbars((prevSnackbars) =>
+          prevSnackbars.filter((item) => item.id !== snackbar.id)
+        )
+      }
+      message={snackbar.message}
+      action={action}
+      color="bg-[#2A4E63]"
+    />
+  ));
+
   const GeneratePasswords = () => {
     const currentQuantity = passwords.length;
     const newQuantity = quantity - currentQuantity;
@@ -266,17 +333,7 @@ export default function App() {
       </Helmet>
       <div className="flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans">
         <Header language={language} onLanguageChange={handleLanguageChange} />
-        <Snackbar
-          open={open}
-          autoHideDuration={6000}
-          onClose={handleClose}
-          message={
-            "Password copied successfully"
-          }
-          action={action}
-          color="bg-[#2A4E63]"
-        />
-
+        {renderedSnackbars}
         <div
           className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 bg-[#E5F6FF] w-full lg:w-[100%] rounded-72 pt-10 md:pt-32`}
         >
@@ -319,8 +376,7 @@ export default function App() {
               className=" text-[#2A4E63] text-[16px] md:text-[18px] lg:mt-3 lg:flex"
               style={strengthColor}
             >
-              {`${strengthWord} Could take ${strengthWordScoreEn} to crack.`
-              }
+              {`${strengthWord} Could take ${strengthWordScoreEn} to crack.`}
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-1 lg:mt-3">
               <div className="flex flex-col gap-3 items-start mt-8 lg:mt-6">
@@ -328,12 +384,13 @@ export default function App() {
                   for="Password"
                   className="text-[16px] md:text-[22px] text-[#2A4E63]"
                 >
-                  {"Password length:"}{" "}
-                  {passwordLength}
+                  {"Password length:"} {passwordLength}
                 </label>
                 <div className="flex items-center gap-4 w-full">
                   <RemoveCircleOutlineIcon
-                    onClick={() => setPasswordLength((prev) => Math.max(4, prev - 1))}
+                    onClick={() =>
+                      setPasswordLength((prev) => Math.max(4, prev - 1))
+                    }
                     style={{ cursor: "pointer" }}
                   />
                   <Slider
@@ -346,7 +403,9 @@ export default function App() {
                     className="h-[15px]"
                   />
                   <AddCircleOutlineIcon
-                    onClick={() => setPasswordLength((prev) => Math.min(100, prev + 1))}
+                    onClick={() =>
+                      setPasswordLength((prev) => Math.min(100, prev + 1))
+                    }
                     style={{ cursor: "pointer" }}
                   />
                 </div>
@@ -404,28 +463,46 @@ export default function App() {
               </div>
             </div>
             {restPasswordInputs}
+            {passwords.length >= 2 ? (
+              <div className="flex gap-3 mt-2">
+                <Button
+                  className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
+                  onClick={handleCopyAllClick}
+                >
+                  <FileCopyIcon sx={{ marginRight: 1 }} />
+                  {language === "en" ? "Copy All" : "Копіювати всі"}
+                </Button>
+                <Button
+                  className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
+                  onClick={handleDownloadAllClick}
+                >
+                  <CloudDownloadIcon sx={{ marginRight: 1 }} />
+                  {language === "en" ? "Download All" : "Завантажити всі"}
+                </Button>
+              </div>
+            ) : null}
           </div>
         </div>
         <div className="w-full mt-10">
-          {mode == !"production" && <AdBanner language='en' />}
+          {mode == !"production" && <AdBanner language="en" />}
         </div>
         <div className="lg:my-10 w-full">
-          <SeoText language='en' />
+          <SeoText language="en" />
         </div>
         <div id="howtouse" className="lg:my-10 w-full">
-          <HowToUse language='en' />
+          <HowToUse language="en" />
         </div>
         <div id="aboutus" className="lg:my-10 w-full">
-          <AboutUs language='en' />
+          <AboutUs language="en" />
         </div>
         <div className="mb-4 w-full">
-          {mode == !"production" && <AdBanner language='en' />}
+          {mode == !"production" && <AdBanner language="en" />}
         </div>
         <div id="guide" className="lg:my-10 w-full">
-          <SeoList language='en' />
+          <SeoList language="en" />
         </div>
-        <Footer language='en' />
-        <PrivacyConsentPopup language='en' />
+        <Footer language="en" />
+        <PrivacyConsentPopup language="en" />
       </div>
     </div>
   );
