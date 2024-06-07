@@ -46,7 +46,7 @@ const Footer = ({ language }) => {
             {currentYear}
           </div>
           <div className="text-black text-[18px] xs:w-full lg:w-1/2 lg:text-right md:text-center font-medium my-5 ml-2">
-            <p className="inline">{language == "en" ? "Working with " : "Працює на серверах "}</p><a className="text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer" href={referalLink}> {language == "en" ? "Hostinger" : "Hostinger"}</a>
+            <p className="inline">{language == "en" ? "Working with " : "Працює на серверах "}</p><a className="text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer" href={referalLink} rel="nofollow">  {language == "en" ? "Hostinger" : "Hostinger"}</a>
           </div>
         </div>
       </footer>
