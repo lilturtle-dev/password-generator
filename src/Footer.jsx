@@ -45,7 +45,7 @@ const Footer = ({ language }) => {
             </span>
             {currentYear}
           </div>
-          <div className="text-black text-[18px] xs:w-full lg:1/2 lg:text-right md:text-center font-medium my-5 ml-2">
+          <div className="text-black text-[18px] xs:w-full lg:w-1/2 lg:text-right md:text-center font-medium my-5 ml-2">
             <p className="inline">{language == "en" ? "Working with " : "Працює на серверах "}</p><a className="text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer" href={referalLink}> {language == "en" ? "Hostinger" : "Hostinger"}</a>
           </div>
         </div>
