@@ -319,7 +319,7 @@ export default function App() {
   const restPasswordInputs =
     passwords.length > 1 ? passwordInputs.slice(1) : [];
   return (
-    <div class={`container ${language} mx-auto px-3`}>
+    <div className={`container ${language} mx-auto w-screen lg:w-full px-3`}>
       <Helmet>
         <title>
           {seoData.find((data) => data.language === language)?.title}

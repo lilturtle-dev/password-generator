@@ -336,7 +336,7 @@ export default function App() {
     passwords.length > 1 ? passwordInputs.slice(1) : [];
   return (
     <div
-      class={`container ${language} mx-auto px-3`}
+      className={`container ${language} mx-auto w-screen lg:w-full px-3`}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

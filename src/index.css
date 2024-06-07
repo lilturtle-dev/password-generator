@@ -172,10 +172,8 @@ header {
 
 .container.en header a,
 .container.en footer a {
-  color: #071016;
   font-size: 18px;
   font-style: normal;
-  font-weight: 500;
   line-height: 18px;
   /* 100% */
   text-decoration: none;
