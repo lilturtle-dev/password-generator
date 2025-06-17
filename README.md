@@ -1,49 +1,49 @@
 # 🔐 Generate Password To Me
 
-Сучасний веб-додаток для генерації безпечних паролів з інтуїтивним інтерфейсом та підтримкою української та англійської мов.
+A modern web app for generating secure passwords with an intuitive interface and support for both Ukrainian and English languages.
 
-## ✨ Особливості
+## ✨ Features
 
-- 🔒 **Безпечна генерація паролів** - використовує криптографічно стійкі алгоритми
-- 🌍 **Двоязична підтримка** - українська та англійська мови
-- 📊 **Аналіз міцності паролів** - показує час, необхідний для зламу
-- 🎛️ **Гнучкі налаштування** - довжина пароля від 4 до 100 символів
-- 🔢 **Вибір символів** - великі/малі літери, цифри, спеціальні символи
-- 📋 **Масове копіювання** - генерація та копіювання кількох паролів
-- 💾 **Експорт паролів** - завантаження паролів у текстовий файл
-- 📱 **Адаптивний дизайн** - працює на всіх пристроях
-- ⚡ **Швидка робота** - миттєва генерація паролів
+- 🔒 **Secure password generation** – uses cryptographically strong algorithms
+- 🌍 **Bilingual support** – Ukrainian and English
+- 📊 **Password strength analysis** – shows estimated crack time
+- 🎛️ **Flexible settings** – password length from 4 to 100 characters
+- 🔢 **Character selection** – uppercase/lowercase letters, numbers, special symbols
+- 📋 **Bulk copy** – generate and copy multiple passwords
+- 💾 **Export passwords** – download passwords as a text file
+- 📱 **Responsive design** – works on all devices
+- ⚡ **Fast performance** – instant password generation
 
-## 🚀 Швидкий старт
+## 🚀 Quick Start
 
-### Вимоги
-- Node.js 14.0 або вище
-- npm або yarn
+### Requirements
+- Node.js 14.0 or higher
+- npm or yarn
 
-### Встановлення
+### Installation
 
-1. **Клонуйте репозиторій**
+1. **Clone the repository**
 ```bash
 git clone https://github.com/your-username/password-generator.git
 cd password-generator
 ```
 
-2. **Встановіть залежності**
+2. **Install dependencies**
 ```bash
 npm install
 ```
 
-3. **Запустіть проект**
+3. **Start the project**
 ```bash
 npm start
 ```
 
-4. **Відкрийте браузер**
+4. **Open in your browser**
 ```
 http://localhost:3000
 ```
 
-## 🛠️ Технології
+## 🛠️ Technologies
 
 - **Frontend**: React 18
 - **UI Framework**: Material-UI (MUI) v5
@@ -53,115 +53,115 @@ http://localhost:3000
 - **SEO**: React Helmet
 - **Build Tool**: Create React App
 
-## 📁 Структура проекту
+## 📁 Project Structure
 
 ```
 src/
 ├── components/
-│   ├── AppEn.jsx          # Англійська версія додатку
-│   ├── AppUa.jsx          # Українська версія додатку
-│   ├── Header.jsx         # Заголовок з перемикачем мов
-│   ├── Footer.jsx         # Підвал сайту
-│   ├── SeoText.jsx        # SEO текст
-│   ├── HowToUse.jsx       # Інструкції використання
-│   ├── AboutUs.jsx        # Про нас
-│   ├── SeoList.jsx        # SEO список
-│   ├── AdBanner.jsx       # Рекламний банер
-│   └── PrivacyConsentPopup.js # Попап згоди на cookies
+│   ├── AppEn.jsx          # English version of the app
+│   ├── AppUa.jsx          # Ukrainian version of the app
+│   ├── Header.jsx         # Header with language switcher
+│   ├── Footer.jsx         # Site footer
+│   ├── SeoText.jsx        # SEO text
+│   ├── HowToUse.jsx       # Usage instructions
+│   ├── AboutUs.jsx        # About us
+│   ├── SeoList.jsx        # SEO list
+│   ├── AdBanner.jsx       # Ad banner
+│   └── PrivacyConsentPopup.js # Cookie consent popup
 ├── functions/
-│   ├── RankColor.js       # Функції для кольорів міцності
-│   └── GetStrengthWord.js # Функції для слів міцності
-├── images/                # Зображення та іконки
-├── App.jsx               # Головний компонент з роутингом
-└── index.js              # Точка входу
+│   ├── RankColor.js       # Password strength color functions
+│   └── GetStrengthWord.js # Password strength word functions
+├── images/                # Images and icons
+├── App.jsx               # Main component with routing
+└── index.js              # Entry point
 ```
 
-## 🎯 Як використовувати
+## 🎯 How to Use
 
-### 1. Генерація пароля
-- Виберіть довжину пароля (4-100 символів)
-- Виберіть кількість паролів для генерації
-- Відмітьте потрібні типи символів:
-  - **A-Z** - великі літери
-  - **a-z** - малі літери  
-  - **0-9** - цифри
-  - **#$%** - спеціальні символи
+### 1. Generate a password
+- Select password length (4-100 characters)
+- Choose the number of passwords to generate
+- Check the character types you want:
+  - **A-Z** – uppercase letters
+  - **a-z** – lowercase letters
+  - **0-9** – numbers
+  - **#$%** – special symbols
 
-### 2. Аналіз міцності
-- Додаток автоматично аналізує міцність кожного пароля
-- Показує приблизний час, необхідний для зламу
-- Використовує бібліотеку zxcvbn для точного аналізу
+### 2. Strength analysis
+- The app automatically analyzes the strength of each password
+- Shows the estimated time to crack
+- Uses the zxcvbn library for accurate analysis
 
-### 3. Копіювання та експорт
-- **Копіювати** - копіює один пароль
-- **Копіювати всі** - копіює всі згенеровані паролі
-- **Завантажити всі** - зберігає паролі у текстовий файл
+### 3. Copying and export
+- **Copy** – copies a single password
+- **Copy all** – copies all generated passwords
+- **Download all** – saves passwords to a text file
 
-## 🔧 Налаштування
+## 🔧 Configuration
 
-### Змінні середовища
+### Environment variables
 ```env
 REACT_APP_GTM_ID=GTM-KR2SHTKB  # Google Tag Manager ID
 ```
 
-### Режими роботи
-- **development** - режим розробки
-- **production** - продакшн режим з рекламою
+### Modes
+- **development** – development mode
+- **production** – production mode with ads
 
-## 📱 Адаптивність
+## 📱 Responsiveness
 
-Додаток повністю адаптивний та працює на:
-- 📱 Мобільних телефонах
-- 📱 Планшетах  
-- 💻 Десктопних комп'ютерах
-- 🖥️ Великих моніторах
+The app is fully responsive and works on:
+- 📱 Mobile phones
+- 📱 Tablets
+- 💻 Desktop computers
+- 🖥️ Large monitors
 
-## 🌐 SEO оптимізація
+## 🌐 SEO Optimization
 
-- Мета-теги для кожної сторінки
-- Структуровані дані
-- Оптимізовані заголовки
-- Швидке завантаження
+- Meta tags for each page
+- Structured data
+- Optimized headings
+- Fast loading
 
-## 🔒 Безпека
+## 🔒 Security
 
-- Паролі генеруються локально в браузері
-- Дані не передаються на сервер
-- Використовуються криптографічно стійкі алгоритми
-- Аналіз міцності в реальному часі
+- Passwords are generated locally in the browser
+- No data is sent to the server
+- Uses cryptographically strong algorithms
+- Real-time strength analysis
 
-## 📊 Аналітика
+## 📊 Analytics
 
-- Google Tag Manager для відстеження
-- Аналітика використання функцій
-- Відстеження помилок
+- Google Tag Manager for tracking
+- Feature usage analytics
+- Error tracking
 
-## 🤝 Внесок
+## 🤝 Contributing
 
-1. Форкніть репозиторій
-2. Створіть гілку для нової функції (`git checkout -b feature/amazing-feature`)
-3. Зробіть коміт змін (`git commit -m 'Add amazing feature'`)
-4. Відправте в гілку (`git push origin feature/amazing-feature`)
-5. Відкрийте Pull Request
+1. Fork the repository
+2. Create a branch for your feature (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## 📄 Ліцензія
+## 📄 License
 
-Цей проект розповсюджується під ліцензією MIT. Дивіться файл `LICENSE` для деталей.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-## 📞 Підтримка
+## 📞 Support
 
-Якщо у вас є питання або проблеми:
-- Створіть Issue в GitHub
-- Напишіть в особисті повідомлення на [GitHub](https://github.com/lilturtle-dev)
-- Якщо проект корисний — поставте ⭐ (зірочку) на репозиторії!
+If you have questions or issues:
+- Create an Issue on GitHub
+- Send a direct message on [GitHub](https://github.com/lilturtle-dev)
+- If you find the project useful — please ⭐ star the repository!
 
-## 🙏 Подяки
+## 🙏 Acknowledgements
 
-- [zxcvbn](https://github.com/dropbox/zxcvbn) - за аналіз міцності паролів
-- [Material-UI](https://mui.com/) - за компоненти UI
-- [Tailwind CSS](https://tailwindcss.com/) - за стилізацію
-- [React](https://reactjs.org/) - за фреймворк
+- [zxcvbn](https://github.com/dropbox/zxcvbn) – for password strength analysis
+- [Material-UI](https://mui.com/) – for UI components
+- [Tailwind CSS](https://tailwindcss.com/) – for styling
+- [React](https://reactjs.org/) – for the framework
 
 ---
 
-**Зроблено з ❤️ для безпеки ваших облікових записів**
+**Made with ❤️ to keep your accounts secure**
