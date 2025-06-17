@@ -1,7 +1,7 @@
 import React from 'react';
-import Radio from '@material-ui/core/Radio';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import Radio from '@mui/material/Radio';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
 
 
 function LanguageSelector({ language, setLanguage }) {

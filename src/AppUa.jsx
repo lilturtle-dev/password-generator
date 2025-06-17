@@ -1,12 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import { IconButton } from "@material-ui/core";
+import React, { useState, useEffect, useCallback } from "react";
+import Button from "@mui/material/Button";
 import SeoText from "./SeoText";
 import HowToUse from "./HowToUse";
 import AboutUs from "./AboutUs";
@@ -20,10 +13,8 @@ import refreash from "./images/refreash.png";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import Snackbar from "@mui/material/Snackbar";
-import CloseIcon from "@mui/icons-material/Close";
-import Checkbox from "@material-ui/core/Checkbox";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import { withStyles } from "@material-ui/core/styles";
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import SeoList from "./SeoList";
 import zxcvbn from "zxcvbn";
@@ -34,15 +25,6 @@ import { getStrengthWord } from "./functions/GetStrengthWord";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 
-const useStyles = makeStyles((theme) => ({
-  formControl: {
-    margin: theme.spacing(1),
-    minWidth: 120,
-  },
-  selectEmpty: {
-    marginTop: theme.spacing(2),
-  },
-}));
 export default function App() {
   const handleCopyAllClick = () => {
     const allPasswords = passwords.join("\n");
@@ -75,20 +57,15 @@ export default function App() {
     link.click();
     document.body.removeChild(link);
   };
-  const classes = useStyles();
-  const [password, setPassword] = useState("");
-  const [open, setOpen] = React.useState(false);
-  const [isCopied, setIsCopied] = useState(false);
+  const [snackbars, setSnackbars] = useState([]);
   const [passwordLength, setPasswordLength] = useState(12);
-  const [characterSet, setCharacterSet] = useState("standard");
   const [selectedCharacterSets, setSelectedCharacterSets] = useState([
-    "123",
+    "0-9",
     "#$%",
-    "abc",
-    "ABC",
+    "a-z",
+    "A-Z",
   ]);
   const [language, setLanguage] = useState("ua");
-  const [snackbars, setSnackbars] = useState([]);
   const [quantity, setQuantity] = useState(1);
   const [passwords, setPasswords] = useState([]);
   const maxquantity = 100;
@@ -116,92 +93,13 @@ export default function App() {
   };
 
   const characterSets = {
-    ABC: "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    abc: "abcdefghijklmnopqrstuvwxyz",
-    123: "0123456789",
+    "A-Z": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "a-z": "abcdefghijklmnopqrstuvwxyz",
+    "0-9": "0123456789",
     "#$%": "!@#$%^&*()",
   };
-  useEffect(() => {
-    // This function will be executed on page load
-    GeneratePasswords();
-  }, [quantity, selectedCharacterSets]);
-  useEffect(() => {
-    const seoInfo = seoData.find((data) => data.language === language);
 
-    if (seoInfo) {
-      document.title = seoInfo.title;
-      document.querySelector('meta[name="description"]').content =
-        seoInfo.description;
-    }
-  }, [language]);
-
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === "clickaway") {
-      return;
-    }
-
-    setOpen(false);
-  };
-
-  const handleCopyClick = (index) => {
-    if (index >= 0 && index < passwords.length) {
-      navigator.clipboard.writeText(passwords[index]);
-
-      // Create a new snackbar and add it to the state
-      const newSnackbar = {
-        id: new Date().getTime(),
-        message:
-          language === "en"
-            ? "Password copied successfully"
-            : "Пароль успішно скопійовано",
-      };
-
-      setSnackbars((prevSnackbars) => [...prevSnackbars, newSnackbar]);
-
-      setTimeout(() => {
-        // Remove the snackbar after a certain duration
-        setSnackbars((prevSnackbars) =>
-          prevSnackbars.filter((snackbar) => snackbar.id !== newSnackbar.id)
-        );
-      }, 500);
-    }
-  };
-
-  const action = (
-    <React.Fragment>
-      <Button color="primary" size="small" onClick={handleClose}>
-        {"сховати"}
-      </Button>
-      <IconButton
-        size="small"
-        aria-label="close"
-        color="inherit"
-        onClick={handleClose}
-      >
-        <CloseIcon fontSize="small" />
-      </IconButton>
-    </React.Fragment>
-  );
-  const renderedSnackbars = snackbars.map((snackbar) => (
-    <Snackbar
-      key={snackbar.id}
-      open={true} // Automatically open the snackbar
-      autoHideDuration={6000}
-      onClose={() =>
-        setSnackbars((prevSnackbars) =>
-          prevSnackbars.filter((item) => item.id !== snackbar.id)
-        )
-      }
-      message={snackbar.message}
-      action={action}
-      color="bg-[#2A4E63]"
-    />
-  ));
-  const GeneratePasswords = () => {
+  const GeneratePasswords = useCallback(() => {
     const currentQuantity = passwords.length;
     const newQuantity = quantity - currentQuantity;
 
@@ -229,7 +127,61 @@ export default function App() {
       // Decrease the quantity of displayed passwords
       setPasswords(passwords.slice(0, quantity));
     }
+  }, [passwords, quantity, selectedCharacterSets, passwordLength, characterSets]);
+
+  useEffect(() => {
+    // This function will be executed on page load
+    GeneratePasswords();
+  }, [GeneratePasswords]);
+
+  useEffect(() => {
+    const seoInfo = seoData.find((data) => data.language === language);
+
+    if (seoInfo) {
+      document.title = seoInfo.title;
+      document.querySelector('meta[name="description"]').content =
+        seoInfo.description;
+    }
+  }, [language]);
+
+  const handleCopyClick = (index) => {
+    if (index >= 0 && index < passwords.length) {
+      navigator.clipboard.writeText(passwords[index]);
+
+      // Create a new snackbar and add it to the state
+      const newSnackbar = {
+        id: new Date().getTime(),
+        message:
+          language === "en"
+            ? "Password copied successfully"
+            : "Пароль успішно скопійовано",
+      };
+
+      setSnackbars((prevSnackbars) => [...prevSnackbars, newSnackbar]);
+
+      setTimeout(() => {
+        // Remove the snackbar after a certain duration
+        setSnackbars((prevSnackbars) =>
+          prevSnackbars.filter((snackbar) => snackbar.id !== newSnackbar.id)
+        );
+      }, 500);
+    }
   };
+
+  const renderedSnackbars = snackbars.map((snackbar) => (
+    <Snackbar
+      key={snackbar.id}
+      open={true} // Automatically open the snackbar
+      autoHideDuration={6000}
+      onClose={() =>
+        setSnackbars((prevSnackbars) =>
+          prevSnackbars.filter((item) => item.id !== snackbar.id)
+        )
+      }
+      message={snackbar.message}
+      color="bg-[#2A4E63]"
+    />
+  ));
 
   const handleGeneratePassword = (index) => {
     if (index >= 0 && index < passwords.length) {
@@ -282,7 +234,7 @@ export default function App() {
           <img
             onClick={() => handleGeneratePassword(index)}
             src={refreash}
-            alt="refreash image"
+            alt="refresh"
             className="flex mr-2 cursor-pointer h-[15px] md:h-[20px]"
           />
         </div>
@@ -301,9 +253,6 @@ export default function App() {
   // Create a separate array for the first password
   const firstPasswordInput = passwords.length > 0 ? passwordInputs[0] : null;
   const TimeToCrackResult = passwords.length > 0 ? zxcvbn(passwords[0]) : null;
-  const timeInSeconds = TimeToCrackResult
-    ? TimeToCrackResult.crack_times_seconds.offline_slow_hashing_1e4_per_second
-    : null;
   const CrackScore = TimeToCrackResult ? TimeToCrackResult.score : null;
   const strengthWord = getStrengthWord(CrackScore, language);
 
@@ -371,7 +320,7 @@ export default function App() {
               <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                 <img
                   src={passwordImage}
-                  alt="password image"
+                  alt="password"
                   width={20}
                   height={20}
                 />
@@ -383,7 +332,7 @@ export default function App() {
               <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                 <img
                   src={passwordImage}
-                  alt="password image"
+                  alt="password"
                   width={20}
                   height={20}
                 />
@@ -400,7 +349,7 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-1 lg:mt-3">
               <div className="flex flex-col gap-3 items-start mt-8 lg:mt-6">
                 <label
-                  for="Password"
+                  htmlFor="Password"
                   className="text-[16px] md:text-[22px] text-[#2A4E63]"
                 >
                   {"Довжина пароля:"} {passwordLength}
@@ -432,7 +381,7 @@ export default function App() {
 
               <div className="flex flex-col gap-3 items-start">
                 <label
-                  for="quantity"
+                  htmlFor="quantity"
                   className="text-[16px] md:text-[22px] text-[#2A4E63]"
                 >
                   {"Кількість"}
@@ -451,7 +400,7 @@ export default function App() {
             </div>
             <div className="flex gap-3 flex-wrap items-center mt-9 ">
               <label
-                for="Character"
+                htmlFor="Character"
                 className="text-[16px] md:text-[22px] text-[#2A4E63]"
               >
                 {"Використати символи:"}
@@ -464,9 +413,13 @@ export default function App() {
                         <Checkbox
                           checked={selectedCharacterSets.includes(characterSet)}
                           onChange={() => handleCheckboxChange(characterSet)}
-                          checkedIcon={<CheckBoxOutlinedIcon color="#2A4E63" />}
-                          color="#2A4E63"
-                          style={{ borderRadius: 10, color: "#2A4E63" }}
+                          checkedIcon={<CheckBoxOutlinedIcon />}
+                          sx={{ 
+                            color: "#2A4E63",
+                            "&.Mui-checked": {
+                              color: "#2A4E63"
+                            }
+                          }}
                           className="h-[24px] text-sm md:text-[22px]"
                         />
                       }
@@ -503,7 +456,7 @@ export default function App() {
           </div>
         </div>
         <div className="w-full mt-10">
-          {mode == !"production" && <AdBanner language="ua" />}
+          {mode === "production" && <AdBanner language="ua" />}
         </div>
         <div className="lg:my-10 w-full">
           <SeoText language="ua" />
@@ -515,7 +468,7 @@ export default function App() {
           <AboutUs language="ua" />
         </div>
         <div className="mb-4 w-full">
-          {mode == !"production" && <AdBanner language="ua" />}
+          {mode === "production" && <AdBanner language="ua" />}
         </div>
         <div id="guide" className="lg:my-10 w-full">
           <SeoList language="ua" />

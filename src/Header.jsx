@@ -1,34 +1,19 @@
 import React, { useState, useEffect } from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import hamburger from './images/hamburger.png'
 import Logo from "./logo.svg";
 import Box from '@mui/material/Box';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import { Link } from "@material-ui/core";
+import Link from '@mui/material/Link';
 import InputLabel from '@mui/material/InputLabel';
 import Flag from 'react-world-flags';
 import { useNavigate } from "react-router-dom";
 
-const useStyles = makeStyles(() => ({
-  languageSelect: {
-    color: "black",
-    "&:before": {
-      borderColor: "black",
-    },
-    "&:after": {
-      borderColor: "black",
-    },
-  },
-}));
 const menuItems = [
   {
     label: {
@@ -64,7 +49,6 @@ const languages = [
 const Header = ({ onLanguageChange }) => {
 
   const navigate = useNavigate();
-  const classes = useStyles();
   const [language, setLanguage] = useState(() => {
     const pathSegments = window.location.pathname.split("/");
     const languageFromURL = pathSegments[1];
@@ -88,10 +72,6 @@ const Header = ({ onLanguageChange }) => {
       // You can set a default language here if needed
       return "en";
     }
-
-    // Fallback to localStorage or default to "en" if there's no stored language
-    const savedLanguage = localStorage.getItem("language");
-    return savedLanguage ? savedLanguage : "en";
   });
 
   useEffect(() => {
@@ -104,16 +84,6 @@ const Header = ({ onLanguageChange }) => {
     // Automatically navigate to the language-specific route
     navigate(`/${language}`);
   }, [language, onLanguageChange, navigate]);
-
-  // Create a mapping object from the array
-  const languageMapping = languages.reduce((acc, language) => {
-    acc[language.value] = language.label;
-    return acc;
-  }, {});
-
-  const valueToFind = language; // The value you want to find
-
-  const labelSelectLang = languageMapping[valueToFind];
 
   const [state, setState] = React.useState({
     top: false,
@@ -185,9 +155,9 @@ const Header = ({ onLanguageChange }) => {
         />
       </div>
       <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
-        <li className=" cursor-pointer"><a href="#aboutus">{language == 'en' ? 'About us' : 'Про нас'}</a></li>
-        <li className=" cursor-pointer"><a href="#howtouse">{language == 'en' ? 'How to Use' : 'Як користуватися?'}</a></li>
-        <li className=" cursor-pointer"><a href="#guide">{language == 'en' ? 'Guide' : 'Посібник'}</a></li>
+        <li className=" cursor-pointer"><a href="#aboutus">{language === 'en' ? 'About us' : 'Про нас'}</a></li>
+        <li className=" cursor-pointer"><a href="#howtouse">{language === 'en' ? 'How to Use' : 'Як користуватися?'}</a></li>
+        <li className=" cursor-pointer"><a href="#guide">{language === 'en' ? 'Guide' : 'Посібник'}</a></li>
 
       </ul>
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@material-ui/core';
+import { Button, Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 
 const PrivacyConsentPopup = ({ language }) => {
   const [open, setOpen] = useState(false);
@@ -18,14 +18,9 @@ const PrivacyConsentPopup = ({ language }) => {
     }
   }, [consentGiven, open]);
 
-  const privacyPolicy = {
-    en: 'https://example.com/privacy-policy/en',
-    ua: 'https://example.com/privacy-policy/ua',
-  };
-
   const contentText = {
-    en: 'We use cookies and other tracking technologies to improve your browsing experience on our website, to show you personalized content and targeted ads, to analyze our website traffic, and to understand where our visitors are coming from. By clicking “Accept”, you consent to the use of ALL the cookies. Read our Privacy Policy for more information.',
-    ua: 'Ми використовуємо файли cookie та інші технології відстеження, щоб покращити ваш досвід перегляду нашого веб-сайту, показувати персоналізований контент та цілевану рекламу, аналізувати трафік нашого веб-сайту та зрозуміти, звідки наші відвідувачі приходять. Натиснувши “Прийняти”, ви даєте згоду на використання ВСІХ файлів cookie. Дізнайтеся більше в нашій Політиці конфіденційності.',
+    en: 'We use cookies and other tracking technologies to improve your browsing experience on our website, to show you personalized content and targeted ads, to analyze our website traffic, and to understand where our visitors are coming from. By clicking "Accept", you consent to the use of ALL the cookies. Read our Privacy Policy for more information.',
+    ua: 'Ми використовуємо файли cookie та інші технології відстеження, щоб покращити ваш досвід перегляду нашого веб-сайту, показувати персоналізований контент та цілевану рекламу, аналізувати трафік нашого веб-сайту та зрозуміти, звідки наші відвідувачі приходять. Натиснувши "Прийняти", ви даєте згоду на використання ВСІХ файлів cookie. Дізнайтеся більше в нашій Політиці конфіденційності.',
   };
 
   const buttonText = {

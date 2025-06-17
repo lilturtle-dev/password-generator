@@ -8,7 +8,7 @@ function SeoText(props) {
   return (
     <div className="mt-6 bottom-16 mx-auto h-auto">
       <div className="grid grid-cols-1 gap-1 lg:grid-cols-2 items-center justify-between m-3">
-        <img src={welcome} alt="welcome image" className="sepia-60 w-full" />
+        <img src={welcome} alt="welcome" className="sepia-60 w-full" />
         <div>
           <h2 className="lg:text-[40px] text-[24px] text-[#071016] font-semibold">
             {language === "en"
