@@ -13,6 +13,7 @@ import Link from '@mui/material/Link';
 import InputLabel from '@mui/material/InputLabel';
 import Flag from 'react-world-flags';
 import { useNavigate } from "react-router-dom";
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 const menuItems = [
   {
@@ -44,8 +45,6 @@ const languages = [
   { label: 'Українська', value: 'ua', flag: <Flag code="804" width={32} /> },
 ];
 
-
-
 const Header = ({ onLanguageChange }) => {
 
   const navigate = useNavigate();
@@ -74,6 +73,8 @@ const Header = ({ onLanguageChange }) => {
     }
   });
 
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
+
   useEffect(() => {
     // Save the selected language to localStorage
     localStorage.setItem("language", language);
@@ -83,6 +84,11 @@ const Header = ({ onLanguageChange }) => {
 
     // Automatically navigate to the language-specific route
     navigate(`/${language}`);
+
+    // Додаю зміну атрибута lang у <html>
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = language === 'ua' ? 'uk' : 'en';
+    }
   }, [language, onLanguageChange, navigate]);
 
   const [state, setState] = React.useState({
@@ -116,18 +122,22 @@ const Header = ({ onLanguageChange }) => {
 
         <Divider />
         <ListItem>
-          <InputLabel sx={{ width: '100%' }} id="demo-multiple-name-label">{language === 'en' ? 'Choose language' : 'Виберіть мову'}</InputLabel>
+          <InputLabel id="language-select-label" sx={{ width: '100%' }}>
+            {language === 'en' ? 'Choose language' : 'Виберіть мову'}
+          </InputLabel>
           <Select
-            labelId="demo-simple-select-helper-label"
-            id="demo-simple-select-helper"
-            sx={{ width: '100%' }} // Set the width to 100%
-            value={language} // Use the currently selected language as the value
-            onChange={handleLanguageChange} // Handle language change
+            labelId="language-select-label"
+            id="language-select"
+            sx={{
+              width: '100%'
+            }}
+            value={language}
+            onChange={handleLanguageChange}
           >
             {languages.map((lang) => (
               <MenuItem key={lang.value} value={lang.value}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  {lang.flag}
+                  <span style={{ marginRight: 8 }}>{lang.flag}</span>
                   <span className="ml-2">{lang.label}</span>
                 </div>
               </MenuItem>
@@ -142,6 +152,7 @@ const Header = ({ onLanguageChange }) => {
   const handleLanguageChange = (event) => {
     const lang = event.target.value;
     setLanguage(lang);
+    setIsSelectOpen(false);
     navigate(`/${lang}`);
   };
 
@@ -161,7 +172,13 @@ const Header = ({ onLanguageChange }) => {
 
       </ul>
 
-      <select name="English" value={language} onChange={handleLanguageChange} id="eng" className=" py-3 lg:flex hidden px-4 pr-5 justify-center pr-0 border-2 border-[#2A4E63] rounded-[60px] bg-transparent w-auto">
+      <select 
+        name="English" 
+        value={language} 
+        onChange={handleLanguageChange} 
+        id="eng" 
+        className="py-3 lg:flex hidden px-4 pr-5 justify-center pr-0 border-2 border-[#2A4E63] rounded-[60px] bg-transparent w-auto"
+      >
         <option value="en">Eng</option>
         <option value="ua">Українська</option>
       </select>

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import Button from "@mui/material/Button";
 import SeoText from "./SeoText";
 import HowToUse from "./HowToUse";
@@ -24,6 +24,61 @@ import { rankColor } from "./functions/RankColor";
 import { getStrengthWord } from "./functions/GetStrengthWord";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
+import { useReward } from "react-rewards";
+
+function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, runReward, isAnimating }) {
+  const disabledStyle = isAnimating
+    ? { pointerEvents: 'none', opacity: 0.5, cursor: 'not-allowed' }
+    : { cursor: 'pointer' };
+  return (
+    <div
+      className="flex relative items-center flex-row lg:flex-row gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
+      key={index}
+    >
+      <div className="py-1 lg:px-4 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
+        <input
+          type="text"
+          value={password || ""}
+          className="rounded-[40px] ml-[16px] border-none outline-none h-full w-[80%] lg:w-[80%] md:py-5 flex-grow-1 text-base lg:text-lg"
+          readOnly
+        />
+        <div className="flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
+          <button
+            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
+            onClick={() => { onGenerate(index); runReward(); }}
+            disabled={isAnimating}
+            style={disabledStyle}
+          >
+            {language === "en" ? "Generate Password" : "Генерувати"}
+          </button>
+          <button
+            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
+            onClick={() => { onGenerate(index); runReward(); }}
+            disabled={isAnimating}
+            style={disabledStyle}
+          >
+            {language === "en" ? "Generate" : "Генерувати"}
+          </button>
+          <img
+            onClick={() => { onGenerate(index); runReward(); }}
+            src={refreash}
+            alt="refresh"
+            className="flex mr-2 h-[15px] md:h-[20px]"
+            style={disabledStyle}
+          />
+        </div>
+      </div>
+      <button
+        disabled={password?.length < 1}
+        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2"
+        style={password?.length < 1 ? { cursor: "not-allowed" } : { cursor: "pointer" }}
+        onClick={() => onCopy(index)}
+      >
+        {language === "en" ? "Copy" : "Копіювати"}
+      </button>
+    </div>
+  );
+}
 
 export default function App() {
   const handleCopyAllClick = () => {
@@ -207,47 +262,75 @@ export default function App() {
     setPasswords(updatedPasswords);
   };
 
+  // Централізований reward
+  const rewardTypes = ['confetti', 'balloons', 'emoji'];
+  const [currentRewardType, setCurrentRewardType] = useState(null);
+  const rewardQueue = useRef([]);
+  const { reward: confettiReward, isAnimating: isConfetti } = useReward('centerReward', 'confetti', {
+    elementCount: 120,
+    elementSize: 18,
+    spread: 160,
+    lifetime: 200,
+    zIndex: 9999,
+    position: 'fixed',
+    fps: 60
+  });
+  const { reward: balloonsReward, isAnimating: isBalloons } = useReward('centerReward', 'balloons', {
+    elementCount: 40,
+    elementSize: 40,
+    spread: 160,
+    lifetime: 200,
+    zIndex: 9999,
+    position: 'fixed',
+    fps: 60
+  });
+  const { reward: emojiReward, isAnimating: isEmoji } = useReward('centerReward', 'emoji', {
+    elementCount: 60,
+    elementSize: 40,
+    spread: 160,
+    lifetime: 200,
+    zIndex: 9999,
+    position: 'fixed',
+    emoji: ['🤓', '😊', '🥳'],
+    fps: 60
+  });
+  // Стан анімації
+  const isAnimating = isConfetti || isBalloons || isEmoji;
+  // Функція запуску reward по черзі
+  const runReward = () => {
+    const type = rewardTypes[Math.floor(Math.random() * rewardTypes.length)];
+    if (isAnimating) {
+      rewardQueue.current.push(type);
+      return;
+    }
+    setCurrentRewardType(type);
+    if (type === 'confetti') confettiReward();
+    else if (type === 'balloons') balloonsReward();
+    else emojiReward();
+  };
+  // useEffect для запуску наступної анімації з черги
+  useEffect(() => {
+    if (!isAnimating && rewardQueue.current.length > 0) {
+      const nextType = rewardQueue.current.shift();
+      setCurrentRewardType(nextType);
+      if (nextType === 'confetti') confettiReward();
+      else if (nextType === 'balloons') balloonsReward();
+      else emojiReward();
+    }
+  }, [isAnimating]);
+
   const passwordInputs = passwords.map((password, index) => (
-    <div
-      className="flex relative items-center flex-row lg:flex-row gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
+    <PasswordRow
       key={index}
-    >
-      <div className="py-1 lg:px-4 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
-        <input
-          type="text"
-          value={password || ""}
-          className="rounded-[40px] ml-[16px] border-none outline-none h-full w-[80%] lg:w-[80%] md:py-5 flex-grow-1 text-base lg:text-lg"
-        />
-        <div className="flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
-          <button
-            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
-            onClick={() => handleGeneratePassword(index)}
-          >
-            {"Генерувати"}
-          </button>
-          <button
-            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
-            onClick={() => handleGeneratePassword(index)}
-          >
-            {language === "en" ? "Generate" : "Генерувати"}
-          </button>
-          <img
-            onClick={() => handleGeneratePassword(index)}
-            src={refreash}
-            alt="refresh"
-            className="flex mr-2 cursor-pointer h-[15px] md:h-[20px]"
-          />
-        </div>
-      </div>
-      <button
-        disabled={password?.length < 1}
-        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
-        style={password?.length < 1 ? { cursor: "not-allowed" } : {}}
-        onClick={() => handleCopyClick(index)}
-      >
-        {"Копіювати"}
-      </button>
-    </div>
+      password={password}
+      index={index}
+      language={language}
+      onGenerate={handleGeneratePassword}
+      onCopy={handleCopyClick}
+      refreash={refreash}
+      runReward={runReward}
+      isAnimating={isAnimating}
+    />
   ));
 
   // Create a separate array for the first password
@@ -284,12 +367,8 @@ export default function App() {
   const restPasswordInputs =
     passwords.length > 1 ? passwordInputs.slice(1) : [];
   return (
-    <div
-      className={`container ${language} mx-auto w-screen lg:w-full px-3`}
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-    >
+    <div className={`container ${language} mx-auto w-screen lg:w-full px-3`}>
+      <div id="centerReward" style={{position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none', zIndex: 9999}} />
       <Helmet>
         <title>
           {seoData.find((data) => data.language === language)?.title}
