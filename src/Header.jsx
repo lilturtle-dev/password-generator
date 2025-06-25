@@ -15,6 +15,91 @@ import Flag from 'react-world-flags';
 import { useNavigate } from "react-router-dom";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
+// Додаємо CSS стилі для анімації
+const languageIconStyles = `
+  .language-flag {
+    transition: all 0.3s ease;
+    transform: scale(1);
+  }
+  
+  .language-flag:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .language-select {
+    transition: all 0.3s ease;
+    transform: scale(1);
+    position: relative;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232A4E63' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+  }
+  
+  .language-select:hover {
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a3a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(42, 78, 99, 0.3);
+  }
+  
+  .language-select:focus {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(42, 78, 99, 0.4);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231a3a4a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,15 12,9 18,15'%3e%3c/polyline%3e%3c/svg%3e");
+  }
+  
+  .flag-container {
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  
+  .flag-container:hover {
+    transform: rotate(5deg) scale(1.1);
+  }
+  
+  .language-change-animation {
+    animation: languagePulse 0.6s ease-in-out;
+  }
+  
+  .language-select.language-change-animation {
+    animation: languagePulse 0.6s ease-in-out;
+  }
+  
+  @keyframes languagePulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.15);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  .flag-container.language-change-animation {
+    animation: flagRotate 0.6s ease-in-out;
+  }
+  
+  @keyframes flagRotate {
+    0% {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.2);
+    }
+    100% {
+      transform: rotate(360deg) scale(1);
+    }
+  }
+`;
+
 const menuItems = [
   {
     label: {
@@ -74,6 +159,7 @@ const Header = ({ onLanguageChange }) => {
   });
 
   const [isSelectOpen, setIsSelectOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
     // Save the selected language to localStorage
@@ -90,6 +176,17 @@ const Header = ({ onLanguageChange }) => {
       document.documentElement.lang = language === 'ua' ? 'uk' : 'en';
     }
   }, [language, onLanguageChange, navigate]);
+
+  // Додаємо CSS стилі для анімації
+  useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = languageIconStyles;
+    document.head.appendChild(styleElement);
+
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
 
   const [state, setState] = React.useState({
     top: false,
@@ -137,7 +234,9 @@ const Header = ({ onLanguageChange }) => {
             {languages.map((lang) => (
               <MenuItem key={lang.value} value={lang.value}>
                 <div style={{ display: 'flex', alignItems: 'center' }}>
-                  <span style={{ marginRight: 8 }}>{lang.flag}</span>
+                  <div className={`flag-container flex align-center ${isAnimating ? 'language-change-animation' : ''}`}>
+                    <span className="language-flag" style={{ marginRight: 8 }}>{lang.flag}</span>
+                  </div>
                   <span className="ml-2">{lang.label}</span>
                 </div>
               </MenuItem>
@@ -151,6 +250,15 @@ const Header = ({ onLanguageChange }) => {
 
   const handleLanguageChange = (event) => {
     const lang = event.target.value;
+    
+    // Запускаємо анімацію
+    setIsAnimating(true);
+    
+    // Зупиняємо анімацію через 600ms
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 600);
+    
     setLanguage(lang);
     setIsSelectOpen(false);
     navigate(`/${lang}`);
@@ -173,11 +281,11 @@ const Header = ({ onLanguageChange }) => {
       </ul>
 
       <select 
-        name="English" 
+        name="Language" 
         value={language} 
         onChange={handleLanguageChange} 
         id="eng" 
-        className="py-3 lg:flex hidden px-4 pr-5 justify-center pr-0 border-2 border-[#2A4E63] rounded-[60px] bg-transparent w-auto"
+        className={`language-select py-3 lg:flex hidden px-4 justify-center border-2 border-[#2A4E63] rounded-[60px] bg-transparent w-auto ${isAnimating ? 'language-change-animation' : ''}`}
       >
         <option value="en">Eng</option>
         <option value="ua">Українська</option>

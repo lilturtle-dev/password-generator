@@ -4,6 +4,7 @@ import SeoText from "./SeoText";
 import HowToUse from "./HowToUse";
 import AboutUs from "./AboutUs";
 import AdBanner from "./Adbanner";
+import AdBannerSecond from "./AddbannerSecond";
 import Slider from "@mui/material/Slider";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -261,7 +262,7 @@ export default function App() {
   };
 
   // --- Анімація по центру сторінки ---
-  const rewardTypes = ['confetti', 'emoji'];
+  const rewardTypes = ['confetti'];
   const [currentRewardType, setCurrentRewardType] = useState(null);
   const rewardQueue = useRef([]);
   const { reward: confettiReward, isAnimating: isConfetti } = useReward('centerReward', 'confetti', {
@@ -273,17 +274,17 @@ export default function App() {
     position: 'fixed',
     fps: 60
   });
-  const { reward: emojiReward, isAnimating: isEmoji } = useReward('centerReward', 'emoji', {
-    elementCount: 60,
-    elementSize: 40,
-    spread: 160,
-    lifetime: 200,
-    zIndex: 9999,
-    position: 'fixed',
-    emoji: ['🤓', '😊', '🥳'],
-    fps: 60
-  });
-  const isAnimating = isConfetti || isEmoji;
+  // const { reward: emojiReward, isAnimating: isEmoji } = useReward('centerReward', 'emoji', {
+  //   elementCount: 60,
+  //   elementSize: 40,
+  //   spread: 160,
+  //   lifetime: 200,
+  //   zIndex: 9999,
+  //   position: 'fixed',
+  //   emoji: ['🤓', '😊', '🥳'],
+  //   fps: 60
+  // });
+  const isAnimating = isConfetti;
   const runReward = () => {
     const type = rewardTypes[Math.floor(Math.random() * rewardTypes.length)];
     if (isAnimating) {
@@ -292,14 +293,12 @@ export default function App() {
     }
     setCurrentRewardType(type);
     if (type === 'confetti') confettiReward();
-    else emojiReward();
   };
   useEffect(() => {
     if (!isAnimating && rewardQueue.current.length > 0) {
       const nextType = rewardQueue.current.shift();
       setCurrentRewardType(nextType);
       if (nextType === 'confetti') confettiReward();
-      else emojiReward();
     }
   }, [isAnimating]);
 
@@ -501,24 +500,24 @@ export default function App() {
             ) : null}
           </div>
         </div>
-        <div className="w-full mt-10">
+        <section className="w-full mt-10">
           {mode === "production" && <AdBanner language="en" />}
-        </div>
-        <div className="lg:my-10 w-full">
+        </section>
+        <section className="lg:my-10 w-full">
           <SeoText language="en" />
-        </div>
-        <div id="howtouse" className="lg:my-10 w-full">
+        </section>
+        <section id="howtouse" className="lg:my-10 w-full">
           <HowToUse language="en" />
-        </div>
-        <div id="aboutus" className="lg:my-10 w-full">
+        </section>
+        <section id="aboutus" className="lg:my-10 w-full">
           <AboutUs language="en" />
-        </div>
-        <div className="mb-4 w-full">
-          {mode === "production" && <AdBanner language="en" />}
-        </div>
-        <div id="guide" className="lg:my-10 w-full">
+        </section>
+        <section className="mb-4 w-full">
+          {mode === "production" && <AdBannerSecond language="en" />}
+        </section>
+        <section id="guide" className="lg:my-10 w-full">
           <SeoList language="en" />
-        </div>
+        </section>
         <Footer language="en" />
         <PrivacyConsentPopup language="en" />
       </div>

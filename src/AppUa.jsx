@@ -4,6 +4,7 @@ import SeoText from "./SeoText";
 import HowToUse from "./HowToUse";
 import AboutUs from "./AboutUs";
 import AdBanner from "./Adbanner";
+import AdBannerSecond from "./AddbannerSecond";
 import Slider from "@mui/material/Slider";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -275,27 +276,8 @@ export default function App() {
     position: 'fixed',
     fps: 60
   });
-  const { reward: balloonsReward, isAnimating: isBalloons } = useReward('centerReward', 'balloons', {
-    elementCount: 40,
-    elementSize: 40,
-    spread: 160,
-    lifetime: 200,
-    zIndex: 9999,
-    position: 'fixed',
-    fps: 60
-  });
-  const { reward: emojiReward, isAnimating: isEmoji } = useReward('centerReward', 'emoji', {
-    elementCount: 60,
-    elementSize: 40,
-    spread: 160,
-    lifetime: 200,
-    zIndex: 9999,
-    position: 'fixed',
-    emoji: ['🤓', '😊', '🥳'],
-    fps: 60
-  });
   // Стан анімації
-  const isAnimating = isConfetti || isBalloons || isEmoji;
+  const isAnimating = isConfetti;
   // Функція запуску reward по черзі
   const runReward = () => {
     const type = rewardTypes[Math.floor(Math.random() * rewardTypes.length)];
@@ -305,8 +287,6 @@ export default function App() {
     }
     setCurrentRewardType(type);
     if (type === 'confetti') confettiReward();
-    else if (type === 'balloons') balloonsReward();
-    else emojiReward();
   };
   // useEffect для запуску наступної анімації з черги
   useEffect(() => {
@@ -314,8 +294,6 @@ export default function App() {
       const nextType = rewardQueue.current.shift();
       setCurrentRewardType(nextType);
       if (nextType === 'confetti') confettiReward();
-      else if (nextType === 'balloons') balloonsReward();
-      else emojiReward();
     }
   }, [isAnimating]);
 
@@ -547,7 +525,7 @@ export default function App() {
           <AboutUs language="ua" />
         </div>
         <div className="mb-4 w-full">
-          {mode === "production" && <AdBanner language="ua" />}
+          {mode === "production" && <AdBannerSecond language="ua" />}
         </div>
         <div id="guide" className="lg:my-10 w-full">
           <SeoList language="ua" />
