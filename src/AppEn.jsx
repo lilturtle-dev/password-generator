@@ -206,6 +206,7 @@ function PasswordRow({
   refreash,
   runReward,
   isAnimating,
+  isDarkMode
 }) {
   const disabledStyle = isAnimating
     ? { pointerEvents: "none", opacity: 0.5, cursor: "wait" }
@@ -215,7 +216,7 @@ function PasswordRow({
       className="flex relative items-center flex-row lg:flex-row gap-2 md:gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
       key={index}
     >
-      <div className="py-1 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
+      <div className={`py-1 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px] ${isDarkMode ? "bg-[#2a4e63]" : "bg-white"}`}>
         <input
           type="text"
           value={password || ""}
@@ -258,7 +259,7 @@ function PasswordRow({
         </div>
       </div>
       {/*For mobile*/}
-      <div className="md:hidden flex items-center lg:justify-end justify-center flex-nowrap w-full h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
+      <div className={`md:hidden flex items-center lg:justify-end justify-center flex-nowrap w-full h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px] ${isDarkMode ? "dark:bg-[#cfcfcf]" : "dark:bg-[#cfcfcf]"}`}>
         <button
           className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
           onClick={() => {
@@ -544,6 +545,7 @@ export default function App() {
       refreash={refreash}
       runReward={runReward}
       isAnimating={isAnimating}
+      isDarkMode={isDarkMode}
     />
   ));
 
@@ -648,7 +650,7 @@ export default function App() {
         {renderedSnackbars}
         <main className="w-full">
           <div
-            className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#121212]" : "bg-[#E5F6FF]"
+            className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "bg-[#033149]" : "bg-[#033149]"
               }`}
           >
             <h1 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
@@ -662,7 +664,7 @@ export default function App() {
               {"With Generate Password to me"}
             </p>
             <div
-              className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? "bg-[#888]" : "bg-white"
+              className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? "bg-[#121212]" : "bg-white"
                 } drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}
             >
               <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">

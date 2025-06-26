@@ -77,7 +77,7 @@
 }
 
 .dark input {
-  background-color: #374151 !important;
+  background-color: #2a4e63 !important;
   color: #ffffff !important;
 }
 
@@ -141,7 +141,7 @@
   color: #ffffff !important;
 }
 
-.dark :is(a, h1, h2, h3, h4, h5, p, ul,li) {
+.dark :is(a, h1, h2, h3, h4, h5, p, ul,li, label, span) {
   color: var(--dark-theme-text);
 }
 
