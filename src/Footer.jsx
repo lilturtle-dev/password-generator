@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import Logo from "./logo.svg";
-import { useTheme } from './App';
+import { useTheme } from "./App";
 
-const referalLink = 'https://hostinger.com.ua?REFERRALCODE=1098786';
+const referalLink = "https://hostinger.com.ua?REFERRALCODE=1098786";
 
 // CSS стилі для посилань
 const linkStyles = `
@@ -89,10 +89,10 @@ const linkStyles = `
 const Footer = ({ language }) => {
   const currentYear = new Date().getFullYear();
   const { isDarkMode } = useTheme();
-  
+
   // Додаємо CSS стилі для посилань
   useEffect(() => {
-    const styleElement = document.createElement('style');
+    const styleElement = document.createElement("style");
     styleElement.textContent = linkStyles;
     document.head.appendChild(styleElement);
 
@@ -103,42 +103,56 @@ const Footer = ({ language }) => {
 
   return (
     <>
-      <footer className={`w-full py-4 px-2 flex flex-wrap flex-col gap-5 lg:flex-row justify-between items-center ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
-          <div className="flex items-center">
-            <img
-              src={Logo}
-              alt="Generate Password To Me - Secure Password Generator Logo"
-              className="w-6 h-6 mr-1 logo"
-            />
-          </div>
-          <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-xl font-medium">
-            <li className="cursor-pointer">
-              <a href="#aboutus" className="nav-link">{language === "en" ? "About us" : "Про нас"}</a>
-            </li>
-            <li className="cursor-pointer">
-              <a href="#howtouse" className="nav-link">
-                {language === "en" ? "How to use" : "Як використовувати"}
-              </a>
-            </li>
-            <li className="cursor-pointer">
-              <a href="#guide" className="nav-link">{language === "en" ? "Guide" : "Посібник"}</a>
-            </li>
-          </ul>
-          {/* <ul className="flex items-center text-decoration-none gap-4 ">
+      <footer className="w-full py-4 px-2 flex flex-wrap flex-col gap-5 lg:flex-row justify-between items-center">
+        <div className="flex items-center">
+          <img
+            src={Logo}
+            alt="Generate Password To Me - Secure Password Generator Logo"
+            className="w-6 h-6 mr-1 logo"
+          />
+        </div>
+        <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-xl font-medium">
+          <li className="cursor-pointer">
+            <a href="#aboutus" className="nav-link">
+              {language === "en" ? "About us" : "Про нас"}
+            </a>
+          </li>
+          <li className="cursor-pointer">
+            <a href="#howtouse" className="nav-link">
+              {language === "en" ? "How to use" : "Як використовувати"}
+            </a>
+          </li>
+          <li className="cursor-pointer">
+            <a href="#guide" className="nav-link">
+              {language === "en" ? "Guide" : "Посібник"}
+            </a>
+          </li>
+        </ul>
+        {/* <ul className="flex items-center text-decoration-none gap-4 ">
           <li className=" cursor-pointer border-[1px] border-[#2A4E63]   w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={facebook} alt="Facebook social media icon" /></li>
           <li className=" cursor-pointer border-[1px] border-[#2A4E63]  w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={twitter} alt="Twitter social media icon" /></li>
           <li className=" cursor-pointer border-[1px] border-[#2A4E63]  w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={linkdIn} alt="LinkedIn social media icon" /></li>
         </ul> */}
         <div className="flex lg:flex-row flex-col xs:flex-wrap lg:flex-nowrap w-full">
-          <div className={`text-[18px] md:w-full lg:w-1/2 lg:text-left md:text-center font-medium my-5 ml-2 ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
+          <div className="text-[18px] md:w-full lg:w-1/2 lg:text-left md:text-center font-medium my-5 ml-2">
             {language === "en" ? "Copyright" : "Авторське право"} ©{" "}
             <span className=" text-[#96DBFF] font-bold">
               GeneratePasswordTo.Me{" "}
             </span>
             {currentYear}
           </div>
-          <div className={`text-[18px] xs:w-full lg:w-1/2 lg:text-right md:text-center font-medium my-5 ml-2 ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
-            <p className="inline">{language === "en" ? "Working with " : "Працює на серверах "}</p><a className="external-link text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer" href={referalLink} rel="nofollow">  {language === "en" ? "Hostinger" : "Hostinger"}</a>
+          <div className="text-[18px] xs:w-full lg:w-1/2 lg:text-right md:text-center font-medium my-5 ml-2">
+            <p className="inline">
+              {language === "en" ? "Working with " : "Працює на серверах "}
+            </p>
+            <a
+              className="external-link text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer"
+              href={referalLink}
+              rel="nofollow"
+            >
+              {" "}
+              {language === "en" ? "Hostinger" : "Hostinger"}
+            </a>
           </div>
         </div>
       </footer>

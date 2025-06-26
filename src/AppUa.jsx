@@ -512,8 +512,22 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`container ${language} mx-auto w-screen lg:w-full px-3 ${isDarkMode ? 'dark' : ''}`}>
-      <div id="centerReward" style={{position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none', zIndex: 9999}} />
+    <div
+      className={`container ${language} mx-auto w-screen lg:w-full px-3 ${
+        isDarkMode ? "dark" : ""
+      }`}
+    >
+      <div
+        id="centerReward"
+        style={{
+          position: "fixed",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          pointerEvents: "none",
+          zIndex: 9999,
+        }}
+      />
       <Helmet>
         <title>
           {seoData.find((data) => data.language === language)?.title}
@@ -524,11 +538,22 @@ export default function App() {
             seoData.find((data) => data.language === language)?.description
           }
         />
-        <meta name="keywords" content="генератор паролів, безпечний пароль, надійний пароль, онлайн генератор паролів, безкоштовний генератор паролів, безпека паролів" />
+        <meta
+          name="keywords"
+          content="генератор паролів, безпечний пароль, надійний пароль, онлайн генератор паролів, безкоштовний генератор паролів, безпека паролів"
+        />
         <meta name="author" content="Generate Password To Me" />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content={seoData.find((data) => data.language === language)?.title} />
-        <meta property="og:description" content={seoData.find((data) => data.language === language)?.description} />
+        <meta
+          property="og:title"
+          content={seoData.find((data) => data.language === language)?.title}
+        />
+        <meta
+          property="og:description"
+          content={
+            seoData.find((data) => data.language === language)?.description
+          }
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={window.location.href} />
         <link rel="canonical" href={window.location.href} />
@@ -536,30 +561,31 @@ export default function App() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "Generate Password To Me",
-            "description": "Безкоштовний онлайн інструмент генерації паролів для створення сильних та безпечних паролів",
-            "url": window.location.href,
-            "applicationCategory": "SecurityApplication",
-            "operatingSystem": "Web Browser",
-            "offers": {
+            name: "Generate Password To Me",
+            description:
+              "Безкоштовний онлайн інструмент генерації паролів для створення сильних та безпечних паролів",
+            url: window.location.href,
+            applicationCategory: "SecurityApplication",
+            operatingSystem: "Web Browser",
+            offers: {
               "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
+              price: "0",
+              priceCurrency: "USD",
             },
-            "author": {
+            author: {
               "@type": "Organization",
-              "name": "Generate Password To Me"
-            }
+              name: "Generate Password To Me",
+            },
           })}
         </script>
       </Helmet>
-      <div className={`flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+      <div
+        className={`flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans`}
+      >
         <Header language={language} onLanguageChange={handleLanguageChange} />
         {renderedSnackbars}
         <main className="w-full">
-          <div
-            className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? 'bg-gray-800' : 'bg-[#E5F6FF]'}`}
-          >
+          <div className="bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32">
             <h1 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
               {language === "en"
                 ? "Need a Unique, Secure"
@@ -570,7 +596,7 @@ export default function App() {
             <p className="text-center text-[22px] text-[#2A4E63] mx-2 mb-4">
               {`За допомогою" згенерувати пароль "для мене`}
             </p>
-            <div className="w-full lg:w-9/12 flex flex-col bg-white drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative">
+            <div className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? 'bg-[#888]' : 'bg-white'} drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}>
               <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                   <img
@@ -585,7 +611,7 @@ export default function App() {
                 </p>
               </div>
               {/* bottom passaword lock */}
-              <div className="absolute hidden justify-start bg-white drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2">
+              <div className={`${isDarkMode ? 'bg-[#888]' : 'bg-white'} absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}>
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                   <img
                     src={passwordImage}
@@ -612,7 +638,8 @@ export default function App() {
                     htmlFor="Password"
                     className="text-[16px] md:text-[22px] text-[#2A4E63]"
                   >
-                    {language === "en" ? "Password Length:" : "Довжина пароля:"} {passwordLength}
+                    {language === "en" ? "Password Length:" : "Довжина пароля:"}{" "}
+                    {passwordLength}
                   </label>
                   <div className="flex items-center gap-4 w-full">
                     <RemoveCircleOutlineIcon
@@ -672,14 +699,16 @@ export default function App() {
                       <FormControlLabel
                         control={
                           <Checkbox
-                            checked={selectedCharacterSets.includes(characterSet)}
+                            checked={selectedCharacterSets.includes(
+                              characterSet
+                            )}
                             onChange={() => handleCheckboxChange(characterSet)}
                             checkedIcon={<CheckBoxOutlinedIcon />}
-                            sx={{ 
+                            sx={{
                               color: "#2A4E63",
                               "&.Mui-checked": {
-                                color: "#2A4E63"
-                              }
+                                color: "#2A4E63",
+                              },
                             }}
                             className="h-[24px] text-sm md:text-[22px]"
                           />
@@ -718,7 +747,7 @@ export default function App() {
           </div>
         </main>
         <div className="w-full mt-10">
-          {mode === "production" && <AdBanner language="ua" />}
+          {mode === "production" && <AdBanner language="ua" isDarkMode={isDarkMode} />}
         </div>
         <div className="lg:my-10 w-full">
           <SeoText language="ua" />
@@ -730,7 +759,7 @@ export default function App() {
           <AboutUs language="ua" />
         </div>
         <div className="mb-4 w-full">
-          {mode === "production" && <AdBannerSecond language="ua" />}
+          {mode === "production" && <AdBannerSecond language="ua" isDarkMode={isDarkMode} />}
         </div>
         <div id="guide" className="lg:my-10 w-full">
           <SeoList language="ua" />

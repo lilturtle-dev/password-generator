@@ -342,7 +342,7 @@ const Header = ({ onLanguageChange }) => {
           </Select>
         </ListItem>
         
-        {/* <ListItem>
+        <ListItem>
           <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
             <span style={{ fontSize: '22px', fontWeight: 'bolder', color: 'black' }}>
               {language === 'en' ? 'Theme' : 'Тема'}
@@ -361,7 +361,7 @@ const Header = ({ onLanguageChange }) => {
               {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton> 
           </div>
-        </ListItem> */}
+        </ListItem>
       </List>
     </Box>
   );
@@ -402,7 +402,7 @@ const Header = ({ onLanguageChange }) => {
         <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
           <a href="#guide" className="nav-link">{language === 'en' ? 'Guide' : 'Посібник'}</a>
         </li>
-        {/* <li>
+        <li>
           <IconButton 
             onClick={toggleTheme} 
             color="inherit"
@@ -417,7 +417,7 @@ const Header = ({ onLanguageChange }) => {
           >
             {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
-        </li> */}
+        </li>
       </ul>
 
       <select 

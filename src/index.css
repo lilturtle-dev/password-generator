@@ -8,25 +8,28 @@
   font-weight: normal;
   font-style: normal;
 }
-
+:root{
+  --dark-theme-bg: #121212;
+  --dark-theme-text: #E0E0E0;
+}
 /* Dark mode styles */
 .dark {
-  background-color: #1a1a1a;
+  background-color: var(--dark-theme-bg);
   color: #ffffff;
 }
 
 .dark body {
-  background-color: #1a1a1a;
+  background-color: var(--dark-theme-bg);
   color: #ffffff;
 }
 
 .dark header {
-  background-color: #2d2d2d !important;
-  color: #ffffff;
+  background-color: var(--dark-theme-bg) !important;
+  color: var(--dark-theme-text);
 }
 
 .dark .bg-white {
-  background-color: #2d2d2d !important;
+  background-color: #2d2d2d;
 }
 
 .dark .bg-gray-50 {
@@ -137,6 +140,12 @@
 .dark .MuiFormControlLabel-label {
   color: #ffffff !important;
 }
+
+.dark :is(a, h1, h2, h3, h4, h5, p, ul,li) {
+  color: var(--dark-theme-text);
+}
+
+
 
 /* Light mode styles (default) */
 .container.ua strong {

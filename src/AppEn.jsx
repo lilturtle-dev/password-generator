@@ -26,7 +26,7 @@ import { getStrengthWord } from "./functions/GetStrengthWord";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import { useReward } from "react-rewards";
-import { useTheme } from './App';
+import { useTheme } from "./App";
 
 // CSS стилі для анімації зірочок
 const passwordCrackingStyles = `
@@ -92,63 +92,78 @@ const passwordCrackingStyles = `
   
   @keyframes scanning {
     0% {
-      transform: translateX(-100%);
+      transform: translateX(-80%);
     }
     100% {
-      transform: translateX(100%);
+      transform: translateX(80%);
     }
   }
 `;
 
 // Компонент для анімованого пароля
 const AnimatedPassword = ({ length = 7 }) => {
-  const [currentChars, setCurrentChars] = useState(Array(length).fill('*'));
+  const [currentChars, setCurrentChars] = useState(Array(length).fill("*"));
   const [activeIndex, setActiveIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [isBlinking, setIsBlinking] = useState(false);
   const [blinkCount, setBlinkCount] = useState(0);
-  
+
   useEffect(() => {
-    const characters = ['*', 'A', 'B', 'C', '1', '2', '3', 'X', 'Y', 'Z', '9', '8', '7'];
+    const characters = [
+      "*",
+      "A",
+      "B",
+      "C",
+      "1",
+      "2",
+      "3",
+      "X",
+      "Y",
+      "Z",
+      "9",
+      "8",
+      "7",
+    ];
     let charIndex = 0;
     let isPaused = false;
-    
+
     const interval = setInterval(() => {
       if (!isPaused && !isBlinking) {
         // Прокручуємо символи для активної позиції
-        setCurrentChars(prev => {
+        setCurrentChars((prev) => {
           const newChars = [...prev];
           newChars[activeIndex] = characters[charIndex % characters.length];
           return newChars;
         });
-        
+
         charIndex++;
-        
+
         // Якщо прокрутили всі символи для поточної позиції
         if (charIndex >= characters.length) {
           isPaused = true;
           setTimeout(() => {
             isPaused = false;
             charIndex = 0;
-            
+
             // Переходимо до наступної позиції
             if (activeIndex < length - 1) {
-              setActiveIndex(prev => prev + 1);
+              setActiveIndex((prev) => prev + 1);
             } else {
               // Всі символи підібрані - починаємо миготіння
               setIsComplete(true);
               setIsBlinking(true);
               setBlinkCount(0);
-              
+
               // Миготіння 3 рази
               const blinkInterval = setInterval(() => {
-                setBlinkCount(prev => {
-                  if (prev >= 5) { // 3 повних циклу (0-1-2-3-4-5 = 3 рази)
+                setBlinkCount((prev) => {
+                  if (prev >= 5) {
+                    // 3 повних циклу (0-1-2-3-4-5 = 3 рази)
                     clearInterval(blinkInterval);
                     setIsBlinking(false);
                     setIsComplete(false);
                     // Скидаємо все для нового циклу
-                    setCurrentChars(Array(length).fill('*'));
+                    setCurrentChars(Array(length).fill("*"));
                     setActiveIndex(0);
                     return 0;
                   }
@@ -160,18 +175,20 @@ const AnimatedPassword = ({ length = 7 }) => {
         }
       }
     }, 1000); // Збільшено з 200ms до 1000ms (в 5 разів повільніше)
-    
+
     return () => clearInterval(interval);
   }, [activeIndex, length, isComplete, isBlinking]);
-  
+
   return (
     <span className="password-cracking">
       {currentChars.map((char, index) => (
-        <span 
-          key={index} 
-          className={`char ${index === activeIndex ? 'active' : ''} ${isComplete ? 'complete' : ''} ${isBlinking ? 'blinking' : ''}`}
-          style={{ 
-            '--char-index': index
+        <span
+          key={index}
+          className={`char ${index === activeIndex ? "active" : ""} ${
+            isComplete ? "complete" : ""
+          } ${isBlinking ? "blinking" : ""}`}
+          style={{
+            "--char-index": index,
           }}
         >
           {char}
@@ -181,24 +198,38 @@ const AnimatedPassword = ({ length = 7 }) => {
   );
 };
 
-function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, runReward, isAnimating }) {
-  const disabledStyle = isAnimating ? { pointerEvents: 'none', opacity: 0.5, cursor: 'wait' } : {};
+function PasswordRow({
+  password,
+  index,
+  language,
+  onGenerate,
+  onCopy,
+  refreash,
+  runReward,
+  isAnimating,
+}) {
+  const disabledStyle = isAnimating
+    ? { pointerEvents: "none", opacity: 0.5, cursor: "wait" }
+    : {};
   return (
     <div
       className="flex relative items-center flex-row lg:flex-row gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
       key={index}
     >
-      <div className="py-1 lg:px-4 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
+      <div className="py-1 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
         <input
           type="text"
           value={password || ""}
-          className="rounded-[40px] ml-[16px] border-none outline-none h-full w-[80%] lg:w-[80%] md:py-5 flex-grow-1 text-base lg:text-lg"
+          className="rounded-[40px] border-none outline-none h-full w-[80%] lg:w-[80%] md:py-5 flex-grow-1 text-base lg:text-lg"
           readOnly
         />
         <div className="flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
           <button
             className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
-            onClick={() => { onGenerate(index); runReward(); }}
+            onClick={() => {
+              onGenerate(index);
+              runReward();
+            }}
             disabled={isAnimating}
             style={disabledStyle}
           >
@@ -206,14 +237,20 @@ function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, 
           </button>
           <button
             className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
-            onClick={() => { onGenerate(index); runReward(); }}
+            onClick={() => {
+              onGenerate(index);
+              runReward();
+            }}
             disabled={isAnimating}
             style={disabledStyle}
           >
             {language === "en" ? "Generate" : "Генерувати"}
           </button>
           <img
-            onClick={() => { onGenerate(index); runReward(); }}
+            onClick={() => {
+              onGenerate(index);
+              runReward();
+            }}
             src={refreash}
             alt="refresh"
             className="flex mr-2 h-[15px] md:h-[20px]"
@@ -242,7 +279,10 @@ export default function App() {
       ...prev,
       {
         id: Date.now(),
-        message: language === "en" ? "All passwords copied!" : "Всі паролі скопійовані!",
+        message:
+          language === "en"
+            ? "All passwords copied!"
+            : "Всі паролі скопійовані!",
         severity: "success",
       },
     ]);
@@ -329,7 +369,13 @@ export default function App() {
       // Decrease the quantity of displayed passwords
       setPasswords(passwords.slice(0, quantity));
     }
-  }, [passwords, quantity, selectedCharacterSets, passwordLength, characterSets]);
+  }, [
+    passwords,
+    quantity,
+    selectedCharacterSets,
+    passwordLength,
+    characterSets,
+  ]);
 
   useEffect(() => {
     GeneratePasswords();
@@ -409,18 +455,22 @@ export default function App() {
   };
 
   // --- Анімація по центру сторінки ---
-  const rewardTypes = ['confetti'];
+  const rewardTypes = ["confetti"];
   const [currentRewardType, setCurrentRewardType] = useState(null);
   const rewardQueue = useRef([]);
-  const { reward: confettiReward, isAnimating: isConfetti } = useReward('centerReward', 'confetti', {
-    elementCount: 120,
-    elementSize: 18,
-    spread: 160,
-    lifetime: 200,
-    zIndex: 9999,
-    position: 'fixed',
-    fps: 60
-  });
+  const { reward: confettiReward, isAnimating: isConfetti } = useReward(
+    "centerReward",
+    "confetti",
+    {
+      elementCount: 120,
+      elementSize: 8,
+      spread: 160,
+      lifetime: 200,
+      zIndex: 9999,
+      position: "fixed",
+      fps: 60,
+    }
+  );
   // const { reward: emojiReward, isAnimating: isEmoji } = useReward('centerReward', 'emoji', {
   //   elementCount: 60,
   //   elementSize: 40,
@@ -439,13 +489,13 @@ export default function App() {
       return;
     }
     setCurrentRewardType(type);
-    if (type === 'confetti') confettiReward();
+    if (type === "confetti") confettiReward();
   };
   useEffect(() => {
     if (!isAnimating && rewardQueue.current.length > 0) {
       const nextType = rewardQueue.current.shift();
       setCurrentRewardType(nextType);
-      if (nextType === 'confetti') confettiReward();
+      if (nextType === "confetti") confettiReward();
     }
   }, [isAnimating]);
 
@@ -480,7 +530,7 @@ export default function App() {
 
   // Додаємо CSS стилі для анімації зірочок
   useEffect(() => {
-    const styleElement = document.createElement('style');
+    const styleElement = document.createElement("style");
     styleElement.textContent = passwordCrackingStyles;
     document.head.appendChild(styleElement);
 
@@ -490,7 +540,11 @@ export default function App() {
   }, []);
 
   return (
-    <div className={`container ${language} mx-auto w-screen lg:w-full px-3 ${isDarkMode ? 'dark' : ''}`}>
+    <div
+      className={`container ${language} mx-auto w-screen lg:w-full px-3 ${
+        isDarkMode ? "dark" : ""
+      }`}
+    >
       <Helmet>
         <title>
           {seoData.find((data) => data.language === language)?.title}
@@ -501,11 +555,22 @@ export default function App() {
             seoData.find((data) => data.language === language)?.description
           }
         />
-        <meta name="keywords" content="password generator, secure password, strong password, online password generator, free password generator, password security" />
+        <meta
+          name="keywords"
+          content="password generator, secure password, strong password, online password generator, free password generator, password security"
+        />
         <meta name="author" content="Generate Password To Me" />
         <meta name="robots" content="index, follow" />
-        <meta property="og:title" content={seoData.find((data) => data.language === language)?.title} />
-        <meta property="og:description" content={seoData.find((data) => data.language === language)?.description} />
+        <meta
+          property="og:title"
+          content={seoData.find((data) => data.language === language)?.title}
+        />
+        <meta
+          property="og:description"
+          content={
+            seoData.find((data) => data.language === language)?.description
+          }
+        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={window.location.href} />
         <link rel="canonical" href={window.location.href} />
@@ -513,30 +578,47 @@ export default function App() {
           {JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            "name": "Generate Password To Me",
-            "description": "Free online password generator tool for creating strong and secure passwords",
-            "url": window.location.href,
-            "applicationCategory": "SecurityApplication",
-            "operatingSystem": "Web Browser",
-            "offers": {
+            name: "Generate Password To Me",
+            description:
+              "Free online password generator tool for creating strong and secure passwords",
+            url: window.location.href,
+            applicationCategory: "SecurityApplication",
+            operatingSystem: "Web Browser",
+            offers: {
               "@type": "Offer",
-              "price": "0",
-              "priceCurrency": "USD"
+              price: "0",
+              priceCurrency: "USD",
             },
-            "author": {
+            author: {
               "@type": "Organization",
-              "name": "Generate Password To Me"
-            }
+              name: "Generate Password To Me",
+            },
           })}
         </script>
       </Helmet>
-      <div id="centerReward" style={{position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none', zIndex: 9999}} />
-      <div className={`flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
+      <div
+        id="centerReward"
+        style={{
+          position: "fixed",
+          left: "50%",
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          pointerEvents: "none",
+          zIndex: 9999,
+        }}
+      />
+      <div
+        className={`flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans ${
+          isDarkMode ? "dark:bg-[#121212]" : "bg-white"
+        }`}
+      >
         <Header language={language} onLanguageChange={handleLanguageChange} />
         {renderedSnackbars}
         <main className="w-full">
           <div
-            className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? 'bg-gray-800' : 'bg-[#E5F6FF]'}`}
+            className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${
+              isDarkMode ? "dark:bg-[#]" : "bg-[#E5F6FF]"
+            }`}
           >
             <h1 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
               {language === "en"
@@ -548,7 +630,11 @@ export default function App() {
             <p className="text-center text-[22px] text-[#2A4E63] mx-2 mb-4">
               {"With Generate Password to me"}
             </p>
-            <div className="w-full lg:w-9/12 flex flex-col bg-white drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative">
+            <div
+              className={`w-full lg:w-9/12 flex flex-col ${
+                isDarkMode ? "bg-[#888]" : "bg-white"
+              } drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}
+            >
               <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                   <img
@@ -563,7 +649,11 @@ export default function App() {
                 </p>
               </div>
               {/* bottom passaword lock */}
-              <div className="absolute hidden justify-start bg-white drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2">
+              <div
+                className={`${
+                  isDarkMode ? "bg-[#888]" : "bg-white"
+                } absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}
+              >
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                   <img
                     src={passwordImage}
@@ -590,7 +680,8 @@ export default function App() {
                     htmlFor="Password"
                     className="text-[16px] md:text-[22px] text-[#2A4E63]"
                   >
-                    {language === "en" ? "Password Length:" : "Довжина пароля:"} {passwordLength}
+                    {language === "en" ? "Password Length:" : "Довжина пароля:"}{" "}
+                    {passwordLength}
                   </label>
                   <div className="flex items-center gap-4 w-full">
                     <RemoveCircleOutlineIcon
@@ -642,7 +733,9 @@ export default function App() {
                   htmlFor="Character"
                   className="text-[16px] md:text-[22px] text-[#2A4E63]"
                 >
-                  {language === "en" ? "Use characters:" : "Використати символи:"}
+                  {language === "en"
+                    ? "Use characters:"
+                    : "Використати символи:"}
                 </label>
                 <div className="flex items-start flex-nowrap text-[10px] md:text-[20px]">
                   {Object.keys(characterSets).map((characterSet) => (
@@ -650,14 +743,16 @@ export default function App() {
                       <FormControlLabel
                         control={
                           <Checkbox
-                            checked={selectedCharacterSets.includes(characterSet)}
+                            checked={selectedCharacterSets.includes(
+                              characterSet
+                            )}
                             onChange={() => handleCheckboxChange(characterSet)}
                             checkedIcon={<CheckBoxOutlinedIcon />}
-                            sx={{ 
+                            sx={{
                               color: "#2A4E63",
                               "&.Mui-checked": {
-                                color: "#2A4E63"
-                              }
+                                color: "#2A4E63",
+                              },
                             }}
                             className="h-[24px] text-sm md:text-[22px]"
                           />
@@ -696,7 +791,9 @@ export default function App() {
           </div>
         </main>
         <section className="w-full mt-10">
-          {mode === "production" && <AdBanner language="en" />}
+          {mode === "production" && (
+            <AdBanner language="en" isDarkMode={isDarkMode} />
+          )}
         </section>
         <section className="lg:my-10 w-full">
           <SeoText language="en" />
@@ -708,7 +805,9 @@ export default function App() {
           <AboutUs language="en" />
         </section>
         <section className="mb-4 w-full">
-          {mode === "production" && <AdBannerSecond language="en" />}
+          {mode === "production" && (
+            <AdBannerSecond language="en" isDarkMode={isDarkMode} />
+          )}
         </section>
         <section id="guide" className="lg:my-10 w-full">
           <SeoList language="en" />
