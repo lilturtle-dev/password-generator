@@ -184,9 +184,8 @@ const AnimatedPassword = ({ length = 7 }) => {
       {currentChars.map((char, index) => (
         <span
           key={index}
-          className={`char ${index === activeIndex ? "active" : ""} ${
-            isComplete ? "complete" : ""
-          } ${isBlinking ? "blinking" : ""}`}
+          className={`char ${index === activeIndex ? "active" : ""} ${isComplete ? "complete" : ""
+            } ${isBlinking ? "blinking" : ""}`}
           style={{
             "--char-index": index,
           }}
@@ -213,17 +212,17 @@ function PasswordRow({
     : {};
   return (
     <div
-      className="flex relative items-center flex-row lg:flex-row gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
+      className="flex relative items-center flex-row lg:flex-row gap-2 md:gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
       key={index}
     >
       <div className="py-1 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
         <input
           type="text"
           value={password || ""}
-          className="rounded-[40px] border-none outline-none h-full w-[80%] lg:w-[80%] md:py-5 flex-grow-1 text-base lg:text-lg"
+          className="px-3 rounded-[40px] border-none outline-none h-full w-[80%] lg:w-[80%] md:py-5 flex-grow-1 text-base lg:text-lg"
           readOnly
         />
-        <div className="flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
+        <div className="hidden md:flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
           <button
             className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
             onClick={() => {
@@ -236,7 +235,7 @@ function PasswordRow({
             {language === "en" ? "Generate Password" : "Генерувати"}
           </button>
           <button
-            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
+            className="sm:block bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
             onClick={() => {
               onGenerate(index);
               runReward();
@@ -258,9 +257,44 @@ function PasswordRow({
           />
         </div>
       </div>
+      {/*For mobile*/}
+      <div className="md:hidden flex items-center lg:justify-end justify-center flex-nowrap w-full h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
+        <button
+          className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
+          onClick={() => {
+            onGenerate(index);
+            runReward();
+          }}
+          disabled={isAnimating}
+          style={disabledStyle}
+        >
+          {language === "en" ? "Generate Password" : "Генерувати"}
+        </button>
+        <button
+          className="sm:block bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
+          onClick={() => {
+            onGenerate(index);
+            runReward();
+          }}
+          disabled={isAnimating}
+          style={disabledStyle}
+        >
+          {language === "en" ? "Generate" : "Генерувати"}
+        </button>
+        <img
+          onClick={() => {
+            onGenerate(index);
+            runReward();
+          }}
+          src={refreash}
+          alt="refresh"
+          className="flex mr-2 h-[15px] md:h-[20px]"
+          style={disabledStyle}
+        />
+      </div>
       <button
         disabled={password?.length < 1}
-        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
+        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] py-[12px] cursor-pointer"
         style={password?.length < 1 ? { cursor: "not-allowed" } : {}}
         onClick={() => onCopy(index)}
       >
@@ -541,9 +575,8 @@ export default function App() {
 
   return (
     <div
-      className={`container ${language} mx-auto w-screen lg:w-full px-3 ${
-        isDarkMode ? "dark" : ""
-      }`}
+      className={`container ${language} mx-auto w-screen lg:w-full px-3 ${isDarkMode ? "dark" : ""
+        }`}
     >
       <Helmet>
         <title>
@@ -608,17 +641,15 @@ export default function App() {
         }}
       />
       <div
-        className={`flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans ${
-          isDarkMode ? "dark:bg-[#121212]" : "bg-white"
-        }`}
+        className={`flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans ${isDarkMode ? "dark:bg-[#121212]" : "bg-white"
+          }`}
       >
         <Header language={language} onLanguageChange={handleLanguageChange} />
         {renderedSnackbars}
         <main className="w-full">
           <div
-            className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${
-              isDarkMode ? "dark:bg-[#121212]" : "bg-[#E5F6FF]"
-            }`}
+            className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#121212]" : "bg-[#E5F6FF]"
+              }`}
           >
             <h1 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
               {language === "en"
@@ -631,9 +662,8 @@ export default function App() {
               {"With Generate Password to me"}
             </p>
             <div
-              className={`w-full lg:w-9/12 flex flex-col ${
-                isDarkMode ? "bg-[#888]" : "bg-white"
-              } drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}
+              className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? "bg-[#888]" : "bg-white"
+                } drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}
             >
               <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
@@ -650,9 +680,8 @@ export default function App() {
               </div>
               {/* bottom passaword lock */}
               <div
-                className={`${
-                  isDarkMode ? "bg-[#888]" : "bg-white"
-                } absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}
+                className={`${isDarkMode ? "bg-[#888]" : "bg-white"
+                  } absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}
               >
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                   <img
@@ -737,7 +766,7 @@ export default function App() {
                     ? "Use characters:"
                     : "Використати символи:"}
                 </label>
-                <div className="flex items-start flex-nowrap text-[10px] md:text-[20px]">
+                <div className="flex items-start flex-wrap text-[10px] md:text-[20px]">
                   {Object.keys(characterSets).map((characterSet) => (
                     <div key={characterSet} className="flex items-center gap-2">
                       <FormControlLabel
@@ -804,7 +833,7 @@ export default function App() {
         <section id="aboutus" className="lg:my-10 w-full">
           <AboutUs language="en" />
         </section>
-        <section className="mb-4 w-full">
+        <section className="mb-4 w-full mt-4">
           {mode === "production" && (
             <AdBannerSecond language="en" isDarkMode={isDarkMode} />
           )}

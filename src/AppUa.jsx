@@ -115,7 +115,7 @@ function PasswordRow({
     : { cursor: "pointer" };
   return (
     <div
-      className="flex relative items-center flex-row lg:flex-row gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
+      className="flex relative items-center flex-row lg:flex-row gap-2 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
       key={index}
     >
       <div className="py-1 lg:px-4 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
@@ -125,7 +125,8 @@ function PasswordRow({
           className="rounded-[40px] ml-[16px] border-none outline-none h-full w-[80%] lg:w-[80%] md:py-5 flex-grow-1 text-base lg:text-lg"
           readOnly
         />
-        <div className="flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
+        {/* For Desktop*/}
+        <div className="hidden md:flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
           <button
             className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
             onClick={() => {
@@ -160,9 +161,44 @@ function PasswordRow({
           />
         </div>
       </div>
+      {/* For Mobile*/}
+      <div className="flex md:hidden items-center lg:justify-end justify-center flex-nowrap w-full h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
+          <button
+            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
+            onClick={() => {
+              onGenerate(index);
+              runReward();
+            }}
+            disabled={isAnimating}
+            style={disabledStyle}
+          >
+            {language === "en" ? "Generate Password" : "Генерувати"}
+          </button>
+          <button
+            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
+            onClick={() => {
+              onGenerate(index);
+              runReward();
+            }}
+            disabled={isAnimating}
+            style={disabledStyle}
+          >
+            {language === "en" ? "Generate" : "Генерувати"}
+          </button>
+          <img
+            onClick={() => {
+              onGenerate(index);
+              runReward();
+            }}
+            src={refreash}
+            alt="refresh"
+            className="flex mr-2 h-[15px] md:h-[20px]"
+            style={disabledStyle}
+          />
+        </div>
       <button
         disabled={password?.length < 1}
-        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2"
+        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] py-[12px]"
         style={
           password?.length < 1
             ? { cursor: "not-allowed" }
@@ -821,7 +857,7 @@ export default function App() {
         <div id="aboutus" className="lg:my-10 w-full">
           <AboutUs language="ua" />
         </div>
-        <div className="mb-4 w-full">
+        <div className="mb-4 w-full mt-4">
           {mode === "production" && (
             <AdBannerSecond language="ua" isDarkMode={isDarkMode} />
           )}
