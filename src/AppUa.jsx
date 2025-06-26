@@ -26,7 +26,7 @@ import { getStrengthWord } from "./functions/GetStrengthWord";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import { useReward } from "react-rewards";
-import { useTheme } from './App';
+import { useTheme } from "./App";
 
 // CSS стилі для анімації зірочок
 const passwordCrackingStyles = `
@@ -100,10 +100,19 @@ const passwordCrackingStyles = `
   }
 `;
 
-function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, runReward, isAnimating }) {
+function PasswordRow({
+  password,
+  index,
+  language,
+  onGenerate,
+  onCopy,
+  refreash,
+  runReward,
+  isAnimating,
+}) {
   const disabledStyle = isAnimating
-    ? { pointerEvents: 'none', opacity: 0.5, cursor: 'not-allowed' }
-    : { cursor: 'pointer' };
+    ? { pointerEvents: "none", opacity: 0.5, cursor: "not-allowed" }
+    : { cursor: "pointer" };
   return (
     <div
       className="flex relative items-center flex-row lg:flex-row gap-4 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
@@ -119,7 +128,10 @@ function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, 
         <div className="flex items-center lg:justify-end justify-center flex-nowrap w-full lg:max-w-[300px] max-w-[150px] h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
           <button
             className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
-            onClick={() => { onGenerate(index); runReward(); }}
+            onClick={() => {
+              onGenerate(index);
+              runReward();
+            }}
             disabled={isAnimating}
             style={disabledStyle}
           >
@@ -127,14 +139,20 @@ function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, 
           </button>
           <button
             className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
-            onClick={() => { onGenerate(index); runReward(); }}
+            onClick={() => {
+              onGenerate(index);
+              runReward();
+            }}
             disabled={isAnimating}
             style={disabledStyle}
           >
             {language === "en" ? "Generate" : "Генерувати"}
           </button>
           <img
-            onClick={() => { onGenerate(index); runReward(); }}
+            onClick={() => {
+              onGenerate(index);
+              runReward();
+            }}
             src={refreash}
             alt="refresh"
             className="flex mr-2 h-[15px] md:h-[20px]"
@@ -145,7 +163,11 @@ function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, 
       <button
         disabled={password?.length < 1}
         className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2"
-        style={password?.length < 1 ? { cursor: "not-allowed" } : { cursor: "pointer" }}
+        style={
+          password?.length < 1
+            ? { cursor: "not-allowed" }
+            : { cursor: "pointer" }
+        }
         onClick={() => onCopy(index)}
       >
         {language === "en" ? "Copy" : "Копіювати"}
@@ -156,53 +178,68 @@ function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, 
 
 // Компонент для анімованого пароля
 const AnimatedPassword = ({ length = 7 }) => {
-  const [currentChars, setCurrentChars] = useState(Array(length).fill('*'));
+  const [currentChars, setCurrentChars] = useState(Array(length).fill("*"));
   const [activeIndex, setActiveIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [isBlinking, setIsBlinking] = useState(false);
   const [blinkCount, setBlinkCount] = useState(0);
-  
+
   useEffect(() => {
-    const characters = ['*', 'A', 'B', 'C', '1', '2', '3', 'X', 'Y', 'Z', '9', '8', '7'];
+    const characters = [
+      "*",
+      "A",
+      "B",
+      "C",
+      "1",
+      "2",
+      "3",
+      "X",
+      "Y",
+      "Z",
+      "9",
+      "8",
+      "7",
+    ];
     let charIndex = 0;
     let isPaused = false;
-    
+
     const interval = setInterval(() => {
       if (!isPaused && !isBlinking) {
         // Прокручуємо символи для активної позиції
-        setCurrentChars(prev => {
+        setCurrentChars((prev) => {
           const newChars = [...prev];
           newChars[activeIndex] = characters[charIndex % characters.length];
           return newChars;
         });
-        
+
         charIndex++;
-        
+
         // Якщо прокрутили всі символи для поточної позиції
         if (charIndex >= characters.length) {
           isPaused = true;
           setTimeout(() => {
             isPaused = false;
             charIndex = 0;
-            
+
             // Переходимо до наступної позиції
             if (activeIndex < length - 1) {
-              setActiveIndex(prev => prev + 1);
+              setActiveIndex((prev) => prev + 1);
             } else {
               // Всі символи підібрані - починаємо миготіння
               setIsComplete(true);
               setIsBlinking(true);
               setBlinkCount(0);
-              
+
               // Миготіння 3 рази
               const blinkInterval = setInterval(() => {
-                setBlinkCount(prev => {
-                  if (prev >= 5) { // 3 повних циклу (0-1-2-3-4-5 = 3 рази)
+                setBlinkCount((prev) => {
+                  if (prev >= 5) {
+                    // 3 повних циклу (0-1-2-3-4-5 = 3 рази)
                     clearInterval(blinkInterval);
                     setIsBlinking(false);
                     setIsComplete(false);
                     // Скидаємо все для нового циклу
-                    setCurrentChars(Array(length).fill('*'));
+                    setCurrentChars(Array(length).fill("*"));
                     setActiveIndex(0);
                     return 0;
                   }
@@ -214,18 +251,20 @@ const AnimatedPassword = ({ length = 7 }) => {
         }
       }
     }, 1000); // Збільшено з 200ms до 1000ms (в 5 разів повільніше)
-    
+
     return () => clearInterval(interval);
   }, [activeIndex, length, isComplete, isBlinking]);
-  
+
   return (
     <span className="password-cracking">
       {currentChars.map((char, index) => (
-        <span 
-          key={index} 
-          className={`char ${index === activeIndex ? 'active' : ''} ${isComplete ? 'complete' : ''} ${isBlinking ? 'blinking' : ''}`}
-          style={{ 
-            '--char-index': index
+        <span
+          key={index}
+          className={`char ${index === activeIndex ? "active" : ""} ${
+            isComplete ? "complete" : ""
+          } ${isBlinking ? "blinking" : ""}`}
+          style={{
+            "--char-index": index,
           }}
         >
           {char}
@@ -338,7 +377,13 @@ export default function App() {
       // Decrease the quantity of displayed passwords
       setPasswords(passwords.slice(0, quantity));
     }
-  }, [passwords, quantity, selectedCharacterSets, passwordLength, characterSets]);
+  }, [
+    passwords,
+    quantity,
+    selectedCharacterSets,
+    passwordLength,
+    characterSets,
+  ]);
 
   useEffect(() => {
     // This function will be executed on page load
@@ -419,18 +464,22 @@ export default function App() {
   };
 
   // Централізований reward
-  const rewardTypes = ['confetti', 'balloons', 'emoji'];
+  const rewardTypes = ["confetti", "balloons", "emoji"];
   const [currentRewardType, setCurrentRewardType] = useState(null);
   const rewardQueue = useRef([]);
-  const { reward: confettiReward, isAnimating: isConfetti } = useReward('centerReward', 'confetti', {
-    elementCount: 120,
-    elementSize: 18,
-    spread: 160,
-    lifetime: 200,
-    zIndex: 9999,
-    position: 'fixed',
-    fps: 60
-  });
+  const { reward: confettiReward, isAnimating: isConfetti } = useReward(
+    "centerReward",
+    "confetti",
+    {
+      elementCount: 120,
+      elementSize: 18,
+      spread: 160,
+      lifetime: 200,
+      zIndex: 9999,
+      position: "fixed",
+      fps: 60,
+    }
+  );
   // Стан анімації
   const isAnimating = isConfetti;
   // Функція запуску reward по черзі
@@ -441,14 +490,14 @@ export default function App() {
       return;
     }
     setCurrentRewardType(type);
-    if (type === 'confetti') confettiReward();
+    if (type === "confetti") confettiReward();
   };
   // useEffect для запуску наступної анімації з черги
   useEffect(() => {
     if (!isAnimating && rewardQueue.current.length > 0) {
       const nextType = rewardQueue.current.shift();
       setCurrentRewardType(nextType);
-      if (nextType === 'confetti') confettiReward();
+      if (nextType === "confetti") confettiReward();
     }
   }, [isAnimating]);
 
@@ -502,7 +551,7 @@ export default function App() {
 
   // Додаємо CSS стилі для анімації зірочок
   useEffect(() => {
-    const styleElement = document.createElement('style');
+    const styleElement = document.createElement("style");
     styleElement.textContent = passwordCrackingStyles;
     document.head.appendChild(styleElement);
 
@@ -585,7 +634,11 @@ export default function App() {
         <Header language={language} onLanguageChange={handleLanguageChange} />
         {renderedSnackbars}
         <main className="w-full">
-          <div className="bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32">
+          <div
+            className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${
+              isDarkMode ? "dark:bg-[#121212]" : "bg-[#E5F6FF]"
+            }`}
+          >
             <h1 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
               {language === "en"
                 ? "Need a Unique, Secure"
@@ -596,7 +649,11 @@ export default function App() {
             <p className="text-center text-[22px] text-[#2A4E63] mx-2 mb-4">
               {`За допомогою" згенерувати пароль "для мене`}
             </p>
-            <div className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? 'bg-[#888]' : 'bg-white'} drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}>
+            <div
+              className={`w-full lg:w-9/12 flex flex-col ${
+                isDarkMode ? "bg-[#888]" : "bg-white"
+              } drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}
+            >
               <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                   <img
@@ -611,7 +668,11 @@ export default function App() {
                 </p>
               </div>
               {/* bottom passaword lock */}
-              <div className={`${isDarkMode ? 'bg-[#888]' : 'bg-white'} absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}>
+              <div
+                className={`${
+                  isDarkMode ? "bg-[#888]" : "bg-white"
+                } absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}
+              >
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                   <img
                     src={passwordImage}
@@ -747,7 +808,9 @@ export default function App() {
           </div>
         </main>
         <div className="w-full mt-10">
-          {mode === "production" && <AdBanner language="ua" isDarkMode={isDarkMode} />}
+          {mode === "production" && (
+            <AdBanner language="ua" isDarkMode={isDarkMode} />
+          )}
         </div>
         <div className="lg:my-10 w-full">
           <SeoText language="ua" />
@@ -759,7 +822,9 @@ export default function App() {
           <AboutUs language="ua" />
         </div>
         <div className="mb-4 w-full">
-          {mode === "production" && <AdBannerSecond language="ua" isDarkMode={isDarkMode} />}
+          {mode === "production" && (
+            <AdBannerSecond language="ua" isDarkMode={isDarkMode} />
+          )}
         </div>
         <div id="guide" className="lg:my-10 w-full">
           <SeoList language="ua" />

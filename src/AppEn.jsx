@@ -617,7 +617,7 @@ export default function App() {
         <main className="w-full">
           <div
             className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${
-              isDarkMode ? "dark:bg-[#]" : "bg-[#E5F6FF]"
+              isDarkMode ? "dark:bg-[#121212]" : "bg-[#E5F6FF]"
             }`}
           >
             <h1 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
