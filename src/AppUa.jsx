@@ -26,6 +26,79 @@ import { getStrengthWord } from "./functions/GetStrengthWord";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import { useReward } from "react-rewards";
+import { useTheme } from './App';
+
+// CSS стилі для анімації зірочок
+const passwordCrackingStyles = `
+  .password-cracking {
+    position: relative;
+    font-family: 'Courier New', monospace;
+  }
+  
+  .password-cracking::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(90deg, transparent, rgba(42, 78, 99, 0.3), transparent);
+    animation: scanning 2s infinite;
+  }
+  
+  .password-cracking .char {
+    display: inline-block;
+    transition: all 0.2s ease;
+    opacity: 0.6;
+  }
+  
+  .password-cracking .char.active {
+    opacity: 1;
+    transform: scale(1.2);
+    color: #2A4E63;
+    font-weight: bold;
+  }
+  
+  .password-cracking .char:not(.active) {
+    opacity: 0.4;
+    transform: scale(0.9);
+  }
+  
+  .password-cracking .char.complete {
+    color: #2A4E63;
+    font-weight: bold;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  .password-cracking .char.blinking {
+    animation: blink 1.6s infinite;
+    color: #2A4E63;
+    font-weight: bold;
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  @keyframes blink {
+    0%, 50% {
+      opacity: 1;
+      transform: scale(1.1);
+    }
+    25%, 75% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+  }
+  
+  @keyframes scanning {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+`;
 
 function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, runReward, isAnimating }) {
   const disabledStyle = isAnimating
@@ -81,7 +154,89 @@ function PasswordRow({ password, index, language, onGenerate, onCopy, refreash, 
   );
 }
 
+// Компонент для анімованого пароля
+const AnimatedPassword = ({ length = 7 }) => {
+  const [currentChars, setCurrentChars] = useState(Array(length).fill('*'));
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isComplete, setIsComplete] = useState(false);
+  const [isBlinking, setIsBlinking] = useState(false);
+  const [blinkCount, setBlinkCount] = useState(0);
+  
+  useEffect(() => {
+    const characters = ['*', 'A', 'B', 'C', '1', '2', '3', 'X', 'Y', 'Z', '9', '8', '7'];
+    let charIndex = 0;
+    let isPaused = false;
+    
+    const interval = setInterval(() => {
+      if (!isPaused && !isBlinking) {
+        // Прокручуємо символи для активної позиції
+        setCurrentChars(prev => {
+          const newChars = [...prev];
+          newChars[activeIndex] = characters[charIndex % characters.length];
+          return newChars;
+        });
+        
+        charIndex++;
+        
+        // Якщо прокрутили всі символи для поточної позиції
+        if (charIndex >= characters.length) {
+          isPaused = true;
+          setTimeout(() => {
+            isPaused = false;
+            charIndex = 0;
+            
+            // Переходимо до наступної позиції
+            if (activeIndex < length - 1) {
+              setActiveIndex(prev => prev + 1);
+            } else {
+              // Всі символи підібрані - починаємо миготіння
+              setIsComplete(true);
+              setIsBlinking(true);
+              setBlinkCount(0);
+              
+              // Миготіння 3 рази
+              const blinkInterval = setInterval(() => {
+                setBlinkCount(prev => {
+                  if (prev >= 5) { // 3 повних циклу (0-1-2-3-4-5 = 3 рази)
+                    clearInterval(blinkInterval);
+                    setIsBlinking(false);
+                    setIsComplete(false);
+                    // Скидаємо все для нового циклу
+                    setCurrentChars(Array(length).fill('*'));
+                    setActiveIndex(0);
+                    return 0;
+                  }
+                  return prev + 1;
+                });
+              }, 800); // Повільніше миготіння - 800ms
+            }
+          }, 1000); // Пауза 1 секунда між позиціями
+        }
+      }
+    }, 1000); // Збільшено з 200ms до 1000ms (в 5 разів повільніше)
+    
+    return () => clearInterval(interval);
+  }, [activeIndex, length, isComplete, isBlinking]);
+  
+  return (
+    <span className="password-cracking">
+      {currentChars.map((char, index) => (
+        <span 
+          key={index} 
+          className={`char ${index === activeIndex ? 'active' : ''} ${isComplete ? 'complete' : ''} ${isBlinking ? 'blinking' : ''}`}
+          style={{ 
+            '--char-index': index
+          }}
+        >
+          {char}
+        </span>
+      ))}
+    </span>
+  );
+};
+
 export default function App() {
+  const { isDarkMode } = useTheme();
   const handleCopyAllClick = () => {
     const allPasswords = passwords.join("\n");
     navigator.clipboard.writeText(allPasswords);
@@ -344,8 +499,20 @@ export default function App() {
   // Create an array for the rest of the passwords (excluding the first one)
   const restPasswordInputs =
     passwords.length > 1 ? passwordInputs.slice(1) : [];
+
+  // Додаємо CSS стилі для анімації зірочок
+  useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = passwordCrackingStyles;
+    document.head.appendChild(styleElement);
+
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
   return (
-    <div className={`container ${language} mx-auto w-screen lg:w-full px-3`}>
+    <div className={`container ${language} mx-auto w-screen lg:w-full px-3 ${isDarkMode ? 'dark' : ''}`}>
       <div id="centerReward" style={{position: 'fixed', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', pointerEvents: 'none', zIndex: 9999}} />
       <Helmet>
         <title>
@@ -357,161 +524,199 @@ export default function App() {
             seoData.find((data) => data.language === language)?.description
           }
         />
+        <meta name="keywords" content="генератор паролів, безпечний пароль, надійний пароль, онлайн генератор паролів, безкоштовний генератор паролів, безпека паролів" />
+        <meta name="author" content="Generate Password To Me" />
+        <meta name="robots" content="index, follow" />
+        <meta property="og:title" content={seoData.find((data) => data.language === language)?.title} />
+        <meta property="og:description" content={seoData.find((data) => data.language === language)?.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={window.location.href} />
+        <link rel="canonical" href={window.location.href} />
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebApplication",
+            "name": "Generate Password To Me",
+            "description": "Безкоштовний онлайн інструмент генерації паролів для створення сильних та безпечних паролів",
+            "url": window.location.href,
+            "applicationCategory": "SecurityApplication",
+            "operatingSystem": "Web Browser",
+            "offers": {
+              "@type": "Offer",
+              "price": "0",
+              "priceCurrency": "USD"
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "Generate Password To Me"
+            }
+          })}
+        </script>
       </Helmet>
-      <div className="flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans">
+      <div className={`flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans ${isDarkMode ? 'bg-gray-900' : 'bg-white'}`}>
         <Header language={language} onLanguageChange={handleLanguageChange} />
         {renderedSnackbars}
+        <main className="w-full">
+          <div
+            className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? 'bg-gray-800' : 'bg-[#E5F6FF]'}`}
+          >
+            <h1 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
+              {language === "en"
+                ? "Need a Unique, Secure"
+                : "Потрібен унікальний, безпечний"}{" "}
+              <br />
+              {language === "en" ? "Password?" : "Пароль?"}
+            </h1>
+            <p className="text-center text-[22px] text-[#2A4E63] mx-2 mb-4">
+              {`За допомогою" згенерувати пароль "для мене`}
+            </p>
+            <div className="w-full lg:w-9/12 flex flex-col bg-white drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative">
+              <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
+                <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
+                  <img
+                    src={passwordImage}
+                    alt="password"
+                    width={20}
+                    height={20}
+                  />
+                </div>
+                <p className="pt-[10px] relative">
+                  <AnimatedPassword length={7} />
+                </p>
+              </div>
+              {/* bottom passaword lock */}
+              <div className="absolute hidden justify-start bg-white drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2">
+                <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
+                  <img
+                    src={passwordImage}
+                    alt="password"
+                    width={20}
+                    height={20}
+                  />
+                </div>
+                <p className="pt-[10px] relative">
+                  <AnimatedPassword length={7} />
+                </p>
+              </div>
+              {firstPasswordInput}
+              <div
+                className=" text-[#2A4E63] text-[16px] md:text-[18px] lg:mt-3 lg:flex"
+                style={strengthColor}
+              >
+                {`${strengthWord} На злам може знадобитися ${strengthWordScoreUk}.`}
+              </div>
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-1 lg:mt-3">
+                <div className="flex flex-col gap-3 items-start mt-8 lg:mt-6">
+                  <label
+                    id="password-length-label"
+                    htmlFor="Password"
+                    className="text-[16px] md:text-[22px] text-[#2A4E63]"
+                  >
+                    {language === "en" ? "Password Length:" : "Довжина пароля:"} {passwordLength}
+                  </label>
+                  <div className="flex items-center gap-4 w-full">
+                    <RemoveCircleOutlineIcon
+                      onClick={() =>
+                        setPasswordLength((prev) => Math.max(1, prev - 1))
+                      }
+                      style={{ cursor: "pointer" }}
+                    />
+                    <Slider
+                      value={passwordLength}
+                      min={4}
+                      max={100}
+                      onChange={(e) => setPasswordLength(e.target.value)}
+                      aria-label="Password length slider"
+                      aria-describedby="password-length-label"
+                      valueLabelDisplay="auto"
+                      className="h-[15px]"
+                    />
+                    <AddCircleOutlineIcon
+                      onClick={() =>
+                        setPasswordLength((prev) => Math.min(100, prev + 1))
+                      }
+                      style={{ cursor: "pointer" }}
+                    />
+                  </div>
+                </div>
 
-        <div
-          className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 bg-[#E5F6FF] w-full lg:w-[100%] rounded-72 pt-10 md:pt-32`}
-        >
-          <h2 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
-            {"Потрібен унікальний, безпечний"} <br />
-            {"Пароль?"}
-          </h2>
-          <p className="text-center text-[22px] text-[#2A4E63] mx-2 mb-4">
-            {`За допомогою" згенерувати пароль "для мене`}
-          </p>
-          <div className="w-full lg:w-9/12 flex flex-col bg-white drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative">
-            <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
-              <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
-                <img
-                  src={passwordImage}
-                  alt="password"
-                  width={20}
-                  height={20}
-                />
-              </div>
-              <p className="pt-[10px]">*******</p>
-            </div>
-            {/* bottom passaword lock */}
-            <div className="absolute hidden justify-start bg-white drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2">
-              <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
-                <img
-                  src={passwordImage}
-                  alt="password"
-                  width={20}
-                  height={20}
-                />
-              </div>
-              <p className="pt-[10px]">*******</p>
-            </div>
-            {firstPasswordInput}
-            <div
-              className=" text-[#2A4E63] text-[16px] md:text-[18px] lg:mt-3 lg:flex"
-              style={strengthColor}
-            >
-              {`${strengthWord} На злам може знадобитися ${strengthWordScoreUk}.`}
-            </div>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-1 lg:mt-3">
-              <div className="flex flex-col gap-3 items-start mt-8 lg:mt-6">
-                <label
-                  htmlFor="Password"
-                  className="text-[16px] md:text-[22px] text-[#2A4E63]"
-                >
-                  {"Довжина пароля:"} {passwordLength}
-                </label>
-                <div className="flex items-center gap-4 w-full">
-                  <RemoveCircleOutlineIcon
-                    onClick={() =>
-                      setPasswordLength((prev) => Math.max(1, prev - 1))
-                    }
-                    style={{ cursor: "pointer" }}
-                  />
-                  <Slider
-                    value={passwordLength}
-                    min={4}
-                    max={100}
-                    onChange={(e) => setPasswordLength(e.target.value)}
-                    aria-label="Default"
-                    valueLabelDisplay="auto"
-                    className="h-[15px]"
-                  />
-                  <AddCircleOutlineIcon
-                    onClick={() =>
-                      setPasswordLength((prev) => Math.min(100, prev + 1))
-                    }
-                    style={{ cursor: "pointer" }}
+                <div className="flex flex-col gap-3 items-start">
+                  <label
+                    htmlFor="quantity"
+                    className="text-[16px] md:text-[22px] text-[#2A4E63]"
+                  >
+                    {"Кількість"}
+                  </label>
+                  <input
+                    type="number"
+                    id="quantity"
+                    name="quantity"
+                    min="1"
+                    max={maxquantity}
+                    value={quantity}
+                    onChange={handleQuantityChange}
+                    className="border-2 border-[#E5F6FF] border-solid rounded-[18px] text-[#071016] text-[18px] md:text-[20px] py-3 md:py-5 px-3 outline-none w-full"
                   />
                 </div>
               </div>
-
-              <div className="flex flex-col gap-3 items-start">
+              <div className="flex gap-3 flex-wrap items-center mt-9 ">
                 <label
-                  htmlFor="quantity"
+                  htmlFor="Character"
                   className="text-[16px] md:text-[22px] text-[#2A4E63]"
                 >
-                  {"Кількість"}
+                  {"Використати символи:"}
                 </label>
-                <input
-                  type="number"
-                  id="quantity"
-                  name="quantity"
-                  min="1"
-                  max={maxquantity}
-                  value={quantity}
-                  onChange={handleQuantityChange}
-                  className="border-2 border-[#E5F6FF] border-solid rounded-[18px] text-[#071016] text-[18px] md:text-[20px] py-3 md:py-5 px-3 outline-none w-full"
-                />
+                <div className="flex items-start flex-nowrap text-[10px] md:text-[20px]">
+                  {Object.keys(characterSets).map((characterSet) => (
+                    <div key={characterSet} className="flex items-center gap-2">
+                      <FormControlLabel
+                        control={
+                          <Checkbox
+                            checked={selectedCharacterSets.includes(characterSet)}
+                            onChange={() => handleCheckboxChange(characterSet)}
+                            checkedIcon={<CheckBoxOutlinedIcon />}
+                            sx={{ 
+                              color: "#2A4E63",
+                              "&.Mui-checked": {
+                                color: "#2A4E63"
+                              }
+                            }}
+                            className="h-[24px] text-sm md:text-[22px]"
+                          />
+                        }
+                        className="text-[18px] md:text-[20px]"
+                        label={
+                          <span className="text-[18px] md:text-[16px]">
+                            {characterSet}
+                          </span>
+                        }
+                      />
+                    </div>
+                  ))}
+                </div>
               </div>
+              {restPasswordInputs}
+              {passwords.length >= 2 ? (
+                <div className="flex gap-3 mt-2">
+                  <Button
+                    className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
+                    onClick={handleCopyAllClick}
+                  >
+                    <FileCopyIcon sx={{ marginRight: 1 }} />
+                    {language === "en" ? "Copy All" : "Копіювати всі"}
+                  </Button>
+                  <Button
+                    className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
+                    onClick={handleDownloadAllClick}
+                  >
+                    <CloudDownloadIcon sx={{ marginRight: 1 }} />
+                    {language === "en" ? "Download All" : "Завантажити всі"}
+                  </Button>
+                </div>
+              ) : null}
             </div>
-            <div className="flex gap-3 flex-wrap items-center mt-9 ">
-              <label
-                htmlFor="Character"
-                className="text-[16px] md:text-[22px] text-[#2A4E63]"
-              >
-                {"Використати символи:"}
-              </label>
-              <div className="flex items-start flex-nowrap text-[10px] md:text-[20px]">
-                {Object.keys(characterSets).map((characterSet) => (
-                  <div key={characterSet} className="flex items-center gap-2">
-                    <FormControlLabel
-                      control={
-                        <Checkbox
-                          checked={selectedCharacterSets.includes(characterSet)}
-                          onChange={() => handleCheckboxChange(characterSet)}
-                          checkedIcon={<CheckBoxOutlinedIcon />}
-                          sx={{ 
-                            color: "#2A4E63",
-                            "&.Mui-checked": {
-                              color: "#2A4E63"
-                            }
-                          }}
-                          className="h-[24px] text-sm md:text-[22px]"
-                        />
-                      }
-                      className="text-[18px] md:text-[20px]"
-                      label={
-                        <span className="text-[18px] md:text-[16px]">
-                          {characterSet}
-                        </span>
-                      }
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-            {restPasswordInputs}
-            {passwords.length >= 2 ? (
-              <div className="flex gap-3 mt-2">
-                <Button
-                  className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
-                  onClick={handleCopyAllClick}
-                >
-                  <FileCopyIcon sx={{ marginRight: 1 }} />
-                  {language === "en" ? "Copy All" : "Копіювати всі"}
-                </Button>
-                <Button
-                  className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer"
-                  onClick={handleDownloadAllClick}
-                >
-                  <CloudDownloadIcon sx={{ marginRight: 1 }} />
-                  {language === "en" ? "Download All" : "Завантажити всі"}
-                </Button>
-              </div>
-            ) : null}
           </div>
-        </div>
+        </main>
         <div className="w-full mt-10">
           {mode === "production" && <AdBanner language="ua" />}
         </div>

@@ -14,6 +14,10 @@ import InputLabel from '@mui/material/InputLabel';
 import Flag from 'react-world-flags';
 import { useNavigate } from "react-router-dom";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
+import Brightness4Icon from '@mui/icons-material/Brightness4';
+import Brightness7Icon from '@mui/icons-material/Brightness7';
+import IconButton from '@mui/material/IconButton';
+import { useTheme } from './App';
 
 // Додаємо CSS стилі для анімації
 const languageIconStyles = `
@@ -98,6 +102,85 @@ const languageIconStyles = `
       transform: rotate(360deg) scale(1);
     }
   }
+  
+  /* Стилі для всіх посилань */
+  a {
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #2A4E63;
+    transform: translateY(-2px);
+  }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #2A4E63;
+    transition: width 0.3s ease;
+  }
+  
+  a:hover::after {
+    width: 100%;
+  }
+  
+  /* Спеціальні стилі для посилань в навігації */
+  .nav-link {
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .nav-link:hover {
+    color: #2A4E63;
+    transform: scale(1.05);
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(42, 78, 99, 0.1);
+    border-radius: 4px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-link:hover::before {
+    transform: scaleX(1);
+  }
+  
+  /* Стилі для зовнішніх посилань */
+  .external-link {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .external-link:hover {
+    color: #96DBFF;
+    transform: translateY(-1px);
+    text-shadow: 0 2px 4px rgba(150, 219, 255, 0.3);
+  }
+  
+  .external-link::after {
+    content: ' ↗';
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .external-link:hover::after {
+    opacity: 1;
+  }
 `;
 
 const menuItems = [
@@ -133,6 +216,7 @@ const languages = [
 const Header = ({ onLanguageChange }) => {
 
   const navigate = useNavigate();
+  const { isDarkMode, toggleTheme } = useTheme();
   const [language, setLanguage] = useState(() => {
     const pathSegments = window.location.pathname.split("/");
     const languageFromURL = pathSegments[1];
@@ -211,8 +295,22 @@ const Header = ({ onLanguageChange }) => {
       <List sx={{ px: "10px" }}>
         {menuItems.map((menuItem) => (
           <ListItem key={menuItem.href} disablePadding>
-            <Link href={menuItem.href} underline="none">
-              <ListItemText primary={menuItem.label[language]} sx={{ fontSize: '22px', fontWeight: 'bolder', color: 'black' }} />
+            <Link 
+              href={menuItem.href} 
+              underline="none"
+              sx={{ 
+                fontSize: '22px', 
+                fontWeight: 'bolder', 
+                color: 'black',
+                transition: 'all 0.3s ease',
+                '&:hover': {
+                  color: '#2A4E63',
+                  transform: 'scale(1.05)',
+                  textDecoration: 'underline'
+                }
+              }}
+            >
+              <ListItemText primary={menuItem.label[language]} />
             </Link>
           </ListItem>
         ))}
@@ -243,6 +341,27 @@ const Header = ({ onLanguageChange }) => {
             ))}
           </Select>
         </ListItem>
+        
+        {/* <ListItem>
+          <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
+            <span style={{ fontSize: '22px', fontWeight: 'bolder', color: 'black' }}>
+              {language === 'en' ? 'Theme' : 'Тема'}
+            </span>
+             <IconButton 
+              onClick={toggleTheme} 
+              color="inherit"
+              sx={{ 
+                color: isDarkMode ? '#ffffff' : '#071016',
+                '&:hover': {
+                  color: '#2A4E63',
+                  transform: 'scale(1.05)'
+                }
+              }}
+            >
+              {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+            </IconButton> 
+          </div>
+        </ListItem> */}
       </List>
     </Box>
   );
@@ -269,15 +388,36 @@ const Header = ({ onLanguageChange }) => {
       <div className="flex items-center">
         <img
           src={Logo}
-          alt="generatepasswordtome"
+          alt="Generate Password To Me - Secure Password Generator Logo"
           className="w-6 h-6 mr-1 logo"
         />
       </div>
       <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
-        <li className=" cursor-pointer"><a href="#aboutus">{language === 'en' ? 'About us' : 'Про нас'}</a></li>
-        <li className=" cursor-pointer"><a href="#howtouse">{language === 'en' ? 'How to Use' : 'Як користуватися?'}</a></li>
-        <li className=" cursor-pointer"><a href="#guide">{language === 'en' ? 'Guide' : 'Посібник'}</a></li>
-
+        <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
+          <a href="#aboutus" className="nav-link">{language === 'en' ? 'About us' : 'Про нас'}</a>
+        </li>
+        <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
+          <a href="#howtouse" className="nav-link">{language === 'en' ? 'How to Use' : 'Як користуватися?'}</a>
+        </li>
+        <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
+          <a href="#guide" className="nav-link">{language === 'en' ? 'Guide' : 'Посібник'}</a>
+        </li>
+        {/* <li>
+          <IconButton 
+            onClick={toggleTheme} 
+            color="inherit"
+            className="transition-all duration-300 hover:scale-105"
+            sx={{ 
+              color: isDarkMode ? '#ffffff' : '#071016',
+              '&:hover': {
+                color: '#2A4E63',
+                transform: 'scale(1.05)'
+              }
+            }}
+          >
+            {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
+          </IconButton>
+        </li> */}
       </ul>
 
       <select 
@@ -294,7 +434,7 @@ const Header = ({ onLanguageChange }) => {
       <div className=" flex lg:hidden">
         {['top'].map((anchor) => (
           <React.Fragment key={anchor}>
-            <img src={hamburger} alt="hamburger" onClick={toggleDrawer(anchor, true)} className=" cursor-pointer" />
+            <img src={hamburger} alt="Navigation menu toggle" onClick={toggleDrawer(anchor, true)} className=" cursor-pointer" />
             <Drawer
               anchor={anchor}
               open={state[anchor]}
@@ -305,8 +445,6 @@ const Header = ({ onLanguageChange }) => {
           </React.Fragment>
         ))}
       </div>
-
-
     </header>
   );
 };

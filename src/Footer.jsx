@@ -1,48 +1,144 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Logo from "./logo.svg";
+import { useTheme } from './App';
 
 const referalLink = 'https://hostinger.com.ua?REFERRALCODE=1098786';
 
+// CSS стилі для посилань
+const linkStyles = `
+  /* Стилі для всіх посилань */
+  a {
+    transition: all 0.3s ease;
+    position: relative;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    color: #2A4E63;
+    transform: translateY(-2px);
+  }
+  
+  a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: #2A4E63;
+    transition: width 0.3s ease;
+  }
+  
+  a:hover::after {
+    width: 100%;
+  }
+  
+  /* Спеціальні стилі для посилань в навігації */
+  .nav-link {
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }
+  
+  .nav-link:hover {
+    color: #2A4E63;
+    transform: scale(1.05);
+  }
+  
+  .nav-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(42, 78, 99, 0.1);
+    border-radius: 4px;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-link:hover::before {
+    transform: scaleX(1);
+  }
+  
+  /* Стилі для зовнішніх посилань */
+  .external-link {
+    transition: all 0.3s ease;
+    position: relative;
+  }
+  
+  .external-link:hover {
+    color: #96DBFF;
+    transform: translateY(-1px);
+    text-shadow: 0 2px 4px rgba(150, 219, 255, 0.3);
+  }
+  
+  .external-link::after {
+    content: ' ↗';
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .external-link:hover::after {
+    opacity: 1;
+  }
+`;
+
 const Footer = ({ language }) => {
   const currentYear = new Date().getFullYear();
+  const { isDarkMode } = useTheme();
+  
+  // Додаємо CSS стилі для посилань
+  useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = linkStyles;
+    document.head.appendChild(styleElement);
+
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
   return (
     <>
-      <footer className="w-full py-4 px-2 flex flex-wrap flex-col gap-5 lg:flex-row justify-between items-center">
+      <footer className={`w-full py-4 px-2 flex flex-wrap flex-col gap-5 lg:flex-row justify-between items-center ${isDarkMode ? 'bg-gray-800 text-white' : 'bg-white text-black'}`}>
           <div className="flex items-center">
             <img
               src={Logo}
-              alt="generatepasswordtome"
+              alt="Generate Password To Me - Secure Password Generator Logo"
               className="w-6 h-6 mr-1 logo"
             />
           </div>
-          <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
-            <li className=" cursor-pointer">
-              <a href="#aboutus">{language === "en" ? "About us" : "Про нас"}</a>
+          <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-xl font-medium">
+            <li className="cursor-pointer">
+              <a href="#aboutus" className="nav-link">{language === "en" ? "About us" : "Про нас"}</a>
             </li>
-            <li className=" cursor-pointer">
-              <a href="#howtouse">
+            <li className="cursor-pointer">
+              <a href="#howtouse" className="nav-link">
                 {language === "en" ? "How to use" : "Як використовувати"}
               </a>
             </li>
-            <li className=" cursor-pointer">
-              <a href="#guide">{language === "en" ? "Guide" : "Посібник"}</a>
+            <li className="cursor-pointer">
+              <a href="#guide" className="nav-link">{language === "en" ? "Guide" : "Посібник"}</a>
             </li>
           </ul>
           {/* <ul className="flex items-center text-decoration-none gap-4 ">
-          <li className=" cursor-pointer border-[1px] border-[#2A4E63]   w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={facebook} alt="facebook image" /></li>
-          <li className=" cursor-pointer border-[1px] border-[#2A4E63]  w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={twitter} alt="facebook image" /></li>
-          <li className=" cursor-pointer border-[1px] border-[#2A4E63]  w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={linkdIn} alt="facebook image" /></li>
+          <li className=" cursor-pointer border-[1px] border-[#2A4E63]   w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={facebook} alt="Facebook social media icon" /></li>
+          <li className=" cursor-pointer border-[1px] border-[#2A4E63]  w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={twitter} alt="Twitter social media icon" /></li>
+          <li className=" cursor-pointer border-[1px] border-[#2A4E63]  w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={linkdIn} alt="LinkedIn social media icon" /></li>
         </ul> */}
         <div className="flex lg:flex-row flex-col xs:flex-wrap lg:flex-nowrap w-full">
-          <div className="text-black text-[18px] md:w-full lg:w-1/2 lg:text-left md:text-center font-medium my-5 ml-2">
+          <div className={`text-[18px] md:w-full lg:w-1/2 lg:text-left md:text-center font-medium my-5 ml-2 ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
             {language === "en" ? "Copyright" : "Авторське право"} ©{" "}
             <span className=" text-[#96DBFF] font-bold">
               GeneratePasswordTo.Me{" "}
             </span>
             {currentYear}
           </div>
-          <div className="text-black text-[18px] xs:w-full lg:w-1/2 lg:text-right md:text-center font-medium my-5 ml-2">
-            <p className="inline">{language === "en" ? "Working with " : "Працює на серверах "}</p><a className="text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer" href={referalLink} rel="nofollow">  {language === "en" ? "Hostinger" : "Hostinger"}</a>
+          <div className={`text-[18px] xs:w-full lg:w-1/2 lg:text-right md:text-center font-medium my-5 ml-2 ${isDarkMode ? 'text-gray-300' : 'text-black'}`}>
+            <p className="inline">{language === "en" ? "Working with " : "Працює на серверах "}</p><a className="external-link text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer" href={referalLink} rel="nofollow">  {language === "en" ? "Hostinger" : "Hostinger"}</a>
           </div>
         </div>
       </footer>

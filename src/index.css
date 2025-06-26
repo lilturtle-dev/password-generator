@@ -9,6 +9,136 @@
   font-style: normal;
 }
 
+/* Dark mode styles */
+.dark {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark body {
+  background-color: #1a1a1a;
+  color: #ffffff;
+}
+
+.dark header {
+  background-color: #2d2d2d !important;
+  color: #ffffff;
+}
+
+.dark .bg-white {
+  background-color: #2d2d2d !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #3a3a3a !important;
+}
+
+.dark .bg-blue-50 {
+  background-color: #1e3a8a !important;
+}
+
+.dark .bg-green-50 {
+  background-color: #166534 !important;
+}
+
+.dark .text-gray-900 {
+  color: #ffffff !important;
+}
+
+.dark .text-[#071016] {
+  color: #ffffff !important;
+}
+
+.dark .text-[#2A4E63] {
+  color: #96DBFF !important;
+}
+
+.dark .border-[#E5F6FF] {
+  border-color: #374151 !important;
+}
+
+.dark .bg-[#E5F6FF] {
+  background-color: #1f2937 !important;
+}
+
+.dark .drop-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.5) !important;
+}
+
+.dark .border-2 {
+  border-color: #374151 !important;
+}
+
+.dark input {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+.dark input::placeholder {
+  color: #9ca3af !important;
+}
+
+.dark .MuiSlider-rail {
+  background-color: #374151 !important;
+}
+
+.dark .MuiSlider-track {
+  background-color: #96DBFF !important;
+}
+
+.dark .MuiSlider-thumb {
+  background-color: #96DBFF !important;
+}
+
+.dark .MuiCheckbox-root {
+  color: #96DBFF !important;
+}
+
+.dark .MuiCheckbox-root.Mui-checked {
+  color: #96DBFF !important;
+}
+
+.dark .MuiButton-root {
+  background-color: #2A4E63 !important;
+  color: #ffffff !important;
+}
+
+.dark .MuiButton-root:hover {
+  background-color: #1e3a8a !important;
+}
+
+.dark .MuiDrawer-paper {
+  background-color: #2d2d2d !important;
+  color: #ffffff !important;
+}
+
+.dark .MuiSelect-select {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+.dark .MuiMenuItem-root {
+  background-color: #374151 !important;
+  color: #ffffff !important;
+}
+
+.dark .MuiMenuItem-root:hover {
+  background-color: #4b5563 !important;
+}
+
+.dark .MuiInputLabel-root {
+  color: #9ca3af !important;
+}
+
+.dark .MuiFormControlLabel-label {
+  color: #ffffff !important;
+}
+
+/* Light mode styles (default) */
 .container.ua strong {
   font-weight: 700;
 }
