@@ -19,7 +19,7 @@
     "react-bootstrap": "^2.9.1",
     "react-dom": "^18.2.0",
     "react-gtm-module": "^2.0.11",
-    "react-helmet": "^6.1.0",
+    "react-helmet-async": "^2.0.5",
     "react-icons": "^4.11.0",
     "react-icons-kit": "^2.0.0",
     "react-rewards": "^2.1.0",

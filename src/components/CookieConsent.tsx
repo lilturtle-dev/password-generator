@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 import { run as cookieConsentRun, setLanguage as cookieConsentSetLanguage } from 'vanilla-cookieconsent';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import pluginConfig from './CookieConsentConfig';
@@ -23,32 +23,39 @@ const CookieConsentComponent = ({ language }) => {
 
   useEffect(() => {
     const effectiveLang = getEffectiveLanguage(language);
+    
     if (!isInitializedRef.current) {
-      // console.log('Ініціалізую cookie consent банер з мовою:', effectiveLang);
-      cookieConsentRun({
-        ...pluginConfig,
-        language: {
-          ...pluginConfig.language,
-          default: effectiveLang,
-        },
-      });
-      isInitializedRef.current = true;
-      prevLanguageRef.current = language;
-      return;
+      // Use setTimeout to defer initialization and avoid Strict Mode warnings
+      const timer = setTimeout(() => {
+        try {
+          cookieConsentRun({
+            ...pluginConfig,
+            language: {
+              ...pluginConfig.language,
+              default: effectiveLang,
+            },
+          });
+          isInitializedRef.current = true;
+          prevLanguageRef.current = language;
+        } catch (error) {
+          console.error('Failed to initialize cookie consent:', error);
+        }
+      }, 0);
+      
+      return () => clearTimeout(timer);
     }
+    
     const prevLanguage = prevLanguageRef.current;
     const isBannerVisible = !!document.querySelector('#cc-main');
+    
     if (language && prevLanguage && prevLanguage !== language && isBannerVisible) {
-      // console.log(`Змінюю мову з ${prevLanguage} на ${language} через cookieConsentSetLanguage`);
       try {
         cookieConsentSetLanguage(language);
-        // console.log('✅ Мова банера оновлена через setLanguage');
       } catch (error) {
-        // console.error('❌ Помилка при оновленні мови через setLanguage:', error);
+        console.error('Failed to update cookie consent language:', error);
       }
-    } else {
-      // console.log('Код НЕ зайшов у умову зміни мови');
     }
+    
     prevLanguageRef.current = language;
   }, [language]);
 

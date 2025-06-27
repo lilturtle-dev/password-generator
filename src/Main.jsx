@@ -1,36 +1,31 @@
-import React, { useState, useEffect, useCallback, useRef } from "react";
-import Button from "@mui/material/Button";
-import SeoText from "./SeoText";
-import HowToUse from "./HowToUse";
-import AboutUs from "./AboutUs";
-import AdBanner from "./Adbanner";
-import AdBannerSecond from "./AddbannerSecond";
-import Slider from "@mui/material/Slider";
+import React, { useState, useEffect, useCallback, useRef, useMemo, useContext } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import { ThemeContext } from "./App";
 import Header from "./Header";
 import Footer from "./Footer";
-import passwordImage from "./images/password.png";
-import refreash from "./images/refreash.png";
+import HowToUse from "./HowToUse";
+import AboutUs from "./AboutUs";
+import SeoText from "./SeoText";
+import SeoList from "./SeoList";
+import AdBanner from "./Adbanner";
+import AdBannerSecond from "./AddbannerSecond";
+import { Button, Slider, FormControlLabel, Checkbox, Snackbar } from "@mui/material";
+import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
-import Snackbar from "@mui/material/Snackbar";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
-import SeoList from "./SeoList";
-import zxcvbn from "zxcvbn";
-import { Helmet } from "react-helmet";
-import lang from "./lang.json";
-import { rankColor } from "./functions/RankColor";
-import { getStrengthWord } from "./functions/GetStrengthWord";
 import FileCopyIcon from "@mui/icons-material/FileCopy";
 import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import { useReward } from "react-rewards";
-import { useTheme } from "./App";
+import zxcvbn from "zxcvbn";
+import passwordImage from "./images/password.png";
+import refreash from "./images/refreash.png";
 import seoData from "./SeoData";
 import CookieConsentComponent from './components/CookieConsent';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
-import * as CookieConsent from 'vanilla-cookieconsent';
-import { run as cookieConsentRun } from 'vanilla-cookieconsent';
+import lang from "./lang.json";
+import { rankColor } from "./functions/RankColor";
+import { getStrengthWord } from "./functions/GetStrengthWord";
 
 const supportedLangs = ['en', 'ua', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'zh', 'ja'];
 
@@ -242,7 +237,6 @@ const AnimatedPassword = ({ length = 7 }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
   const [isBlinking, setIsBlinking] = useState(false);
-  const [blinkCount, setBlinkCount] = useState(0);
 
   useEffect(() => {
     const characters = [
@@ -281,20 +275,13 @@ const AnimatedPassword = ({ length = 7 }) => {
             } else {
               setIsComplete(true);
               setIsBlinking(true);
-              setBlinkCount(0);
               const blinkInterval = setInterval(() => {
-                setBlinkCount((prev) => {
-                  if (prev >= 5) {
-                    clearInterval(blinkInterval);
-                    setIsBlinking(false);
-                    setIsComplete(false);
-                    setCurrentChars(Array(length).fill("*"));
-                    setActiveIndex(0);
-                    return 0;
-                  }
-                  return prev + 1;
-                });
-              }, 800);
+                setIsBlinking(false);
+                setIsComplete(false);
+                setCurrentChars(Array(length).fill("*"));
+                setActiveIndex(0);
+                clearInterval(blinkInterval);
+              }, 4000);
             }
           }, 1000);
         }
@@ -320,8 +307,6 @@ const AnimatedPassword = ({ length = 7 }) => {
   );
 };
 
-const privacyPolicyUrl = "/privacy";
-
 const getEffectiveLanguage = (propLang) => {
   if (propLang && supportedLangs.includes(propLang)) return propLang;
   const browserLang = navigator.language.slice(0, 2);
@@ -330,7 +315,7 @@ const getEffectiveLanguage = (propLang) => {
 };
 
 export default function AppUniversal() {
-  const { isDarkMode } = useTheme();
+  const { isDarkMode } = useContext(ThemeContext);
   const [snackbars, setSnackbars] = useState([]);
   const [passwordLength, setPasswordLength] = useState(12);
   const [selectedCharacterSets, setSelectedCharacterSets] = useState([
@@ -344,6 +329,13 @@ export default function AppUniversal() {
   const [passwords, setPasswords] = useState([]);
   const maxquantity = 100;
   const mode = "production";
+
+  const characterSets = useMemo(() => ({
+    "A-Z": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
+    "a-z": "abcdefghijklmnopqrstuvwxyz",
+    "0-9": "0123456789",
+    "#$%": "!@#$%^&*()",
+  }), []);
 
   const handleQuantityChange = (event) => {
     setQuantity("");
@@ -364,13 +356,6 @@ export default function AppUniversal() {
     } else {
       setSelectedCharacterSets([...selectedCharacterSets, characterSet]);
     }
-  };
-
-  const characterSets = {
-    "A-Z": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
-    "a-z": "abcdefghijklmnopqrstuvwxyz",
-    "0-9": "0123456789",
-    "#$%": "!@#$%^&*()",
   };
 
   const GeneratePasswords = useCallback(() => {
@@ -457,33 +442,23 @@ export default function AppUniversal() {
     document.body.removeChild(link);
   };
 
-  const { reward: confettiReward } = useReward(
-    "centerReward",
-    "confetti",
-    {
-      elementCount: 120,
-      elementSize: 18,
-      spread: 160,
-      lifetime: 200,
-      zIndex: 9999,
-      position: "fixed",
-      fps: 60,
-    }
-  );
   const rewardTypes = ["confetti", "balloons", "emoji"];
-  const [currentRewardType, setCurrentRewardType] = useState(null);
   const rewardQueue = useRef([]);
+  const { reward } = useReward("centerReward", "confetti", {
+    elementCount: 100,
+    spread: 70,
+    lifetime: 200,
+    startVelocity: 35,
+  });
   const [isAnimating, setIsAnimating] = useState(false);
   const ANIMATION_DURATION = 250; // ms (lifetime + запас)
   const runReward = () => {
-    const type = rewardTypes[Math.floor(Math.random() * rewardTypes.length)];
     if (isAnimating) {
-      rewardQueue.current.push(type);
+      rewardQueue.current.push("confetti");
       return;
     }
-    setCurrentRewardType(type);
     setIsAnimating(true);
-    if (type === "confetti") confettiReward();
+    reward();
     setTimeout(() => {
       setIsAnimating(false);
       if (rewardQueue.current.length > 0) {

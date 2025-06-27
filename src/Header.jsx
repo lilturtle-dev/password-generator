@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Drawer from '@mui/material/Drawer';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -16,7 +16,7 @@ import { useNavigate } from "react-router-dom";
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
-import { useTheme } from './App';
+import { ThemeContext } from './App';
 import LogoDark from "./images/logo-dark.svg";
 import lang from './lang.json';
 
@@ -219,7 +219,7 @@ const languages = [
 
 const Header = ({ onLanguageChange }) => {
   const navigate = useNavigate();
-  const { isDarkMode, toggleTheme } = useTheme();
+  const { isDarkMode, toggleTheme } = useContext(ThemeContext);
   const [language, setLanguage] = useState(() => {
     const pathSegments = window.location.pathname.split("/");
     const languageFromURL = pathSegments[1];

@@ -1,7 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Logo from "./logo.svg";
 import LogoDark from "./images/logo-dark.svg";
-import { useTheme } from "./App";
+import { ThemeContext } from "./App";
 import lang from './lang.json';
 
 const referalLink = "https://hostinger.com.ua?REFERRALCODE=1098786";
@@ -94,7 +94,7 @@ function t(key, language) {
 
 const Footer = ({ language }) => {
   const currentYear = new Date().getFullYear();
-  const { isDarkMode } = useTheme();
+  const { isDarkMode } = useContext(ThemeContext);
 
   // Додаємо CSS стилі для посилань
   useEffect(() => {

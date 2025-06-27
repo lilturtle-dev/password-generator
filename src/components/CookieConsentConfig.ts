@@ -16,16 +16,16 @@ const pluginConfig: CookieConsentConfig = {
     },
   },
 
-  onFirstConsent: function () {
-    console.log('onFirstAction fired');
+  onFirstConsent: function ({ cookie }) {
+    // console.log('onFirstAction fired');
   },
 
   onConsent: function ({ cookie }) {
-    console.log('onConsent fired ...');
+    // console.log('onConsent fired ...');
   },
 
   onChange: function ({ changedCategories, cookie }) {
-    console.log('onChange fired ...');
+    // console.log('onChange fired ...');
   },
 
   categories: {
@@ -92,7 +92,7 @@ const pluginConfig: CookieConsentConfig = {
       ua: {
         consentModal: {
           title: "Ми цінуємо вашу приватність",
-          description: "Ми використовуємо cookie для покращення вашого досвіду, аналізу трафіку та маркетингу. Ви можете керувати своїми налаштуваннями. Детальніше у нашій Політиці конфіденційності.",
+          description: "Ми використовуємо cookie для покращення вашого досвіту, аналізу трафіку та маркетингу. Ви можете керувати своїми налаштуваннями. Детальніше у нашій Політиці конфіденційності.",
           acceptAllBtn: "Прийняти всі",
           acceptNecessaryBtn: "Відхилити всі, крім необхідних",
           showPreferencesBtn: "Налаштувати",
@@ -106,7 +106,7 @@ const pluginConfig: CookieConsentConfig = {
           sections: [
             {
               title: "Використання cookie",
-              description: "Ми використовуємо cookie для забезпечення базових функцій сайту та покращення вашого досвіду. Ви можете обирати для кожної категорії окремо.",
+              description: "Ми використовуємо cookie для забезпечення базових функцій сайту та покращення вашого досвіту. Ви можете обирати для кожної категорії окремо.",
             },
             {
               title: "Необхідні cookie",
