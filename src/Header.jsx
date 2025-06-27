@@ -268,6 +268,20 @@ const Header = ({ onLanguageChange }) => {
     };
   }, []);
 
+  // Додаю стилі для hamburger-dark
+  useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+      .hamburger-dark {
+        filter: invert(1) brightness(2) grayscale(1);
+      }
+    `;
+    document.head.appendChild(styleElement);
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
   const [state, setState] = React.useState({
     top: false,
 
@@ -340,7 +354,7 @@ const Header = ({ onLanguageChange }) => {
         
         <ListItem>
           <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
-            <span style={{ fontSize: '22px', fontWeight: 'bolder', color: 'black' }}>
+            <span style={{ fontSize: '22px', fontWeight: 400, color: isDarkMode ? '#fff' : 'black' }}>
               {language === 'en' ? 'Theme' : 'Тема'}
             </span>
              <IconButton 
@@ -431,7 +445,12 @@ const Header = ({ onLanguageChange }) => {
       <div className=" flex lg:hidden">
         {['top'].map((anchor) => (
           <React.Fragment key={anchor}>
-            <img src={hamburger} alt="Navigation menu toggle" onClick={toggleDrawer(anchor, true)} className=" cursor-pointer" />
+            <img 
+              src={hamburger} 
+              alt="Navigation menu toggle" 
+              onClick={toggleDrawer(anchor, true)} 
+              className={`cursor-pointer${isDarkMode ? ' hamburger-dark' : ''}`} 
+            />
             <Drawer
               anchor={anchor}
               open={state[anchor]}

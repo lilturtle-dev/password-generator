@@ -62,6 +62,7 @@ function PasswordRow({
   refreash,
   runReward,
   isAnimating,
+  isDarkMode
 }) {
   const disabledStyle = isAnimating
     ? { pointerEvents: "none", opacity: 0.5, cursor: "not-allowed" }
@@ -71,7 +72,10 @@ function PasswordRow({
       className="flex relative items-center flex-row lg:flex-row gap-2 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
       key={index}
     >
-      <div className="py-1 lg:px-4 w-[100%] lg:w-[80%] flex items-center h-16 border-2 border-[#E5F6FF] border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]">
+      <div
+        className={`${isDarkMode ? "border-none" : "border-[#E5F6FF]"} py-1 lg:px-4 w-[100%] lg:w-[80%] flex items-center border-2 h-14 border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]`}
+        style={isDarkMode ? { backgroundColor: "#2a4e63" } : {}}
+      >
         <input
           type="text"
           value={password || ""}
@@ -115,7 +119,7 @@ function PasswordRow({
         </div>
       </div>
       {/* For Mobile*/}
-      <div className="flex md:hidden items-center lg:justify-end justify-center flex-nowrap w-full h-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
+      <div className="flex md:hidden h-14 items-center lg:justify-end justify-center flex-nowrap w-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
           <button
             className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
             onClick={() => {
@@ -151,7 +155,7 @@ function PasswordRow({
         </div>
       <button
         disabled={password?.length < 1}
-        className="bg-[#2A4E63] w-[100%] -bottom-12 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] py-[12px]"
+        className="bg-[#2A4E63] w-[100%] -bottom-12 h-14 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] py-[12px]"
         style={
           password?.length < 1
             ? { cursor: "not-allowed" }
@@ -497,6 +501,7 @@ export default function AppUniversal() {
       refreash={refreash}
       runReward={runReward}
       isAnimating={isAnimating}
+      isDarkMode={isDarkMode}
     />
   ));
 
@@ -543,13 +548,13 @@ export default function AppUniversal() {
         {renderedSnackbars}
         <main className="w-full">
           <div className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#121212]" : "bg-[#E5F6FF]"}`}>
-            <h1 className="mx-1 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
+            <h1 className="mx-2 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
               {t("main_title", language)}
             </h1>
             <p className="text-center text-[22px] text-[#2A4E63] mx-2 mb-4">
               {t("main_subtitle", language)}
             </p>
-            <div className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? "bg-[#888]" : "bg-white"} drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}>
+            <div className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? "bg-[#1c1c1c]" : "bg-white"} drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}>
               <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                   <img src={passwordImage} alt="password" width={20} height={20} />
@@ -586,7 +591,7 @@ export default function AppUniversal() {
                   <label htmlFor="quantity" className="text-[16px] md:text-[22px] text-[#2A4E63]">
                     {t("quantity", language)}
                   </label>
-                  <input type="number" id="quantity" name="quantity" min="1" max={maxquantity} value={quantity} onChange={handleQuantityChange} className="border-2 border-[#E5F6FF] border-solid rounded-[18px] text-[#071016] text-[18px] md:text-[20px] py-3 md:py-5 px-3 outline-none w-full" />
+                  <input type="number" id="quantity" name="quantity" min="1" max={maxquantity} value={quantity} onChange={handleQuantityChange} className={`${isDarkMode ? "border-none" : "" } border-2 border-[#E5F6FF] border-solid rounded-[18px] text-[#071016] text-[18px] md:text-[20px] py-3 md:py-5 px-3 outline-none w-full`} />
                 </div>
               </div>
               <div className="flex gap-3 flex-wrap items-center mt-9 ">
