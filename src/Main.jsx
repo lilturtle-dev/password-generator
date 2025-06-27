@@ -113,7 +113,7 @@ function PasswordRow({
             }}
             src={refreash}
             alt="refresh"
-            className="flex mr-2 h-[15px] md:h-[20px]"
+            className={`${isDarkMode ? "invert brightness-0":""} flex mr-2 h-[15px] md:h-[20px]`}
             style={disabledStyle}
           />
         </div>
@@ -565,7 +565,7 @@ export default function AppUniversal() {
                 </p>
               </div>
               {/* bottom passaword lock */}
-              <div className={`${isDarkMode ? "bg-[#888]" : "bg-white"} absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}>
+              <div className={`${isDarkMode ? "bg-[#2d2d2d]" : "bg-white"} absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}>
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
                   <img src={passwordImage} alt="password" width={20} height={20} />
                 </div>
