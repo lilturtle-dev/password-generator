@@ -32,6 +32,8 @@ import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import * as CookieConsent from 'vanilla-cookieconsent';
 import { run as cookieConsentRun } from 'vanilla-cookieconsent';
 
+const supportedLangs = ['en', 'ua', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'zh', 'ja'];
+
 function t(key, language) {
   return lang[key] && lang[key][language] ? lang[key][language] : key;
 }
@@ -319,8 +321,6 @@ const AnimatedPassword = ({ length = 7 }) => {
 };
 
 const privacyPolicyUrl = "/privacy";
-
-const supportedLangs = ['en', 'ua', 'es', 'fr'];
 
 const getEffectiveLanguage = (propLang) => {
   if (propLang && supportedLangs.includes(propLang)) return propLang;

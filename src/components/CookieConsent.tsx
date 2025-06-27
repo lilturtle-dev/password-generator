@@ -3,7 +3,7 @@ import { run as cookieConsentRun, setLanguage as cookieConsentSetLanguage } from
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import pluginConfig from './CookieConsentConfig';
 
-const supportedLangs = ['en', 'ua', 'es', 'fr'];
+const supportedLangs = ['en', 'ua', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'zh', 'ja'];
 
 const getEffectiveLanguage = (propLang) => {
   if (propLang && supportedLangs.includes(propLang)) return propLang;

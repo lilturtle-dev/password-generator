@@ -53,9 +53,7 @@ const AboutUs = ({ language }) => {
                                 {t('aboutus_why_title', language)}
                             </h4>
                             <p className="text-[16px] text-[#071016] mb-3" dangerouslySetInnerHTML={{ __html: t('aboutus_why_1', language) }} />
-                            <p className="text-[16px] text-[#071016]">
-                                {t('aboutus_why_2', language)}
-                            </p>
+                            <p className="text-[16px] text-[#071016]" dangerouslySetInnerHTML={{ __html: t('aboutus_why_2', language) }} />
                         </div>
                     </div>
                 </div>

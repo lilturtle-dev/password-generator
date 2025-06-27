@@ -209,6 +209,12 @@ const languages = [
   { label: 'Українська', value: 'ua', flag: <Flag code="804" width={32} /> },
   { label: 'Español', value: 'es', flag: <Flag code="724" width={32} /> },
   { label: 'Français', value: 'fr', flag: <Flag code="250" width={32} /> },
+  { label: 'Deutsch', value: 'de', flag: <Flag code="276" width={32} /> },
+  { label: 'Italiano', value: 'it', flag: <Flag code="380" width={32} /> },
+  { label: 'Português', value: 'pt', flag: <Flag code="620" width={32} /> },
+  { label: 'Русский', value: 'ru', flag: <Flag code="643" width={32} /> },
+  { label: '中文', value: 'zh', flag: <Flag code="156" width={32} /> },
+  { label: '日本語', value: 'ja', flag: <Flag code="392" width={32} /> },
 ];
 
 const Header = ({ onLanguageChange }) => {
@@ -218,7 +224,10 @@ const Header = ({ onLanguageChange }) => {
     const pathSegments = window.location.pathname.split("/");
     const languageFromURL = pathSegments[1];
 
-    if (languageFromURL === "en" || languageFromURL === "ua") {
+    // Список підтримуваних мов
+    const supportedLanguages = ["en", "ua", "es", "fr", "de", "it", "pt", "ru", "zh", "ja"];
+    
+    if (supportedLanguages.includes(languageFromURL)) {
       return languageFromURL;
     }
 
@@ -230,11 +239,11 @@ const Header = ({ onLanguageChange }) => {
     // Map "uk" to "ua", otherwise return the language code
     const mappedLanguageCode = languageCode === "uk" ? "ua" : languageCode;
 
-    // Check if the language is "en" or "ua", otherwise, return a default language
-    if (mappedLanguageCode === "en" || mappedLanguageCode === "ua") {
+    // Check if the language is supported, otherwise return default
+    if (supportedLanguages.includes(mappedLanguageCode)) {
       return mappedLanguageCode;
     } else {
-      // You can set a default language here if needed
+      // Default to English
       return "en";
     }
   });
@@ -348,7 +357,16 @@ const Header = ({ onLanguageChange }) => {
         <Divider />
         <ListItem>
           <InputLabel id="language-select-label" sx={{ width: '100%' }}>
-            {language === 'en' ? 'Choose language' : 'Виберіть мову'}
+            {language === 'en' ? 'Choose language' : 
+             language === 'ua' ? 'Виберіть мову' :
+             language === 'es' ? 'Elegir idioma' :
+             language === 'fr' ? 'Choisir la langue' :
+             language === 'de' ? 'Sprache wählen' :
+             language === 'it' ? 'Scegli lingua' :
+             language === 'pt' ? 'Escolher idioma' :
+             language === 'ru' ? 'Выберите язык' :
+             language === 'zh' ? '选择语言' :
+             language === 'ja' ? '言語を選択' : 'Choose language'}
           </InputLabel>
           <Select
             labelId="language-select-label"
@@ -375,7 +393,16 @@ const Header = ({ onLanguageChange }) => {
         <ListItem>
           <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
             <span style={{ fontSize: '22px', fontWeight: 400, color: isDarkMode ? '#fff' : 'black' }}>
-              {language === 'en' ? 'Theme' : 'Тема'}
+              {language === 'en' ? 'Theme' : 
+               language === 'ua' ? 'Тема' :
+               language === 'es' ? 'Tema' :
+               language === 'fr' ? 'Thème' :
+               language === 'de' ? 'Thema' :
+               language === 'it' ? 'Tema' :
+               language === 'pt' ? 'Tema' :
+               language === 'ru' ? 'Тема' :
+               language === 'zh' ? '主题' :
+               language === 'ja' ? 'テーマ' : 'Theme'}
             </span>
              <IconButton 
               onClick={toggleTheme} 
@@ -460,6 +487,12 @@ const Header = ({ onLanguageChange }) => {
         <option value="ua">Українська</option>
         <option value="es">Español</option>
         <option value="fr">Français</option>
+        <option value="de">Deutsch</option>
+        <option value="it">Italiano</option>
+        <option value="pt">Português</option>
+        <option value="ru">Русский</option>
+        <option value="zh">中文</option>
+        <option value="ja">日本語</option>
       </select>
 
       <div className=" flex lg:hidden">

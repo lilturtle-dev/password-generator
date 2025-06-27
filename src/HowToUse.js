@@ -65,10 +65,10 @@ function HowToUse(props) {
                                 {t('howtouse_best_practices', language)}
                             </h4>
                             <ul className="text-[16px] text-[#071016] space-y-1">
-                                <li>• {t('howtouse_best1', language)}</li>
-                                <li>• {t('howtouse_best2', language)}</li>
-                                <li>• {t('howtouse_best3', language)}</li>
-                                <li>• {t('howtouse_best4', language)}</li>
+                                <li>• <span dangerouslySetInnerHTML={{ __html: t('howtouse_best1', language) }} /></li>
+                                <li>• <span dangerouslySetInnerHTML={{ __html: t('howtouse_best2', language) }} /></li>
+                                <li>• <span dangerouslySetInnerHTML={{ __html: t('howtouse_best3', language) }} /></li>
+                                <li>• <span dangerouslySetInnerHTML={{ __html: t('howtouse_best4', language) }} /></li>
                             </ul>
                         </div>
                     </div>
