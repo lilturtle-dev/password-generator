@@ -1,0 +1,555 @@
+{
+  "main_title": {
+    "ua": "Потрібен унікальний, безпечний Пароль?",
+    "en": "Need a Unique, Secure Password?",
+    "es": "¿Necesitas una contraseña única y segura?",
+    "fr": "Besoin d'un mot de passe unique et sécurisé ?"
+  },
+  "main_subtitle": {
+    "ua": "За допомогою 'Згенерувати пароль для мене' ви легко створите надійний пароль.",
+    "en": "With 'Generate Password To Me' you can create strong passwords easily.",
+    "es": "Con 'Generar contraseña para mí' puedes crear contraseñas seguras fácilmente.",
+    "fr": "Avec 'Générer un mot de passe pour moi', vous pouvez créer facilement des mots de passe forts."
+  },
+  "generate": {
+    "ua": "Генерувати",
+    "en": "Generate",
+    "es": "Generar",
+    "fr": "Générer"
+  },
+  "generate_short": {
+    "ua": "Генерувати",
+    "en": "Generate",
+    "es": "Generar",
+    "fr": "Générer"
+  },
+  "copy": {
+    "ua": "Копіювати",
+    "en": "Copy",
+    "es": "Copiar",
+    "fr": "Copier"
+  },
+  "copy_all": {
+    "ua": "Копіювати всі",
+    "en": "Copy All",
+    "es": "Copiar todo",
+    "fr": "Tout copier"
+  },
+  "download_all": {
+    "ua": "Завантажити всі",
+    "en": "Download All",
+    "es": "Descargar todo",
+    "fr": "Tout télécharger"
+  },
+  "password_length": {
+    "ua": "Довжина пароля:",
+    "en": "Password Length:",
+    "es": "Longitud de la contraseña:",
+    "fr": "Longueur du mot de passe :"
+  },
+  "snackbar_copied": {
+    "ua": "Пароль успішно скопійовано",
+    "en": "Password copied successfully",
+    "es": "Contraseña copiada con éxito",
+    "fr": "Mot de passe copié avec succès"
+  },
+  "snackbar_all_copied": {
+    "ua": "Усі паролі успішно скопійовано",
+    "en": "All passwords copied successfully",
+    "es": "Todas las contraseñas copiadas con éxito",
+    "fr": "Tous les mots de passe ont été copiés avec succès"
+  },
+  "strength": {
+    "ua": "Надійність:",
+    "en": "Strength:",
+    "es": "Fortaleza:",
+    "fr": "Robustesse :"
+  },
+  "time_to_crack": {
+    "ua": "На злам може знадобитися:",
+    "en": "Time to crack:",
+    "es": "Tiempo para descifrar:",
+    "fr": "Temps pour craquer :"
+  },
+  "quantity": {
+    "ua": "Кількість",
+    "en": "Quantity",
+    "es": "Cantidad",
+    "fr": "Quantité"
+  },
+  "ua": "UA",
+  "en": "EN",
+  "es": "ES",
+  "fr": "FR",
+  "aboutus_title": {
+    "ua": "Про нас:",
+    "en": "About Us:",
+    "es": "Sobre nosotros:",
+    "fr": "À propos de nous :"
+  },
+  "aboutus_who_we_are": {
+    "ua": "Хто ми",
+    "en": "Who We Are",
+    "es": "Quiénes somos",
+    "fr": "Qui sommes-nous"
+  },
+  "aboutus_intro": {
+    "ua": "Ласкаво просимо на нашу платформу, де ми присвячені наданню вам <strong>безпечних рішень</strong> для ваших <strong>цифрових потреб</strong>. Наша місія - допомогти вам легко та з впевненістю орієнтуватися в складному <strong>цифровому світі</strong>.",
+    "en": "Welcome to our platform, where we are dedicated to providing you with <strong>secure solutions</strong> for your <strong>digital needs</strong>. Our mission is to assist you in navigating the complex <strong>digital landscape</strong> with ease and confidence.",
+    "es": "Bienvenido a nuestra plataforma, donde nos dedicamos a brindarte <strong>soluciones seguras</strong> para tus <strong>necesidades digitales</strong>. Nuestra misión es ayudarte a navegar el complejo <strong>mundo digital</strong> con facilidad y confianza.",
+    "fr": "Bienvenue sur notre plateforme, où nous nous engageons à vous fournir des <strong>solutions sécurisées</strong> pour vos <strong>besoins numériques</strong>. Notre mission est de vous aider à naviguer dans le <strong>monde numérique</strong> complexe avec aisance et confiance."
+  },
+  "aboutus_team": {
+    "ua": "Ми - команда відданих <strong>професіоналів</strong> з пасією до <strong>технологій</strong> і зобов'язанням до вашої <strong>безпеки</strong>. Ми розуміємо важливість захисту вашої <strong>онлайн-присутності</strong>, і саме тому ми пропонуємо низку <strong>інструментів</strong> та <strong>ресурсів</strong>, щоб вам допомогти досягти цієї мети.",
+    "en": "We are a team of dedicated <strong>professionals</strong> with a passion for <strong>technology</strong> and a commitment to your <strong>security</strong>. We understand the importance of protecting your <strong>online presence</strong>, and that's why we offer a range of <strong>tools</strong> and <strong>resources</strong> to help you achieve that goal.",
+    "es": "Somos un equipo de <strong>profesionales dedicados</strong> con pasión por la <strong>tecnología</strong> y compromiso con tu <strong>seguridad</strong>. Entendemos la importancia de proteger tu <strong>presencia en línea</strong>, por eso ofrecemos una variedad de <strong>herramientas</strong> y <strong>recursos</strong> para ayudarte a lograr ese objetivo.",
+    "fr": "Nous sommes une équipe de <strong>professionnels dévoués</strong> passionnés par la <strong>technologie</strong> et engagés pour votre <strong>sécurité</strong>. Nous comprenons l'importance de protéger votre <strong>présence en ligne</strong>, c'est pourquoi nous proposons une gamme d'<strong>outils</strong> et de <strong>ressources</strong> pour vous aider à atteindre cet objectif."
+  },
+  "aboutus_mission_title": {
+    "ua": "Наша місія:",
+    "en": "Our Mission:",
+    "es": "Nuestra misión:",
+    "fr": "Notre mission :"
+  },
+  "aboutus_mission": {
+    "ua": "Надавати безпечні, надійні та зручні інструменти, які захищають вашу цифрову ідентичність та покращують вашу онлайн-безпеку.",
+    "en": "To provide secure, reliable, and user-friendly tools that protect your digital identity and enhance your online security.",
+    "es": "Proporcionar herramientas seguras, fiables y fáciles de usar que protejan tu identidad digital y mejoren tu seguridad en línea.",
+    "fr": "Fournir des outils sûrs, fiables et conviviaux qui protègent votre identité numérique et renforcent votre sécurité en ligne."
+  },
+  "aboutus_offer_title": {
+    "ua": "Що ми пропонуємо",
+    "en": "What We Offer",
+    "es": "Qué ofrecemos",
+    "fr": "Ce que nous offrons"
+  },
+  "aboutus_offer_1": {
+    "ua": "<strong>Генерація надійних паролів</strong>: Наш <strong>генератор паролів</strong> забезпечує захист ваших <strong>онлайн-акаунтів</strong> сильними та <strong>унікальними паролями</strong>.",
+    "en": "<strong>Secure Password Generation</strong>: Our <strong>password generator</strong> ensures that your <strong>online accounts</strong> are protected with <strong>strong and unique passwords</strong>.",
+    "es": "<strong>Generación de contraseñas seguras</strong>: Nuestro <strong>generador de contraseñas</strong> garantiza que tus <strong>cuentas en línea</strong> estén protegidas con <strong>contraseñas fuertes y únicas</strong>.",
+    "fr": "<strong>Génération de mots de passe sécurisés</strong> : Notre <strong>générateur de mots de passe</strong> garantit que vos <strong>comptes en ligne</strong> sont protégés par des <strong>mots de passe forts et uniques</strong>."
+  },
+  "aboutus_offer_2": {
+    "ua": "<strong>Шифрування даних</strong>: Ми надаємо <strong>рішення з шифрування</strong>, щоб зберегти ваші <strong>чутливі дані</strong> від пильних очей.",
+    "en": "<strong>Data Encryption</strong>: We provide <strong>encryption solutions</strong> to keep your <strong>sensitive data</strong> safe from prying eyes.",
+    "es": "<strong>Cifrado de datos</strong>: Ofrecemos <strong>soluciones de cifrado</strong> para mantener tus <strong>datos sensibles</strong> a salvo de miradas indiscretas.",
+    "fr": "<strong>Chiffrement des données</strong> : Nous proposons des <strong>solutions de chiffrement</strong> pour garder vos <strong>données sensibles</strong> à l'abri des regards indiscrets."
+  },
+  "aboutus_offer_3": {
+    "ua": "<strong>Ресурси з кібербезпеки</strong>: Будьте в курсі останніх <strong>тенденцій кібербезпеки</strong> та <strong>кращих практик</strong>.",
+    "en": "<strong>Cybersecurity Resources</strong>: Stay informed and up-to-date on the latest <strong>cybersecurity trends</strong> and <strong>best practices</strong>.",
+    "es": "<strong>Recursos de ciberseguridad</strong>: Mantente informado y actualizado sobre las últimas <strong>tendencias en ciberseguridad</strong> y <strong>mejores prácticas</strong>.",
+    "fr": "<strong>Ressources en cybersécurité</strong> : Restez informé et à jour sur les dernières <strong>tendances en cybersécurité</strong> et les <strong>meilleures pratiques</strong>."
+  },
+  "aboutus_why_title": {
+    "ua": "Чому обирають нас:",
+    "en": "Why Choose Us:",
+    "es": "Por qué elegirnos:",
+    "fr": "Pourquoi nous choisir :"
+  },
+  "aboutus_why_1": {
+    "ua": "В центрі нашої діяльності - ваша <strong>безпека</strong> та <strong>конфіденційність</strong>. Наші <strong>інструменти</strong> розроблені з урахуванням вашого <strong>захисту</strong>.",
+    "en": "At our core, we value your <strong>security</strong> and <strong>privacy</strong> above all else. Our <strong>tools</strong> are designed with your <strong>protection</strong> in mind.",
+    "es": "En el centro de nuestra actividad está tu <strong>seguridad</strong> y <strong>privacidad</strong>. Nuestras <strong>herramientas</strong> están diseñadas pensando en tu <strong>protección</strong>.",
+    "fr": "Au cœur de notre activité, nous valorisons votre <strong>sécurité</strong> et votre <strong>confidentialité</strong> avant tout. Nos <strong>outils</strong> sont conçus pour votre <strong>protection</strong>."
+  },
+  "aboutus_why_2": {
+    "ua": "Приєднуйтеся до нас у подорожі до безпечнішого та більш захищеного цифрового світу.",
+    "en": "Join us in the journey to a safer and more secure digital world.",
+    "es": "Únete a nosotros en el camino hacia un mundo digital más seguro y protegido.",
+    "fr": "Rejoignez-nous dans le voyage vers un monde numérique plus sûr et plus sécurisé."
+  },
+  "howtouse_title": {
+    "ua": "Як використовувати:",
+    "en": "How to Use:",
+    "es": "Cómo usar:",
+    "fr": "Comment utiliser :"
+  },
+  "howtouse_simple_steps": {
+    "ua": "Прості кроки",
+    "en": "Simple Steps",
+    "es": "Pasos sencillos",
+    "fr": "Étapes simples"
+  },
+  "howtouse_intro": {
+    "ua": "Використання <strong>генератора паролів</strong> просте. Просто слідуйте цим крокам:",
+    "en": "Using the <strong>password generator</strong> is simple. Just follow these steps:",
+    "es": "Usar el <strong>generador de contraseñas</strong> es sencillo. Solo sigue estos pasos:",
+    "fr": "L'utilisation du <strong>générateur de mots de passe</strong> est simple. Suivez simplement ces étapes :"
+  },
+  "howtouse_step1": {
+    "ua": "Натисніть кнопку \"<strong>Згенерувати пароль</strong>\".",
+    "en": "Click on the \"<strong>Generate Password</strong>\" button.",
+    "es": "Haz clic en el botón \"<strong>Generar contraseña</strong>\".",
+    "fr": "Cliquez sur le bouton \"<strong>Générer le mot de passe</strong>\"."
+  },
+  "howtouse_step2": {
+    "ua": "Налаштуйте свій пароль, вибравши бажану <strong>довжину</strong> та включивши <strong>спеціальні символи</strong>, <strong>цифри</strong> та <strong>великі літери</strong>.",
+    "en": "Customize your password by selecting the desired <strong>length</strong> and including <strong>special characters</strong>, <strong>numbers</strong>, and <strong>uppercase letters</strong>.",
+    "es": "Personaliza tu contraseña seleccionando la <strong>longitud</strong> deseada e incluyendo <strong>caracteres especiales</strong>, <strong>números</strong> y <strong>mayúsculas</strong>.",
+    "fr": "Personnalisez votre mot de passe en sélectionnant la <strong>longueur</strong> souhaitée et en incluant des <strong>caractères spéciaux</strong>, des <strong>chiffres</strong> et des <strong>lettres majuscules</strong>."
+  },
+  "howtouse_step3": {
+    "ua": "Натисніть \"<strong>Згенерувати</strong>\", і ваш <strong>безпечний пароль</strong> буде створений миттєво.",
+    "en": "Click \"<strong>Generate</strong>,\" and your <strong>secure password</strong> will be generated instantly.",
+    "es": "Haz clic en \"<strong>Generar</strong>\" y tu <strong>contraseña segura</strong> se generará al instante.",
+    "fr": "Cliquez sur \"<strong>Générer</strong>\" et votre <strong>mot de passe sécurisé</strong> sera généré instantanément."
+  },
+  "howtouse_what_you_get": {
+    "ua": "Що ви отримуєте:",
+    "en": "What You Get:",
+    "es": "Qué obtienes:",
+    "fr": "Ce que vous obtenez :"
+  },
+  "howtouse_benefit1": {
+    "ua": "Міцні, унікальні паролі",
+    "en": "Strong, unique passwords",
+    "es": "Contraseñas fuertes y únicas",
+    "fr": "Mots de passe forts et uniques"
+  },
+  "howtouse_benefit2": {
+    "ua": "Налаштовувана довжина",
+    "en": "Customizable length",
+    "es": "Longitud personalizable",
+    "fr": "Longueur personnalisable"
+  },
+  "howtouse_benefit3": {
+    "ua": "Різні типи символів",
+    "en": "Multiple character types",
+    "es": "Varios tipos de caracteres",
+    "fr": "Types de caractères multiples"
+  },
+  "howtouse_benefit4": {
+    "ua": "Миттєва генерація",
+    "en": "Instant generation",
+    "es": "Generación instantánea",
+    "fr": "Génération instantanée"
+  },
+  "howtouse_benefit5": {
+    "ua": "Копіювання в буфер обміну",
+    "en": "Copy to clipboard",
+    "es": "Copiar al portapapeles",
+    "fr": "Copier dans le presse-papiers"
+  },
+  "howtouse_security_tips": {
+    "ua": "Поради щодо безпеки",
+    "en": "Security Tips",
+    "es": "Consejos de seguridad",
+    "fr": "Conseils de sécurité"
+  },
+  "howtouse_security_tips_title": {
+    "ua": "<strong>Поради щодо безпеки</strong>:",
+    "en": "<strong>Security Tips</strong>:",
+    "es": "<strong>Consejos de seguridad</strong>:",
+    "fr": "<strong>Conseils de sécurité</strong> :"
+  },
+  "howtouse_tip1": {
+    "ua": "Ніколи не використовуйте один і той же <strong>пароль</strong> для кількох <strong>акаунтів</strong>.",
+    "en": "Never use the same <strong>password</strong> for multiple <strong>accounts</strong>.",
+    "es": "Nunca uses la misma <strong>contraseña</strong> para varias <strong>cuentas</strong>.",
+    "fr": "N'utilisez jamais le même <strong>mot de passe</strong> pour plusieurs <strong>comptes</strong>."
+  },
+  "howtouse_tip2": {
+    "ua": "Регулярно змінюйте свої <strong>паролі</strong>.",
+    "en": "Change your <strong>passwords</strong> regularly.",
+    "es": "Cambia tus <strong>contraseñas</strong> regularmente.",
+    "fr": "Changez régulièrement vos <strong>mots de passe</strong>."
+  },
+  "howtouse_tip3": {
+    "ua": "Зберігайте свої <strong>паролі</strong> в <strong>безпечному</strong> та <strong>зашифрованому менеджері паролів</strong>.",
+    "en": "Store your <strong>passwords</strong> in a <strong>secure</strong> and <strong>encrypted password manager</strong>.",
+    "es": "Guarda tus <strong>contraseñas</strong> en un <strong>gestor de contraseñas seguro</strong> y <strong>cifrado</strong>.",
+    "fr": "Stockez vos <strong>mots de passe</strong> dans un <strong>gestionnaire de mots de passe sécurisé</strong> et <strong>chiffré</strong>."
+  },
+  "howtouse_tip4": {
+    "ua": "Уникайте використання легко <strong>вгадуваної інформації</strong>, як ваше ім'я або дата народження.",
+    "en": "Avoid using easily <strong>guessable information</strong>, like your name or birthdate.",
+    "es": "Evita usar información <strong>fácil de adivinar</strong>, como tu nombre o fecha de nacimiento.",
+    "fr": "Évitez d'utiliser des <strong>informations faciles à deviner</strong>, comme votre nom ou votre date de naissance."
+  },
+  "howtouse_protect": {
+    "ua": "Захистіть свою <strong>онлайн-присутність</strong>, створюючи <strong>міцні та унікальні паролі</strong> за допомогою нашого <strong>генератора паролів</strong>.",
+    "en": "Protect your <strong>online presence</strong> by creating <strong>strong and unique passwords</strong> with our <strong>password generator</strong>.",
+    "es": "Protege tu <strong>presencia en línea</strong> creando <strong>contraseñas fuertes y únicas</strong> con nuestro <strong>generador de contraseñas</strong>.",
+    "fr": "Protégez votre <strong>présence en ligne</strong> en créant <strong>des mots de passe forts et uniques</strong> avec notre <strong>générateur de mots de passe</strong>."
+  },
+  "howtouse_best_practices": {
+    "ua": "Найкращі практики:",
+    "en": "Best Practices:",
+    "es": "Mejores prácticas:",
+    "fr": "Meilleures pratiques :"
+  },
+  "howtouse_best1": {
+    "ua": "Використовуйте щонайменше 12 символів",
+    "en": "Use at least 12 characters",
+    "es": "Utiliza al menos 12 caracteres",
+    "fr": "Utilisez au moins 12 caractères"
+  },
+  "howtouse_best2": {
+    "ua": "Включіть різні типи символів",
+    "en": "Include mixed character types",
+    "es": "Incluye diferentes tipos de caracteres",
+    "fr": "Incluez différents types de caractères"
+  },
+  "howtouse_best3": {
+    "ua": "Уникайте поширених патернів",
+    "en": "Avoid common patterns",
+    "es": "Evita patrones comunes",
+    "fr": "Évitez les schémas courants"
+  },
+  "howtouse_best4": {
+    "ua": "Регулярно оновлюйте паролі",
+    "en": "Update passwords regularly",
+    "es": "Actualiza las contraseñas regularmente",
+    "fr": "Mettez à jour vos mots de passe régulièrement"
+  },
+  "seotext_title": {
+    "ua": "Ласкаво просимо до Створення пароля онлайн!",
+    "en": "Welcome to Generate Password To Me!",
+    "es": "¡Bienvenido a Generar Contraseña Para Mí!",
+    "fr": "Bienvenue sur Générer un mot de passe pour moi !"
+  },
+  "seotext_intro1": {
+    "ua": "Ми тут, щоб надати вам <strong>безпечний</strong> і <strong>надійний</strong> спосіб створення <strong>надійних паролів</strong>.",
+    "en": "We are here to provide you with a <strong>secure</strong> and <strong>reliable</strong> way to generate <strong>strong passwords</strong>.",
+    "es": "Estamos aquí para ofrecerte una forma <strong>segura</strong> y <strong>fiable</strong> de generar <strong>contraseñas fuertes</strong>.",
+    "fr": "Nous sommes ici pour vous offrir un moyen <strong>sûr</strong> et <strong>fiable</strong> de générer des <strong>mots de passe forts</strong>."
+  },
+  "seotext_intro2": {
+    "ua": "Оскільки загрози <strong>кібератак</strong> і <strong>витоку даних</strong> постійно зростають, дуже важливо мати <strong>надійний пароль</strong>, який зможе захистити вашу <strong>конфіденційну інформацію</strong>. Наш <strong>онлайн-генератор паролів</strong> пропонує просте та ефективне рішення.",
+    "en": "With the ever-increasing threats of <strong>cyber attacks</strong> and <strong>data breaches</strong>, it's crucial to have a <strong>robust password</strong> that can protect your <strong>sensitive information</strong>. Our <strong>online password generator</strong> offers a simple and effective solution.",
+    "es": "Con las crecientes amenazas de <strong>ciberataques</strong> y <strong>filtraciones de datos</strong>, es fundamental tener una <strong>contraseña robusta</strong> que pueda proteger tu <strong>información sensible</strong>. Nuestro <strong>generador de contraseñas en línea</strong> ofrece una solución simple y eficaz.",
+    "fr": "Avec la multiplication des <strong>cyberattaques</strong> et des <strong>fuites de données</strong>, il est crucial d'avoir un <strong>mot de passe robuste</strong> pour protéger vos <strong>informations sensibles</strong>. Notre <strong>générateur de mots de passe en ligne</strong> offre une solution simple et efficace."
+  },
+  "seotext_why_title": {
+    "ua": "Чому варто вибрати наш генератор паролів?",
+    "en": "Why choose our password generator?",
+    "es": "¿Por qué elegir nuestro generador de contraseñas?",
+    "fr": "Pourquoi choisir notre générateur de mots de passe ?"
+  },
+  "seotext_why1": {
+    "ua": "Перш за все, ми надаємо пріоритет вашій <strong>безпеці</strong>. Наш <strong>алгоритм</strong> гарантує, що згенеровані паролі є надійними, і їх практично неможливо вгадати. Ми враховуємо різні чинники, такі як <strong>довжина пароля</strong>, <strong>складність</strong> і включення <strong>цифр</strong>, <strong>символів</strong>, а також <strong>великих і малих літер</strong>.",
+    "en": "First and foremost, we prioritize your <strong>security</strong>. Our <strong>algorithm</strong> ensures that the passwords generated are highly <strong>secure</strong> and virtually impossible to guess. We take into account various factors, such as <strong>password length</strong>, <strong>complexity</strong>, and the inclusion of <strong>numbers</strong>, <strong>symbols</strong>, and <strong>uppercase and lowercase letters</strong>.",
+    "es": "Ante todo, priorizamos tu <strong>seguridad</strong>. Nuestro <strong>algoritmo</strong> garantiza que las contraseñas generadas sean altamente <strong>seguras</strong> y prácticamente imposibles de adivinar. Tenemos en cuenta varios factores, como la <strong>longitud de la contraseña</strong>, la <strong>complejidad</strong> y la inclusión de <strong>números</strong>, <strong>símbolos</strong> y <strong>mayúsculas y minúsculas</strong>.",
+    "fr": "Avant tout, nous privilégions votre <strong>sécurité</strong>. Notre <strong>algorithme</strong> garantit que les mots de passe générés sont très <strong>sûrs</strong> et pratiquement impossibles à deviner. Nous prenons en compte divers facteurs, tels que la <strong>longueur du mot de passe</strong>, la <strong>complexité</strong> et l'inclusion de <strong>chiffres</strong>, <strong>symboles</strong> et de <strong>lettres majuscules et minuscules</strong>."
+  },
+  "seotext_why2": {
+    "ua": "Наш <strong>інструмент генерації паролів</strong> створює <strong>унікальні паролі</strong>, які є <strong>криптографічно безпечними</strong>. Кожен згенерований пароль є <strong>випадковим</strong> і відповідає <strong>найкращим практикам безпеки</strong>. Чи потрібен вам <strong>простий пароль</strong> або <strong>складний пароль</strong>, наш генератор адаптується до ваших потреб.",
+    "en": "Our <strong>password generator tool</strong> creates <strong>unique passwords</strong> that are <strong>cryptographically secure</strong>. Each generated password is <strong>random</strong> and follows <strong>best security practices</strong>. Whether you need a <strong>simple password</strong> or a <strong>complex password</strong>, our generator adapts to your needs.",
+    "es": "Nuestra <strong>herramienta generadora de contraseñas</strong> crea <strong>contraseñas únicas</strong> que son <strong>criptográficamente seguras</strong>. Cada contraseña generada es <strong>aleatoria</strong> y sigue las <strong>mejores prácticas de seguridad</strong>. Ya sea que necesites una <strong>contraseña simple</strong> o una <strong>contraseña compleja</strong>, nuestro generador se adapta a tus necesidades.",
+    "fr": "Notre <strong>outil de génération de mots de passe</strong> crée des <strong>mots de passe uniques</strong> qui sont <strong>cryptographiquement sûrs</strong>. Chaque mot de passe généré est <strong>aléatoire</strong> et suit les <strong>meilleures pratiques de sécurité</strong>. Que vous ayez besoin d'un <strong>mot de passe simple</strong> ou <strong>complexe</strong>, notre générateur s'adapte à vos besoins."
+  },
+  "seotext_features_title": {
+    "ua": "Ключові особливості:",
+    "en": "Key Features:",
+    "es": "Características clave:",
+    "fr": "Fonctionnalités clés :"
+  },
+  "seotext_feature1": {
+    "ua": "Передові алгоритми шифрування",
+    "en": "Advanced encryption algorithms",
+    "es": "Algoritmos de cifrado avanzados",
+    "fr": "Algorithmes de chiffrement avancés"
+  },
+  "seotext_feature2": {
+    "ua": "Налаштовувана довжина пароля",
+    "en": "Customizable password length",
+    "es": "Longitud de contraseña personalizable",
+    "fr": "Longueur de mot de passe personnalisable"
+  },
+  "seotext_feature3": {
+    "ua": "Різні типи символів",
+    "en": "Multiple character types",
+    "es": "Varios tipos de caracteres",
+    "fr": "Types de caractères multiples"
+  },
+  "seotext_feature4": {
+    "ua": "Миттєва генерація",
+    "en": "Instant generation",
+    "es": "Generación instantánea",
+    "fr": "Génération instantanée"
+  },
+  "seotext_feature5": {
+    "ua": "Без зберігання даних",
+    "en": "No data storage",
+    "es": "Sin almacenamiento de datos",
+    "fr": "Aucun stockage de données"
+  },
+  "seolist_title": {
+    "ua": "Найкращий Посібник з Створення Сильних та Безпечних Паролів: Поради та Інструменти для Онлайн Безпеки",
+    "en": "Ultimate Guide to Creating Strong and Secure Passwords: Tips and Tools for Online Safety",
+    "es": "Guía definitiva para crear contraseñas fuertes y seguras: Consejos y herramientas para la seguridad en línea",
+    "fr": "Guide ultime pour créer des mots de passe forts et sécurisés : Conseils et outils pour la sécurité en ligne"
+  },
+  "seolist_intro1": {
+    "ua": "У сучасному цифровому світі <strong>безпека паролів</strong> важливіша, ніж будь-коли. Оскільки кіберзагрози постійно еволюціонують, наявність <strong>міцних паролів</strong> є вашою першою лінією захисту від несанкціонованого доступу до ваших особистих та професійних облікових записів.",
+    "en": "In today's digital world, <strong>password security</strong> is more important than ever. With cyber threats constantly evolving, having <strong>strong passwords</strong> is your first line of defense against unauthorized access to your personal and professional accounts.",
+    "es": "En el mundo digital actual, la <strong>seguridad de las contraseñas</strong> es más importante que nunca. Con las amenazas cibernéticas en constante evolución, tener <strong>contraseñas fuertes</strong> es tu primera línea de defensa contra el acceso no autorizado a tus cuentas personales y profesionales.",
+    "fr": "Dans le monde numérique d'aujourd'hui, la <strong>sécurité des mots de passe</strong> est plus importante que jamais. Avec l'évolution constante des menaces informatiques, disposer de <strong>mots de passe forts</strong> est votre première ligne de défense contre l'accès non autorisé à vos comptes personnels et professionnels."
+  },
+  "seolist_intro2": {
+    "ua": "Цей комплексний посібник проведе вас через все, що вам потрібно знати про <strong>генерацію паролів</strong>, <strong>найкращі практики безпеки</strong> та інструменти, доступні для захисту вашої <strong>цифрової ідентичності</strong>.",
+    "en": "This comprehensive guide will walk you through everything you need to know about <strong>password generation</strong>, <strong>security best practices</strong>, and the tools available to protect your <strong>digital identity</strong>.",
+    "es": "Esta guía integral te llevará a través de todo lo que necesitas saber sobre la <strong>generación de contraseñas</strong>, <strong>mejores prácticas de seguridad</strong> y las herramientas disponibles para proteger tu <strong>identidad digital</strong>.",
+    "fr": "Ce guide complet vous expliquera tout ce que vous devez savoir sur la <strong>génération de mots de passe</strong>, les <strong>meilleures pratiques de sécurité</strong> et les outils disponibles pour protéger votre <strong>identité numérique</strong>."
+  },
+  "seolist_basic_password_security_title": {
+    "ua": "Базова безпека паролів",
+    "en": "Basic Password Security",
+    "es": "Seguridad básica de contraseñas",
+    "fr": "Sécurité de base des mots de passe"
+  },
+  "seolist_basic_password_security_1": {
+    "ua": "<strong>Генератор паролів</strong>: Використовуйте надійний генератор паролів для створення міцних та складних паролів, які практично неможливо зламати. Ці інструменти використовують передові алгоритми для забезпечення максимальної безпеки.",
+    "en": "<strong>Password Generator</strong>: Use a reliable password generator to create strong and complex passwords that are virtually impossible to crack. These tools use advanced algorithms to ensure maximum security.",
+    "es": "<strong>Generador de contraseñas</strong>: Utiliza un generador de contraseñas confiable para crear contraseñas fuertes y complejas que sean prácticamente imposibles de descifrar. Estas herramientas utilizan algoritmos avanzados para garantizar la máxima seguridad.",
+    "fr": "<strong>Générateur de mots de passe</strong> : Utilisez un générateur de mots de passe fiable pour créer des mots de passe forts et complexes, pratiquement impossibles à craquer. Ces outils utilisent des algorithmes avancés pour garantir une sécurité maximale."
+  },
+  "seolist_basic_password_security_2": {
+    "ua": "<strong>Генератор паролів онлайн</strong>: Шукайте онлайн-інструменти, які миттєво генерують безпечні паролі. Ці веб-генератори зручні та доступні з будь-якого пристрою з доступом до інтернету.",
+    "en": "<strong>Online Password Generator</strong>: Look for online tools that generate secure passwords instantly. These web-based generators are convenient and accessible from any device with internet access.",
+    "es": "<strong>Generador de contraseñas en línea</strong>: Busca herramientas en línea que generen contraseñas seguras al instante. Estos generadores web son convenientes y accesibles desde cualquier dispositivo con acceso a Internet.",
+    "fr": "<strong>Générateur de mots de passe en ligne</strong> : Recherchez des outils en ligne qui génèrent instantanément des mots de passe sécurisés. Ces générateurs web sont pratiques et accessibles depuis n'importe quel appareil connecté à Internet."
+  },
+  "seolist_basic_password_security_3": {
+    "ua": "<strong>Генератор міцних паролів</strong>: Завжди обирайте міцний генератор паролів для створення надійних паролів. Шукайте генератори, які використовують криптографічно безпечні генератори випадкових чисел.",
+    "en": "<strong>Strong Password Generator</strong>: Always choose a strong password generator to create reliable passwords. Look for generators that use cryptographically secure random number generators.",
+    "es": "<strong>Generador de contraseñas fuertes</strong>: Elige siempre un generador de contraseñas fuertes para crear contraseñas fiables. Busca generadores que utilicen generadores de números aleatorios criptográficamente seguros.",
+    "fr": "<strong>Générateur de mots de passe forts</strong> : Choisissez toujours un générateur de mots de passe forts pour créer des mots de passe fiables. Recherchez des générateurs utilisant des générateurs de nombres aléatoires cryptographiquement sécurisés."
+  },
+  "seolist_advanced_security_title": {
+    "ua": "Розширена безпека",
+    "en": "Advanced Security",
+    "es": "Seguridad avanzada",
+    "fr": "Sécurité avancée"
+  },
+  "seolist_advanced_security_1": {
+    "ua": "<strong>Безпечний генератор паролів</strong>: Безпечний генератор паролів створює паролі, які стійкі до атак перебором та спроб зламу на основі словників. Ці генератори використовують складні алгоритми.",
+    "en": "<strong>Secure Password Generator</strong>: A secure password generator creates passwords that are resistant to brute force attacks and dictionary-based hacking attempts. These generators use sophisticated algorithms.",
+    "es": "<strong>Generador de contraseñas seguras</strong>: Un generador de contraseñas seguras crea contraseñas resistentes a ataques de fuerza bruta e intentos de hackeo basados en diccionarios. Estos generadores utilizan algoritmos sofisticados.",
+    "fr": "<strong>Générateur de mots de passe sécurisés</strong> : Un générateur de mots de passe sécurisés crée des mots de passe résistants aux attaques par force brute et aux tentatives de piratage par dictionnaire. Ces générateurs utilisent des algorithmes sophistiqués."
+  },
+  "seolist_advanced_security_2": {
+    "ua": "<strong>Безпека паролів</strong>: Безпека паролів включає більше, ніж просто створення міцних паролів. Це включає регулярні оновлення, унікальні паролі для кожного акаунту та правильні методи зберігання.",
+    "en": "<strong>Password Security</strong>: Password security involves more than just creating strong passwords. It includes regular updates, unique passwords for each account, and proper storage methods.",
+    "es": "<strong>Seguridad de contraseñas</strong>: La seguridad de las contraseñas implica más que solo crear contraseñas fuertes. Incluye actualizaciones regulares, contraseñas únicas para cada cuenta y métodos de almacenamiento adecuados.",
+    "fr": "<strong>Sécurité des mots de passe</strong> : La sécurité des mots de passe ne se limite pas à la création de mots de passe forts. Elle inclut des mises à jour régulières, des mots de passe uniques pour chaque compte et des méthodes de stockage appropriées."
+  },
+  "seolist_advanced_security_3": {
+    "ua": "<strong>Цифрова безпека</strong>: Ваша цифрова безпека залежить від міцності ваших паролів. Використовуйте генератори паролів як частину комплексної стратегії безпеки.",
+    "en": "<strong>Digital Security</strong>: Your digital security depends on the strength of your passwords. Use password generators as part of a comprehensive security strategy.",
+    "es": "<strong>Seguridad digital</strong>: Tu seguridad digital depende de la fortaleza de tus contraseñas. Utiliza generadores de contraseñas como parte de una estrategia de seguridad integral.",
+    "fr": "<strong>Sécurité numérique</strong> : Votre sécurité numérique dépend de la robustesse de vos mots de passe. Utilisez des générateurs de mots de passe dans le cadre d'une stratégie de sécurité globale."
+  },
+  "seolist_best_practices_title": {
+    "ua": "Найкращі практики",
+    "en": "Best Practices",
+    "es": "Mejores prácticas",
+    "fr": "Meilleures pratiques"
+  },
+  "seolist_best_practices_1": {
+    "ua": "<strong>Створити безпечний пароль</strong>: Навчіться створювати безпечні паролі, які ефективно захищають ваші акаунти. Розгляньте використання парольних фраз для кращої запам'ятовуваності при збереженні безпеки.",
+    "en": "<strong>Create Secure Password</strong>: Learn to create secure passwords that effectively protect your accounts. Consider using passphrases for better memorability while maintaining security.",
+    "es": "<strong>Crear una contraseña segura</strong>: Aprende a crear contraseñas seguras que protejan eficazmente tus cuentas. Considera usar frases de contraseña para una mejor memorización manteniendo la seguridad.",
+    "fr": "<strong>Créer un mot de passe sécurisé</strong> : Apprenez à créer des mots de passe sécurisés qui protègent efficacement vos comptes. Envisagez d'utiliser des phrases de passe pour une meilleure mémorisation tout en maintenant la sécurité."
+  },
+  "seolist_best_practices_2": {
+    "ua": "<strong>Безпечні паролі</strong>: Використовуйте паролі, які забезпечують безпеку та є важкими для вгадування іншими. Уникайте використання особистої інформації, такої як імена, дні народження або звичайні слова.",
+    "en": "<strong>Safe Passwords</strong>: Use passwords that provide security and are difficult for others to guess. Avoid using personal information like names, birthdays, or common words.",
+    "es": "<strong>Contraseñas seguras</strong>: Utiliza contraseñas que proporcionen seguridad y sean difíciles de adivinar para otros. Evita usar información personal como nombres, fechas de nacimiento o palabras comunes.",
+    "fr": "<strong>Mots de passe sûrs</strong> : Utilisez des mots de passe qui offrent une sécurité et sont difficiles à deviner pour les autres. Évitez d'utiliser des informations personnelles telles que des noms, des dates de naissance ou des mots courants."
+  },
+  "seolist_best_practices_3": {
+    "ua": "<strong>Генерувати безпечно</strong>: Практикуйте генерацію паролів, яка гарантує безпеку вашим акаунтам. Регулярно оновлюйте паролі та використовуйте різні паролі для кожного акаунту.",
+    "en": "<strong>Generate Secure</strong>: Practice password generation that guarantees security for your accounts. Regularly update your passwords and use different passwords for each account.",
+    "es": "<strong>Generar de forma segura</strong>: Practica la generación de contraseñas que garantice la seguridad de tus cuentas. Actualiza tus contraseñas regularmente y usa diferentes contraseñas para cada cuenta.",
+    "fr": "<strong>Générer en toute sécurité</strong> : Pratiquez la génération de mots de passe qui garantit la sécurité de vos comptes. Mettez régulièrement à jour vos mots de passe et utilisez des mots de passe différents pour chaque compte."
+  },
+  "seolist_additional_security_tips_title": {
+    "ua": "Додаткові поради щодо безпеки",
+    "en": "Additional Security Tips",
+    "es": "Consejos de seguridad adicionales",
+    "fr": "Conseils de sécurité supplémentaires"
+  },
+  "seolist_additional_security_tips_1": {
+    "ua": "<strong>Простий генератор паролів</strong>: Деякі генератори паролів пропонують прості паролі, які легко запам'ятати, але при цьому безпечні. Вони ідеальні для акаунтів, де вам потрібен швидкий доступ.",
+    "en": "<strong>Simple Password Generator</strong>: Some password generators offer simple passwords that are easy to remember while still being secure. These are perfect for accounts where you need quick access.",
+    "es": "<strong>Generador de contraseñas simples</strong>: Algunos generadores de contraseñas ofrecen contraseñas simples que son fáciles de recordar y, aun así, seguras. Son perfectas para cuentas donde necesitas acceso rápido.",
+    "fr": "<strong>Générateur de mots de passe simples</strong> : Certains générateurs de mots de passe proposent des mots de passe simples, faciles à retenir et pourtant sécurisés. Ils sont parfaits pour les comptes nécessitant un accès rapide."
+  },
+  "seolist_additional_security_tips_2": {
+    "ua": "<strong>Генератор складних паролів</strong>: Використовуйте генератори паролів, які створюють складні паролі для захисту ваших акаунтів. Вони необхідні для банківських рахунків, електронної пошти та інших критичних акаунтів.",
+    "en": "<strong>Complex Password Generator</strong>: Use password generators that create complex passwords to safeguard your accounts. These are essential for banking, email, and other critical accounts.",
+    "es": "<strong>Generador de contraseñas complejas</strong>: Utiliza generadores de contraseñas que creen contraseñas complejas para proteger tus cuentas. Son esenciales para cuentas bancarias, correo electrónico y otras cuentas críticas.",
+    "fr": "<strong>Générateur de mots de passe complexes</strong> : Utilisez des générateurs de mots de passe qui créent des mots de passe complexes pour protéger vos comptes. Ils sont essentiels pour les comptes bancaires, les e-mails et autres comptes critiques."
+  },
+  "seolist_advanced_security_measures_title": {
+    "ua": "Розширені заходи безпеки",
+    "en": "Advanced Security Measures",
+    "es": "Medidas de seguridad avanzadas",
+    "fr": "Mesures de sécurité avancées"
+  },
+  "seolist_advanced_security_measures_1": {
+    "ua": "<strong>Інтеграція з менеджером паролів</strong>: Розгляньте можливість використання менеджера паролів разом з вашим генератором паролів. Ця комбінація забезпечує максимальну безпеку для ваших цифрових акаунтів.",
+    "en": "<strong>Password Manager Integration</strong>: Consider using a password manager alongside your password generator. This combination provides the ultimate security for your digital accounts.",
+    "es": "<strong>Integración con gestor de contraseñas</strong>: Considera usar un gestor de contraseñas junto con tu generador de contraseñas. Esta combinación proporciona la máxima seguridad para tus cuentas digitales.",
+    "fr": "<strong>Intégration avec un gestionnaire de mots de passe</strong> : Envisagez d'utiliser un gestionnaire de mots de passe avec votre générateur de mots de passe. Cette combinaison offre une sécurité maximale pour vos comptes numériques."
+  },
+  "seolist_advanced_security_measures_2": {
+    "ua": "<strong>Двофакторна аутентифікація</strong>: Завжди увімкніть двофакторну аутентифікацію, коли це можливо. Це додає додатковий рівень безпеки окрім наявності міцного пароля.",
+    "en": "<strong>Two-Factor Authentication</strong>: Always enable two-factor authentication when available. This adds an extra layer of security beyond just having a strong password.",
+    "es": "<strong>Autenticación de dos factores</strong>: Activa siempre la autenticación de dos factores cuando esté disponible. Esto añade una capa extra de seguridad además de tener una contraseña fuerte.",
+    "fr": "<strong>Authentification à deux facteurs</strong> : Activez toujours l'authentification à deux facteurs lorsque cela est possible. Cela ajoute une couche de sécurité supplémentaire au-delà du simple fait d'avoir un mot de passe fort."
+  },
+  "menu_aboutus": {
+    "ua": "Про нас",
+    "en": "About us",
+    "es": "Sobre nosotros",
+    "fr": "À propos de nous"
+  },
+  "menu_howtouse": {
+    "ua": "Як використовувати",
+    "en": "How to use",
+    "es": "Cómo usar",
+    "fr": "Comment utiliser"
+  },
+  "menu_guide": {
+    "ua": "Посібник",
+    "en": "Guide",
+    "es": "Guía",
+    "fr": "Guide"
+  },
+  "footer_copyright": {
+    "ua": "Авторське право",
+    "en": "Copyright",
+    "es": "Derechos de autor",
+    "fr": "Droit d'auteur"
+  },
+  "footer_working_with": {
+    "ua": "Працює на серверах",
+    "en": "Working with",
+    "es": "Funciona con",
+    "fr": "Fonctionne avec"
+  },
+  "use_characters": {
+    "ua": "Використати символи:",
+    "en": "Use characters:",
+    "es": "Usar caracteres:",
+    "fr": "Utiliser des caractères :"
+  },
+  "time_years": {"ua": "років", "en": "years", "es": "años", "fr": "ans"},
+  "time_year": {"ua": "рік", "en": "year", "es": "año", "fr": "an"},
+  "time_months": {"ua": "місяці", "en": "months", "es": "meses", "fr": "mois"},
+  "time_month": {"ua": "місяць", "en": "month", "es": "mes", "fr": "mois"},
+  "time_days": {"ua": "днів", "en": "days", "es": "días", "fr": "jours"},
+  "time_day": {"ua": "день", "en": "day", "es": "día", "fr": "jour"},
+  "time_hours": {"ua": "годин", "en": "hours", "es": "horas", "fr": "heures"},
+  "time_hour": {"ua": "година", "en": "hour", "es": "hora", "fr": "heure"},
+  "time_minutes": {"ua": "хвилин", "en": "minutes", "es": "minutos", "fr": "minutes"},
+  "time_minute": {"ua": "хвилина", "en": "minute", "es": "minuto", "fr": "minute"},
+  "time_seconds": {"ua": "секунд", "en": "seconds", "es": "segundos", "fr": "secondes"},
+  "time_second": {"ua": "секунда", "en": "second", "es": "segundo", "fr": "seconde"},
+  "time_century": {"ua": "століття", "en": "century", "es": "siglo", "fr": "siècle"},
+  "time_centuries": {"ua": "століття", "en": "centuries", "es": "siglos", "fr": "siècles"},
+  "time_less_than_a": {"ua": "менше ніж", "en": "less than a", "es": "menos de", "fr": "moins d'un"}
+} 

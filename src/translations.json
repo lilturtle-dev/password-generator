@@ -1,0 +1,70 @@
+{
+  "app": {
+    "title": {
+      "en": "Need a Unique, Secure Password?",
+      "ua": "Потрібен унікальний, безпечний Пароль?",
+      "es": "¿Necesitas una contraseña única y segura?",
+      "fr": "Besoin d'un mot de passe unique et sécurisé ?"
+    },
+    "subtitle": {
+      "en": "With 'Generate Password To Me' you can create strong passwords easily.",
+      "ua": "За допомогою 'Згенерувати пароль для мене' ви легко створите надійний пароль.",
+      "es": "Con 'Generar Contraseña Para Mí' puedes crear contraseñas seguras fácilmente.",
+      "fr": "Avec 'Générer un mot de passe pour moi', vous pouvez créer facilement des mots de passe forts."
+    },
+    "generate": {
+      "en": "Generate Password",
+      "ua": "Генерувати",
+      "es": "Generar contraseña",
+      "fr": "Générer le mot de passe"
+    },
+    "copy": {
+      "en": "Copy",
+      "ua": "Копіювати",
+      "es": "Copiar",
+      "fr": "Copier"
+    },
+    "copyAll": {
+      "en": "Copy All",
+      "ua": "Копіювати всі",
+      "es": "Copiar todo",
+      "fr": "Tout copier"
+    },
+    "downloadAll": {
+      "en": "Download All",
+      "ua": "Завантажити всі",
+      "es": "Descargar todo",
+      "fr": "Tout télécharger"
+    },
+    "passwordLength": {
+      "en": "Password Length:",
+      "ua": "Довжина пароля:",
+      "es": "Longitud de la contraseña:",
+      "fr": "Longueur du mot de passe :"
+    },
+    "snackbarCopied": {
+      "en": "Password copied successfully",
+      "ua": "Пароль успішно скопійовано",
+      "es": "Contraseña copiada con éxito",
+      "fr": "Mot de passe copié avec succès"
+    },
+    "snackbarAllCopied": {
+      "en": "All passwords copied successfully",
+      "ua": "Усі паролі успішно скопійовано",
+      "es": "Todas las contraseñas copiadas con éxito",
+      "fr": "Tous les mots de passe copiés avec succès"
+    },
+    "strength": {
+      "en": "Strength:",
+      "ua": "Надійність:",
+      "es": "Fortaleza:",
+      "fr": "Robustesse :"
+    },
+    "timeToCrack": {
+      "en": "Time to crack:",
+      "ua": "На злам може знадобитися:",
+      "es": "Tiempo para descifrar:",
+      "fr": "Temps pour craquer :"
+    }
+  }
+} 

@@ -13,11 +13,12 @@ import Link from '@mui/material/Link';
 import InputLabel from '@mui/material/InputLabel';
 import Flag from 'react-world-flags';
 import { useNavigate } from "react-router-dom";
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
 import IconButton from '@mui/material/IconButton';
 import { useTheme } from './App';
+import LogoDark from "./images/logo-dark.svg";
+import lang from './lang.json';
 
 // Додаємо CSS стилі для анімації
 const languageIconStyles = `
@@ -183,26 +184,21 @@ const languageIconStyles = `
   }
 `;
 
+function t(key, language) {
+  return lang[key] && lang[key][language] ? lang[key][language] : key;
+}
+
 const menuItems = [
   {
-    label: {
-      en: 'About us',
-      ua: 'Про нас',
-    },
+    label: (language) => t('menu_aboutus', language),
     href: '#aboutus',
   },
   {
-    label: {
-      en: 'How to Use',
-      ua: 'Як користуватися',
-    },
+    label: (language) => t('menu_howtouse', language),
     href: '#howtouse',
   },
   {
-    label: {
-      en: 'Guide',
-      ua: 'Посібник',
-    },
+    label: (language) => t('menu_guide', language),
     href: '#guide',
   },
 ];
@@ -211,10 +207,11 @@ const menuItems = [
 const languages = [
   { label: 'English', value: 'en', flag: <Flag code="840" width={32} /> },
   { label: 'Українська', value: 'ua', flag: <Flag code="804" width={32} /> },
+  { label: 'Español', value: 'es', flag: <Flag code="724" width={32} /> },
+  { label: 'Français', value: 'fr', flag: <Flag code="250" width={32} /> },
 ];
 
 const Header = ({ onLanguageChange }) => {
-
   const navigate = useNavigate();
   const { isDarkMode, toggleTheme } = useTheme();
   const [language, setLanguage] = useState(() => {
@@ -242,7 +239,6 @@ const Header = ({ onLanguageChange }) => {
     }
   });
 
-  const [isSelectOpen, setIsSelectOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
   useEffect(() => {
@@ -257,7 +253,7 @@ const Header = ({ onLanguageChange }) => {
 
     // Додаю зміну атрибута lang у <html>
     if (typeof document !== 'undefined') {
-      document.documentElement.lang = language === 'ua' ? 'uk' : 'en';
+      document.documentElement.lang = language;
     }
   }, [language, onLanguageChange, navigate]);
 
@@ -310,7 +306,7 @@ const Header = ({ onLanguageChange }) => {
                 }
               }}
             >
-              <ListItemText primary={menuItem.label[language]} />
+              <ListItemText primary={menuItem.label(language)} />
             </Link>
           </ListItem>
         ))}
@@ -379,7 +375,6 @@ const Header = ({ onLanguageChange }) => {
     }, 600);
     
     setLanguage(lang);
-    setIsSelectOpen(false);
     navigate(`/${lang}`);
   };
 
@@ -387,20 +382,20 @@ const Header = ({ onLanguageChange }) => {
     <header className="py-7 px-2 flex justify-between items-center">
       <div className="flex items-center">
         <img
-          src={Logo}
+          src={isDarkMode ? LogoDark : Logo}
           alt="Generate Password To Me - Secure Password Generator Logo"
           className="w-6 h-6 mr-1 logo"
         />
       </div>
       <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
         <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
-          <a href="#aboutus" className="nav-link">{language === 'en' ? 'About us' : 'Про нас'}</a>
+          <a href="#aboutus" className="nav-link">{t('menu_aboutus', language)}</a>
         </li>
         <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
-          <a href="#howtouse" className="nav-link">{language === 'en' ? 'How to Use' : 'Як користуватися?'}</a>
+          <a href="#howtouse" className="nav-link">{t('menu_howtouse', language)}</a>
         </li>
         <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
-          <a href="#guide" className="nav-link">{language === 'en' ? 'Guide' : 'Посібник'}</a>
+          <a href="#guide" className="nav-link">{t('menu_guide', language)}</a>
         </li>
         <li>
           <IconButton 
@@ -429,6 +424,8 @@ const Header = ({ onLanguageChange }) => {
       >
         <option value="en">Eng</option>
         <option value="ua">Українська</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option>
       </select>
 
       <div className=" flex lg:hidden">

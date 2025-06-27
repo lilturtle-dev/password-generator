@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import Logo from "./logo.svg";
+import LogoDark from "./images/logo-dark.svg";
 import { useTheme } from "./App";
+import lang from './lang.json';
 
 const referalLink = "https://hostinger.com.ua?REFERRALCODE=1098786";
 
@@ -86,6 +88,10 @@ const linkStyles = `
   }
 `;
 
+function t(key, language) {
+  return lang[key] && lang[key][language] ? lang[key][language] : key;
+}
+
 const Footer = ({ language }) => {
   const currentYear = new Date().getFullYear();
   const { isDarkMode } = useTheme();
@@ -106,7 +112,7 @@ const Footer = ({ language }) => {
       <footer className="w-full py-4 px-2 flex flex-wrap flex-col gap-5 lg:flex-row justify-between items-center">
         <div className="flex items-center">
           <img
-            src={Logo}
+            src={isDarkMode ? LogoDark : Logo}
             alt="Generate Password To Me - Secure Password Generator Logo"
             className="w-6 h-6 mr-1 logo"
           />
@@ -114,17 +120,17 @@ const Footer = ({ language }) => {
         <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-xl font-medium">
           <li className="cursor-pointer">
             <a href="#aboutus" className="nav-link">
-              {language === "en" ? "About us" : "Про нас"}
+              {t('menu_aboutus', language)}
             </a>
           </li>
           <li className="cursor-pointer">
             <a href="#howtouse" className="nav-link">
-              {language === "en" ? "How to use" : "Як використовувати"}
+              {t('menu_howtouse', language)}
             </a>
           </li>
           <li className="cursor-pointer">
             <a href="#guide" className="nav-link">
-              {language === "en" ? "Guide" : "Посібник"}
+              {t('menu_guide', language)}
             </a>
           </li>
         </ul>
@@ -135,7 +141,7 @@ const Footer = ({ language }) => {
         </ul> */}
         <div className="flex lg:flex-row flex-col xs:flex-wrap lg:flex-nowrap w-full">
           <div className="text-[18px] md:w-full lg:w-1/2 lg:text-left md:text-center font-medium my-5 ml-2">
-            {language === "en" ? "Copyright" : "Авторське право"} ©{" "}
+            {t('footer_copyright', language)} ©{" "}
             <span className=" text-[#96DBFF] font-bold">
               GeneratePasswordTo.Me{" "}
             </span>
@@ -143,7 +149,7 @@ const Footer = ({ language }) => {
           </div>
           <div className="text-[18px] xs:w-full lg:w-1/2 lg:text-right md:text-center font-medium my-5 ml-2">
             <p className="inline">
-              {language === "en" ? "Working with " : "Працює на серверах "}
+              {t('footer_working_with', language) + ' '}
             </p>
             <a
               className="external-link text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer"
@@ -151,7 +157,7 @@ const Footer = ({ language }) => {
               rel="nofollow"
             >
               {" "}
-              {language === "en" ? "Hostinger" : "Hostinger"}
+              Hostinger
             </a>
           </div>
         </div>

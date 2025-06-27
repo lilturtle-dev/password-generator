@@ -3,8 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
-import AppEn from "./AppEn";
-import AppUa from "./AppUa";
+import AppUniversal from "./Main";
 import TagManager from "react-gtm-module";
 
 const TagManagerArgs = {
@@ -70,9 +69,7 @@ function App() {
         <CssBaseline />
         <Router>
           <Routes>
-            <Route path="/en" element={<AppEn />} />
-            <Route path="/ua" element={<AppUa />} />
-            <Route path="/" element={<AppEn />} />
+            <Route path="/:lang?" element={<AppUniversal />} />
           </Routes>
         </Router>
       </ThemeProvider>
