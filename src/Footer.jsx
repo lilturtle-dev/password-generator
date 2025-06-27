@@ -148,17 +148,21 @@ const Footer = ({ language }) => {
             {currentYear}
           </div>
           <div className="text-[18px] xs:w-full lg:w-1/2 lg:text-right md:text-center font-medium my-5 ml-2">
-            <p className="inline">
-              {t('footer_working_with', language) + ' '}
-            </p>
-            <a
-              className="external-link text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer"
-              href={referalLink}
-              rel="nofollow"
-            >
-              {" "}
-              Hostinger
-            </a>
+            {language === 'ua' && (
+              <>
+                <p className="inline">
+                  {t('footer_working_with', language) + ' '}
+                </p>
+                <a
+                  className="external-link text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer"
+                  href={referalLink}
+                  rel="nofollow"
+                >
+                  {" "}
+                  Hostinger
+                </a>
+              </>
+            )}
           </div>
         </div>
       </footer>

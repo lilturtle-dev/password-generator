@@ -551,5 +551,101 @@
   "time_second": {"ua": "секунда", "en": "second", "es": "segundo", "fr": "seconde"},
   "time_century": {"ua": "століття", "en": "century", "es": "siglo", "fr": "siècle"},
   "time_centuries": {"ua": "століття", "en": "centuries", "es": "siglos", "fr": "siècles"},
-  "time_less_than_a": {"ua": "менше ніж", "en": "less than a", "es": "menos de", "fr": "moins d'un"}
+  "time_less_than_a": {"ua": "менше ніж", "en": "less than a", "es": "menos de", "fr": "moins d'un"},
+  "cookie_consent_title": {
+    "en": "We value your privacy",
+    "ua": "Ми цінуємо вашу приватність",
+    "es": "Valoramos tu privacidad",
+    "fr": "Nous respectons votre vie privée"
+  },
+  "cookie_consent_description": {
+    "en": "We use cookies to enhance your experience, analyze site usage, and assist in our marketing efforts. You can manage your preferences. For more info, see our Privacy Policy.",
+    "ua": "Ми використовуємо cookie для покращення вашого досвіду, аналізу трафіку та маркетингу. Ви можете керувати своїми налаштуваннями. Детальніше у нашій Політиці конфіденційності.",
+    "es": "Utilizamos cookies para mejorar tu experiencia, analizar el uso del sitio y ayudar en nuestros esfuerzos de marketing. Puedes gestionar tus preferencias. Para más información, consulta nuestra Política de Privacidad.",
+    "fr": "Nous utilisons des cookies pour améliorer votre expérience, analyser l'utilisation du site et contribuer à nos efforts de marketing. Vous pouvez gérer vos préférences. Pour plus d'informations, consultez notre Politique de Confidentialité."
+  },
+  "cookie_consent_accept_all": {
+    "en": "Accept all",
+    "ua": "Прийняти всі",
+    "es": "Aceptar todo",
+    "fr": "Tout accepter"
+  },
+  "cookie_consent_accept_necessary": {
+    "en": "Reject all except necessary",
+    "ua": "Відхилити всі, крім необхідних",
+    "es": "Rechazar todo excepto lo necesario",
+    "fr": "Refuser tout sauf le nécessaire"
+  },
+  "cookie_consent_customize": {
+    "en": "Customize",
+    "ua": "Налаштувати",
+    "es": "Personalizar",
+    "fr": "Personnaliser"
+  },
+  "cookie_consent_save": {
+    "en": "Save preferences",
+    "ua": "Зберегти вибір",
+    "es": "Guardar preferencias",
+    "fr": "Enregistrer les préférences"
+  },
+  "cookie_consent_close": {
+    "en": "Close modal",
+    "ua": "Закрити",
+    "es": "Cerrar",
+    "fr": "Fermer"
+  },
+  "cookie_preferences_title": {
+    "en": "Cookie preferences",
+    "ua": "Налаштування cookie",
+    "es": "Preferencias de cookies",
+    "fr": "Préférences des cookies"
+  },
+  "cookie_section_usage_title": {
+    "en": "Cookie usage",
+    "ua": "Використання cookie",
+    "es": "Uso de cookies",
+    "fr": "Utilisation des cookies"
+  },
+  "cookie_section_usage_desc": {
+    "en": "We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.",
+    "ua": "Ми використовуємо cookie для забезпечення базових функцій сайту та покращення вашого досвіду. Ви можете обирати для кожної категорії окремо.",
+    "es": "Utilizamos cookies para garantizar las funcionalidades básicas del sitio web y mejorar tu experiencia en línea. Puedes elegir para cada categoría si deseas aceptarlas o no en cualquier momento.",
+    "fr": "Nous utilisons des cookies pour garantir les fonctionnalités de base du site Web et améliorer votre expérience en ligne. Vous pouvez choisir pour chaque catégorie d'accepter ou non à tout moment."
+  },
+  "cookie_section_necessary_title": {
+    "en": "Strictly necessary cookies",
+    "ua": "Необхідні cookie",
+    "es": "Cookies estrictamente necesarias",
+    "fr": "Cookies strictement nécessaires"
+  },
+  "cookie_section_necessary_desc": {
+    "en": "These cookies are essential for the website to function properly. They cannot be switched off.",
+    "ua": "Ці cookie необхідні для коректної роботи сайту. Вимкнути їх неможливо.",
+    "es": "Estas cookies son esenciales para el funcionamiento del sitio web. No se pueden desactivar.",
+    "fr": "Ces cookies sont essentiels au bon fonctionnement du site Web. Ils ne peuvent pas être désactivés."
+  },
+  "cookie_section_analytics_title": {
+    "en": "Analytics cookies",
+    "ua": "Аналітичні cookie",
+    "es": "Cookies de análisis",
+    "fr": "Cookies d'analyse"
+  },
+  "cookie_section_analytics_desc": {
+    "en": "These cookies help us understand how visitors interact with our website, discover errors, and provide better overall analytics.",
+    "ua": "Ці cookie допомагають нам розуміти, як відвідувачі взаємодіють із сайтом, знаходити помилки та покращувати аналітику.",
+    "es": "Estas cookies nos ayudan a comprender cómo los visitantes interactúan con nuestro sitio web, descubrir errores y proporcionar mejores análisis generales.",
+    "fr": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site Web, à découvrir des erreurs et à fournir de meilleures analyses globales."
+  },
+  "cookie_section_marketing_title": {
+    "en": "Marketing cookies",
+    "ua": "Маркетингові cookie",
+    "es": "Cookies de marketing",
+    "fr": "Cookies marketing"
+  },
+  "cookie_section_marketing_desc": {
+    "en": "These cookies are used to deliver personalized advertisements and track advertising campaign performance.",
+    "ua": "Ці cookie використовуються для персоналізованої реклами та відстеження ефективності кампаній.",
+    "es": "Estas cookies se utilizan para ofrecer anuncios personalizados y realizar un seguimiento del rendimiento de las campañas publicitarias.",
+    "fr": "Ces cookies sont utilisés pour diffuser des publicités personnalisées et suivre les performances des campagnes publicitaires."
+  }
 } 

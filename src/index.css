@@ -63,7 +63,9 @@
 .dark .bg-[#E5F6FF] {
   background-color: #1f2937 !important;
 }
-
+.page-title{
+  font-weight: 700 !important;
+}
 .dark .drop-shadow-lg {
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5) !important;
 }

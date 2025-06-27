@@ -8,7 +8,6 @@ import AdBannerSecond from "./AddbannerSecond";
 import Slider from "@mui/material/Slider";
 import Header from "./Header";
 import Footer from "./Footer";
-import PrivacyConsentPopup from "./PrivacyConsentPopup";
 import passwordImage from "./images/password.png";
 import refreash from "./images/refreash.png";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
@@ -28,6 +27,10 @@ import CloudDownloadIcon from "@mui/icons-material/CloudDownload";
 import { useReward } from "react-rewards";
 import { useTheme } from "./App";
 import seoData from "./SeoData";
+import CookieConsentComponent from './components/CookieConsent';
+import 'vanilla-cookieconsent/dist/cookieconsent.css';
+import * as CookieConsent from 'vanilla-cookieconsent';
+import { run as cookieConsentRun } from 'vanilla-cookieconsent';
 
 function t(key, language) {
   return lang[key] && lang[key][language] ? lang[key][language] : key;
@@ -315,6 +318,17 @@ const AnimatedPassword = ({ length = 7 }) => {
   );
 };
 
+const privacyPolicyUrl = "/privacy";
+
+const supportedLangs = ['en', 'ua', 'es', 'fr'];
+
+const getEffectiveLanguage = (propLang) => {
+  if (propLang && supportedLangs.includes(propLang)) return propLang;
+  const browserLang = navigator.language.slice(0, 2);
+  if (supportedLangs.includes(browserLang)) return browserLang;
+  return 'en';
+};
+
 export default function AppUniversal() {
   const { isDarkMode } = useTheme();
   const [snackbars, setSnackbars] = useState([]);
@@ -391,8 +405,13 @@ export default function AppUniversal() {
     const seoInfo = seoData.find((data) => data.language === language);
     if (seoInfo) {
       document.title = seoInfo.title;
-      document.querySelector('meta[name="description"]').content =
-        seoInfo.description;
+      let metaDesc = document.querySelector('meta[name="description"]');
+      if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = 'description';
+        document.head.appendChild(metaDesc);
+      }
+      metaDesc.content = seoInfo.description;
     }
   }, [language]);
 
@@ -548,8 +567,8 @@ export default function AppUniversal() {
         <Header language={language} onLanguageChange={handleLanguageChange} />
         {renderedSnackbars}
         <main className="w-full">
-          <div className={`flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#121212]" : "bg-[#E5F6FF]"} lg:bg-[url('./images/vector-bg.svg')] lg:bg-no-repeat lg:bg-center lg:bg-cover`}>
-            <h1 className="mx-2 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
+          <div className={`flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#1a1a1a]" : "bg-[#E5F6FF]"} lg:bg-[url('./images/vector-bg.svg')] lg:bg-no-repeat lg:bg-center lg:bg-cover`}>
+            <h1 className="page-title mx-2 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
               {t("main_title", language)}
             </h1>
             <p className="text-center text-[22px] text-[#2A4E63] mx-2 mb-4">
@@ -577,7 +596,7 @@ export default function AppUniversal() {
               <div className=" text-[#2A4E63] text-[16px] md:text-[18px] lg:mt-3 lg:flex" style={strengthColor}>
                 {`${strengthWord} ${t("time_to_crack", language)} ${strengthWordScoreLocalized}.`}
               </div>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 items-center mt-1 lg:mt-3">
+              <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-4 items-center mt-1 lg:mt-3">
                 <div className="flex flex-col gap-3 items-start mt-8 lg:mt-6">
                   <label id="password-length-label" htmlFor="Password" className="text-[16px] md:text-[22px] text-[#2A4E63]">
                     {t("password_length", language)} {passwordLength}
@@ -654,7 +673,7 @@ export default function AppUniversal() {
           <SeoList language={language} />
         </div>
         <Footer language={language} />
-        <PrivacyConsentPopup language={language} />
+        <CookieConsentComponent language={language} />
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import AppUniversal from "./Main";
 import TagManager from "react-gtm-module";
+import 'vanilla-cookieconsent/dist/cookieconsent.css';
 
 const TagManagerArgs = {
   gtmId:'GTM-KR2SHTKB'
