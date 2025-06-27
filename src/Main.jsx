@@ -548,7 +548,7 @@ export default function AppUniversal() {
         <Header language={language} onLanguageChange={handleLanguageChange} />
         {renderedSnackbars}
         <main className="w-full">
-          <div className={`bg-[url('./images/vector-bg.svg')] bg-no-repeat bg-center bg-cover flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#121212]" : "bg-[#E5F6FF]"}`}>
+          <div className={`flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#121212]" : "bg-[#E5F6FF]"} lg:bg-[url('./images/vector-bg.svg')] lg:bg-no-repeat lg:bg-center lg:bg-cover`}>
             <h1 className="mx-2 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
               {t("main_title", language)}
             </h1>

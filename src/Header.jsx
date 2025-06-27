@@ -282,6 +282,26 @@ const Header = ({ onLanguageChange }) => {
     };
   }, []);
 
+  // Додаю стилі для select.language-select у dark mode
+  useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+      .dark .language-select {
+        background-color: #121212 !important;
+        color: #fff !important;
+        border-color: #2A4E63 !important;
+      }
+      .dark .language-select option {
+        background-color: #121212 !important;
+        color: #fff !important;
+      }
+    `;
+    document.head.appendChild(styleElement);
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
+
   const [state, setState] = React.useState({
     top: false,
 
