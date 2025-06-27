@@ -438,7 +438,7 @@ export default function AppUniversal() {
     document.body.removeChild(link);
   };
 
-  const { reward: confettiReward, isAnimating: isConfetti } = useReward(
+  const { reward: confettiReward } = useReward(
     "centerReward",
     "confetti",
     {
@@ -454,7 +454,8 @@ export default function AppUniversal() {
   const rewardTypes = ["confetti", "balloons", "emoji"];
   const [currentRewardType, setCurrentRewardType] = useState(null);
   const rewardQueue = useRef([]);
-  const isAnimating = isConfetti;
+  const [isAnimating, setIsAnimating] = useState(false);
+  const ANIMATION_DURATION = 250; // ms (lifetime + запас)
   const runReward = () => {
     const type = rewardTypes[Math.floor(Math.random() * rewardTypes.length)];
     if (isAnimating) {
@@ -462,15 +463,15 @@ export default function AppUniversal() {
       return;
     }
     setCurrentRewardType(type);
+    setIsAnimating(true);
     if (type === "confetti") confettiReward();
+    setTimeout(() => {
+      setIsAnimating(false);
+      if (rewardQueue.current.length > 0) {
+        runReward();
+      }
+    }, ANIMATION_DURATION);
   };
-  useEffect(() => {
-    if (!isAnimating && rewardQueue.current.length > 0) {
-      const nextType = rewardQueue.current.shift();
-      setCurrentRewardType(nextType);
-      if (nextType === "confetti") confettiReward();
-    }
-  }, [isAnimating]);
 
   const handleGeneratePassword = (index) => {
     if (index >= 0 && index < passwords.length) {
