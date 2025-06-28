@@ -28,6 +28,7 @@ import { rankColor } from "./functions/RankColor";
 import { getStrengthWord } from "./functions/GetStrengthWord";
 import './index.css';
 import { Analytics } from "@vercel/analytics/react"
+import { getAvailableLanguages } from './utils/languageUtils';
 
 const supportedLangs = ['en', 'ua', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'zh', 'ja'];
 
@@ -316,6 +317,10 @@ const getEffectiveLanguage = (propLang) => {
   return 'en';
 };
 
+const hreflangMap = {
+  ua: 'uk',
+};
+
 export default function GeneratePassword() {
   const { isDarkMode } = useContext(ThemeContext);
   const [snackbars, setSnackbars] = useState([]);
@@ -529,16 +534,22 @@ export default function GeneratePassword() {
     />
   ));
 
+  const availableLanguages = getAvailableLanguages();
+
   return (
     <div className={`container ${language} mx-auto w-screen lg:w-full px-3 ${isDarkMode ? "dark" : ""}`}>
       <div id="centerReward" style={{ position: "fixed", left: "50%", top: "50%", transform: "translate(-50%, -50%)", pointerEvents: "none", zIndex: 9999 }} />
       <Helmet>
         <title>{seoData.find((data) => data.language === language)?.title}</title>
         <meta name="description" content={seoData.find((data) => data.language === language)?.description} />
-        <link rel="alternate" href="https://generatepasswordto.me/en" hreflang="en" />
-        <link rel="alternate" href="https://generatepasswordto.me/ua" hreflang="uk" />
-        <link rel="alternate" href="https://generatepasswordto.me/es" hreflang="es" />
-        <link rel="alternate" href="https://generatepasswordto.me/fr" hreflang="fr" />
+        {availableLanguages.map((lang) => (
+          <link
+            key={lang}
+            rel="alternate"
+            href={`https://generatepasswordto.me/${lang}`}
+            hreflang={hreflangMap[lang] || lang}
+          />
+        ))}
       </Helmet>
       <div className="flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans">
         <Header language={language} onLanguageChange={handleLanguageChange} />
