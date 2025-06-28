@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.2.4",
-    "ajv-keywords": "^5.1.0",
+    "ajv-keywords": "^3.5.2",
     "fork-ts-checker-webpack-plugin": "^9.0.2"
   },
   "overrides": {
@@ -67,7 +67,7 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "ajv": "^8.12.0",
-    "ajv-keywords": "^5.1.0",
+    "ajv-keywords": "^3.5.2",
     "fork-ts-checker-webpack-plugin": "^9.0.2"
   },
   "resolutions": {
@@ -76,7 +76,7 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "ajv": "^8.12.0",
-    "ajv-keywords": "^5.1.0",
+    "ajv-keywords": "^3.5.2",
     "fork-ts-checker-webpack-plugin": "^9.0.2"
   },
   "engines": {
