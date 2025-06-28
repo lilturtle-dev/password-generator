@@ -186,6 +186,7 @@ button {
 .container.ua button,
 .container.ru button {
   font-family: 'Arsenal', sans-serif !important;
+  font-weight: 500;
 }
 
 .container.zh button,
