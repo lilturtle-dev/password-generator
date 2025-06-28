@@ -462,7 +462,8 @@
     "pt": "Passos simples",
     "ru": "Простые шаги",
     "zh": "简单步骤",
-    "ja": "簡単な手順"
+    "ja": "簡単な手順",
+    "pl": "Proste kroki"
   },
   "howtouse_intro": {
     "ua": "Використання <strong>генератора паролів</strong> просте. Просто слідуйте цим крокам:",
@@ -1007,7 +1008,8 @@
     "pt": "<strong>Senhas seguras</strong>: Use senhas que ofereçam segurança e sejam difíceis de adivinhar. Evite usar informações pessoais como nomes, datas de nascimento ou palavras comuns.",
     "ru": "<strong>Безопасные пароли</strong>: Используйте пароли, которые обеспечивают безопасность и их сложно угадать. Избегайте использования личной информации, такой как имена, даты рождения или распространённые слова.",
     "zh": "<strong>安全密码</strong>：使用能够提供安全性且难以被他人猜测的密码。避免使用诸如姓名、生日或常用词等个人信息。",
-    "ja": "<strong>安全なパスワード</strong>：セキュリティを提供し、他人に推測されにくいパスワードを使用してください。名前や誕生日、一般的な単語などの個人情報の使用は避けましょう。"
+    "ja": "<strong>安全なパスワード</strong>：セキュリティを提供し、他人に推測されにくいパスワードを使用してください。名前や誕生日、一般的な単語などの個人情報の使用は避けましょう。",
+    "pl": "<strong>Bezpieczne hasła</strong>: Używaj haseł, które zapewniają bezpieczeństwo i są trudne do odgadnięcia przez innych. Unikaj używania informacji osobistych, takich jak imiona, daty urodzenia lub popularne słowa."
   },
   "seolist_best_practices_3": {
     "ua": "<strong>Генерувати безпечно</strong>: Практикуйте генерацію паролів, яка гарантує безпеку вашим акаунтам. Регулярно оновлюйте паролі та використовуйте різні паролі для кожного акаунту.",
@@ -1019,7 +1021,8 @@
     "pt": "<strong>Gerar com segurança</strong>: Pratique a geração de senhas que garante a segurança de suas contas. Atualize suas senhas regularmente e use senhas diferentes para cada conta.",
     "ru": "<strong>Генерируйте безопасно</strong>: Практикуйте генерацию паролей, которая гарантирует безопасность ваших аккаунтов. Регулярно обновляйте пароли и используйте разные пароли для каждого аккаунта.",
     "zh": "<strong>安全生成</strong>：实践能够保证您账户安全的密码生成。定期更新密码，并为每个账户使用不同的密码。",
-    "ja": "<strong>安全に生成</strong>：アカウントのセキュリティを保証するパスワード生成を実践しましょう。定期的にパスワードを更新し、各アカウントで異なるパスワードを使用してください。"
+    "ja": "<strong>安全に生成</strong>：アカウントのセキュリティを保証するパスワード生成を実践しましょう。定期的にパスワードを更新し、各アカウントで異なるパスワードを使用してください。",
+    "pl": "<strong>Generuj bezpiecznie</strong>: Praktykuj generowanie haseł, które gwarantuje bezpieczeństwo Twoich kont. Regularnie aktualizuj hasła i używaj różnych haseł dla każdego konta."
   },
   "seolist_additional_security_tips_title": {
     "ua": "Додаткові поради щодо безпеки",
@@ -1387,7 +1390,7 @@
     "es": "Utilizamos cookies para mejorar tu experiencia, analizar el uso del sitio y ayudar en nuestros esfuerzos de marketing. Puedes gestionar tus preferencias. Para más información, consulta nuestra Política de Privacidad.",
     "fr": "Nous utilisons des cookies pour améliorer votre expérience, analyser l'utilisation du site et contribuer à nos efforts de marketing. Vous pouvez gérer vos préférences. Pour plus d'informations, consultez notre Politique de Confidentialité.",
     "de": "Wir verwenden Cookies, um Ihr Erlebnis zu verbessern, die Nutzung der Website zu analysieren und unsere Marketingbemühungen zu unterstützen. Sie können Ihre Einstellungen verwalten. Weitere Informationen finden Sie in unserer Datenschutzerklärung.",
-    "it": "Utilizziamo i cookie per migliorare la tua esperienza, analizzare l'utilizzo del sito e supportare i nostri sforzi di marketing. Puoi gestire le tue preferenze. Per maggiori informazioni, consulta la nostra Informativa sulla Privacy.",
+    "it": "Utilizziamo i cookie per migliorare la tua esperienza, analizzare l'utilizzo del sito web e supportare i nostri sforzi di marketing. Puoi gestire le tue preferenze. Per maggiori informazioni, consulta la nostra Informativa sulla Privacy.",
     "pt": "Usamos cookies para melhorar sua experiência, analisar o uso do site e auxiliar em nossos esforços de marketing. Você pode gerenciar suas preferências. Para mais informações, consulte nossa Política de Privacidade.",
     "ru": "Мы используем файлы cookie для улучшения вашего опыта, анализа использования сайта и помощи в наших маркетинговых усилиях. Вы можете управлять своими настройками. Для получения дополнительной информации см. нашу Политику конфиденциальности.",
     "zh": "我们使用cookie来改善您的体验、分析网站使用情况并协助我们的营销工作。您可以管理您的偏好设置。更多信息，请参阅我们的隐私政策。",
@@ -1581,7 +1584,8 @@
     "pt": "Proteja suas contas usando <strong>senhas únicas</strong> para cada serviço e <strong>autenticação de dois fatores</strong> sempre que possível.",
     "ru": "Защитите свои аккаунты, используя <strong>уникальные пароли</strong> для каждого сервиса и <strong>двухфакторную аутентификацию</strong>, где это возможно.",
     "zh": "通过为每个服务使用<strong>唯一密码</strong>并在可能的情况下启用<strong>双重身份验证</strong>来保护您的账户。",
-    "ja": "各サービスごとに<strong>ユニークなパスワード</strong>を使用し、可能であれば<strong>二要素認証</strong>を利用してアカウントを保護しましょう。"
+    "ja": "各サービスごとに<strong>ユニークなパスワード</strong>を使用し、可能であれば<strong>二要素認証</strong>を利用してアカウントを保護しましょう。",
+    "pl": "Chroń swoje konta, używając <strong>unikalnych haseł</strong> dla każdej usługi i <strong>uwierzytelniania dwuskładnikowego</strong>, gdzie to możliwe."
   },
   "howtouse_best_practices": {
     "ua": "Найкращі практики",
