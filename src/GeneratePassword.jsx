@@ -542,6 +542,10 @@ export default function GeneratePassword() {
       <Helmet>
         <title>{seoData.find((data) => data.language === language)?.title}</title>
         <meta name="description" content={seoData.find((data) => data.language === language)?.description} />
+        <meta property="og:title" content={seoData.find((data) => data.language === language)?.title} />
+        <meta property="og:description" content={seoData.find((data) => data.language === language)?.description} />
+        <meta property="og:locale" content={language === 'ua' ? 'uk_UA' : language} />
+        <html lang={language} />
         {availableLanguages.map((lang) => (
           <link
             key={lang}
@@ -550,6 +554,7 @@ export default function GeneratePassword() {
             hreflang={hreflangMap[lang] || lang}
           />
         ))}
+        <link rel="alternate" href="https://generatepasswordto.me/en" hreflang="x-default" />
       </Helmet>
       <div className="flex h-auto align-middle flex-col items-center justify-center mx-auto p-0 lg:p-3 font-sans">
         <Header language={language} onLanguageChange={handleLanguageChange} />
