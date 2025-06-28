@@ -111,12 +111,12 @@ function PasswordRow({
             }}
             src={refreash}
             alt="refresh"
-            className="flex mr-2 h-[15px] md:h-[20px]"
+            className={`${isDarkMode ? "invert brightness-0": ""} flex mr-2 h-[15px] md:h-[20px]`}
             style={disabledStyle}
             loading="lazy"
             decoding="async"
-            width={20}
-            height={20}
+            // width={20}
+            // height={20}
           />
         </div>
       </div>
