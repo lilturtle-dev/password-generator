@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef, useMemo, useContext } from "react";
+import React, { useState, useEffect, useCallback, useRef, useMemo, useContext, lazy, Suspense } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { ThemeContext } from "./App";
@@ -6,10 +6,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 import HowToUse from "./HowToUse.jsx";
 import AboutUs from "./AboutUs.jsx";
-import SeoText from "./SeoText";
-import SeoList from "./SeoList.jsx";
-import AdBanner from "./Adbanner.jsx";
-import AdBannerSecond from "./AddbannerSecond.jsx";
 import { Button, Slider, FormControlLabel, Checkbox, Snackbar } from "@mui/material";
 import CheckBoxOutlinedIcon from "@mui/icons-material/CheckBoxOutlined";
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
@@ -21,7 +17,6 @@ import zxcvbn from "zxcvbn";
 import passwordImage from "./images/password.png";
 import refreash from "./images/refreash.png";
 import seoData from "./SeoData";
-import CookieConsentComponent from './components/CookieConsent';
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 import lang from "./lang.json";
 import { rankColor } from "./functions/RankColor";
@@ -116,8 +111,12 @@ function PasswordRow({
             }}
             src={refreash}
             alt="refresh"
-            className={`${isDarkMode ? "invert brightness-0" : ""} flex mr-2 h-[15px] md:h-[20px]`}
+            className="flex mr-2 h-[15px] md:h-[20px]"
             style={disabledStyle}
+            loading="lazy"
+            decoding="async"
+            width={20}
+            height={20}
           />
         </div>
       </div>
@@ -320,6 +319,13 @@ const getEffectiveLanguage = (propLang) => {
 const hreflangMap = {
   ua: 'uk',
 };
+
+// Lazy load non-critical components
+const SeoText = lazy(() => import("./SeoText"));
+const SeoList = lazy(() => import("./SeoList.jsx"));
+const AdBanner = lazy(() => import("./Adbanner.jsx"));
+const AdBannerSecond = lazy(() => import("./AddbannerSecond.jsx"));
+const CookieConsentComponent = lazy(() => import('./components/CookieConsent'));
 
 export default function GeneratePassword() {
   const { isDarkMode } = useContext(ThemeContext);
@@ -571,7 +577,14 @@ export default function GeneratePassword() {
             <div className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? "bg-[#1c1c1c]" : "bg-white"} drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}>
               <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
-                  <img src={passwordImage} alt="password" width={20} height={20} />
+                  <img 
+                    src={passwordImage} 
+                    alt="password" 
+                    width={20} 
+                    height={20}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <p className="pt-[10px] relative">
                   <AnimatedPassword length={7} />
@@ -580,7 +593,14 @@ export default function GeneratePassword() {
               {/* bottom passaword lock */}
               <div className={`${isDarkMode ? "bg-[#2d2d2d]" : "bg-white"} absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}>
                 <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
-                  <img src={passwordImage} alt="password" width={20} height={20} />
+                  <img 
+                    src={passwordImage} 
+                    alt="password" 
+                    width={20} 
+                    height={20}
+                    loading="lazy"
+                    decoding="async"
+                  />
                 </div>
                 <p className="pt-[10px] relative">
                   <AnimatedPassword length={7} />
@@ -649,10 +669,16 @@ export default function GeneratePassword() {
           </div>
         </main>
         <div className="w-full mt-10">
-          {mode === "production" && <AdBanner language={language} isDarkMode={isDarkMode} />}
+          {mode === "production" && (
+            <Suspense fallback={<div className="h-20 bg-gray-100 animate-pulse rounded"></div>}>
+              <AdBanner language={language} isDarkMode={isDarkMode} />
+            </Suspense>
+          )}
         </div>
         <div className="lg:my-10 w-full">
-          <SeoText language={language} />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded"></div>}>
+            <SeoText language={language} />
+          </Suspense>
         </div>
         <div id="howtouse" className="lg:my-10 w-full">
           <HowToUse language={language} />
@@ -661,13 +687,21 @@ export default function GeneratePassword() {
           <AboutUs language={language} />
         </div>
         <div className="mb-4 w-full mt-4">
-          {mode === "production" && <AdBannerSecond language={language} isDarkMode={isDarkMode} />}
+          {mode === "production" && (
+            <Suspense fallback={<div className="h-20 bg-gray-100 animate-pulse rounded"></div>}>
+              <AdBannerSecond language={language} isDarkMode={isDarkMode} />
+            </Suspense>
+          )}
         </div>
         <div id="guide" className="lg:my-10 w-full">
-          <SeoList language={language} />
+          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded"></div>}>
+            <SeoList language={language} />
+          </Suspense>
         </div>
         <Footer language={language} />
-        <CookieConsentComponent language={language} />
+        <Suspense fallback={null}>
+          <CookieConsentComponent language={language} />
+        </Suspense>
       </div>
     </div>
   );

@@ -413,6 +413,10 @@ const Header = ({ onLanguageChange }) => {
           src={isDarkMode ? LogoDark : Logo}
           alt="Generate Password To Me - Secure Password Generator Logo"
           className="w-6 h-6 mr-1 logo"
+          loading="eager"
+          decoding="async"
+          width={24}
+          height={24}
         />
       </div>
       <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
@@ -464,7 +468,11 @@ const Header = ({ onLanguageChange }) => {
               src={hamburger} 
               alt="Navigation menu toggle" 
               onClick={toggleDrawer(anchor, true)} 
-              className={`cursor-pointer${isDarkMode ? ' hamburger-dark' : ''}`} 
+              className={`cursor-pointer${isDarkMode ? ' hamburger-dark' : ''}`}
+              loading="lazy"
+              decoding="async"
+              width={24}
+              height={24}
             />
             <Drawer
               anchor={anchor}
