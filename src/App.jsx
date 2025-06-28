@@ -4,7 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { HelmetProvider } from "react-helmet-async";
-import AppUniversal from "./Main";
+import GeneratePassword from "./GeneratePassword";
 import TagManager from "react-gtm-module";
 import 'vanilla-cookieconsent/dist/cookieconsent.css';
 
@@ -72,7 +72,7 @@ function App() {
         <HelmetProvider>
           <Router>
             <Routes>
-              <Route path="/:lang?" element={<AppUniversal />} />
+              <Route path="/:lang?" element={<GeneratePassword />} />
             </Routes>
           </Router>
         </HelmetProvider>
