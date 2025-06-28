@@ -25,7 +25,7 @@ import './index.css';
 import { Analytics } from "@vercel/analytics/react"
 import { getAvailableLanguages } from './utils/languageUtils';
 
-const supportedLangs = ['en', 'ua', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'zh', 'ja'];
+const supportedLangs = ['en', 'ua', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'zh', 'ja', 'pl'];
 
 function t(key, language) {
   return lang[key] && lang[key][language] ? lang[key][language] : key;

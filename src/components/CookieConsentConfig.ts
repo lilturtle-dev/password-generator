@@ -422,6 +422,43 @@ const pluginConfig: CookieConsentConfig = {
           ],
         },
       },
+      pl: {
+        consentModal: {
+          title: "Szanujemy Twoją prywatność",
+          description: "Używamy plików cookie, aby poprawić Twoje doświadczenie, analizować wykorzystanie strony i wspierać nasze działania marketingowe. Możesz zarządzać swoimi preferencjami. Więcej informacji znajdziesz w naszej Polityce prywatności.",
+          acceptAllBtn: "Akceptuj wszystko",
+          acceptNecessaryBtn: "Odrzuć wszystko poza niezbędnymi",
+          showPreferencesBtn: "Dostosuj",
+        },
+        preferencesModal: {
+          title: "Preferencje plików cookie",
+          acceptAllBtn: "Akceptuj wszystko",
+          acceptNecessaryBtn: "Odrzuć wszystko poza niezbędnymi",
+          savePreferencesBtn: "Zapisz preferencje",
+          closeIconLabel: "Zamknij",
+          sections: [
+            {
+              title: "Użycie plików cookie",
+              description: "Używamy plików cookie, aby zapewnić podstawowe funkcjonalności strony internetowej i poprawić Twoje doświadczenie online. Możesz wybrać dla każdej kategorii, czy chcesz je zaakceptować czy nie w dowolnym momencie.",
+            },
+            {
+              title: "Ściśle niezbędne pliki cookie",
+              description: "Te pliki cookie są niezbędne do prawidłowego funkcjonowania strony internetowej. Nie można ich wyłączyć.",
+              linkedCategory: "necessary",
+            },
+            {
+              title: "Pliki cookie analityczne",
+              description: "Te pliki cookie pomagają nam zrozumieć, jak odwiedzający wchodzą w interakcję z naszą stroną internetową, odkrywać błędy i zapewniać lepsze ogólne analizy.",
+              linkedCategory: "analytics",
+            },
+            {
+              title: "Pliki cookie marketingowe",
+              description: "Te pliki cookie są używane do dostarczania spersonalizowanych reklam i śledzenia wydajności kampanii reklamowych.",
+              linkedCategory: "marketing",
+            },
+          ],
+        },
+      },
     },
   },
 };

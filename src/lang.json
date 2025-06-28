@@ -1382,7 +1382,8 @@
     "pt": "Valorizamos sua privacidade",
     "ru": "Мы ценим вашу конфиденциальность",
     "zh": "我们重视您的隐私",
-    "ja": "私たちはあなたのプライバシーを大切にしています"
+    "ja": "私たちはあなたのプライバシーを大切にしています",
+    "pl": "Szanujemy Twoją prywatność"
   },
   "cookie_consent_description": {
     "en": "We use cookies to enhance your experience, analyze site usage, and assist in our marketing efforts. You can manage your preferences. For more info, see our Privacy Policy.",
@@ -1394,7 +1395,8 @@
     "pt": "Usamos cookies para melhorar sua experiência, analisar o uso do site e auxiliar em nossos esforços de marketing. Você pode gerenciar suas preferências. Para mais informações, consulte nossa Política de Privacidade.",
     "ru": "Мы используем файлы cookie для улучшения вашего опыта, анализа использования сайта и помощи в наших маркетинговых усилиях. Вы можете управлять своими настройками. Для получения дополнительной информации см. нашу Политику конфиденциальности.",
     "zh": "我们使用cookie来改善您的体验、分析网站使用情况并协助我们的营销工作。您可以管理您的偏好设置。更多信息，请参阅我们的隐私政策。",
-    "ja": "私たちは、あなたの体験を向上させ、サイトの使用状況を分析し、マーケティング活動を支援するためにクッキーを使用しています。設定を管理できます。詳細については、プライバシーポリシーをご覧ください。"
+    "ja": "私たちは、あなたの体験を向上させ、サイトの使用状況を分析し、マーケティング活動を支援するためにクッキーを使用しています。設定を管理できます。詳細については、プライバシーポリシーをご覧ください。",
+    "pl": "Używamy plików cookie, aby poprawić Twoje doświadczenie, analizować wykorzystanie strony i wspierać nasze działania marketingowe. Możesz zarządzać swoimi preferencjami. Więcej informacji znajdziesz w naszej Polityce prywatności."
   },
   "cookie_consent_accept_all": {
     "en": "Accept all",
@@ -1406,7 +1408,8 @@
     "pt": "Aceitar tudo",
     "ru": "Принять все",
     "zh": "接受全部",
-    "ja": "すべて受け入れる"
+    "ja": "すべて受け入れる",
+    "pl": "Akceptuj wszystko"
   },
   "cookie_consent_accept_necessary": {
     "en": "Reject all except necessary",
@@ -1418,7 +1421,8 @@
     "pt": "Rejeitar tudo exceto o necessário",
     "ru": "Отклонить все, кроме необходимых",
     "zh": "拒绝除必要之外的所有",
-    "ja": "必要なもの以外を拒否"
+    "ja": "必要なもの以外を拒否",
+    "pl": "Odrzuć wszystko poza niezbędnymi"
   },
   "cookie_consent_customize": {
     "en": "Customize",
@@ -1430,7 +1434,8 @@
     "pt": "Personalizar",
     "ru": "Настроить",
     "zh": "自定义",
-    "ja": "カスタマイズ"
+    "ja": "カスタマイズ",
+    "pl": "Dostosuj"
   },
   "cookie_consent_save": {
     "en": "Save preferences",
@@ -1494,7 +1499,8 @@
     "pt": "Usamos cookies para garantir as funcionalidades básicas do site e melhorar sua experiência online. Você pode escolher para cada categoria aceitar ou não a qualquer momento.",
     "ru": "Мы используем файлы cookie для обеспечения основных функций веб-сайта и улучшения вашего онлайн-опыта. Вы можете выбрать для каждой категории согласиться или отказаться в любое время.",
     "zh": "我们使用cookie来确保网站的基本功能并改善您的在线体验。您可以随时为每个类别选择加入或退出。",
-    "ja": "私たちは、ウェブサイトの基本機能を確保し、オンライン体験を向上させるためにクッキーを使用しています。いつでも各カテゴリについて参加または退出を選択できます。"
+    "ja": "私たちは、ウェブサイトの基本機能を確保し、オンライン体験を向上させるためにクッキーを使用しています。いつでも各カテゴリについて参加または退出を選択できます。",
+    "pl": "Używamy plików cookie, aby zapewnić podstawowe funkcje strony i poprawić Twoje doświadczenie online. Możesz wybrać, czy chcesz zaakceptować/odrzucić pliki cookie w każdej kategorii w dowolnym momencie."
   },
   "cookie_section_necessary_title": {
     "en": "Strictly necessary cookies",
