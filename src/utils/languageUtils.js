@@ -27,6 +27,7 @@ const countryCodeMap = {
   'ru': '643', // Russia
   'zh': '156', // China
   'ja': '392', // Japan
+  'pl': '616', // Poland
 };
 
 // Мапа назв мов
@@ -41,6 +42,7 @@ const languageNamesMap = {
   'ru': 'Русский',
   'zh': '中文',
   'ja': '日本語',
+  'pl': 'Polski',
 };
 
 // Функція для отримання об'єкта мов з інформацією про прапорці та назвами
@@ -66,7 +68,8 @@ export const getLanguageSelectionText = (language) => {
     'pt': 'Escolher idioma',
     'ru': 'Выберите язык',
     'zh': '选择语言',
-    'ja': '言語を選択'
+    'ja': '言語を選択',
+    'pl': 'Wybierz język'
   };
   
   return languageSelectionMap[language] || 'Choose language';
@@ -84,7 +87,8 @@ export const getThemeText = (language) => {
     'pt': 'Tema',
     'ru': 'Тема',
     'zh': '主题',
-    'ja': 'テーマ'
+    'ja': 'テーマ',
+    'pl': 'Motyw'
   };
   
   return themeMap[language] || 'Theme';

@@ -31,6 +31,11 @@
   font-family: 'Noto Sans JP', sans-serif !important;
 }
 
+/* Польська мова використовує латинський алфавіт, тому Varela Round */
+.container.pl * {
+  font-family: 'Varela Round', sans-serif !important;
+}
+
 :root{
   --dark-theme-bg: #121212;
   --dark-theme-text: #E0E0E0;
@@ -194,6 +199,11 @@ button {
   font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif !important;
 }
 
+.container.pl button {
+  font-family: 'Varela Round', sans-serif !important;
+  font-weight: 400;
+}
+
 h2 {
   font-family: 'Varela Round', sans-serif;
   font-style: normal;
@@ -208,6 +218,10 @@ h2 {
 .container.zh h2,
 .container.ja h2 {
   font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif !important;
+}
+
+.container.pl h2 {
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 header a,
@@ -228,6 +242,11 @@ footer a {
 .container.ja header a,
 .container.ja footer a {
   font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif !important;
+}
+
+.container.pl header a,
+.container.pl footer a {
+  font-family: 'Varela Round', sans-serif !important;
 }
 
 #eng {

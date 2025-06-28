@@ -9,7 +9,8 @@
     "pt": "Precisa de uma senha única e segura?",
     "ru": "Нужен уникальный, безопасный пароль?",
     "zh": "需要一个独特、安全的密码？",
-    "ja": "ユニークで安全なパスワードが必要ですか？"
+    "ja": "ユニークで安全なパスワードが必要ですか？",
+    "pl": "Potrzebujesz unikalnego, bezpiecznego hasła?"
   },
   "main_subtitle": {
     "ua": "За допомогою 'Згенерувати пароль для мене' ви легко створите надійний пароль.",
@@ -21,7 +22,8 @@
     "pt": "Com 'Gerar senha para mim' você pode criar senhas fortes facilmente.",
     "ru": "С помощью 'Сгенерировать пароль для меня' вы легко создадите надежный пароль.",
     "zh": "使用'为我生成密码'，您可以轻松创建强密码。",
-    "ja": "'私のためのパスワードを生成'で、簡単に強力なパスワードを作成できます。"
+    "ja": "'私のためのパスワードを生成'で、簡単に強力なパスワードを作成できます。",
+    "pl": "Z 'Generuj hasło dla mnie' możesz łatwo tworzyć silne hasła."
   },
   "generate": {
     "ua": "Генерувати",
@@ -33,7 +35,8 @@
     "pt": "Gerar",
     "ru": "Генерировать",
     "zh": "生成",
-    "ja": "生成"
+    "ja": "生成",
+    "pl": "Generuj"
   },
   "generate_short": {
     "ua": "Генерувати",
@@ -45,7 +48,8 @@
     "pt": "Gerar",
     "ru": "Генерировать",
     "zh": "生成",
-    "ja": "生成"
+    "ja": "生成",
+    "pl": "Generuj"
   },
   "copy": {
     "ua": "Копіювати",
@@ -57,7 +61,8 @@
     "pt": "Copiar",
     "ru": "Копировать",
     "zh": "复制",
-    "ja": "コピー"
+    "ja": "コピー",
+    "pl": "Kopiuj"
   },
   "copy_all": {
     "ua": "Копіювати всі",
@@ -69,7 +74,8 @@
     "pt": "Copiar tudo",
     "ru": "Копировать все",
     "zh": "复制全部",
-    "ja": "すべてコピー"
+    "ja": "すべてコピー",
+    "pl": "Kopiuj wszystkie"
   },
   "download_all": {
     "ua": "Завантажити всі",
@@ -81,7 +87,8 @@
     "pt": "Baixar tudo",
     "ru": "Скачать все",
     "zh": "下载全部",
-    "ja": "すべてダウンロード"
+    "ja": "すべてダウンロード",
+    "pl": "Pobierz wszystkie"
   },
   "password_length": {
     "ua": "Довжина пароля:",
@@ -93,7 +100,8 @@
     "pt": "Comprimento da senha:",
     "ru": "Длина пароля:",
     "zh": "密码长度：",
-    "ja": "パスワードの長さ："
+    "ja": "パスワードの長さ：",
+    "pl": "Długość hasła:"
   },
   "snackbar_copied": {
     "ua": "Пароль успішно скопійовано",
@@ -105,7 +113,8 @@
     "pt": "Senha copiada com sucesso",
     "ru": "Пароль успешно скопирован",
     "zh": "密码复制成功",
-    "ja": "パスワードが正常にコピーされました"
+    "ja": "パスワードが正常にコピーされました",
+    "pl": "Hasło zostało pomyślnie skopiowane"
   },
   "snackbar_all_copied": {
     "ua": "Усі паролі успішно скопійовано",
@@ -117,7 +126,8 @@
     "pt": "Todas as senhas copiadas com sucesso",
     "ru": "Все пароли успешно скопированы",
     "zh": "所有密码复制成功",
-    "ja": "すべてのパスワードが正常にコピーされました"
+    "ja": "すべてのパスワードが正常にコピーされました",
+    "pl": "Wszystkie hasła zostały pomyślnie skopiowane"
   },
   "strength": {
     "ua": "Надійність:",
@@ -129,7 +139,73 @@
     "pt": "Força:",
     "ru": "Надежность:",
     "zh": "强度：",
-    "ja": "強度："
+    "ja": "強度：",
+    "pl": "Siła:"
+  },
+  "Strong": {
+    "ua": "Сильний",
+    "en": "Strong",
+    "es": "Fuerte",
+    "fr": "Fort",
+    "de": "Stark",
+    "it": "Forte",
+    "pt": "Forte",
+    "ru": "Сильный",
+    "zh": "强",
+    "ja": "強い",
+    "pl": "Silny"
+  },
+  "very_weak": {
+    "ua": "Дуже слабкий",
+    "en": "Very Weak",
+    "es": "Muy Débil",
+    "fr": "Très Faible",
+    "de": "Sehr Schwach",
+    "it": "Molto Debole",
+    "pt": "Muito Fraco",
+    "ru": "Очень Слабый",
+    "zh": "很弱",
+    "ja": "非常に弱い",
+    "pl": "Bardzo słaby"
+  },
+  "weak": {
+    "ua": "Слабкий",
+    "en": "Weak",
+    "es": "Débil",
+    "fr": "Faible",
+    "de": "Schwach",
+    "it": "Debole",
+    "pt": "Fraco",
+    "ru": "Слабый",
+    "zh": "弱",
+    "ja": "弱い",
+    "pl": "Słaby"
+  },
+  "moderate": {
+    "ua": "Середній",
+    "en": "Moderate",
+    "es": "Moderado",
+    "fr": "Modéré",
+    "de": "Mittel",
+    "it": "Moderato",
+    "pt": "Moderado",
+    "ru": "Средний",
+    "zh": "中等",
+    "ja": "普通",
+    "pl": "Średni"
+  },
+  "strong": {
+    "ua": "Сильний",
+    "en": "Strong",
+    "es": "Fuerte",
+    "fr": "Fort",
+    "de": "Stark",
+    "it": "Forte",
+    "pt": "Forte",
+    "ru": "Сильный",
+    "zh": "强",
+    "ja": "強い",
+    "pl": "Silny"
   },
   "time_to_crack": {
     "ua": "На злам може знадобитися:",
@@ -141,7 +217,8 @@
     "pt": "Tempo para quebrar:",
     "ru": "Время на взлом:",
     "zh": "破解时间：",
-    "ja": "クラック時間："
+    "ja": "クラック時間：",
+    "pl": "Czas na złamanie:"
   },
   "quantity": {
     "ua": "Кількість",
@@ -153,7 +230,8 @@
     "pt": "Quantidade",
     "ru": "Количество",
     "zh": "数量",
-    "ja": "数量"
+    "ja": "数量",
+    "pl": "Ilość"
   },
   "ua": "UA",
   "en": "EN",
@@ -165,6 +243,7 @@
   "ru": "RU",
   "zh": "ZH",
   "ja": "JA",
+  "pl": "PL",
   "aboutus_title": {
     "ua": "Про нас:",
     "en": "About Us:",
@@ -175,7 +254,8 @@
     "pt": "Sobre nós:",
     "ru": "О нас:",
     "zh": "关于我们：",
-    "ja": "私たちについて："
+    "ja": "私たちについて：",
+    "pl": "O nas:"
   },
   "aboutus_who_we_are": {
     "ua": "Хто ми",
@@ -187,7 +267,8 @@
     "pt": "Quem somos",
     "ru": "Кто мы",
     "zh": "我们是谁",
-    "ja": "私たちについて"
+    "ja": "私たちについて",
+    "pl": "Kim jesteśmy"
   },
   "aboutus_intro": {
     "ua": "Ласкаво просимо на нашу платформу, де ми присвячені наданню вам <strong>безпечних рішень</strong> для ваших <strong>цифрових потреб</strong>. Наша місія - допомогти вам легко та з впевненістю орієнтуватися в складному <strong>цифровому світі</strong>.",
@@ -199,7 +280,8 @@
     "pt": "Bem-vindo à nossa plataforma, onde nos dedicamos a fornecer <strong>soluções seguras</strong> para suas <strong>necessidades digitais</strong>. Nossa missão é ajudá-lo a navegar pela complexa <strong>paisagem digital</strong> com facilidade e confiança.",
     "ru": "Добро пожаловать на нашу платформу, где мы посвящаем себя предоставлению вам <strong>безопасных решений</strong> для ваших <strong>цифровых потребностей</strong>. Наша миссия - помочь вам легко и уверенно ориентироваться в сложном <strong>цифровом мире</strong>.",
     "zh": "欢迎来到我们的平台，我们致力于为您的<strong>数字需求</strong>提供<strong>安全解决方案</strong>。我们的使命是帮助您轻松自信地驾驭复杂的<strong>数字世界</strong>。",
-    "ja": "私たちのプラットフォームへようこそ。ここでは、あなたの<strong>デジタルニーズ</strong>に<strong>安全なソリューション</strong>を提供することに専念しています。私たちの使命は、複雑な<strong>デジタル世界</strong>を簡単かつ自信を持ってナビゲートするお手伝いをすることです。"
+    "ja": "私たちのプラットフォームへようこそ。ここでは、あなたの<strong>デジタルニーズ</strong>に<strong>安全なソリューション</strong>を提供することに専念しています。私たちの使命は、複雑な<strong>デジタル世界</strong>を簡単かつ自信を持ってナビゲートするお手伝いをすることです。",
+    "pl": "Witamy na naszej platformie, gdzie poświęcamy się dostarczaniu <strong>bezpiecznych rozwiązań</strong> dla Twoich <strong>potrzeb cyfrowych</strong>. Naszą misją jest pomoc w łatwym i pewnym poruszaniu się po złożonym <strong>świecie cyfrowym</strong>."
   },
   "aboutus_team": {
     "ua": "Ми - команда відданих <strong>професіоналів</strong> з пасією до <strong>технологій</strong> і зобов'язанням до вашої <strong>безпеки</strong>. Ми розуміємо важливість захисту вашої <strong>онлайн-присутності</strong>, і саме тому ми пропонуємо низку <strong>інструментів</strong> та <strong>ресурсів</strong>, щоб вам допомогти досягти цієї мети.",
@@ -211,7 +293,8 @@
     "pt": "Somos uma equipe de <strong>profissionais dedicados</strong> com paixão pela <strong>tecnologia</strong> e compromisso com sua <strong>segurança</strong>. Entendemos a importância de proteger sua <strong>presença online</strong>, e é por isso que oferecemos uma variedade de <strong>ferramentas</strong> e <strong>recursos</strong> para ajudá-lo a alcançar esse objetivo.",
     "ru": "Мы - команда преданных <strong>профессионалов</strong> с страстью к <strong>технологиям</strong> и приверженностью к вашей <strong>безопасности</strong>. Мы понимаем важность защиты вашего <strong>онлайн-присутствия</strong>, и именно поэтому мы предлагаем ряд <strong>инструментов</strong> и <strong>ресурсов</strong>, чтобы помочь вам достичь этой цели.",
     "zh": "我们是一支由敬业的<strong>专业人士</strong>组成的团队，对<strong>技术</strong>充满热情，致力于您的<strong>安全</strong>。我们了解保护您<strong>在线存在</strong>的重要性，这就是为什么我们提供一系列<strong>工具</strong>和<strong>资源</strong>来帮助您实现这一目标。",
-    "ja": "私たちは、<strong>テクノロジー</strong>への情熱とあなたの<strong>セキュリティ</strong>への取り組みを持つ献身的な<strong>プロフェッショナル</strong>のチームです。あなたの<strong>オンラインプレゼンス</strong>を保護することの重要性を理解しており、そのため、この目標を達成するために役立つ<strong>ツール</strong>と<strong>リソース</strong>の範囲を提供しています。"
+    "ja": "私たちは、<strong>テクノロジー</strong>への情熱とあなたの<strong>セキュリティ</strong>への取り組みを持つ献身的な<strong>プロフェッショナル</strong>のチームです。あなたの<strong>オンラインプレゼンス</strong>を保護することの重要性を理解しており、そのため、この目標を達成するために役立つ<strong>ツール</strong>と<strong>リソース</strong>の範囲を提供しています。",
+    "pl": "Jesteśmy zespołem oddanych <strong>profesjonalistów</strong> z pasją do <strong>technologii</strong> i zaangażowaniem w Twoje <strong>bezpieczeństwo</strong>. Rozumiemy wagę ochrony Twojej <strong>obecności online</strong>, dlatego oferujemy szereg <strong>narzędzi</strong> i <strong>zasobów</strong>, aby pomóc Ci osiągnąć ten cel."
   },
   "aboutus_mission_title": {
     "ua": "Наша місія:",
@@ -223,7 +306,8 @@
     "pt": "Nossa missão:",
     "ru": "Наша миссия:",
     "zh": "我们的使命：",
-    "ja": "私たちの使命："
+    "ja": "私たちの使命：",
+    "pl": "Nasza misja:"
   },
   "aboutus_mission": {
     "ua": "Надавати безпечні, надійні та зручні інструменти, які захищають вашу цифрову ідентичність та покращують вашу онлайн-безпеку.",
@@ -235,7 +319,8 @@
     "pt": "Fornecer ferramentas seguras, confiáveis e fáceis de usar que protejam sua identidade digital e melhorem sua segurança online.",
     "ru": "Предоставлять безопасные, надежные и удобные инструменты, которые защищают вашу цифровую идентичность и повышают вашу онлайн-безопасность.",
     "zh": "提供安全、可靠和用户友好的工具，保护您的数字身份并增强您的在线安全性。",
-    "ja": "あなたのデジタルアイデンティティを保護し、オンラインセキュリティを向上させる安全で信頼性が高く、使いやすいツールを提供すること。"
+    "ja": "あなたのデジタルアイデンティティを保護し、オンラインセキュリティを向上させる安全で信頼性が高く、使いやすいツールを提供すること。",
+    "pl": "Dostarczać bezpieczne, niezawodne i przyjazne dla użytkownika narzędzia, które chronią Twoją tożsamość cyfrową i zwiększają Twoje bezpieczeństwo online."
   },
   "aboutus_offer_title": {
     "ua": "Що ми пропонуємо",
@@ -247,7 +332,8 @@
     "pt": "O que oferecemos",
     "ru": "Что мы предлагаем",
     "zh": "我们提供什么",
-    "ja": "私たちが提供するもの"
+    "ja": "私たちが提供するもの",
+    "pl": "Co oferujemy"
   },
   "aboutus_offer_1": {
     "ua": "<strong>Генерація надійних паролів</strong>: Наш <strong>генератор паролів</strong> забезпечує захист ваших <strong>онлайн-акаунтів</strong> сильними та <strong>унікальними паролями</strong>.",
@@ -259,7 +345,8 @@
     "pt": "<strong>Geração de senhas seguras</strong>: Nosso <strong>gerador de senhas</strong> garante que suas <strong>contas online</strong> sejam protegidas com <strong>senhas fortes e únicas</strong>.",
     "ru": "<strong>Генерация надежных паролей</strong>: Наш <strong>генератор паролей</strong> обеспечивает защиту ваших <strong>онлайн-аккаунтов</strong> сильными и <strong>уникальными паролями</strong>. Эти инструменты используют передовые алгоритмы для обеспечения максимальной безопасности.",
     "zh": "<strong>安全密码生成</strong>：我们的<strong>密码生成器</strong>确保您的<strong>在线账户</strong>受到<strong>强密码和唯一密码</strong>的保护。",
-    "ja": "<strong>安全なパスワード生成</strong>：私たちの<strong>パスワードジェネレーター</strong>は、あなたの<strong>オンラインアカウント</strong>が<strong>強力でユニークなパスワード</strong>で保護されることを保証します。"
+    "ja": "<strong>安全なパスワード生成</strong>：私たちの<strong>パスワードジェネレーター</strong>は、あなたの<strong>オンラインアカウント</strong>が<strong>強力でユニークなパスワード</strong>で保護されることを保証します。",
+    "pl": "<strong>Bezpieczne generowanie haseł</strong>: Nasz <strong>generator haseł</strong> zapewnia, że Twoje <strong>konta online</strong> są chronione <strong>silnymi i unikalnymi hasłami</strong>."
   },
   "aboutus_offer_2": {
     "ua": "<strong>Шифрування даних</strong>: Ми надаємо <strong>рішення з шифрування</strong>, щоб зберегти ваші <strong>чутливі дані</strong> від пильних очей.",
@@ -271,7 +358,8 @@
     "pt": "<strong>Criptografia de dados</strong>: Fornecemos <strong>soluções de criptografia</strong> para manter seus <strong>dados sensíveis</strong> seguros de olhares indiscretos.",
     "ru": "<strong>Шифрование данных</strong>: Мы предоставляем <strong>решения шифрования</strong>, чтобы сохранить ваши <strong>чувствительные данные</strong> от любопытных глаз.",
     "zh": "<strong>数据加密</strong>：我们提供<strong>加密解决方案</strong>，保护您的<strong>敏感数据</strong>免受窥探。",
-    "ja": "<strong>データ暗号化</strong>：私たちは<strong>暗号化ソリューション</strong>を提供して、あなたの<strong>機密データ</strong>を詮索好きな目から守ります。"
+    "ja": "<strong>データ暗号化</strong>：私たちは<strong>暗号化ソリューション</strong>を提供して、あなたの<strong>機密データ</strong>を詮索好きな目から守ります。",
+    "pl": "<strong>Szyfrowanie danych</strong>: Dostarczamy <strong>rozwiązania szyfrowania</strong>, aby chronić Twoje <strong>wrażliwe dane</strong> przed wścibskimi oczami."
   },
   "aboutus_offer_3": {
     "ua": "<strong>Ресурси з кібербезпеки</strong>: Будьте в курсі останніх <strong>тенденцій кібербезпеки</strong> та <strong>кращих практик</strong>.",
@@ -283,7 +371,8 @@
     "pt": "<strong>Recursos de cibersegurança</strong>: Mantenha-se informado e atualizado sobre as últimas <strong>tendências em cibersegurança</strong> e <strong>melhores práticas</strong>.",
     "ru": "<strong>Ресурсы по кибербезопасности</strong>: Будьте в курсе последних <strong>тенденций кибербезопасности</strong> и <strong>лучших практик</strong>.",
     "zh": "<strong>网络安全资源</strong>：了解最新的<strong>网络安全趋势</strong>和<strong>最佳实践</strong>。",
-    "ja": "<strong>サイバーセキュリティリソース</strong>：最新の<strong>サイバーセキュリティトレンド</strong>と<strong>ベストプラクティス</strong>について情報を入手し、最新の状態を保ちます。"
+    "ja": "<strong>サイバーセキュリティリソース</strong>：最新の<strong>サイバーセキュリティトレンド</strong>と<strong>ベストプラクティス</strong>について情報を入手し、最新の状態を保ちます。",
+    "pl": "<strong>Zasoby cyberbezpieczeństwa</strong>: Bądź na bieżąco z najnowszymi <strong>trendami cyberbezpieczeństwa</strong> i <strong>najlepszymi praktykami</strong>."
   },
   "aboutus_why_title": {
     "ua": "Чому обирають нас:",
@@ -295,7 +384,8 @@
     "pt": "Por que nos escolher:",
     "ru": "Почему выбирают нас:",
     "zh": "为什么选择我们：",
-    "ja": "なぜ私たちを選ぶのか："
+    "ja": "なぜ私たちを選ぶのか：",
+    "pl": "Dlaczego wybrać nas:"
   },
   "aboutus_why_1": {
     "ua": "В центрі нашої діяльності - ваша <strong>безпека</strong> та <strong>конфіденційність</strong>. Наші <strong>інструменти</strong> розроблені з урахуванням вашого <strong>захисту</strong>.",
@@ -307,7 +397,8 @@
     "pt": "No centro de nossa atividade está sua <strong>segurança</strong> e <strong>privacidade</strong>. Nossas <strong>ferramentas</strong> são projetadas pensando em sua <strong>proteção</strong>.",
     "ru": "В центре нашей деятельности - ваша <strong>безопасность</strong> и <strong>конфиденциальность</strong>. Наши <strong>инструменты</strong> разработаны с учетом вашей <strong>защиты</strong>.",
     "zh": "我们工作的核心是重视您的<strong>安全</strong>和<strong>隐私</strong>。我们的<strong>工具</strong>是为了您的<strong>保护</strong>而设计的。",
-    "ja": "私たちの活動の中心には、あなたの<strong>セキュリティ</strong>と<strong>プライバシー</strong>があります。私たちの<strong>ツール</strong>は、あなたの<strong>保護</strong>を念頭に置いて設計されています。"
+    "ja": "私たちの活動の中心には、あなたの<strong>セキュリティ</strong>と<strong>プライバシー</strong>があります。私たちの<strong>ツール</strong>は、あなたの<strong>保護</strong>を念頭に置いて設計されています。",
+    "pl": "W centrum naszej działalności jest Twoje <strong>bezpieczeństwo</strong> i <strong>prywatność</strong>. Nasze <strong>narzędzia</strong> są zaprojektowane z myślą o Twojej <strong>ochronie</strong>."
   },
   "aboutus_why_2": {
     "ua": "Наш <strong>інструмент генерації паролів</strong> створює <strong>унікальні паролі</strong>, які є <strong>криптографічно безпечними</strong>. Кожен згенерований пароль є <strong>випадковим</strong> і відповідає <strong>найкращим практикам безпеки</strong>. Чи потрібен вам <strong>простий пароль</strong> або <strong>складний пароль</strong>, наш генератор адаптується до ваших потреб.",
@@ -319,19 +410,47 @@
     "pt": "Nossa <strong>ferramenta geradora de senhas</strong> cria <strong>senhas únicas</strong> que são <strong>criptograficamente seguras</strong>. Cada senha gerada é <strong>aleatória</strong> e segue as <strong>melhores práticas de segurança</strong>. Seja uma <strong>senha simples</strong> ou uma <strong>senha complexa</strong>, nosso gerador se adapta às suas necessidades.",
     "ru": "Наш <strong>инструмент генерации паролей</strong> создает <strong>уникальные пароли</strong>, которые являются <strong>криптографически безопасными</strong>. Каждый сгенерированный пароль является <strong>случайным</strong> и соответствует <strong>лучшим практикам безопасности</strong>. Нужен ли вам <strong>простой пароль</strong> или <strong>сложный пароль</strong>, наш генератор адаптируется к вашим потребностям.",
     "zh": "我们的<strong>密码生成器工具</strong>创建<strong>唯一密码</strong>，这些密码是<strong>加密安全的</strong>。每个生成的密码都是<strong>随机的</strong>，并遵循<strong>最佳安全实践</strong>。无论您需要<strong>简单密码</strong>还是<strong>复杂密码</strong>，我们的生成器都能适应您的需求。",
-    "ja": "私たちの<strong>パスワードジェネレーターツール</strong>は、<strong>暗号的に安全</strong>な<strong>ユニークなパスワード</strong>を作成します。生成される各パスワードは<strong>ランダム</strong>で、<strong>最高のセキュリティプラクティス</strong>に従います。<strong>シンプルなパスワード</strong>でも<strong>複雑なパスワード</strong>でも、私たちのジェネレーターはあなたのニーズに適応します。"
+    "ja": "私たちの<strong>パスワードジェネレーターツール</strong>は、<strong>暗号的に安全</strong>な<strong>ユニークなパスワード</strong>を作成します。生成される各パスワードは<strong>ランダム</strong>で、<strong>最高のセキュリティプラクティス</strong>に従います。<strong>シンプルなパスワード</strong>でも<strong>複雑なパスワード</strong>でも、私たちのジェネレーターはあなたのニーズに適応します。",
+    "pl": "Nasze <strong>narzędzie do generowania haseł</strong> tworzy <strong>unikalne hasła</strong>, które są <strong>kryptograficznie bezpieczne</strong>. Każde wygenerowane hasło jest <strong>losowe</strong> i zgodne z <strong>najlepszymi praktykami bezpieczeństwa</strong>. Czy potrzebujesz <strong>prostego hasła</strong> czy <strong>złożonego hasła</strong>, nasz generator dostosowuje się do Twoich potrzeb."
+  },
+  "seotext_title": {
+    "ua": "Генератор надійних паролів онлайн",
+    "en": "Online Secure Password Generator",
+    "es": "Generador de Contraseñas Seguras en Línea",
+    "fr": "Générateur de mots de passe sécurisé en ligne",
+    "de": "Online-Sicherer Passwort-Generator",
+    "it": "Generatore di Password Sicure Online",
+    "pt": "Gerador de Senhas Seguras Online",
+    "ru": "Онлайн-генератор надежных паролей",
+    "zh": "在线安全密码生成器",
+    "ja": "オンライン安全パスワードジェネレーター",
+    "pl": "Online Generator Bezpiecznych Haseł"
+  },
+  "strong_password_info": {
+    "ua": "Створюйте <strong>міцні паролі</strong> для захисту ваших акаунтів від кіберзагроз. Наш генератор використовує передові алгоритми для створення криптографічно безпечних паролів.",
+    "en": "Create <strong>strong passwords</strong> to protect your accounts from cyber threats. Our generator uses advanced algorithms to create cryptographically secure passwords.",
+    "es": "Crea <strong>contraseñas fuertes</strong> para proteger tus cuentas de las amenazas cibernéticas. Nuestro generador utiliza algoritmos avanzados para crear contraseñas criptográficamente seguras.",
+    "fr": "Créez des <strong>mots de passe forts</strong> pour protéger vos comptes contre les cybermenaces. Notre générateur utilise des algorithmes avancés pour créer des mots de passe cryptographiquement sécurisés.",
+    "de": "Erstellen Sie <strong>starke Passwörter</strong>, um Ihre Konten vor Cyber-Bedrohungen zu schützen. Unser Generator verwendet fortschrittliche Algorithmen, um kryptographisch sichere Passwörter zu erstellen.",
+    "it": "Crea <strong>password forti</strong> per proteggere i tuoi account dalle minacce informatiche. Il nostro generatore utilizza algoritmi avanzati per creare password criptograficamente sicure.",
+    "pt": "Crie <strong>senhas fortes</strong> para proteger suas contas contra ameaças cibernéticas. Nosso gerador usa algoritmos avançados para criar senhas criptograficamente seguras.",
+    "ru": "Создавайте <strong>сильные пароли</strong> для защиты ваших аккаунтов от киберугроз. Наш генератор использует передовые алгоритмы для создания криптографически безопасных паролей.",
+    "zh": "创建<strong>强密码</strong>以保护您的账户免受网络威胁。我们的生成器使用先进算法创建加密安全的密码。",
+    "ja": "サイバー脅威からアカウントを保護するために<strong>強力なパスワード</strong>を作成します。私たちのジェネレーターは、暗号的に安全なパスワードを作成するために高度なアルゴリズムを使用します。",
+    "pl": "Twórz <strong>silne hasła</strong>, aby chronić swoje konta przed zagrożeniami cybernetycznymi. Nasz generator używa zaawansowanych algorytmów do tworzenia kryptograficznie bezpiecznych haseł."
   },
   "howtouse_title": {
     "ua": "Як використовувати:",
     "en": "How to Use:",
     "es": "Cómo usar:",
     "fr": "Comment utiliser :",
-    "de": "Wie man verwendet:",
+    "de": "Wie zu verwenden:",
     "it": "Come usare:",
     "pt": "Como usar:",
     "ru": "Как использовать:",
     "zh": "如何使用：",
-    "ja": "使い方："
+    "ja": "使用方法：",
+    "pl": "Jak używać:"
   },
   "howtouse_simple_steps": {
     "ua": "Прості кроки",
@@ -355,7 +474,8 @@
     "pt": "Usar o <strong>gerador de senhas</strong> é simples. Apenas siga estes passos:",
     "ru": "Использование <strong>генератора паролей</strong> простое. Просто следуйте этим шагам:",
     "zh": "使用<strong>密码生成器</strong>很简单。只需按照以下步骤操作：",
-    "ja": "<strong>パスワードジェネレーター</strong>の使用は簡単です。これらの手順に従ってください："
+    "ja": "<strong>パスワードジェネレーター</strong>の使用は簡単です。これらの手順に従ってください：",
+    "pl": "Używanie <strong>generatora haseł</strong> jest proste. Wystarczy wykonać te kroki:"
   },
   "howtouse_step1": {
     "ua": "Натисніть кнопку \"<strong>Згенерувати пароль</strong>\".",
@@ -367,7 +487,8 @@
     "pt": "Clique no botão \"<strong>Gerar senha</strong>\".",
     "ru": "Нажмите кнопку \"<strong>Сгенерировать пароль</strong>\".",
     "zh": "点击\"<strong>生成密码</strong>\"按钮。",
-    "ja": "\"<strong>パスワードを生成</strong>\"ボタンをクリックします。"
+    "ja": "\"<strong>パスワードを生成</strong>\"ボタンをクリックします。",
+    "pl": "Kliknij przycisk \"<strong>Generuj hasło</strong>\"."
   },
   "howtouse_step2": {
     "ua": "Налаштуйте свій пароль, вибравши бажану <strong>довжину</strong> та включивши <strong>спеціальні символи</strong>, <strong>цифри</strong> та <strong>великі літери</strong>.",
@@ -379,7 +500,8 @@
     "pt": "Personalize sua senha selecionando o <strong>comprimento</strong> desejado e incluindo <strong>caracteres especiais</strong>, <strong>números</strong> e <strong>letras maiúsculas</strong>.",
     "ru": "Настройте свой пароль, выбрав желаемую <strong>длину</strong> и включив <strong>специальные символы</strong>, <strong>цифры</strong> и <strong>заглавные буквы</strong>.",
     "zh": "通过选择所需的<strong>长度</strong>并包含<strong>特殊字符</strong>、<strong>数字</strong>和<strong>大写字母</strong>来自定义您的密码。",
-    "ja": "希望する<strong>長さ</strong>を選択し、<strong>特殊文字</strong>、<strong>数字</strong>、<strong>大文字</strong>を含めることでパスワードをカスタマイズします。"
+    "ja": "希望する<strong>長さ</strong>を選択し、<strong>特殊文字</strong>、<strong>数字</strong>、<strong>大文字</strong>を含めることでパスワードをカスタマイズします。",
+    "pl": "Dostosuj swoje hasło, wybierając pożądaną <strong>długość</strong> i włączając <strong>znaki specjalne</strong>, <strong>cyfry</strong> i <strong>wielkie litery</strong>."
   },
   "howtouse_step3": {
     "ua": "Натисніть \"<strong>Згенерувати</strong>\", і ваш <strong>безпечний пароль</strong> буде створений миттєво.",
@@ -391,7 +513,8 @@
     "pt": "Clique em \"<strong>Gerar</strong>\" e sua <strong>senha segura</strong> será gerada instantaneamente.",
     "ru": "Нажмите \"<strong>Генерировать</strong>\", и ваш <strong>безопасный пароль</strong> будет создан мгновенно.",
     "zh": "点击\"<strong>生成</strong>\"，您的<strong>安全密码</strong>将立即生成。",
-    "ja": "\"<strong>生成</strong>\"をクリックすると、<strong>安全なパスワード</strong>が即座に生成されます。"
+    "ja": "\"<strong>生成</strong>\"をクリックすると、<strong>安全なパスワード</strong>が即座に生成されます。",
+    "pl": "Kliknij \"<strong>Generuj</strong>\", a Twoje <strong>bezpieczne hasło</strong> zostanie wygenerowane natychmiast."
   },
   "howtouse_what_you_get": {
     "ua": "Що ви отримуєте:",
@@ -403,7 +526,8 @@
     "pt": "O que você obtém:",
     "ru": "Что вы получаете:",
     "zh": "您得到什么：",
-    "ja": "あなたが得るもの："
+    "ja": "あなたが得るもの：",
+    "pl": "Co otrzymujesz:"
   },
   "howtouse_benefit1": {
     "ua": "Міцні, унікальні паролі",
@@ -415,7 +539,8 @@
     "pt": "Senhas fortes e únicas",
     "ru": "Сильные, уникальные пароли",
     "zh": "强密码和唯一密码",
-    "ja": "強力でユニークなパスワード"
+    "ja": "強力でユニークなパスワード",
+    "pl": "Silne, unikalne hasła"
   },
   "howtouse_benefit2": {
     "ua": "Налаштовувана довжина",
@@ -427,7 +552,8 @@
     "pt": "Comprimento personalizável",
     "ru": "Настраиваемая длина",
     "zh": "可自定义长度",
-    "ja": "カスタマイズ可能な長さ"
+    "ja": "カスタマイズ可能な長さ",
+    "pl": "Konfigurowalna długość"
   },
   "howtouse_benefit3": {
     "ua": "Різні типи символів",
@@ -439,7 +565,8 @@
     "pt": "Múltiplos tipos de caracteres",
     "ru": "Различные типы символов",
     "zh": "多种字符类型",
-    "ja": "複数の文字タイプ"
+    "ja": "複数の文字タイプ",
+    "pl": "Wiele typów znaków"
   },
   "howtouse_benefit4": {
     "ua": "Миттєва генерація",
@@ -451,7 +578,8 @@
     "pt": "Geração instantânea",
     "ru": "Мгновенная генерация",
     "zh": "即时生成",
-    "ja": "即座の生成"
+    "ja": "即座の生成",
+    "pl": "Natychmiastowe generowanie"
   },
   "howtouse_benefit5": {
     "ua": "Копіювання в буфер обміну",
@@ -463,7 +591,8 @@
     "pt": "Copiar para área de transferência",
     "ru": "Копирование в буфер обмена",
     "zh": "复制到剪贴板",
-    "ja": "クリップボードにコピー"
+    "ja": "クリップボードにコピー",
+    "pl": "Kopiuj do schowka"
   },
   "howtouse_security_tips": {
     "ua": "Поради щодо безпеки",
@@ -475,7 +604,8 @@
     "pt": "Dicas de segurança",
     "ru": "Советы по безопасности",
     "zh": "安全提示",
-    "ja": "セキュリティのヒント"
+    "ja": "セキュリティのヒント",
+    "pl": "Wskazówki bezpieczeństwa"
   },
   "howtouse_security_tips_title": {
     "ua": "<strong>Поради щодо безпеки</strong>:",
@@ -487,7 +617,8 @@
     "pt": "<strong>Dicas de segurança</strong>:",
     "ru": "<strong>Советы по безопасности</strong>:",
     "zh": "<strong>安全提示</strong>：",
-    "ja": "<strong>セキュリティのヒント</strong>："
+    "ja": "<strong>セキュリティのヒント</strong>：",
+    "pl": "<strong>Wskazówki bezpieczeństwa</strong>:"
   },
   "howtouse_tip1": {
     "ua": "Ніколи не використовуйте один і той же <strong>пароль</strong> для кількох <strong>акаунтів</strong>.",
@@ -499,7 +630,8 @@
     "pt": "Nunca use a mesma <strong>senha</strong> para várias <strong>contas</strong>.",
     "ru": "Никогда не используйте один и тот же <strong>пароль</strong> для нескольких <strong>аккаунтов</strong>.",
     "zh": "永远不要对多个<strong>账户</strong>使用相同的<strong>密码</strong>。",
-    "ja": "複数の<strong>アカウント</strong>に同じ<strong>パスワード</strong>を使用しないでください。"
+    "ja": "複数の<strong>アカウント</strong>に同じ<strong>パスワード</strong>を使用しないでください。",
+    "pl": "Nigdy nie używaj tego samego <strong>hasła</strong> dla wielu <strong>kont</strong>."
   },
   "howtouse_tip2": {
     "ua": "Регулярно змінюйте свої <strong>паролі</strong>.",
@@ -511,7 +643,8 @@
     "pt": "Altere suas <strong>senhas</strong> regularmente.",
     "ru": "Регулярно меняйте свои <strong>пароли</strong>.",
     "zh": "定期更改您的<strong>密码</strong>。",
-    "ja": "定期的に<strong>パスワード</strong>を変更してください。"
+    "ja": "定期的に<strong>パスワード</strong>を変更してください。",
+    "pl": "Regularnie zmieniaj swoje <strong>hasła</strong>."
   },
   "howtouse_tip3": {
     "ua": "Зберігайте свої <strong>паролі</strong> в <strong>безпечному</strong> та <strong>зашифрованому менеджері паролів</strong>.",
@@ -523,7 +656,8 @@
     "pt": "Armazene suas <strong>senhas</strong> em um <strong>gerenciador de senhas seguro</strong> e <strong>criptografado</strong>.",
     "ru": "Храните свои <strong>пароли</strong> в <strong>безопасном</strong> и <strong>зашифрованном менеджере паролей</strong>.",
     "zh": "将您的<strong>密码</strong>存储在<strong>安全</strong>和<strong>加密的密码管理器</strong>中。",
-    "ja": "<strong>パスワード</strong>を<strong>安全</strong>で<strong>暗号化されたパスワードマネージャー</strong>に保存してください。"
+    "ja": "<strong>パスワード</strong>を<strong>安全</strong>で<strong>暗号化されたパスワードマネージャー</strong>に保存してください。",
+    "pl": "Przechowuj swoje <strong>hasła</strong> w <strong>bezpiecznym</strong> i <strong>zaszyfrowanym menedżerze haseł</strong>."
   },
   "howtouse_tip4": {
     "ua": "Уникайте використання легко <strong>вгадуваної інформації</strong>, як ваше ім'я або дата народження.",
@@ -535,7 +669,8 @@
     "pt": "Evite usar informações <strong>fáceis de adivinhar</strong>, como seu nome ou data de nascimento.",
     "ru": "Избегайте использования легко <strong>угадываемой информации</strong>, такой как ваше имя или дата рождения.",
     "zh": "避免使用容易<strong>猜测的信息</strong>，如您的姓名或出生日期。",
-    "ja": "名前や生年月日など、簡単に<strong>推測できる情報</strong>の使用を避けてください。"
+    "ja": "名前や生年月日など、簡単に<strong>推測できる情報</strong>の使用を避けてください。",
+    "pl": "Unikaj używania łatwo <strong>odgadywalnych informacji</strong>, takich jak Twoje imię lub data urodzenia."
   },
   "welcome_title": {
     "ua": "Ласкаво просимо до Створення пароля онлайн!",
@@ -545,9 +680,10 @@
     "de": "Willkommen bei Passwort für mich generieren!",
     "it": "Benvenuto su Genera Password per Me!",
     "pt": "Bem-vindo ao Gerar Senha para Mim!",
-    "ru": "Добро пожаловать в Генератор Паролей Онлайн!",
-    "zh": "欢迎使用为我生成密码！",
-    "ja": "パスワードを生成するへようこそ！"
+    "ru": "Добро пожаловать в Создание пароля онлайн!",
+    "zh": "欢迎使用在线密码生成器！",
+    "ja": "オンラインパスワード生成へようこそ！",
+    "pl": "Witamy w Generowaniu Hasła Online!"
   },
   "seotext_intro1": {
     "ua": "Ми тут, щоб надати вам <strong>безпечний</strong> і <strong>надійний</strong> спосіб створення <strong>надійних паролів</strong>.",
@@ -559,7 +695,8 @@
     "pt": "Estamos aqui para fornecer uma maneira <strong>segura</strong> e <strong>confiável</strong> de gerar <strong>senhas fortes</strong>.",
     "ru": "Мы здесь, чтобы предоставить вам <strong>безопасный</strong> и <strong>надежный</strong> способ создания <strong>сильных паролей</strong>.",
     "zh": "我们在这里为您提供一种<strong>安全</strong>且<strong>可靠</strong>的方式来生成<strong>强密码</strong>。",
-    "ja": "私たちは、<strong>安全</strong>で<strong>信頼性の高い</strong>方法で<strong>強力なパスワード</strong>を生成するお手伝いをします。"
+    "ja": "私たちは、<strong>安全</strong>で<strong>信頼性の高い</strong>方法で<strong>強力なパスワード</strong>を生成するお手伝いをします。",
+    "pl": "Jesteśmy tutaj, aby zapewnić Ci <strong>bezpieczny</strong> i <strong>niezawodny</strong> sposób generowania <strong>silnych haseł</strong>."
   },
   "seotext_intro2": {
     "ua": "Оскільки загрози <strong>кібератак</strong> і <strong>витоку даних</strong> постійно зростають, дуже важливо мати <strong>надійний пароль</strong>, який зможе захистити вашу <strong>конфіденційну інформацію</strong>. Наш <strong>онлайн-генератор паролів</strong> пропонує просте та ефективне рішення.",
@@ -571,7 +708,8 @@
     "pt": "Com as ameaças crescentes de <strong>ataques cibernéticos</strong> e <strong>violações de dados</strong>, é crucial ter uma <strong>senha robusta</strong> que possa proteger suas <strong>informações sensíveis</strong>. Nosso <strong>gerador de senhas online</strong> oferece uma solução simples e eficaz.",
     "ru": "С постоянно растущими угрозами <strong>кибератак</strong> и <strong>утечек данных</strong> крайне важно иметь <strong>надежный пароль</strong>, который сможет защитить вашу <strong>конфиденциальную информацию</strong>. Наш <strong>онлайн-генератор паролей</strong> предлагает простое и эффективное решение.",
     "zh": "随着<strong>网络攻击</strong>和<strong>数据泄露</strong>威胁的不断增加，拥有能够保护您<strong>敏感信息</strong>的<strong>强密码</strong>至关重要。我们的<strong>在线密码生成器</strong>提供了简单有效的解决方案。",
-    "ja": "<strong>サイバー攻撃</strong>や<strong>データ漏洩</strong>の脅威が増加し続ける中、<strong>機密情報</strong>を保護できる<strong>堅牢なパスワード</strong>を持つことが重要です。私たちの<strong>オンラインパスワードジェネレーター</strong>は、シンプルで効果的なソリューションを提供します。"
+    "ja": "<strong>サイバー攻撃</strong>や<strong>データ漏洩</strong>の脅威が増加し続ける中、<strong>機密情報</strong>を保護できる<strong>堅牢なパスワード</strong>を持つことが重要です。私たちの<strong>オンラインパスワードジェネレーター</strong>は、シンプルで効果的なソリューションを提供します。",
+    "pl": "Z rosnącymi zagrożeniami <strong>ataków cybernetycznych</strong> i <strong>wycieków danych</strong>, kluczowe jest posiadanie <strong>silnego hasła</strong>, które może chronić Twoje <strong>wrażliwe informacje</strong>. Nasz <strong>online generator haseł</strong> oferuje proste i skuteczne rozwiązanie."
   },
   "seotext_why_title": {
     "ua": "Чому варто вибрати наш генератор паролів?",
@@ -583,7 +721,8 @@
     "pt": "Por que escolher nosso gerador de senhas?",
     "ru": "Почему стоит выбрать наш генератор паролей?",
     "zh": "为什么选择我们的密码生成器？",
-    "ja": "なぜ私たちのパスワードジェネレーターを選ぶのか？"
+    "ja": "なぜ私たちのパスワードジェネレーターを選ぶのか？",
+    "pl": "Dlaczego warto wybrać nasz generator haseł?"
   },
   "seotext_why1": {
     "ua": "Перш за все, ми надаємо пріоритет вашій <strong>безпеці</strong>. Наш <strong>алгоритм</strong> гарантує, що згенеровані паролі є надійними, і їх практично неможливо вгадати. Ми враховуємо різні чинники, такі як <strong>довжина пароля</strong>, <strong>складність</strong> і включення <strong>цифр</strong>, <strong>символів</strong>, а також <strong>великих і малих літер</strong>.",
@@ -595,7 +734,8 @@
     "pt": "Em primeiro lugar, priorizamos sua <strong>segurança</strong>. Nosso <strong>algoritmo</strong> garante que as senhas geradas sejam altamente <strong>seguras</strong> e praticamente impossíveis de adivinhar. Levamos em consideração vários fatores, como <strong>comprimento da senha</strong>, <strong>complexidade</strong> e a inclusão de <strong>números</strong>, <strong>símbolos</strong> e <strong>letras maiúsculas e minúsculas</strong>.",
     "ru": "Прежде всего, мы отдаем приоритет вашей <strong>безопасности</strong>. Наш <strong>алгоритм</strong> гарантирует, что сгенерированные пароли являются высоко <strong>безопасными</strong> и практически невозможными для угадывания. Мы учитываем различные факторы, такие как <strong>длина пароля</strong>, <strong>сложность</strong> и включение <strong>цифр</strong>, <strong>символов</strong>, а также <strong>заглавных и строчных букв</strong>.",
     "zh": "首先，我们优先考虑您的<strong>安全</strong>。我们的<strong>算法</strong>确保生成的密码高度<strong>安全</strong>，几乎不可能被猜测。我们考虑了各种因素，如<strong>密码长度</strong>、<strong>复杂性</strong>以及包含<strong>数字</strong>、<strong>符号</strong>和<strong>大小写字母</strong>。",
-    "ja": "何よりもまず、あなたの<strong>セキュリティ</strong>を優先します。私たちの<strong>アルゴリズム</strong>は、生成されたパスワードが高度に<strong>安全</strong>で、実質的に推測不可能であることを保証します。私たちは<strong>パスワードの長さ</strong>、<strong>複雑さ</strong>、<strong>数字</strong>、<strong>記号</strong>、<strong>大文字と小文字</strong>の包含など、さまざまな要因を考慮します。"
+    "ja": "何よりもまず、あなたの<strong>セキュリティ</strong>を優先します。私たちの<strong>アルゴリズム</strong>は、生成されたパスワードが高度に<strong>安全</strong>で、実質的に推測不可能であることを保証します。私たちは<strong>パスワードの長さ</strong>、<strong>複雑さ</strong>、<strong>数字</strong>、<strong>記号</strong>、<strong>大文字と小文字</strong>の包含など、さまざまな要因を考慮します。",
+    "pl": "Przede wszystkim priorytetowo traktujemy Twoje <strong>bezpieczeństwo</strong>. Nasz <strong>algorytm</strong> zapewnia, że generowane hasła są wysoce <strong>bezpieczne</strong> i praktycznie niemożliwe do odgadnięcia. Uwzględniamy różne czynniki, takie jak <strong>długość hasła</strong>, <strong>złożoność</strong> i włączenie <strong>cyfr</strong>, <strong>symboli</strong> oraz <strong>wielkich i małych liter</strong>."
   },
   "seotext_why2": {
     "ua": "Наш <strong>інструмент генерації паролів</strong> створює <strong>унікальні паролі</strong>, які є <strong>криптографічно безпечними</strong>. Кожен згенерований пароль є <strong>випадковим</strong> і відповідає <strong>найкращим практикам безпеки</strong>. Чи потрібен вам <strong>простий пароль</strong> або <strong>складний пароль</strong>, наш генератор адаптується до ваших потреб.",
@@ -607,7 +747,8 @@
     "pt": "Nossa <strong>ferramenta geradora de senhas</strong> cria <strong>senhas únicas</strong> que são <strong>criptograficamente seguras</strong>. Cada senha gerada é <strong>aleatória</strong> e segue as <strong>melhores práticas de segurança</strong>. Seja uma <strong>senha simples</strong> ou uma <strong>senha complexa</strong>, nosso gerador se adapta às suas necessidades.",
     "ru": "Наш <strong>инструмент генерации паролей</strong> создает <strong>уникальные пароли</strong>, которые являются <strong>криптографически безопасными</strong>. Каждый сгенерированный пароль является <strong>случайным</strong> и соответствует <strong>лучшим практикам безопасности</strong>. Нужен ли вам <strong>простой пароль</strong> или <strong>сложный пароль</strong>, наш генератор адаптируется к вашим потребностям.",
     "zh": "我们的<strong>密码生成器工具</strong>创建<strong>唯一密码</strong>，这些密码是<strong>加密安全的</strong>。每个生成的密码都是<strong>随机的</strong>，并遵循<strong>最佳安全实践</strong>。无论您需要<strong>简单密码</strong>还是<strong>复杂密码</strong>，我们的生成器都能适应您的需求。",
-    "ja": "私たちの<strong>パスワードジェネレーターツール</strong>は、<strong>暗号的に安全</strong>な<strong>ユニークなパスワード</strong>を作成します。生成される各パスワードは<strong>ランダム</strong>で、<strong>最高のセキュリティプラクティス</strong>に従います。<strong>シンプルなパスワード</strong>でも<strong>複雑なパスワード</strong>でも、私たちのジェネレーターはあなたのニーズに適応します。"
+    "ja": "私たちの<strong>パスワードジェネレーターツール</strong>は、<strong>暗号的に安全</strong>な<strong>ユニークなパスワード</strong>を作成します。生成される各パスワードは<strong>ランダム</strong>で、<strong>最高のセキュリティプラクティス</strong>に従います。<strong>シンプルなパスワード</strong>でも<strong>複雑なパスワード</strong>でも、私たちのジェネレーターはあなたのニーズに適応します。",
+    "pl": "Nasze <strong>narzędzie do generowania haseł</strong> tworzy <strong>unikalne hasła</strong>, które są <strong>kryptograficznie bezpieczne</strong>. Każde wygenerowane hasło jest <strong>losowe</strong> i zgodne z <strong>najlepszymi praktykami bezpieczeństwa</strong>. Czy potrzebujesz <strong>prostego hasła</strong> czy <strong>złożonego hasła</strong>, nasz generator dostosowuje się do Twoich potrzeb."
   },
   "seotext_features_title": {
     "ua": "Ключові особливості:",
@@ -619,7 +760,8 @@
     "pt": "Recursos principais:",
     "ru": "Ключевые особенности:",
     "zh": "主要功能：",
-    "ja": "主な機能："
+    "ja": "主な機能：",
+    "pl": "Kluczowe funkcje:"
   },
   "seotext_feature1": {
     "ua": "Передові алгоритми шифрування",
@@ -631,7 +773,8 @@
     "pt": "Algoritmos de criptografia avançados",
     "ru": "Передовые алгоритмы шифрования",
     "zh": "先进的加密算法",
-    "ja": "高度な暗号化アルゴリズム"
+    "ja": "高度な暗号化アルゴリズム",
+    "pl": "Zaawansowane algorytmy szyfrowania"
   },
   "seotext_feature2": {
     "ua": "Налаштовувана довжина пароля",
@@ -643,7 +786,8 @@
     "pt": "Comprimento de senha personalizável",
     "ru": "Настраиваемая длина пароля",
     "zh": "可自定义密码长度",
-    "ja": "カスタマイズ可能なパスワード長"
+    "ja": "カスタマイズ可能なパスワード長",
+    "pl": "Konfigurowalna długość hasła"
   },
   "seotext_feature3": {
     "ua": "Різні типи символів",
@@ -655,7 +799,8 @@
     "pt": "Múltiplos tipos de caracteres",
     "ru": "Различные типы символов",
     "zh": "多种字符类型",
-    "ja": "複数の文字タイプ"
+    "ja": "複数の文字タイプ",
+    "pl": "Wiele typów znaków"
   },
   "seotext_feature4": {
     "ua": "Миттєва генерація",
@@ -667,7 +812,8 @@
     "pt": "Geração instantânea",
     "ru": "Мгновенная генерация",
     "zh": "即时生成",
-    "ja": "即座の生成"
+    "ja": "即座の生成",
+    "pl": "Natychmiastowe generowanie"
   },
   "seotext_feature5": {
     "ua": "Без зберігання даних",
@@ -679,7 +825,8 @@
     "pt": "Sem armazenamento de dados",
     "ru": "Без хранения данных",
     "zh": "无数据存储",
-    "ja": "データ保存なし"
+    "ja": "データ保存なし",
+    "pl": "Brak przechowywania danych"
   },
   "seolist_title": {
     "ua": "Найкращий Посібник з Створення Сильних та Безпечних Паролів: Поради та Інструменти для Онлайн Безпеки",
@@ -691,7 +838,8 @@
     "pt": "Guia definitivo para criar senhas fortes e seguras: Dicas e ferramentas para segurança online",
     "ru": "Полное руководство по созданию сильных и безопасных паролей: Советы и инструменты для онлайн-безопасности",
     "zh": "创建强密码和安全密码的终极指南：在线安全提示和工具",
-    "ja": "強力で安全なパスワード作成の究極ガイド：オンラインセキュリティのヒントとツール"
+    "ja": "強力で安全なパスワード作成の究極ガイド：オンラインセキュリティのヒントとツール",
+    "pl": "Ostateczny przewodnik tworzenia silnych i bezpiecznych haseł: Wskazówki i narzędzia dla bezpieczeństwa online"
   },
   "seolist_intro1": {
     "ua": "У сучасному цифровому світі <strong>безпека паролів</strong> важливіша, ніж будь-коли. Оскільки кіберзагрози постійно еволюціонують, наявність <strong>міцних паролів</strong> є вашою першою лінією захисту від несанкціонованого доступу до ваших особистих та професійних облікових записів.",
@@ -703,7 +851,8 @@
     "pt": "No mundo digital de hoje, a <strong>segurança de senhas</strong> é mais importante do que nunca. Com as ameaças cibernéticas em constante evolução, ter <strong>senhas fortes</strong> é sua primeira linha de defesa contra acesso não autorizado às suas contas pessoais e profissionais.",
     "ru": "В современном цифровом мире <strong>безопасность паролей</strong> важнее, чем когда-либо. Поскольку киберугрозы постоянно развиваются, наличие <strong>сильных паролей</strong> является вашей первой линией защиты от несанкционированного доступа к вашим личным и профессиональным аккаунтам.",
     "zh": "在当今的数字世界中，<strong>密码安全</strong>比以往任何时候都更重要。随着网络威胁的不断发展，拥有<strong>强密码</strong>是您抵御对个人和专业账户未授权访问的第一道防线。",
-    "ja": "今日のデジタル世界では、<strong>パスワードセキュリティ</strong>がこれまで以上に重要です。サイバー脅威が絶えず進化する中、<strong>強力なパスワード</strong>を持つことは、個人および職業上のアカウントへの不正アクセスに対する最初の防衛線です。"
+    "ja": "今日のデジタル世界では、<strong>パスワードセキュリティ</strong>がこれまで以上に重要です。サイバー脅威が絶えず進化する中、<strong>強力なパスワード</strong>を持つことは、個人および職業上のアカウントへの不正アクセスに対する最初の防衛線です。",
+    "pl": "W dzisiejszym cyfrowym świecie <strong>bezpieczeństwo haseł</strong> jest ważniejsze niż kiedykolwiek. Ponieważ zagrożenia cybernetyczne stale się ewoluują, posiadanie <strong>silnych haseł</strong> jest Twoją pierwszą linią obrony przed nieautoryzowanym dostępem do Twoich osobistych i zawodowych kont."
   },
   "seolist_intro2": {
     "ua": "Цей комплексний посібник проведе вас через все, що вам потрібно знати про <strong>генерацію паролів</strong>, <strong>найкращі практики безпеки</strong> та інструменти, доступні для захисту вашої <strong>цифрової ідентичності</strong>.",
@@ -715,7 +864,8 @@
     "pt": "Este guia abrangente irá conduzi-lo através de tudo o que você precisa saber sobre <strong>geração de senhas</strong>, <strong>melhores práticas de segurança</strong> e as ferramentas disponíveis para proteger sua <strong>identidade digital</strong>.",
     "ru": "Это полное руководство проведет вас через все, что вам нужно знать о <strong>генерации паролей</strong>, <strong>лучших практиках безопасности</strong> и инструментах, доступных для защиты вашей <strong>цифровой идентичности</strong>.",
     "zh": "本综合指南将带您了解有关<strong>密码生成</strong>、<strong>安全最佳实践</strong>以及保护您<strong>数字身份</strong>的可用工具的所有知识。",
-    "ja": "この包括的なガイドでは、<strong>パスワード生成</strong>、<strong>セキュリティのベストプラクティス</strong>、そして<strong>デジタルアイデンティティ</strong>を保護するための利用可能なツールについて、知っておくべきすべてをご案内します。"
+    "ja": "この包括的なガイドでは、<strong>パスワード生成</strong>、<strong>セキュリティのベストプラクティス</strong>、そして<strong>デジタルアイデンティティ</strong>を保護するための利用可能なツールについて、知っておくべきすべてをご案内します。",
+    "pl": "Ten kompleksowy przewodnik przeprowadzi Cię przez wszystko, co musisz wiedzieć o <strong>generowaniu haseł</strong>, <strong>najlepszych praktykach bezpieczeństwa</strong> i narzędziach dostępnych do ochrony Twojej <strong>cyfrowej tożsamości</strong>."
   },
   "seolist_basic_password_security_title": {
     "ua": "Базова безпека паролів",
@@ -727,7 +877,8 @@
     "pt": "Segurança básica de senhas",
     "ru": "Базовая безопасность паролей",
     "zh": "基本密码安全",
-    "ja": "基本的なパスワードセキュリティ"
+    "ja": "基本的なパスワードセキュリティ",
+    "pl": "Podstawowe bezpieczeństwo haseł"
   },
   "seolist_basic_password_security_1": {
     "ua": "<strong>Генератор паролів</strong>: Використовуйте надійний генератор паролів для створення міцних та складних паролів, які практично неможливо зламати. Ці інструменти використовують передові алгоритми для забезпечення максимальної безпеки.",
@@ -739,7 +890,8 @@
     "pt": "<strong>Gerador de senhas</strong>: Use um gerador de senhas confiável para criar senhas fortes e complexas que são praticamente impossíveis de quebrar. Essas ferramentas usam algoritmos avançados para garantir máxima segurança.",
     "ru": "<strong>Генерация надежных паролей</strong>: Наш <strong>генератор паролей</strong> обеспечивает защиту ваших <strong>онлайн-аккаунтов</strong> сильными и <strong>уникальными паролями</strong>. Эти инструменты используют передовые алгоритмы для обеспечения максимальной безопасности.",
     "zh": "<strong>密码生成器</strong>：使用可靠的密码生成器创建强密码和复杂密码，这些密码几乎不可能被破解。这些工具使用先进算法确保最大安全性。",
-    "ja": "<strong>パスワードジェネレーター</strong>：実質的に解読不可能な強力で複雑なパスワードを作成するために、信頼できるパスワードジェネレーターを使用してください。これらのツールは、最大限のセキュリティを確保するために高度なアルゴリズムを使用します。"
+    "ja": "<strong>パスワードジェネレーター</strong>：実質的に解読不可能な強力で複雑なパスワードを作成するために、信頼できるパスワードジェネレーターを使用してください。これらのツールは、最大限のセキュリティを確保するために高度なアルゴリズムを使用します。",
+    "pl": "<strong>Generator haseł</strong>: Używaj niezawodnego generatora haseł do tworzenia silnych i złożonych haseł, które są praktycznie niemożliwe do złamania. Te narzędzia używają zaawansowanych algorytmów, aby zapewnić maksymalne bezpieczeństwo."
   },
   "seolist_basic_password_security_2": {
     "ua": "<strong>Генератор паролів онлайн</strong>: Шукайте онлайн-інструменти, які миттєво генерують безпечні паролі. Ці веб-генератори зручні та доступні з будь-якого пристрою з доступом до інтернету.",
@@ -751,7 +903,8 @@
     "pt": "<strong>Gerador de senhas online</strong>: Procure ferramentas online que gerem senhas seguras instantaneamente. Esses geradores baseados na web são convenientes e acessíveis de qualquer dispositivo com acesso à internet.",
     "ru": "<strong>Онлайн-генератор паролей</strong>: Ищите онлайн-инструменты, которые мгновенно генерируют безопасные пароли. Эти веб-генераторы удобны и доступны с любого устройства с доступом к интернету.",
     "zh": "<strong>在线密码生成器</strong>：寻找能够即时生成安全密码的在线工具。这些基于网络的生成器很方便，可以从任何有互联网连接的设备访问。",
-    "ja": "<strong>オンラインパスワードジェネレーター</strong>：安全なパスワードを即座に生成するオンラインツールを探してください。これらのウェブベースのジェネレーターは便利で、インターネットアクセスがある任意のデバイスからアクセスできます。"
+    "ja": "<strong>オンラインパスワードジェネレーター</strong>：安全なパスワードを即座に生成するオンラインツールを探してください。これらのウェブベースのジェネレーターは便利で、インターネットアクセスがある任意のデバイスからアクセスできます。",
+    "pl": "<strong>Online generator haseł</strong>: Szukaj narzędzi online, które natychmiast generują bezpieczne hasła. Te generatory internetowe są wygodne i dostępne z dowolnego urządzenia z dostępem do internetu."
   },
   "seolist_basic_password_security_3": {
     "ua": "<strong>Генератор міцних паролів</strong>: Завжди обирайте міцний генератор паролів для створення надійних паролів. Шукайте генератори, які використовують криптографічно безпечні генератори випадкових чисел.",
@@ -763,7 +916,8 @@
     "pt": "<strong>Gerador de senhas fortes</strong>: Sempre escolha um gerador de senhas fortes para criar senhas confiáveis. Procure geradores que usem geradores de números aleatórios criptograficamente seguros.",
     "ru": "<strong>Генератор сильных паролей</strong>: Всегда выбирайте генератор сильных паролей для создания надежных паролей. Ищите генераторы, которые используют криптографически безопасные генераторы случайных чисел.",
     "zh": "<strong>强密码生成器</strong>：始终选择强密码生成器来创建可靠的密码。寻找使用加密安全随机数生成器的生成器。",
-    "ja": "<strong>強力なパスワードジェネレーター</strong>：信頼できるパスワードを作成するために、常に強力なパスワードジェネレーターを選択してください。暗号的に安全な乱数ジェネレーターを使用するジェネレーターを探してください。"
+    "ja": "<strong>強力なパスワードジェネレーター</strong>：信頼できるパスワードを作成するために、常に強力なパスワードジェネレーターを選択してください。暗号的に安全な乱数ジェネレーターを使用するジェネレーターを探してください。",
+    "pl": "<strong>Generator silnych haseł</strong>: Zawsze wybieraj generator silnych haseł do tworzenia niezawodnych haseł. Szukaj generatorów, które używają kryptograficznie bezpiecznych generatorów liczb losowych."
   },
   "seolist_advanced_security_title": {
     "ua": "Розширена безпека",
@@ -775,7 +929,8 @@
     "pt": "Medidas de segurança avançadas",
     "ru": "Расширенные меры безопасности",
     "zh": "高级安全措施",
-    "ja": "高度なセキュリティ対策"
+    "ja": "高度なセキュリティ対策",
+    "pl": "Zaawansowane bezpieczeństwo"
   },
   "seolist_advanced_security_1": {
     "ua": "<strong>Безпечний генератор паролів</strong>: Безпечний генератор паролів створює паролі, які стійкі до атак перебором та спроб зламу на основі словників. Ці генератори використовують складні алгоритми.",
@@ -787,7 +942,8 @@
     "pt": "<strong>Gerador de senhas seguras</strong>: Um gerador de senhas seguras cria senhas resistentes a ataques de força bruta e tentativas de invasão baseadas em dicionários. Esses geradores usam algoritmos sofisticados.",
     "ru": "<strong>Безопасный генератор паролей</strong>: Такой генератор создает пароли, устойчивые к атакам перебором и взлому на основе словарей. Он использует сложные алгоритмы.",
     "zh": "<strong>安全密码生成器</strong>：安全密码生成器可以创建对暴力破解和字典攻击具有抵抗力的密码。这些生成器使用复杂的算法。",
-    "ja": "<strong>安全なパスワード生成器</strong>：安全なパスワード生成器は、総当たり攻撃や辞書型攻撃に強いパスワードを作成します。これらの生成器は高度なアルゴリズムを使用します。"
+    "ja": "<strong>安全なパスワード生成器</strong>：安全なパスワード生成器は、総当たり攻撃や辞書型攻撃に強いパスワードを作成します。これらの生成器は高度なアルゴリズムを使用します。",
+    "pl": "<strong>Bezpieczny generator haseł</strong>: Bezpieczny generator haseł tworzy hasła odporne na ataki brute force i próby włamania oparte na słownikach. Te generatory używają zaawansowanych algorytmów."
   },
   "seolist_advanced_security_2": {
     "ua": "<strong>Безпека паролів</strong>: Безпека паролів включає більше, ніж просто створення міцних паролів. Це включає регулярні оновлення, унікальні паролі для кожного акаунту та правильні методи зберігання.",
@@ -799,7 +955,8 @@
     "pt": "<strong>Segurança de senhas</strong>: A segurança das senhas envolve mais do que apenas criar senhas fortes. Inclui atualizações regulares, senhas únicas para cada conta e métodos de armazenamento adequados.",
     "ru": "<strong>Безопасность паролей</strong>: Она включает не только создание надежных паролей, но и их регулярное обновление, использование уникальных паролей для каждого аккаунта и правильное хранение.",
     "zh": "<strong>密码安全</strong>：密码安全不仅仅是创建强密码。它还包括定期更新、为每个账户使用唯一密码以及正确的存储方法。",
-    "ja": "<strong>パスワードのセキュリティ</strong>：パスワードのセキュリティとは、強力なパスワードを作るだけではありません。定期的な更新、アカウントごとのユニークなパスワード、適切な保存方法が含まれます。"
+    "ja": "<strong>パスワードのセキュリティ</strong>：パスワードのセキュリティとは、強力なパスワードを作るだけではありません。定期的な更新、アカウントごとのユニークなパスワード、適切な保存方法が含まれます。",
+    "pl": "<strong>Bezpieczeństwo haseł</strong>: Bezpieczeństwo haseł obejmuje więcej niż tylko tworzenie silnych haseł. Obejmuje regularne aktualizacje, unikalne hasła dla każdego konta i odpowiednie metody przechowywania."
   },
   "seolist_advanced_security_3": {
     "ua": "<strong>Цифрова безпека</strong>: Ваша цифрова безпека залежить від міцності ваших паролів. Використовуйте генератори паролів як частину комплексної стратегії безпеки.",
@@ -811,7 +968,8 @@
     "pt": "<strong>Segurança digital</strong>: Sua segurança digital depende da força de suas senhas. Use geradores de senhas como parte de uma estratégia de segurança abrangente.",
     "ru": "<strong>Цифровая безопасность</strong>: Ваша цифровая безопасность зависит от надежности паролей. Используйте генераторы паролей как часть комплексной стратегии безопасности.",
     "zh": "<strong>数字安全</strong>：您的数字安全取决于密码的强度。将密码生成器作为全面安全策略的一部分来使用。",
-    "ja": "<strong>デジタルセキュリティ</strong>：あなたのデジタルセキュリティはパスワードの強度に依存しています。包括的なセキュリティ戦略の一環としてパスワード生成器を使用してください。"
+    "ja": "<strong>デジタルセキュリティ</strong>：あなたのデジタルセキュリティはパスワードの強度に依存しています。包括的なセキュリティ戦略の一環としてパスワード生成器を使用してください。",
+    "pl": "<strong>Bezpieczeństwo cyfrowe</strong>: Twoje bezpieczeństwo cyfrowe zależy od siły Twoich haseł. Używaj generatorów haseł jako części kompleksowej strategii bezpieczeństwa."
   },
   "seolist_best_practices_title": {
     "ua": "Найкращі практики",
@@ -823,7 +981,8 @@
     "pt": "Melhores práticas",
     "ru": "Лучшие практики",
     "zh": "最佳实践",
-    "ja": "ベストプラクティス"
+    "ja": "ベストプラクティス",
+    "pl": "Najlepsze praktyki"
   },
   "seolist_best_practices_1": {
     "ua": "<strong>Створити безпечний пароль</strong>: Навчіться створювати безпечні паролі, які ефективно захищають ваші акаунти. Розгляньте використання парольних фраз для кращої запам'ятовуваності при збереженні безпеки.",
@@ -871,7 +1030,8 @@
     "pt": "Dicas de segurança adicionais",
     "ru": "Дополнительные советы по безопасности",
     "zh": "额外安全提示",
-    "ja": "追加のセキュリティヒント"
+    "ja": "追加のセキュリティヒント",
+    "pl": "Dodatkowe wskazówki bezpieczeństwa"
   },
   "seolist_additional_security_tips_1": {
     "ua": "<strong>Простий генератор паролів</strong>: Деякі генератори паролів пропонують прості паролі, які легко запам'ятати, але при цьому безпечні. Вони ідеальні для акаунтів, де вам потрібен швидкий доступ.",
@@ -883,7 +1043,8 @@
     "pt": "<strong>Gerador de senhas simples</strong>: Alguns geradores de senhas oferecem senhas simples que são fáceis de lembrar, mas ainda seguras. Essas são perfeitas para contas onde você precisa de acesso rápido.",
     "ru": "<strong>Простой генератор паролей</strong>: Некоторые генераторы паролей предлагают простые пароли, которые легко запомнить, но при этом безопасны. Они идеальны для аккаунтов, где вам нужен быстрый доступ.",
     "zh": "<strong>简单密码生成器</strong>：一些密码生成器提供简单易记但仍安全的密码。这些非常适合需要快速访问的账户。",
-    "ja": "<strong>シンプルなパスワードジェネレーター</strong>：一部のパスワードジェネレーターは、覚えやすく、それでも安全なシンプルなパスワードを提供します。これらは、クイックアクセスが必要なアカウントに最適です。"
+    "ja": "<strong>シンプルなパスワードジェネレーター</strong>：一部のパスワードジェネレーターは、覚えやすく、それでも安全なシンプルなパスワードを提供します。これらは、クイックアクセスが必要なアカウントに最適です。",
+    "pl": "<strong>Prosty generator haseł</strong>: Niektóre generatory haseł oferują proste hasła, które są łatwe do zapamiętania, ale nadal bezpieczne. Są idealne dla kont, gdzie potrzebujesz szybkiego dostępu."
   },
   "seolist_additional_security_tips_2": {
     "ua": "<strong>Генератор складних паролів</strong>: Використовуйте генератори паролів, які створюють складні паролі для захисту ваших акаунтів. Вони необхідні для банківських рахунків, електронної пошти та інших критичних акаунтів.",
@@ -895,7 +1056,8 @@
     "pt": "<strong>Gerador de senhas complexas</strong>: Use geradores de senhas que criem senhas complexas para proteger suas contas. Esses são essenciais para contas bancárias, email e outras contas críticas.",
     "ru": "<strong>Сложный генератор паролей</strong>: Используйте генераторы паролей, которые создают сложные пароли для защиты ваших аккаунтов. Они необходимы для банковских счетов, электронной почты и других критических аккаунтов.",
     "zh": "<strong>复杂密码生成器</strong>：使用创建复杂密码的密码生成器来保护您的账户。这些对于银行、电子邮件和其他关键账户至关重要。",
-    "ja": "<strong>複雑なパスワードジェネレーター</strong>：アカウントを保護するために複雑なパスワードを作成するパスワードジェネレーターを使用してください。これらは銀行口座、メール、その他の重要なアカウントに不可欠です。"
+    "ja": "<strong>複雑なパスワードジェネレーター</strong>：アカウントを保護するために複雑なパスワードを作成するパスワードジェネレーターを使用してください。これらは銀行口座、メール、その他の重要なアカウントに不可欠です。",
+    "pl": "<strong>Złożony generator haseł</strong>: Używaj generatorów haseł, które tworzą złożone hasła do ochrony Twoich kont. Są niezbędne dla kont bankowych, poczty e-mail i innych krytycznych kont."
   },
   "seolist_advanced_security_measures_title": {
     "ua": "Розширені заходи безпеки",
@@ -907,7 +1069,8 @@
     "pt": "Medidas de segurança avançadas",
     "ru": "Расширенные меры безопасности",
     "zh": "高级安全措施",
-    "ja": "高度なセキュリティ対策"
+    "ja": "高度なセキュリティ対策",
+    "pl": "Zaawansowane bezpieczeństwo"
   },
   "seolist_advanced_security_measures_1": {
     "ua": "<strong>Інтеграція з менеджером паролів</strong>: Розгляньте можливість використання менеджера паролів разом з вашим генератором паролів. Ця комбінація забезпечує максимальну безпеку для ваших цифрових акаунтів.",
@@ -919,7 +1082,8 @@
     "pt": "<strong>Integração com gerenciador de senhas</strong>: Considere usar um gerenciador de senhas junto com seu gerador de senhas. Essa combinação oferece máxima segurança para suas contas digitais.",
     "ru": "<strong>Интеграция с менеджером паролей</strong>: Рассмотрите возможность использования менеджера паролей вместе с вашим генератором паролей. Эта комбинация обеспечивает максимальную безопасность ваших цифровых аккаунтов.",
     "zh": "<strong>与密码管理器集成</strong>：请考虑将密码管理器与密码生成器一起使用。这种组合为您的数字账户提供最大安全性。",
-    "ja": "<strong>パスワードマネージャーとの統合</strong>：パスワードジェネレーターと一緒にパスワードマネージャーを使用することを検討してください。この組み合わせは、あなたのデジタルアカウントに究極のセキュリティを提供します。"
+    "ja": "<strong>パスワードマネージャーとの統合</strong>：パスワードジェネレーターと一緒にパスワードマネージャーを使用することを検討してください。この組み合わせは、あなたのデジタルアカウントに究極のセキュリティを提供します。",
+    "pl": "<strong>Integracja z menedżerem haseł</strong>: Rozważ używanie menedżera haseł wraz z generatorem haseł. Ta kombinacja zapewnia maksymalne bezpieczeństwo dla Twoich kont cyfrowych."
   },
   "seolist_advanced_security_measures_2": {
     "ua": "<strong>Двофакторна аутентифікація</strong>: Завжди увімкніть двофакторну аутентифікацію, коли це можливо. Це додає додатковий рівень безпеки окрім наявності міцного пароля.",
@@ -931,7 +1095,8 @@
     "pt": "<strong>Autenticação de dois fatores</strong>: Sempre ative a autenticação de dois fatores quando disponível. Isso adiciona uma camada extra de segurança além de ter uma senha forte.",
     "ru": "<strong>Двухфакторная аутентификация</strong>: Всегда включайте двухфакторную аутентификацию, когда это возможно. Это добавляет дополнительный уровень безопасности помимо наличия надежного пароля.",
     "zh": "<strong>双因素认证</strong>：在可用时始终启用双因素认证。这除了拥有强密码之外，还增加了额外的安全层。",
-    "ja": "<strong>二要素認証</strong>：利用可能な場合は常に二要素認証を有効にしてください。これは強力なパスワードを持つこと以外に、追加のセキュリティレイヤーを追加します。"
+    "ja": "<strong>二要素認証</strong>：利用可能な場合は常に二要素認証を有効にしてください。これは強力なパスワードを持つこと以外に、追加のセキュリティレイヤーを追加します。",
+    "pl": "<strong>Uwierzytelnianie dwuskładnikowe</strong>: Zawsze włączaj uwierzytelnianie dwuskładnikowe, gdy jest dostępne. To dodaje dodatkową warstwę bezpieczeństwa oprócz posiadania silnego hasła."
   },
   "menu_aboutus": {
     "ua": "Про нас",
@@ -943,7 +1108,8 @@
     "pt": "Sobre nós",
     "ru": "О нас",
     "zh": "关于我们",
-    "ja": "私たちについて"
+    "ja": "私たちについて",
+    "pl": "O nas"
   },
   "menu_howtouse": {
     "ua": "Як використовувати",
@@ -955,7 +1121,8 @@
     "pt": "Como usar",
     "ru": "Как использовать",
     "zh": "如何使用",
-    "ja": "使い方"
+    "ja": "使い方",
+    "pl": "Jak używać"
   },
   "menu_guide": {
     "ua": "Посібник",
@@ -967,7 +1134,8 @@
     "pt": "Guia",
     "ru": "Руководство",
     "zh": "指南",
-    "ja": "ガイド"
+    "ja": "ガイド",
+    "pl": "Przewodnik"
   },
   "footer_copyright": {
     "ua": "Авторське право",
@@ -979,7 +1147,8 @@
     "pt": "Direitos autorais",
     "ru": "Авторское право",
     "zh": "版权",
-    "ja": "著作権"
+    "ja": "著作権",
+    "pl": "Prawa autorskie"
   },
   "footer_working_with": {
     "ua": "Працює на серверах",
@@ -991,7 +1160,8 @@
     "pt": "Funciona com",
     "ru": "Работает на серверах",
     "zh": "运行在服务器上",
-    "ja": "サーバーで動作"
+    "ja": "サーバーで動作",
+    "pl": "Działa na serwerach"
   },
   "use_characters": {
     "ua": "Використати символи:",
@@ -1003,7 +1173,8 @@
     "pt": "Usar caracteres:",
     "ru": "Использовать символы:",
     "zh": "使用字符：",
-    "ja": "文字を使用："
+    "ja": "文字を使用：",
+    "pl": "Użyj znaków:"
   },
   "time_years": {
     "ua": "років",
@@ -1015,7 +1186,8 @@
     "pt": "anos",
     "ru": "лет",
     "zh": "年",
-    "ja": "年"
+    "ja": "年",
+    "pl": "lat"
   },
   "time_year": {
     "ua": "рік",
@@ -1027,7 +1199,8 @@
     "pt": "ano",
     "ru": "год",
     "zh": "年",
-    "ja": "年"
+    "ja": "年",
+    "pl": "rok"
   },
   "time_months": {
     "ua": "місяці",
@@ -1039,7 +1212,8 @@
     "pt": "meses",
     "ru": "месяцев",
     "zh": "个月",
-    "ja": "ヶ月"
+    "ja": "ヶ月",
+    "pl": "miesięcy"
   },
   "time_month": {
     "ua": "місяць",
@@ -1051,7 +1225,8 @@
     "pt": "mês",
     "ru": "месяц",
     "zh": "个月",
-    "ja": "ヶ月"
+    "ja": "ヶ月",
+    "pl": "miesiąc"
   },
   "time_days": {
     "ua": "днів",
@@ -1063,7 +1238,8 @@
     "pt": "dias",
     "ru": "дней",
     "zh": "天",
-    "ja": "日"
+    "ja": "日",
+    "pl": "dni"
   },
   "time_day": {
     "ua": "день",
@@ -1075,7 +1251,8 @@
     "pt": "dia",
     "ru": "день",
     "zh": "天",
-    "ja": "日"
+    "ja": "日",
+    "pl": "dzień"
   },
   "time_hours": {
     "ua": "годин",
@@ -1087,7 +1264,8 @@
     "pt": "horas",
     "ru": "часов",
     "zh": "小时",
-    "ja": "時間"
+    "ja": "時間",
+    "pl": "godzin"
   },
   "time_hour": {
     "ua": "година",
@@ -1099,7 +1277,8 @@
     "pt": "hora",
     "ru": "час",
     "zh": "小时",
-    "ja": "時間"
+    "ja": "時間",
+    "pl": "godzina"
   },
   "time_minutes": {
     "ua": "хвилин",
@@ -1111,7 +1290,8 @@
     "pt": "minutos",
     "ru": "минут",
     "zh": "分钟",
-    "ja": "分"
+    "ja": "分",
+    "pl": "minut"
   },
   "time_minute": {
     "ua": "хвилина",
@@ -1123,7 +1303,8 @@
     "pt": "minuto",
     "ru": "минута",
     "zh": "分钟",
-    "ja": "分"
+    "ja": "分",
+    "pl": "minuta"
   },
   "time_seconds": {
     "ua": "секунд",
@@ -1135,7 +1316,8 @@
     "pt": "segundos",
     "ru": "секунд",
     "zh": "秒",
-    "ja": "秒"
+    "ja": "秒",
+    "pl": "sekund"
   },
   "time_second": {
     "ua": "секунда",
@@ -1147,7 +1329,8 @@
     "pt": "segundo",
     "ru": "секунда",
     "zh": "秒",
-    "ja": "秒"
+    "ja": "秒",
+    "pl": "sekunda"
   },
   "time_century": {
     "ua": "століття",
@@ -1255,7 +1438,8 @@
     "pt": "Salvar preferências",
     "ru": "Сохранить настройки",
     "zh": "保存偏好设置",
-    "ja": "設定を保存"
+    "ja": "設定を保存",
+    "pl": "Zapisz preferencje"
   },
   "cookie_consent_close": {
     "en": "Close modal",
@@ -1267,7 +1451,8 @@
     "pt": "Fechar",
     "ru": "Закрыть",
     "zh": "关闭",
-    "ja": "閉じる"
+    "ja": "閉じる",
+    "pl": "Zamknij"
   },
   "cookie_preferences_title": {
     "en": "Cookie preferences",
@@ -1279,7 +1464,8 @@
     "pt": "Preferências de cookies",
     "ru": "Настройки cookie",
     "zh": "Cookie偏好设置",
-    "ja": "Cookie設定"
+    "ja": "Cookie設定",
+    "pl": "Preferencje plików cookie"
   },
   "cookie_section_usage_title": {
     "en": "Cookie usage",
@@ -1291,7 +1477,8 @@
     "pt": "Uso de cookies",
     "ru": "Использование cookie",
     "zh": "Cookie使用",
-    "ja": "Cookieの使用"
+    "ja": "Cookieの使用",
+    "pl": "Użycie plików cookie"
   },
   "cookie_section_usage_desc": {
     "en": "We use cookies to ensure the basic functionalities of the website and to enhance your online experience. You can choose for each category to opt-in/out whenever you want.",
@@ -1315,7 +1502,8 @@
     "pt": "Cookies estritamente necessários",
     "ru": "Строго необходимые cookie",
     "zh": "严格必要的cookie",
-    "ja": "厳密に必要なCookie"
+    "ja": "厳密に必要なCookie",
+    "pl": "Ściśle niezbędne pliki cookie"
   },
   "cookie_section_necessary_desc": {
     "en": "These cookies are essential for the website to function properly. They cannot be switched off.",
@@ -1327,7 +1515,8 @@
     "pt": "Esses cookies são essenciais para o funcionamento adequado do site. Eles não podem ser desativados.",
     "ru": "Эти файлы cookie необходимы для правильной работы веб-сайта. Их нельзя отключить.",
     "zh": "这些cookie对于网站正常运行至关重要。它们无法关闭。",
-    "ja": "これらのCookieは、ウェブサイトが正常に機能するために不可欠です。無効にすることはできません。"
+    "ja": "これらのCookieは、ウェブサイトが正常に機能するために不可欠です。無効にすることはできません。",
+    "pl": "Te pliki cookie są niezbędne do prawidłowego funkcjonowania strony internetowej. Nie można ich wyłączyć."
   },
   "cookie_section_analytics_title": {
     "en": "Analytics cookies",
@@ -1339,13 +1528,21 @@
     "pt": "Cookies de análise",
     "ru": "Аналитические cookie",
     "zh": "分析cookie",
-    "ja": "分析Cookie"
+    "ja": "分析Cookie",
+    "pl": "Pliki cookie analityczne"
   },
   "cookie_section_analytics_desc": {
     "en": "These cookies help us understand how visitors interact with our website, discover errors, and provide better overall analytics.",
     "ua": "Ці cookie допомагають нам зрозуміти, як відвідувачі взаємодіють із нашим сайтом, знаходити помилки та покращувати загальну аналітику.",
     "es": "Estas cookies nos ayudan a comprender cómo los visitantes interactúan con nuestro sitio web, descubrir errores y proporcionar mejores análisis generales.",
-    "fr": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site Web, à découvrir des erreurs et à fournir de meilleures analyses globales."
+    "fr": "Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site Web, à découvrir des erreurs et à fournir de meilleures analyses globales.",
+    "de": "Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, Fehler zu entdecken und bessere Gesamtanalysen zu liefern.",
+    "it": "Questi cookie ci aiutano a capire come i visitatori interagiscono con il nostro sito web, a scoprire errori e a fornire analisi generali migliori.",
+    "pt": "Esses cookies nos ajudam a entender como os visitantes interagem com nosso site, descobrir erros e fornecer análises gerais melhores.",
+    "ru": "Эти файлы cookie помогают нам понять, как посетители взаимодействуют с нашим веб-сайтом, обнаруживать ошибки и предоставлять лучшую общую аналитику.",
+    "zh": "这些cookie帮助我们了解访问者如何与我们的网站互动，发现错误并提供更好的整体分析。",
+    "ja": "これらのCookieは、訪問者が私たちのウェブサイトとどのように相互作用するかを理解し、エラーを発見し、より良い全体的な分析を提供するのに役立ちます。",
+    "pl": "Te pliki cookie pomagają nam zrozumieć, jak odwiedzający wchodzą w interakcję z naszą stroną internetową, odkrywać błędy i zapewniać lepsze ogólne analizy."
   },
   "cookie_section_marketing_title": {
     "en": "Marketing cookies",
@@ -1357,13 +1554,21 @@
     "pt": "Cookies de marketing",
     "ru": "Маркетинговые cookie",
     "zh": "营销cookie",
-    "ja": "マーケティングCookie"
+    "ja": "マーケティングCookie",
+    "pl": "Pliki cookie marketingowe"
   },
   "cookie_section_marketing_desc": {
     "en": "These cookies are used to deliver personalized advertisements and track advertising campaign performance.",
     "ua": "Ці cookie використовуються для персоналізованої реклами та відстеження ефективності кампаній.",
     "es": "Estas cookies se utilizan para ofrecer anuncios personalizados y realizar un seguimiento del rendimiento de las campañas publicitarias.",
-    "fr": "Ces cookies sont utilisés pour diffuser des publicités personnalisées et suivre les performances des campagnes publicitaires."
+    "fr": "Ces cookies sont utilisés pour diffuser des publicités personnalisées et suivre les performances des campagnes publicitaires.",
+    "de": "Diese Cookies werden verwendet, um personalisierte Anzeigen zu liefern und die Leistung von Werbekampagnen zu verfolgen.",
+    "it": "Questi cookie vengono utilizzati per fornire annunci personalizzati e tracciare le prestazioni delle campagne pubblicitarie.",
+    "pt": "Esses cookies são usados para fornecer anúncios personalizados e rastrear o desempenho das campanhas publicitárias.",
+    "ru": "Эти файлы cookie используются для доставки персонализированной рекламы и отслеживания эффективности рекламных кампаний.",
+    "zh": "这些cookie用于投放个性化广告和跟踪广告活动效果。",
+    "ja": "これらのCookieは、パーソナライズされた広告を配信し、広告キャンペーンのパフォーマンスを追跡するために使用されます。",
+    "pl": "Te pliki cookie są używane do dostarczania spersonalizowanych reklam i śledzenia wydajności kampanii reklamowych."
   },
   "howtouse_protect": {
     "ua": "Захистіть свої акаунти, використовуючи <strong>унікальні паролі</strong> для кожного сервісу та <strong>двофакторну аутентифікацію</strong>, де це можливо.",
@@ -1387,7 +1592,8 @@
     "pt": "Melhores práticas",
     "ru": "Лучшие практики",
     "zh": "最佳实践",
-    "ja": "ベストプラクティス"
+    "ja": "ベストプラクティス",
+    "pl": "Najlepsze praktyki"
   },
   "howtouse_best1": {
     "ua": "Використовуйте <strong>фрази-паролі</strong> для кращої запам'ятовуваності.",
@@ -1399,7 +1605,8 @@
     "pt": "Use <strong>frases de senha</strong> para melhor memorização.",
     "ru": "Используйте <strong>фразы-пароли</strong> для лучшей запоминаемости.",
     "zh": "使用<strong>密码短语</strong>以便更好地记忆。",
-    "ja": "より覚えやすくするために<strong>パスフレーズ</strong>を使いましょう。"
+    "ja": "より覚えやすくするために<strong>パスフレーズ</strong>を使いましょう。",
+    "pl": "Używaj <strong>frazy hasłowe</strong> dla lepszej zapamiętywalności."
   },
   "howtouse_best2": {
     "ua": "Не використовуйте <strong>особисту інформацію</strong> у паролях.",
@@ -1411,7 +1618,8 @@
     "pt": "Não use <strong>informações pessoais</strong> em senhas.",
     "ru": "Не используйте <strong>личную информацию</strong> в паролях.",
     "zh": "不要在密码中使用<strong>个人信息</strong>。",
-    "ja": "パスワードに<strong>個人情報</strong>を使用しないでください。"
+    "ja": "パスワードに<strong>個人情報</strong>を使用しないでください。",
+    "pl": "Nie używaj <strong>informacji osobistych</strong> w hasłach."
   },
   "howtouse_best3": {
     "ua": "Регулярно <strong>оновлюйте свої паролі</strong>.",
@@ -1423,7 +1631,8 @@
     "pt": "<strong>Atualize suas senhas</strong> regularmente.",
     "ru": "<strong>Регулярно обновляйте свои пароли</strong>.",
     "zh": "定期<strong>更新您的密码</strong>。",
-    "ja": "定期的に<strong>パスワードを更新</strong>してください。"
+    "ja": "定期的に<strong>パスワードを更新</strong>してください。",
+    "pl": "Regularnie <strong>aktualizuj swoje hasła</strong>."
   },
   "howtouse_best4": {
     "ua": "Використовуйте <strong>менеджер паролів</strong> для зберігання паролів.",
@@ -1435,30 +1644,7 @@
     "pt": "Use um <strong>gerenciador de senhas</strong> para armazenar suas senhas.",
     "ru": "Используйте <strong>менеджер паролей</strong> для хранения паролей.",
     "zh": "使用<strong>密码管理器</strong>来存储您的密码。",
-    "ja": "<strong>パスワードマネージャー</strong>を使ってパスワードを保存しましょう。"
-  },
-  "seotext_title": {
-    "ua": "Генератор надійних паролів онлайн",
-    "en": "Online Secure Password Generator",
-    "es": "Generador de Contraseñas Seguras en Línea",
-    "fr": "Générateur de mots de passe sécurisé en ligne",
-    "de": "Online-Sicherer Passwort-Generator",
-    "it": "Generatore di Password Sicure Online",
-    "pt": "Gerador de Senhas Seguras Online",
-    "ru": "Онлайн-генератор надежных паролей",
-    "zh": "在线安全密码生成器",
-    "ja": "オンライン安全パスワードジェネレーター"
-  },
-  "strong_password_info": {
-    "ua": "Створюйте <strong>міцні паролі</strong> для захисту ваших акаунтів від кіберзагроз. Наш генератор використовує передові алгоритми для створення криптографічно безпечних паролів.",
-    "en": "Create <strong>strong passwords</strong> to protect your accounts from cyber threats. Our generator uses advanced algorithms to create cryptographically secure passwords.",
-    "es": "Crea <strong>contraseñas fuertes</strong> para proteger tus cuentas de las amenazas cibernéticas. Nuestro generador utiliza algoritmos avanzados para crear contraseñas criptográficamente seguras.",
-    "fr": "Créez des <strong>mots de passe forts</strong> pour protéger vos comptes contre les cybermenaces. Notre générateur utilise des algorithmes avancés pour créer des mots de passe cryptographiquement sécurisés.",
-    "de": "Erstellen Sie <strong>starke Passwörter</strong>, um Ihre Konten vor Cyber-Bedrohungen zu schützen. Unser Generator verwendet fortschrittliche Algorithmen, um kryptographisch sichere Passwörter zu erstellen.",
-    "it": "Crea <strong>password forti</strong> per proteggere i tuoi account dalle minacce informatiche. Il nostro generatore utilizza algoritmi avanzati per creare password criptograficamente sicure.",
-    "pt": "Crie <strong>senhas fortes</strong> para proteger suas contas contra ameaças cibernéticas. Nosso gerador usa algoritmos avançados para criar senhas criptograficamente seguras.",
-    "ru": "Создавайте <strong>сильные пароли</strong> для защиты ваших аккаунтов от киберугроз. Наш генератор использует передовые алгоритмы для создания криптографически безопасных паролей.",
-    "zh": "创建<strong>强密码</strong>以保护您的账户免受网络威胁。我们的生成器使用先进算法创建加密安全的密码。",
-    "ja": "サイバー脅威からアカウントを保護するために<strong>強力なパスワード</strong>を作成します。私たちのジェネレーターは、暗号的に安全なパスワードを作成するために高度なアルゴリズムを使用します。"
+    "ja": "<strong>パスワードマネージャー</strong>を使ってパスワードを保存しましょう。",
+    "pl": "Używaj <strong>menedżera haseł</strong> do przechowywania haseł."
   }
 }

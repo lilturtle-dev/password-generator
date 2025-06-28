@@ -12,6 +12,7 @@ export function getStrengthWord(score, language) {
           case "ru": return "Очень Слабый";
           case "zh": return "很弱";
           case "ja": return "非常に弱い";
+          case "pl": return "Bardzo słaby";
           default: return "Very Weak";
         }
       case 2:
@@ -26,6 +27,7 @@ export function getStrengthWord(score, language) {
           case "ru": return "Слабый";
           case "zh": return "弱";
           case "ja": return "弱い";
+          case "pl": return "Słaby";
           default: return "Weak";
         }
       case 3:
@@ -40,6 +42,7 @@ export function getStrengthWord(score, language) {
           case "ru": return "Средний";
           case "zh": return "中等";
           case "ja": return "普通";
+          case "pl": return "Średni";
           default: return "Moderate";
         }
       case 4:
@@ -54,6 +57,7 @@ export function getStrengthWord(score, language) {
           case "ru": return "Сильный";
           case "zh": return "强";
           case "ja": return "強い";
+          case "pl": return "Silny";
           default: return "Strong";
         }
       default:
@@ -68,6 +72,7 @@ export function getStrengthWord(score, language) {
           case "ru": return "Очень Слабый";
           case "zh": return "很弱";
           case "ja": return "非常に弱い";
+          case "pl": return "Bardzo słaby";
           default: return "Very Weak";
         }
     }
