@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  font-family: 'Varela Round', sans-serif;
+  font-family: 'Arsenal', sans-serif;
   font-weight: normal;
   font-style: normal;
 }
@@ -150,29 +150,24 @@
 
 
 /* Light mode styles (default) */
-.container.ua strong {
+strong {
   font-weight: 700;
 }
 
-.container.ua * {
-  font-family: 'Arsenal', sans-serif;
-  font-weight: 400;
-}
-
-.container.ua button {
+button {
   font-family: 'Arsenal', sans-serif;
   font-style: normal;
   font-weight: 400;
 }
 
-.container.ua h2 {
+h2 {
   font-family: 'Arsenal', sans-serif;
   font-style: normal;
   font-weight: 700;
 }
 
-.container.ua header a,
-.container.ua footer a {
+header a,
+footer a {
   font-family: 'Arsenal', sans-serif;
   font-weight: 400;
 }
@@ -312,7 +307,10 @@ header {
 }
 
 .container.en header a,
-.container.en footer a {
+.container.en footer a,
+header a,
+footer a {
+  font-family: 'Arsenal', sans-serif;
   font-size: 18px;
   font-style: normal;
   line-height: 18px;
