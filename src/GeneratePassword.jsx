@@ -321,10 +321,10 @@ const hreflangMap = {
 };
 
 // Lazy load non-critical components
-const SeoText = lazy(() => import("./SeoText"));
-const SeoList = lazy(() => import("./SeoList.jsx"));
-const AdBanner = lazy(() => import("./Adbanner.jsx"));
-const AdBannerSecond = lazy(() => import("./AddbannerSecond.jsx"));
+const SeoText = lazy(() => import('./SeoText'));
+const SeoList = lazy(() => import('./SeoList'));
+const AdBanner = lazy(() => import('./Adbanner'));
+const AdBannerSecond = lazy(() => import('./AddbannerSecond'));
 const CookieConsentComponent = lazy(() => import('./components/CookieConsent'));
 
 export default function GeneratePassword() {
@@ -514,15 +514,40 @@ export default function GeneratePassword() {
   ));
 
   const firstPasswordInput = passwords.length > 0 ? passwordInputs[0] : null;
-  const TimeToCrackResult = passwords.length > 0 ? zxcvbn(passwords[0]) : null;
-  const CrackScore = TimeToCrackResult ? TimeToCrackResult.score : null;
-  const strengthWord = getStrengthWord(CrackScore, language);
-  const scoreColor = rankColor(CrackScore);
-  const strengthColor = { color: scoreColor };
-  const strengthWordScoreEn = TimeToCrackResult
-    ? TimeToCrackResult.crack_times_display.offline_slow_hashing_1e4_per_second
-    : null;
-  const strengthWordScoreLocalized = translateTimeUnits(strengthWordScoreEn, language);
+  
+  // Мемоізуємо важкі обчислення аналізу сили паролю
+  const passwordStrengthAnalysis = useMemo(() => {
+    if (passwords.length === 0) {
+      return {
+        TimeToCrackResult: null,
+        CrackScore: null,
+        strengthWord: '',
+        scoreColor: '#000',
+        strengthColor: { color: '#000' },
+        strengthWordScoreEn: null,
+        strengthWordScoreLocalized: ''
+      };
+    }
+
+    const TimeToCrackResult = zxcvbn(passwords[0]);
+    const CrackScore = TimeToCrackResult.score;
+    const strengthWord = getStrengthWord(CrackScore, language);
+    const scoreColor = rankColor(CrackScore);
+    const strengthColor = { color: scoreColor };
+    const strengthWordScoreEn = TimeToCrackResult.crack_times_display.offline_slow_hashing_1e4_per_second;
+    const strengthWordScoreLocalized = translateTimeUnits(strengthWordScoreEn, language);
+
+    return {
+      TimeToCrackResult,
+      CrackScore,
+      strengthWord,
+      scoreColor,
+      strengthColor,
+      strengthWordScoreEn,
+      strengthWordScoreLocalized
+    };
+  }, [passwords[0], language]); // Залежності: перший пароль та мова
+
   const restPasswordInputs = passwords.length > 1 ? passwordInputs.slice(1) : [];
 
   const renderedSnackbars = snackbars.map((snackbar) => (
@@ -607,8 +632,8 @@ export default function GeneratePassword() {
                 </p>
               </div>
               {firstPasswordInput}
-              <div className=" text-[#2A4E63] text-[16px] md:text-[18px] lg:mt-3 lg:flex" style={strengthColor}>
-                {`${strengthWord} ${t("time_to_crack", language)} ${strengthWordScoreLocalized}.`}
+              <div className=" text-[#2A4E63] text-[16px] md:text-[18px] lg:mt-3 lg:flex" style={passwordStrengthAnalysis.strengthColor}>
+                {`${passwordStrengthAnalysis.strengthWord} ${t("time_to_crack", language)} ${passwordStrengthAnalysis.strengthWordScoreLocalized}.`}
               </div>
               <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-4 items-center mt-1 lg:mt-3">
                 <div className="flex flex-col gap-3 items-start mt-8 lg:mt-6">

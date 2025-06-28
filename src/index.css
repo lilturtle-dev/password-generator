@@ -1,13 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 * {
-  font-family: 'Arsenal', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: normal;
   font-style: normal;
 }
+
+/* Шрифти для різних мов */
+.container.ua *,
+.container.ru * {
+  font-family: 'Arsenal', sans-serif !important;
+}
+
+.container.zh *,
+.container.ja * {
+  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif !important;
+}
+
+/* Специфічні шрифти для китайської та японської */
+.container.zh {
+  font-family: 'Noto Sans SC', sans-serif !important;
+}
+
+.container.ja {
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
 :root{
   --dark-theme-bg: #121212;
   --dark-theme-text: #E0E0E0;
@@ -155,21 +178,55 @@ strong {
 }
 
 button {
-  font-family: 'Arsenal', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-style: normal;
   font-weight: 400;
 }
 
+.container.ua button,
+.container.ru button {
+  font-family: 'Arsenal', sans-serif !important;
+}
+
+.container.zh button,
+.container.ja button {
+  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif !important;
+}
+
 h2 {
-  font-family: 'Arsenal', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-style: normal;
   font-weight: 700;
 }
 
+.container.ua h2,
+.container.ru h2 {
+  font-family: 'Arsenal', sans-serif !important;
+}
+
+.container.zh h2,
+.container.ja h2 {
+  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif !important;
+}
+
 header a,
 footer a {
-  font-family: 'Arsenal', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-weight: 400;
+}
+
+.container.ua header a,
+.container.ua footer a,
+.container.ru header a,
+.container.ru footer a {
+  font-family: 'Arsenal', sans-serif !important;
+}
+
+.container.zh header a,
+.container.zh footer a,
+.container.ja header a,
+.container.ja footer a {
+  font-family: 'Noto Sans SC', 'Noto Sans JP', 'Noto Sans', sans-serif !important;
 }
 
 #eng {
@@ -310,7 +367,7 @@ header {
 .container.en footer a,
 header a,
 footer a {
-  font-family: 'Arsenal', sans-serif;
+  font-family: 'Varela Round', sans-serif;
   font-size: 18px;
   font-style: normal;
   line-height: 18px;
@@ -324,4 +381,74 @@ footer a {
 
 ol {
   list-style: decimal;
+}
+
+/* Додаткові стилі для різних мов */
+.container.ua,
+.container.ru {
+  font-family: 'Arsenal', sans-serif !important;
+}
+
+.container.zh {
+  font-family: 'Noto Sans SC', sans-serif !important;
+}
+
+.container.ja {
+  font-family: 'Noto Sans JP', sans-serif !important;
+}
+
+/* Стилі для всіх інших латинських мов */
+.container.en,
+.container.es,
+.container.fr,
+.container.de,
+.container.it,
+.container.pt {
+  font-family: 'Varela Round', sans-serif !important;
+}
+
+/* Стилі для заголовків та тексту в різних мовах */
+.container.ua h1,
+.container.ua h2,
+.container.ua h3,
+.container.ua h4,
+.container.ua h5,
+.container.ua h6,
+.container.ua p,
+.container.ua span,
+.container.ua div,
+.container.ru h1,
+.container.ru h2,
+.container.ru h3,
+.container.ru h4,
+.container.ru h5,
+.container.ru h6,
+.container.ru p,
+.container.ru span,
+.container.ru div {
+  font-family: 'Arsenal', sans-serif !important;
+}
+
+.container.zh h1,
+.container.zh h2,
+.container.zh h3,
+.container.zh h4,
+.container.zh h5,
+.container.zh h6,
+.container.zh p,
+.container.zh span,
+.container.zh div {
+  font-family: 'Noto Sans SC', sans-serif !important;
+}
+
+.container.ja h1,
+.container.ja h2,
+.container.ja h3,
+.container.ja h4,
+.container.ja h5,
+.container.ja h6,
+.container.ja p,
+.container.ja span,
+.container.ja div {
+  font-family: 'Noto Sans JP', sans-serif !important;
 }
