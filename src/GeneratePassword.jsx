@@ -27,6 +27,7 @@ import lang from "./lang.json";
 import { rankColor } from "./functions/RankColor";
 import { getStrengthWord } from "./functions/GetStrengthWord";
 import './index.css';
+import { Analytics } from "@vercel/analytics/react"
 
 const supportedLangs = ['en', 'ua', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'zh', 'ja'];
 
@@ -114,46 +115,46 @@ function PasswordRow({
             }}
             src={refreash}
             alt="refresh"
-            className={`${isDarkMode ? "invert brightness-0":""} flex mr-2 h-[15px] md:h-[20px]`}
+            className={`${isDarkMode ? "invert brightness-0" : ""} flex mr-2 h-[15px] md:h-[20px]`}
             style={disabledStyle}
           />
         </div>
       </div>
       {/* For Mobile*/}
       <div className="flex md:hidden h-14 items-center lg:justify-end justify-center flex-nowrap w-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
-          <button
-            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
-            onClick={() => {
-              onGenerate(index);
-              runReward();
-            }}
-            disabled={isAnimating}
-            style={disabledStyle}
-          >
-            {t("generate", language)}
-          </button>
-          <button
-            className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
-            onClick={() => {
-              onGenerate(index);
-              runReward();
-            }}
-            disabled={isAnimating}
-            style={disabledStyle}
-          >
-            {t("generate_short", language)}
-          </button>
-          <img
-            onClick={() => {
-              onGenerate(index);
-              runReward();
-            }}
-            src={refreash}
-            alt="refresh"
-            className="flex mr-2 h-[15px] md:h-[20px]"
-            style={disabledStyle}
-          />
-        </div>
+        <button
+          className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
+          onClick={() => {
+            onGenerate(index);
+            runReward();
+          }}
+          disabled={isAnimating}
+          style={disabledStyle}
+        >
+          {t("generate", language)}
+        </button>
+        <button
+          className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
+          onClick={() => {
+            onGenerate(index);
+            runReward();
+          }}
+          disabled={isAnimating}
+          style={disabledStyle}
+        >
+          {t("generate_short", language)}
+        </button>
+        <img
+          onClick={() => {
+            onGenerate(index);
+            runReward();
+          }}
+          src={refreash}
+          alt="refresh"
+          className="flex mr-2 h-[15px] md:h-[20px]"
+          style={disabledStyle}
+        />
+      </div>
       <button
         disabled={password?.length < 1}
         className="bg-[#2A4E63] w-[100%] -bottom-12 h-14 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] py-[12px]"
@@ -543,6 +544,7 @@ export default function GeneratePassword() {
         <Header language={language} onLanguageChange={handleLanguageChange} />
         {renderedSnackbars}
         <main className="w-full">
+          <Analytics />
           <div className={`flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#1a1a1a]" : "bg-[#E5F6FF]"} lg:bg-[url('./images/vector-bg.svg')] lg:bg-no-repeat lg:bg-center lg:bg-cover`}>
             <h1 className="page-title mx-2 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
               {t("main_title", language)}
@@ -587,7 +589,7 @@ export default function GeneratePassword() {
                   <label htmlFor="quantity" className="text-[16px] md:text-[22px] text-[#2A4E63]">
                     {t("quantity", language)}
                   </label>
-                  <input type="number" id="quantity" name="quantity" min="1" max={maxquantity} value={quantity} onChange={handleQuantityChange} className={`${isDarkMode ? "border-none" : "" } border-2 border-[#E5F6FF] border-solid rounded-[18px] text-[#071016] text-[18px] md:text-[20px] py-3 md:py-5 px-3 outline-none w-full`} />
+                  <input type="number" id="quantity" name="quantity" min="1" max={maxquantity} value={quantity} onChange={handleQuantityChange} className={`${isDarkMode ? "border-none" : ""} border-2 border-[#E5F6FF] border-solid rounded-[18px] text-[#071016] text-[18px] md:text-[20px] py-3 md:py-5 px-3 outline-none w-full`} />
                 </div>
               </div>
               <div className="flex gap-3 flex-wrap items-center mt-9 ">
