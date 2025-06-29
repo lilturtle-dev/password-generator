@@ -114,11 +114,11 @@ src/
 
 ### Environment variables
 ```env
-REACT_APP_GTM_ID=GTM-KR2SHTKB  # Google Tag Manager ID
+REACT_APP_GTM_ID=YOUR_GTM_ID  # Google Tag Manager ID
 ```
 
 ### AdSense Configuration
-- Publisher ID: `ca-pub-5995594246081561`
+- Publisher ID: `YOUR_ADSENSE_PUBLISHER_ID`
 - Smart ad handling with fallback content
 - Development mode detection
 - Ad blocker detection
