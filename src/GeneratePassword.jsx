@@ -24,6 +24,7 @@ import { getStrengthWord } from "./functions/GetStrengthWord";
 import './index.css';
 import { Analytics } from "@vercel/analytics/react"
 import { getAvailableLanguages } from './utils/languageUtils';
+import SeoAccordion from "./components/SeoAccordion";
 
 const supportedLangs = ['en', 'ua', 'es', 'fr', 'de', 'it', 'pt', 'ru', 'zh', 'ja', 'pl'];
 
@@ -707,23 +708,12 @@ export default function GeneratePassword() {
         </div>
         <div className="lg:my-10 w-full">
           <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded"></div>}>
-            <SeoText language={language} />
+            <SeoAccordion language={language} />
           </Suspense>
-        </div>
-        <div id="howtouse" className="lg:my-10 w-full">
-          <HowToUse language={language} />
-        </div>
-        <div id="aboutus" className="lg:my-10 w-full">
-          <AboutUs language={language} />
         </div>
         <div className="mb-4 w-full mt-4">
           <Suspense fallback={null}>
             <AdBannerSecond language={language} isDarkMode={isDarkMode} />
-          </Suspense>
-        </div>
-        <div id="guide" className="lg:my-10 w-full">
-          <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded"></div>}>
-            <SeoList language={language} />
           </Suspense>
         </div>
         <Footer language={language} />

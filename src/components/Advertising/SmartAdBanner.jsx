@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import AdSense from 'react-adsense';
+import SeoAccordion from "@/components/SeoAccordion";
 
 const SmartAdBanner = ({ 
   adSlot = '8766567218',
