@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Arsenal:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Varela+Round&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Noto+Sans+JP:wght@400;700&family=Noto+Sans+SC:wght@400;700&display=swap');
+@import './styles/colors.css';
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -36,19 +37,15 @@
   font-family: 'Varela Round', sans-serif !important;
 }
 
-:root{
-  --dark-theme-bg: #121212;
-  --dark-theme-text: #E0E0E0;
-}
 /* Dark mode styles */
 .dark {
   background-color: var(--dark-theme-bg);
-  color: #ffffff;
+  color: var(--dark-theme-white);
 }
 
 .dark body {
   background-color: var(--dark-theme-bg);
-  color: #ffffff;
+  color: var(--dark-theme-white);
 }
 
 .dark header {
@@ -73,15 +70,15 @@
 }
 
 .dark .text-gray-900 {
-  color: #ffffff !important;
+  color: var(--dark-theme-white) !important;
 }
 
 .dark .text-[#071016] {
-  color: #ffffff !important;
+  color: var(--dark-theme-white) !important;
 }
 
 .dark .text-[#2A4E63] {
-  color: #96DBFF !important;
+  color: var(--success-color) !important;
 }
 
 .dark .border-[#E5F6FF] {
@@ -107,8 +104,8 @@
 }
 
 .dark input {
-  background-color: #2a4e63 !important;
-  color: #ffffff !important;
+  background-color: #121212 !important;
+  color: var(--dark-theme-white) !important;
 }
 
 .dark input::placeholder {
@@ -120,24 +117,24 @@
 }
 
 .dark .MuiSlider-track {
-  background-color: #96DBFF !important;
+  background-color: var(--success-color) !important;
 }
 
 .dark .MuiSlider-thumb {
-  background-color: #96DBFF !important;
+  background-color: var(--success-color) !important;
 }
 
 .dark .MuiCheckbox-root {
-  color: #96DBFF !important;
+  color: var(--success-color) !important;
 }
 
 .dark .MuiCheckbox-root.Mui-checked {
-  color: #96DBFF !important;
+  color: var(--success-color) !important;
 }
 
 .dark .MuiButton-root {
-  background-color: #2A4E63 !important;
-  color: #ffffff !important;
+  background-color: var(--accent-color) !important;
+  color: var(--dark-theme-white) !important;
 }
 
 .dark .MuiButton-root:hover {
@@ -146,17 +143,17 @@
 
 .dark .MuiDrawer-paper {
   background-color: #2d2d2d !important;
-  color: #ffffff !important;
+  color: var(--dark-theme-white) !important;
 }
 
 .dark .MuiSelect-select {
   background-color: #374151 !important;
-  color: #ffffff !important;
+  color: var(--dark-theme-white) !important;
 }
 
 .dark .MuiMenuItem-root {
   background-color: #374151 !important;
-  color: #ffffff !important;
+  color: var(--dark-theme-white) !important;
 }
 
 .dark .MuiMenuItem-root:hover {
@@ -168,7 +165,7 @@
 }
 
 .dark .MuiFormControlLabel-label {
-  color: #ffffff !important;
+  color: var(--dark-theme-white) !important;
 }
 
 .dark :is(a, h1, h2, h3, h4, h5, p, ul,li, label, span) {
@@ -595,4 +592,24 @@ ol {
   body {
     @apply bg-background text-foreground;
   }
+}
+
+/* Background image opacity control */
+.bg-vector-opacity::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('./images/vector-bg.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.3; /* Змініть це значення від 0 до 1 для контролю прозорості */
+  z-index: -1;
+}
+
+.bg-vector-opacity {
+  position: relative;
 }

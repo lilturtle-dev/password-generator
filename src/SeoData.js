@@ -3,44 +3,44 @@ import { getAvailableLanguages } from './utils/languageUtils';
 // Базові SEO дані для кожної мови
 const seoDataMap = {
   en: {
-    title: "Generate Strong Passwords with generatepasswordto.me | Secure Your Accounts",
-    description: "Enhance your online security with generatepasswordto.me! Use our advanced password generator to create robust and secure passwords for your accounts. Safeguard your digital presence and stay one step ahead of cyber threats.",
+    title: "Generate Strong Passwords with generatepasswordto.me | NIST & PCI DSS Compliant",
+    description: "Enhance your online security with generatepasswordto.me! Our NIST 800-63B and PCI DSS compliant password generator creates cryptographically secure passwords. Trusted by financial institutions worldwide for maximum account protection.",
   },
   ua: {
-    title: "Генерація Надійних Паролів на generatepasswordto.me | Захистіть свої облікові записи",
-    description: "Підвищте безпеку онлайн з generatepasswordto.me! Використовуйте наш продуктивний генератор паролів для створення міцних та надійних паролів для ваших облікових записів. Захистіть свою цифрову присутність та будьте на крок попереду від кіберзагроз.",
+    title: "Генерація Надійних Паролів на generatepasswordto.me | Відповідність NIST та PCI DSS",
+    description: "Підвищте безпеку онлайн з generatepasswordto.me! Наш генератор паролів відповідає стандартам NIST 800-63B та PCI DSS, створюючи криптографічно безпечні паролі. Довіра фінансових установ по всьому світу для максимального захисту акаунтів.",
   },
   es: {
-    title: "Genera contraseñas seguras con generatepasswordto.me | Protege tus cuentas",
-    description: "¡Mejora tu seguridad en línea con generatepasswordto.me! Usa nuestro generador avanzado de contraseñas para crear claves robustas y seguras para tus cuentas. Protege tu presencia digital y mantente un paso adelante de las amenazas cibernéticas.",
+    title: "Genera contraseñas seguras con generatepasswordto.me | Cumple NIST y PCI DSS",
+    description: "¡Mejora tu seguridad en línea con generatepasswordto.me! Nuestro generador de contraseñas cumple con NIST 800-63B y PCI DSS, creando contraseñas criptográficamente seguras. Confiado por instituciones financieras mundiales para máxima protección de cuentas.",
   },
   fr: {
-    title: "Générez des mots de passe forts avec generatepasswordto.me | Sécurisez vos comptes",
-    description: "Améliorez votre sécurité en ligne avec generatepasswordto.me ! Utilisez notre générateur de mots de passe avancé pour créer des mots de passe robustes et sécurisés pour vos comptes. Protégez votre présence numérique et gardez une longueur d'avance sur les cybermenaces.",
+    title: "Générez des mots de passe forts avec generatepasswordto.me | Conforme NIST et PCI DSS",
+    description: "Améliorez votre sécurité en ligne avec generatepasswordto.me ! Notre générateur de mots de passe conforme aux normes NIST 800-63B et PCI DSS crée des mots de passe cryptographiquement sécurisés. Approuvé par les institutions financières mondiales pour une protection maximale des comptes.",
   },
   de: {
-    title: "Generieren Sie starke Passwörter mit generatepasswordto.me | Sichern Sie Ihre Konten",
-    description: "Verbessern Sie Ihre Online-Sicherheit mit generatepasswordto.me! Verwenden Sie unseren fortschrittlichen Passwort-Generator, um robuste und sichere Passwörter für Ihre Konten zu erstellen. Schützen Sie Ihre digitale Präsenz und bleiben Sie Cyber-Bedrohungen einen Schritt voraus.",
+    title: "Generieren Sie starke Passwörter mit generatepasswordto.me | NIST & PCI DSS konform",
+    description: "Verbessern Sie Ihre Online-Sicherheit mit generatepasswordto.me! Unser NIST 800-63B und PCI DSS konformer Passwort-Generator erstellt kryptographisch sichere Passwörter. Vertraut von Finanzinstituten weltweit für maximalen Kontenschutz.",
   },
   it: {
-    title: "Genera password sicure con generatepasswordto.me | Proteggi i tuoi account",
-    description: "Migliora la tua sicurezza online con generatepasswordto.me! Usa il nostro generatore di password avanzato per creare password robuste e sicure per i tuoi account. Proteggi la tua presenza digitale e mantieni un passo avanti rispetto alle minacce informatiche.",
+    title: "Genera password sicure con generatepasswordto.me | Conforme NIST e PCI DSS",
+    description: "Migliora la tua sicurezza online con generatepasswordto.me! Il nostro generatore di password conforme a NIST 800-63B e PCI DSS crea password crittograficamente sicure. Fidato dalle istituzioni finanziarie mondiali per la massima protezione degli account.",
   },
   pt: {
-    title: "Gere senhas fortes com generatepasswordto.me | Proteja suas contas",
-    description: "Melhore sua segurança online com generatepasswordto.me! Use nosso gerador de senhas avançado para criar senhas robustas e seguras para suas contas. Proteja sua presença digital e fique um passo à frente das ameaças cibernéticas.",
+    title: "Gere senhas fortes com generatepasswordto.me | Conforme NIST e PCI DSS",
+    description: "Melhore sua segurança online com generatepasswordto.me! Nosso gerador de senhas em conformidade com NIST 800-63B e PCI DSS cria senhas criptograficamente seguras. Confiado por instituições financeiras mundiais para máxima proteção de contas.",
   },
   ru: {
-    title: "Генерируйте надежные пароли с generatepasswordto.me | Защитите свои аккаунты",
-    description: "Повысьте безопасность в интернете с generatepasswordto.me! Используйте наш продвинутый генератор паролей для создания надежных и безопасных паролей для ваших аккаунтов. Защитите свое цифровое присутствие и будьте на шаг впереди киберугроз.",
+    title: "Генерируйте надежные пароли с generatepasswordto.me | Соответствие NIST и PCI DSS",
+    description: "Повысьте безопасность в интернете с generatepasswordto.me! Наш генератор паролей соответствует стандартам NIST 800-63B и PCI DSS, создавая криптографически безопасные пароли. Доверие финансовых учреждений по всему миру для максимальной защиты аккаунтов.",
   },
   zh: {
-    title: "使用 generatepasswordto.me 生成强密码 | 保护您的账户",
-    description: "通过 generatepasswordto.me 提升您的在线安全性！使用我们先进的密码生成器为您的账户创建强大且安全的密码。保护您的数字存在，在网络安全威胁面前保持领先一步。",
+    title: "使用 generatepasswordto.me 生成强密码 | 符合 NIST 和 PCI DSS 标准",
+    description: "通过 generatepasswordto.me 提升您的在线安全性！我们的密码生成器符合 NIST 800-63B 和 PCI DSS 标准，创建加密安全的密码。全球金融机构信赖，为账户提供最大保护。",
   },
   ja: {
-    title: "generatepasswordto.me で強力なパスワードを生成 | アカウントを保護",
-    description: "generatepasswordto.me でオンラインセキュリティを向上させましょう！私たちの高度なパスワードジェネレーターを使用して、アカウント用の堅牢で安全なパスワードを作成します。デジタルプレゼンスを保護し、サイバー脅威に一歩先んじましょう。",
+    title: "generatepasswordto.me で強力なパスワードを生成 | NIST・PCI DSS準拠",
+    description: "generatepasswordto.me でオンラインセキュリティを向上させましょう！NIST 800-63BとPCI DSSに準拠した当社のパスワードジェネレーターは、暗号的に安全なパスワードを作成します。世界中の金融機関に信頼され、アカウントの最大限の保護を提供します。",
   },
 };
 

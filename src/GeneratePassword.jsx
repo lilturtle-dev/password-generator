@@ -73,7 +73,7 @@ function PasswordRow({
     >
       <div
         className={`${isDarkMode ? "border-none" : "border-[#E5F6FF]"} py-1 lg:px-4 w-[100%] lg:w-[80%] flex items-center border-2 h-14 border-solid rounded-[120px] text-[#071016] text-[12px] md:text-[20px]`}
-        style={isDarkMode ? { backgroundColor: "#2a4e63" } : {}}
+        style={isDarkMode ? { backgroundColor: "#121212" } : {}}
       >
         <input
           type="text"
@@ -148,7 +148,7 @@ function PasswordRow({
       </div>
       <button
         disabled={password?.length < 1 || isAnimating}
-        className="bg-[#2A4E63] w-[100%] -bottom-12 h-14 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] py-[12px]"
+        className={`${isDarkMode ? 'bg-[#05a9ff]' : 'bg-[#2A4E63]'} w-[100%] -bottom-12 h-14 lg:w-[20%] ${isDarkMode ? 'text-[#e0e0e0]' : 'text-white'} font-semibold text-[16px] md:text-[20px] rounded-[60px] py-[12px]`}
         style={
           password?.length < 1 || isAnimating
             ? { cursor: "not-allowed", opacity: 0.5 }
@@ -322,17 +322,13 @@ export default function GeneratePassword() {
   const { isDarkMode } = useContext(ThemeContext);
   const [snackbars, setSnackbars] = useState([]);
   const [passwordLength, setPasswordLength] = useState(12);
-  const [selectedCharacterSets, setSelectedCharacterSets] = useState([
-    "0-9",
-    "#$%",
-    "a-z",
-    "A-Z",
-  ]);
+  const [selectedCharacterSets, setSelectedCharacterSets] = useState(["A-Z", "a-z", "0-9", "#$%"]);
   const [language, setLanguage] = useState("ua");
   const [quantity, setQuantity] = useState(1);
   const [passwords, setPasswords] = useState([]);
   const maxquantity = 100;
   const mode = "production";
+  const [selectedStandard, setSelectedStandard] = useState("nist");
 
   const characterSets = useMemo(() => ({
     "A-Z": "ABCDEFGHIJKLMNOPQRSTUVWXYZ",
@@ -480,21 +476,39 @@ export default function GeneratePassword() {
   };
 
   const handleGeneratePassword = (index) => {
-    if (index >= 0 && index < passwords.length) {
-      let characters = "";
-      selectedCharacterSets.forEach((set) => {
-        characters += characterSets[set];
-      });
-      let password = "";
-      for (let j = 0; j < passwordLength; j++) {
-        password += characters.charAt(
-          Math.floor(Math.random() * characters.length)
-        );
+    const standardConfig = passwordStandards[selectedStandard];
+    
+    // Ensure minimum length for the selected standard
+    const effectiveLength = Math.max(passwordLength, standardConfig.minLength);
+    
+    // Generate password with required characters from each set
+    let password = "";
+    
+    // First, add one character from each required set
+    standardConfig.requiredSets.forEach((set) => {
+      const chars = characterSets[set];
+      if (chars) {
+        password += chars.charAt(Math.floor(Math.random() * chars.length));
       }
-      const updatedPasswords = [...passwords];
-      updatedPasswords[index] = password;
-      setPasswords(updatedPasswords);
+    });
+    
+    // Then fill the rest with random characters from all selected sets
+    let allCharacters = "";
+    selectedCharacterSets.forEach((set) => {
+      allCharacters += characterSets[set];
+    });
+    
+    // Add remaining characters to reach the desired length
+    for (let i = password.length; i < effectiveLength; i++) {
+      password += allCharacters.charAt(Math.floor(Math.random() * allCharacters.length));
     }
+    
+    // Shuffle the password to avoid predictable patterns
+    password = password.split('').sort(() => Math.random() - 0.5).join('');
+    
+    const updatedPasswords = [...passwords];
+    updatedPasswords[index] = password;
+    setPasswords(updatedPasswords);
   };
 
   const passwordInputs = passwords.map((password, index) => (
@@ -565,6 +579,28 @@ export default function GeneratePassword() {
 
   const availableLanguages = getAvailableLanguages();
 
+  // Password standards configuration
+  const passwordStandards = {
+    nist: {
+      minLength: 8,
+      requiredSets: ["A-Z", "a-z", "0-9", "#$%"],
+      description: "standard_nist_desc"
+    },
+    pci: {
+      minLength: 12,
+      requiredSets: ["A-Z", "a-z", "0-9", "#$%"],
+      description: "standard_pci_desc"
+    }
+  };
+
+  // Handle standard selection
+  const handleStandardChange = (standard) => {
+    setSelectedStandard(standard);
+    const standardConfig = passwordStandards[standard];
+    setPasswordLength(standardConfig.minLength);
+    setSelectedCharacterSets(standardConfig.requiredSets);
+  };
+
   return (
     <div className={`container ${language} mx-auto w-screen lg:w-full px-3 ${isDarkMode ? "dark" : ""}`}>
       <div id="centerReward" style={{ position: "fixed", left: "50%", top: "50%", transform: "translate(-50%, -50%)", pointerEvents: "none", zIndex: 9999 }} />
@@ -590,8 +626,8 @@ export default function GeneratePassword() {
         {renderedSnackbars}
         <main className="w-full">
           <Analytics />
-          <div className={`flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#1a1a1a]" : "bg-[#E5F6FF]"} lg:bg-[url('./images/vector-bg.svg')] lg:bg-no-repeat lg:bg-center lg:bg-cover`}>
-            <h1 className="page-title mx-2 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center text-gray-900">
+          <div className={`flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#1a1a1a]" : "bg-[#E5F6FF]"} lg:bg-[url('./images/vector-bg.svg')] lg:bg-no-repeat lg:bg-center lg:bg-cover lg:bg-blend-overlay`}>
+            <h1 className={`page-title mx-2 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center ${isDarkMode ? 'text-[#e0e0e0]' : 'text-gray-900'}`}>
               {t("main_title", language)}
             </h1>
             <p className="text-center text-[22px] text-[#2A4E63] mx-2 mb-4">
@@ -599,7 +635,7 @@ export default function GeneratePassword() {
             </p>
             <div className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? "bg-[#1c1c1c]" : "bg-white"} drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}>
               <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
-                <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
+                <div className={`p-[12px] rounded-full ${isDarkMode ? 'bg-[#1c1c1c]' : 'bg-[#E5F6FF]'} mr-3 ml-2 my-1`}>
                   <img 
                     src={passwordImage} 
                     alt="password" 
@@ -607,6 +643,7 @@ export default function GeneratePassword() {
                     height={20}
                     loading="lazy"
                     decoding="async"
+                    className="dark:brightness-0 dark:invert"
                   />
                 </div>
                 <p className="pt-[10px] relative">
@@ -615,7 +652,7 @@ export default function GeneratePassword() {
               </div>
               {/* bottom passaword lock */}
               <div className={`${isDarkMode ? "bg-[#2d2d2d]" : "bg-white"} absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}>
-                <div className="p-[12px] rounded-full bg-[#E5F6FF] mr-3 ml-2 my-1">
+                <div className={`p-[12px] rounded-full ${isDarkMode ? 'bg-[#1c1c1c]' : 'bg-[#E5F6FF]'} mr-3 ml-2 my-1`}>
                   <img 
                     src={passwordImage} 
                     alt="password" 
@@ -623,6 +660,7 @@ export default function GeneratePassword() {
                     height={20}
                     loading="lazy"
                     decoding="async"
+                    className="dark:brightness-0 dark:invert"
                   />
                 </div>
                 <p className="pt-[10px] relative">
@@ -639,8 +677,17 @@ export default function GeneratePassword() {
                     {t("password_length", language)} {passwordLength}
                   </label>
                   <div className="flex items-center gap-4 w-full">
-                    <RemoveCircleOutlineIcon onClick={() => setPasswordLength((prev) => Math.max(1, prev - 1))} style={{ cursor: "pointer" }} />
-                    <Slider value={passwordLength} min={4} max={100} onChange={(e) => setPasswordLength(e.target.value)} aria-label="Password length slider" aria-describedby="password-length-label" valueLabelDisplay="auto" className="h-[15px]" />
+                    <RemoveCircleOutlineIcon onClick={() => setPasswordLength((prev) => Math.max(passwordStandards[selectedStandard].minLength, prev - 1))} style={{ cursor: "pointer" }} />
+                    <Slider 
+                      value={passwordLength} 
+                      min={passwordStandards[selectedStandard].minLength} 
+                      max={100} 
+                      onChange={(e) => setPasswordLength(e.target.value)} 
+                      aria-label="Password length slider" 
+                      aria-describedby="password-length-label" 
+                      valueLabelDisplay="auto" 
+                      className="h-[15px]" 
+                    />
                     <AddCircleOutlineIcon onClick={() => setPasswordLength((prev) => Math.min(100, prev + 1))} style={{ cursor: "pointer" }} />
                   </div>
                 </div>
@@ -675,11 +722,38 @@ export default function GeneratePassword() {
                   ))}
                 </div>
               </div>
+              {/* Password Standards Selector */}
+              <div className="flex flex-col gap-2 mt-6">
+                <div className="flex flex-row items-center justify-between w-full gap-4">
+                  <label className="text-[16px] md:text-[22px] text-[#2A4E63] whitespace-nowrap">
+                    {t('password_standards_title', language)}
+                  </label>
+                  <div className="flex flex-row gap-3">
+                    <button
+                      className={`px-4 py-2 rounded-lg font-bold text-[16px] md:text-[18px] transition-all border-2 focus:outline-none ${selectedStandard === 'nist' ? 'border-[#2A4E63] bg-[#e5f6ff] dark:bg-[#05a9ff] text-[#2A4E63] dark:text-[#e0e0e0]' : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-[#374151] text-[#2A4E63] dark:text-[#e0e0e0]'}`}
+                      onClick={() => handleStandardChange('nist')}
+                    >
+                      {t('standard_nist', language)}
+                    </button>
+                    <button
+                      className={`px-4 py-2 rounded-lg font-bold text-[16px] md:text-[18px] transition-all border-2 focus:outline-none ${selectedStandard === 'pci' ? 'border-[#2A4E63] bg-[#e5f6ff] dark:bg-[#05a9ff] text-[#2A4E63] dark:text-[#e0e0e0]' : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-[#374151] text-[#2A4E63] dark:text-[#e0e0e0]'}`}
+                      onClick={() => handleStandardChange('pci')}
+                    >
+                      {t('standard_pci', language)}
+                    </button>
+                  </div>
+                </div>
+                <div className="w-full mt-2">
+                  <span className="block text-[17px] md:text-[20px] font-normal text-[#2A4E63] dark:text-[#e0e0e0] border-2 border-[#e5f6ff] dark:border-[#05a9ff] rounded-lg px-4 py-2 mt-1">
+                    {t(passwordStandards[selectedStandard].description, language)}
+                  </span>
+                </div>
+              </div>
               {restPasswordInputs}
               {passwords.length >= 2 ? (
                 <div className="flex gap-3 mt-2">
                   <Button 
-                    className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer" 
+                    className={`${isDarkMode ? 'bg-[#05a9ff]' : 'bg-[#2A4E63]'} ${isDarkMode ? 'text-[#e0e0e0]' : 'text-white'} font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer`}
                     onClick={handleCopyAllClick}
                     disabled={isAnimating}
                     style={isAnimating ? { opacity: 0.5, cursor: "not-allowed" } : {}}
@@ -688,7 +762,7 @@ export default function GeneratePassword() {
                     {t("copy_all", language)}
                   </Button>
                   <Button 
-                    className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer" 
+                    className={`${isDarkMode ? 'bg-[#05a9ff]' : 'bg-[#2A4E63]'} ${isDarkMode ? 'text-[#e0e0e0]' : 'text-white'} font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer`}
                     onClick={handleDownloadAllClick}
                     disabled={isAnimating}
                     style={isAnimating ? { opacity: 0.5, cursor: "not-allowed" } : {}}

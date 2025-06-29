@@ -1,0 +1,72 @@
+/* Color Variables for Password Generator */
+
+:root {
+  /* Dark Theme Colors */
+  --dark-theme-bg: #121212;
+  --dark-theme-text: #E0E0E0;
+  --dark-theme-white: #E0E0E0;
+  --dark-theme-card: #1c1c1c;
+  --dark-theme-input: #121212;
+  --dark-theme-border: #374151;
+  
+  /* Light Theme Colors */
+  --light-theme-text: #071016;
+  --light-theme-bg: #ffffff;
+  --light-theme-card: #ffffff;
+  --light-theme-input: #ffffff;
+  --light-theme-border: #E5F6FF;
+  
+  /* Primary Colors */
+  --primary-color: #2A4E63;
+  --secondary-color: #E5F6FF;
+  --accent-color: #05a9ff;
+  --success-color: #96DBFF;
+  
+  /* Status Colors */
+  --success-bg: #166534;
+  --info-bg: #2A4E63;
+  --warning-bg: #854d0e;
+  --error-bg: #dc2626;
+  
+  /* Text Colors */
+  --text-primary: #111827;
+  --text-secondary: #6b7280;
+  --text-muted: #9ca3af;
+  
+  /* Button Colors */
+  --button-primary: #2A4E63;
+  --button-primary-hover: #1e3a8a;
+  --button-secondary: #E5F6FF;
+  --button-accent: #05a9ff;
+  --button-accent-hover: #1e3a8a;
+  
+  /* Background Colors */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f9fafb;
+  --bg-accent: #E5F6FF;
+  --bg-success: #f0fdf4;
+  --bg-info: #eff6ff;
+  --bg-warning: #fffbeb;
+  --bg-error: #fef2f2;
+}
+
+/* Dark Theme Overrides */
+.dark {
+  --text-primary: #E0E0E0;
+  --text-secondary: #b0b0b0;
+  --text-muted: #9ca3af;
+  
+  --bg-primary: #121212;
+  --bg-secondary: #1c1c1c;
+  --bg-accent: #1f2937;
+  --bg-success: #166534;
+  --bg-info: #2A4E63;
+  --bg-warning: #854d0e;
+  --bg-error: #dc2626;
+  
+  --button-primary: #05a9ff;
+  --button-primary-hover: #1e3a8a;
+  --button-secondary: #374151;
+  --button-accent: #05a9ff;
+  --button-accent-hover: #1e3a8a;
+} 

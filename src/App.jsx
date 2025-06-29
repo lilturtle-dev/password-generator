@@ -59,7 +59,7 @@ function App() {
         paper: isDarkMode ? '#2d2d2d' : '#ffffff',
       },
       text: {
-        primary: isDarkMode ? '#ffffff' : '#071016',
+        primary: isDarkMode ? '#e0e0e0' : '#071016',
         secondary: isDarkMode ? '#b0b0b0' : '#2A4E63',
       },
     },

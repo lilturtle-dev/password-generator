@@ -368,14 +368,14 @@ const Header = ({ onLanguageChange }) => {
         
         <ListItem>
           <div style={{ display: 'flex', alignItems: 'center', width: '100%', justifyContent: 'space-between' }}>
-            <span style={{ fontSize: '22px', fontWeight: 400, color: isDarkMode ? '#fff' : 'black' }}>
+            <span style={{ fontSize: '22px', fontWeight: 400, color: isDarkMode ? '#e0e0e0' : 'black' }}>
               {getThemeText(language)}
             </span>
              <IconButton 
               onClick={toggleTheme} 
               color="inherit"
               sx={{ 
-                color: isDarkMode ? '#ffffff' : '#071016',
+                color: isDarkMode ? '#e0e0e0' : '#071016',
                 '&:hover': {
                   color: '#2A4E63',
                   transform: 'scale(1.05)'
@@ -435,7 +435,7 @@ const Header = ({ onLanguageChange }) => {
             color="inherit"
             className="transition-all duration-300 hover:scale-105"
             sx={{ 
-              color: isDarkMode ? '#ffffff' : '#071016',
+              color: isDarkMode ? '#e0e0e0' : '#071016',
               '&:hover': {
                 color: '#2A4E63',
                 transform: 'scale(1.05)'
