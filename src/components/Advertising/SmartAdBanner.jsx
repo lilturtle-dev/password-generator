@@ -11,6 +11,7 @@ const SmartAdBanner = ({
   const [showContainer, setShowContainer] = useState(true);
   const adRef = useRef(null);
   const timeoutRef = useRef(null);
+  const containerRef = useRef(null);
 
   // Detect ad blocker
   const detectAdBlocker = () => {
@@ -35,6 +36,15 @@ const SmartAdBanner = ({
     }
   };
 
+  // Check if container has proper dimensions
+  const checkContainerDimensions = () => {
+    if (containerRef.current) {
+      const rect = containerRef.current.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0;
+    }
+    return false;
+  };
+
   useEffect(() => {
     // Check for ad blocker immediately
     if (detectAdBlocker()) {
@@ -43,13 +53,32 @@ const SmartAdBanner = ({
       return;
     }
 
-    // Set timeout for ad loading
-    timeoutRef.current = setTimeout(() => {
-      if (adState === 'loading') {
-        setAdState('failed');
-        setShowContainer(false);
+    // Wait for DOM to be ready and container to have proper dimensions
+    const initializeAd = () => {
+      // Check if DOM is ready
+      if (document.readyState !== 'complete') {
+        setTimeout(initializeAd, 100);
+        return;
       }
-    }, 8000); // 8 second timeout
+
+      // Check if container has proper dimensions
+      if (!checkContainerDimensions()) {
+        // Retry after a short delay
+        setTimeout(initializeAd, 100);
+        return;
+      }
+
+      // Set timeout for ad loading
+      timeoutRef.current = setTimeout(() => {
+        if (adState === 'loading') {
+          setAdState('failed');
+          setShowContainer(false);
+        }
+      }, 8000); // 8 second timeout
+    };
+
+    // Start initialization
+    initializeAd();
 
     return () => {
       if (timeoutRef.current) {
@@ -81,7 +110,8 @@ const SmartAdBanner = ({
     }
   };
 
-  const handleAdError = () => {
+  const handleAdError = (error) => {
+    console.error('AdSense error:', error);
     setAdState('failed');
     setShowContainer(false);
     if (timeoutRef.current) {
@@ -91,14 +121,16 @@ const SmartAdBanner = ({
 
   return (
     <div 
-      ref={adRef}
+      ref={containerRef}
       className={`smart-ad-container ${className} ${adState === 'loading' ? 'ad-loading' : ''}`}
       style={{
         ...style,
         minHeight: adState === 'loading' ? '90px' : 'auto',
+        minWidth: '320px', // Ensure minimum width for AdSense
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        position: 'relative'
       }}
     >
       {adState === 'loading' && (
@@ -114,7 +146,8 @@ const SmartAdBanner = ({
         responsive="true"
         style={{ 
           display: 'block',
-          minHeight: '90px'
+          minHeight: '90px',
+          minWidth: '320px'
         }}
         data-full-width-responsive="true"
         onLoad={handleAdLoad}

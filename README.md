@@ -1,23 +1,26 @@
 # 🔐 Generate Password To Me
 
-A modern web app for generating secure passwords with an intuitive interface and support for both Ukrainian and English languages.
+A modern web app for generating secure passwords with an intuitive interface and support for multiple languages including Ukrainian and English.
 
 ## ✨ Features
 
 - 🔒 **Secure password generation** – uses cryptographically strong algorithms
-- 🌍 **Bilingual support** – Ukrainian and English
-- 📊 **Password strength analysis** – shows estimated crack time
+- 🌍 **Multi-language support** – Ukrainian, English, Spanish, French, German, Italian, Portuguese, Russian, Chinese, Japanese, Polish
+- 📊 **Password strength analysis** – shows estimated crack time using zxcvbn
 - 🎛️ **Flexible settings** – password length from 4 to 100 characters
 - 🔢 **Character selection** – uppercase/lowercase letters, numbers, special symbols
-- 📋 **Bulk copy** – generate and copy multiple passwords
+- 📋 **Bulk operations** – generate and copy multiple passwords
 - 💾 **Export passwords** – download passwords as a text file
+- 🎉 **Reward animations** – confetti effects for copy/download actions
 - 📱 **Responsive design** – works on all devices
 - ⚡ **Fast performance** – instant password generation
+- 🍪 **Cookie consent** – GDPR compliant cookie management
+- 📈 **AdSense integration** – smart ad display with fallback handling
 
 ## 🚀 Quick Start
 
 ### Requirements
-- Node.js 14.0 or higher
+- Node.js 16.0 or higher
 - npm or yarn
 
 ### Installation
@@ -33,52 +36,62 @@ cd password-generator
 npm install
 ```
 
-3. **Start the project**
+3. **Start the development server**
 ```bash
-npm start
+npm run dev
 ```
 
 4. **Open in your browser**
 ```
-http://localhost:3000
+http://localhost:5173
 ```
 
 ## 🛠️ Technologies
 
-- **Frontend**: React 18
+- **Frontend**: React 18 with Vite
 - **UI Framework**: Material-UI (MUI) v5
 - **Styling**: Tailwind CSS
 - **Routing**: React Router v6
 - **Password Analysis**: zxcvbn
-- **SEO**: React Helmet
-- **Build Tool**: Create React App
+- **SEO**: React Helmet Async
+- **Build Tool**: Vite
+- **Ad Integration**: react-adsense
+- **Reward Animations**: react-rewards
+- **Cookie Management**: vanilla-cookieconsent
+- **Analytics**: Google Tag Manager, Vercel Analytics
 
 ## 📁 Project Structure
 
 ```
 src/
 ├── components/
-│   ├── AppEn.jsx          # English version of the app
-│   ├── AppUa.jsx          # Ukrainian version of the app
-│   ├── Header.jsx         # Header with language switcher
-│   ├── Footer.jsx         # Site footer
-│   ├── SeoText.jsx        # SEO text
-│   ├── HowToUse.jsx       # Usage instructions
-│   ├── AboutUs.jsx        # About us
-│   ├── SeoList.jsx        # SEO list
-│   ├── AdBanner.jsx       # Ad banner
-│   └── PrivacyConsentPopup.js # Cookie consent popup
+│   ├── Advertising/
+│   │   ├── Adbanner.jsx           # Main ad banner component
+│   │   ├── AddbannerSecond.jsx    # Secondary ad banner
+│   │   └── SmartAdBanner.jsx      # Smart ad banner with fallback
+│   ├── CookieConsent/
+│   │   ├── CookieConsent.tsx      # Cookie consent component
+│   │   └── CookieConsentConfig.ts # Cookie consent configuration
+│   ├── Header.jsx                 # Header with language switcher
+│   ├── Footer.jsx                 # Site footer
+│   ├── SeoText.jsx                # SEO text content
+│   ├── HowToUse.jsx               # Usage instructions
+│   ├── AboutUs.jsx                # About us section
+│   └── SeoList.jsx                # SEO list content
 ├── functions/
-│   ├── RankColor.js       # Password strength color functions
-│   └── GetStrengthWord.js # Password strength word functions
-├── images/                # Images and icons
-├── App.jsx               # Main component with routing
-└── index.js              # Entry point
+│   ├── RankColor.js               # Password strength color functions
+│   └── GetStrengthWord.js         # Password strength word functions
+├── utils/
+│   └── languageUtils.js           # Language utility functions
+├── images/                        # Images and icons
+├── App.jsx                        # Main component with routing
+├── GeneratePassword.jsx           # Main password generator component
+└── index.js                       # Entry point
 ```
 
 ## 🎯 How to Use
 
-### 1. Generate a password
+### 1. Generate passwords
 - Select password length (4-100 characters)
 - Choose the number of passwords to generate
 - Check the character types you want:
@@ -89,13 +102,13 @@ src/
 
 ### 2. Strength analysis
 - The app automatically analyzes the strength of each password
-- Shows the estimated time to crack
-- Uses the zxcvbn library for accurate analysis
+- Shows the estimated time to crack using zxcvbn
+- Color-coded strength indicators
 
-### 3. Copying and export
-- **Copy** – copies a single password
-- **Copy all** – copies all generated passwords
-- **Download all** – saves passwords to a text file
+### 3. Copying and export with rewards
+- **Copy** – copies a single password (triggers confetti animation)
+- **Copy all** – copies all generated passwords (triggers balloons animation)
+- **Download all** – saves passwords to a text file (triggers emoji animation)
 
 ## 🔧 Configuration
 
@@ -104,9 +117,23 @@ src/
 REACT_APP_GTM_ID=GTM-KR2SHTKB  # Google Tag Manager ID
 ```
 
+### AdSense Configuration
+- Publisher ID: `ca-pub-5995594246081561`
+- Smart ad handling with fallback content
+- Development mode detection
+- Ad blocker detection
+
 ### Modes
-- **development** – development mode
+- **development** – development mode (ads disabled)
 - **production** – production mode with ads
+
+## 🎉 Reward System
+
+The app features a reward animation system that triggers on user actions:
+- **Confetti** animation when copying individual passwords
+- **Balloons** animation when copying all passwords
+- **Emoji** animation when downloading passwords
+- Smart button blocking during animations to prevent spam
 
 ## 📱 Responsiveness
 
@@ -118,23 +145,33 @@ The app is fully responsive and works on:
 
 ## 🌐 SEO Optimization
 
-- Meta tags for each page
+- Meta tags for each language
 - Structured data
 - Optimized headings
-- Fast loading
+- Fast loading with Vite
+- Hreflang tags for international SEO
 
 ## 🔒 Security
 
 - Passwords are generated locally in the browser
 - No data is sent to the server
 - Uses cryptographically strong algorithms
-- Real-time strength analysis
+- Real-time strength analysis with zxcvbn
 
-## 📊 Analytics
+## 📊 Analytics & Ads
 
 - Google Tag Manager for tracking
+- Vercel Analytics for performance monitoring
+- Google AdSense integration with smart fallback
 - Feature usage analytics
 - Error tracking
+
+## 🍪 Cookie Management
+
+- GDPR compliant cookie consent
+- Multi-language cookie banners
+- Configurable cookie categories
+- Automatic language detection
 
 ## 🤝 Contributing
 
@@ -161,6 +198,9 @@ If you have questions or issues:
 - [Material-UI](https://mui.com/) – for UI components
 - [Tailwind CSS](https://tailwindcss.com/) – for styling
 - [React](https://reactjs.org/) – for the framework
+- [Vite](https://vitejs.dev/) – for fast build tooling
+- [react-rewards](https://github.com/thedevelobear/react-rewards) – for reward animations
+- [vanilla-cookieconsent](https://github.com/orestbida/cookieconsent) – for cookie management
 
 ---
 
