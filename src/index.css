@@ -472,3 +472,47 @@ ol {
 .container.ja div {
   font-family: 'Noto Sans JP', sans-serif !important;
 }
+
+/* AdSense Styles */
+.ad-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.ad-container:empty {
+  display: none;
+}
+
+/* Hide ad containers that don't have content */
+.ad-container:not(:has(*)) {
+  display: none;
+}
+
+/* Responsive ad adjustments */
+@media (max-width: 768px) {
+  .ad-container {
+    min-height: 60px;
+  }
+}
+
+/* Loading state for ads */
+.ad-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Hide ads when they fail to load */
+.ad-container.failed {
+  display: none;
+}
