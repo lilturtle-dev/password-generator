@@ -634,8 +634,8 @@ export default function GeneratePassword() {
               {t("main_subtitle", language)}
             </p>
             <div className={`w-full lg:w-9/12 flex flex-col ${isDarkMode ? "bg-[#1c1c1c]" : "bg-white"} drop-shadow-lg  rounded-48 shadow p-[20px] md:p-[60px] relative`}>
-              <div className="absolute hidden bg-white drop-shadow-lg  top-[-30px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
-                <div className={`p-[12px] rounded-full ${isDarkMode ? 'bg-[#1c1c1c]' : 'bg-[#E5F6FF]'} mr-3 ml-2 my-1`}>
+              <div className="absolute hidden bg-white drop-shadow-lg  top-[-20px] left-[-140px] border-[#E5F6FF] border-2 border-solid rounded-[120px] py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex items-center gap-2">
+                <div className={`p-[12px] rounded-full ${isDarkMode ? 'bg-[#05a9ff]' : 'bg-[#E5F6FF]'} mr-3 ml-2 my-1`}>
                   <img 
                     src={passwordImage} 
                     alt="password" 
@@ -643,7 +643,6 @@ export default function GeneratePassword() {
                     height={20}
                     loading="lazy"
                     decoding="async"
-                    className="dark:brightness-0 dark:invert"
                   />
                 </div>
                 <p className="pt-[10px] relative">
@@ -652,7 +651,7 @@ export default function GeneratePassword() {
               </div>
               {/* bottom passaword lock */}
               <div className={`${isDarkMode ? "bg-[#2d2d2d]" : "bg-white"} absolute hidden justify-start drop-shadow-lg  top-[150px] right-[-120px] border-[#E5F6FF] border-2 border-solid rounded-[120px]  py-[2px] w-[200px] text-[#2A4E63] text-[30px] lg:flex lg:items-center gap-2`}>
-                <div className={`p-[12px] rounded-full ${isDarkMode ? 'bg-[#1c1c1c]' : 'bg-[#E5F6FF]'} mr-3 ml-2 my-1`}>
+                <div className={`p-[12px] rounded-full ${isDarkMode ? 'bg-[#05a9ff]' : 'bg-[#E5F6FF]'} mr-3 ml-2 my-1`}>
                   <img 
                     src={passwordImage} 
                     alt="password" 
@@ -660,7 +659,6 @@ export default function GeneratePassword() {
                     height={20}
                     loading="lazy"
                     decoding="async"
-                    className="dark:brightness-0 dark:invert"
                   />
                 </div>
                 <p className="pt-[10px] relative">
