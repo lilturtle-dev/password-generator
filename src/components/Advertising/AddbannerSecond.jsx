@@ -8,11 +8,7 @@ function AdBannerSecond({ language, isDarkMode }) {
         adSlot="8766567218"
         className="w-full"
         style={{ minWidth: '320px', minHeight: '90px' }}
-        fallbackContent={
-          <div className="w-full h-20 bg-gray-100 rounded flex items-center justify-center" style={{ minWidth: '320px' }}>
-            <span className="text-gray-500 text-sm">Advertisement</span>
-          </div>
-        }
+        fallbackContent={null}
       />
     </div>
   );

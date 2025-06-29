@@ -701,11 +701,9 @@ export default function GeneratePassword() {
           </div>
         </main>
         <div className="w-full mt-10">
-          {mode === "production" && (
-            <Suspense fallback={<div className="h-20 bg-gray-100 animate-pulse rounded"></div>}>
-              <AdBanner language={language} isDarkMode={isDarkMode} />
-            </Suspense>
-          )}
+          <Suspense fallback={null}>
+            <AdBanner language={language} isDarkMode={isDarkMode} />
+          </Suspense>
         </div>
         <div className="lg:my-10 w-full">
           <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded"></div>}>
@@ -719,11 +717,9 @@ export default function GeneratePassword() {
           <AboutUs language={language} />
         </div>
         <div className="mb-4 w-full mt-4">
-          {mode === "production" && (
-            <Suspense fallback={<div className="h-20 bg-gray-100 animate-pulse rounded"></div>}>
-              <AdBannerSecond language={language} isDarkMode={isDarkMode} />
-            </Suspense>
-          )}
+          <Suspense fallback={null}>
+            <AdBannerSecond language={language} isDarkMode={isDarkMode} />
+          </Suspense>
         </div>
         <div id="guide" className="lg:my-10 w-full">
           <Suspense fallback={<div className="h-96 bg-gray-100 animate-pulse rounded"></div>}>

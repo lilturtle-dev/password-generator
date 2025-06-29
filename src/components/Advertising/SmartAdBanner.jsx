@@ -7,21 +7,18 @@ const SmartAdBanner = ({
   style = {},
   fallbackContent = null
 }) => {
-  const [adState, setAdState] = useState('loading'); // loading, loaded, failed, blocked
+  const [adState, setAdState] = useState('loading');
   const [showContainer, setShowContainer] = useState(true);
-  const adRef = useRef(null);
   const timeoutRef = useRef(null);
   const containerRef = useRef(null);
 
   // Detect ad blocker
   const detectAdBlocker = () => {
     try {
-      // Check if adsbygoogle is available
       if (typeof window !== 'undefined' && !window.adsbygoogle) {
         return true;
       }
       
-      // Check if ad elements are hidden
       const testAd = document.createElement('div');
       testAd.className = 'adsbygoogle';
       testAd.style.cssText = 'position: absolute; left: -10000px; width: 1px; height: 1px;';
@@ -46,39 +43,30 @@ const SmartAdBanner = ({
   };
 
   useEffect(() => {
-    // Check for ad blocker immediately
-    if (detectAdBlocker()) {
-      setAdState('blocked');
+    // In production, don't show anything if ad blocker detected
+    if (process.env.NODE_ENV === 'production' && detectAdBlocker()) {
       setShowContainer(false);
       return;
     }
 
-    // Wait for DOM to be ready and container to have proper dimensions
-    const initializeAd = () => {
-      // Check if DOM is ready
-      if (document.readyState !== 'complete') {
-        setTimeout(initializeAd, 100);
-        return;
-      }
-
-      // Check if container has proper dimensions
-      if (!checkContainerDimensions()) {
-        // Retry after a short delay
-        setTimeout(initializeAd, 100);
-        return;
-      }
-
-      // Set timeout for ad loading
+    // In production, load ads immediately without delays
+    if (process.env.NODE_ENV === 'production') {
+      // Set a very short timeout just to ensure DOM is ready
       timeoutRef.current = setTimeout(() => {
         if (adState === 'loading') {
           setAdState('failed');
           setShowContainer(false);
         }
-      }, 8000); // 8 second timeout
-    };
-
-    // Start initialization
-    initializeAd();
+      }, 2000); // 2 second timeout for production
+    } else {
+      // Development mode - longer timeout
+      timeoutRef.current = setTimeout(() => {
+        if (adState === 'loading') {
+          setAdState('failed');
+          setShowContainer(false);
+        }
+      }, 8000);
+    }
 
     return () => {
       if (timeoutRef.current) {
@@ -100,7 +88,7 @@ const SmartAdBanner = ({
 
   // Don't render anything if ad shouldn't be shown
   if (!showContainer || adState === 'blocked' || adState === 'failed') {
-    return fallbackContent || null;
+    return null; // Return null instead of fallback content
   }
 
   const handleAdLoad = () => {
@@ -122,23 +110,17 @@ const SmartAdBanner = ({
   return (
     <div 
       ref={containerRef}
-      className={`smart-ad-container ${className} ${adState === 'loading' ? 'ad-loading' : ''}`}
+      className={`smart-ad-container ${className}`}
       style={{
         ...style,
-        minHeight: adState === 'loading' ? '90px' : 'auto',
-        minWidth: '320px', // Ensure minimum width for AdSense
+        minWidth: '320px',
+        minHeight: '90px',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
         position: 'relative'
       }}
     >
-      {adState === 'loading' && (
-        <div className="text-center text-gray-400 text-sm">
-          Loading advertisement...
-        </div>
-      )}
-      
       <AdSense.Google
         client="ca-pub-5995594246081561"
         slot={adSlot}
