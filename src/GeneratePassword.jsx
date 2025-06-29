@@ -58,13 +58,13 @@ function PasswordRow({
   onGenerate,
   onCopy,
   refreash,
-  runReward,
   isAnimating,
   isDarkMode
 }) {
-  const disabledStyle = isAnimating
+  const copyDisabledStyle = isAnimating
     ? { pointerEvents: "none", opacity: 0.5, cursor: "not-allowed" }
     : { cursor: "pointer" };
+    
   return (
     <div
       className="flex relative items-center flex-row lg:flex-row gap-2 h-auto w-[100%] my-5 lg:my-1 flex-wrap lg:flex-nowrap"
@@ -86,10 +86,8 @@ function PasswordRow({
             className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
             onClick={() => {
               onGenerate(index);
-              runReward();
             }}
-            disabled={isAnimating}
-            style={disabledStyle}
+            style={{ cursor: "pointer" }}
           >
             {t("generate", language)}
           </button>
@@ -97,22 +95,19 @@ function PasswordRow({
             className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
             onClick={() => {
               onGenerate(index);
-              runReward();
             }}
-            disabled={isAnimating}
-            style={disabledStyle}
+            style={{ cursor: "pointer" }}
           >
             {t("generate_short", language)}
           </button>
           <img
             onClick={() => {
               onGenerate(index);
-              runReward();
             }}
             src={refreash}
             alt="refresh"
             className={`${isDarkMode ? "invert brightness-0": ""} flex mr-2 h-[15px] md:h-[20px]`}
-            style={disabledStyle}
+            style={{ cursor: "pointer" }}
             loading="lazy"
             decoding="async"
             // width={20}
@@ -126,10 +121,8 @@ function PasswordRow({
           className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
           onClick={() => {
             onGenerate(index);
-            runReward();
           }}
-          disabled={isAnimating}
-          style={disabledStyle}
+          style={{ cursor: "pointer" }}
         >
           {t("generate", language)}
         </button>
@@ -137,31 +130,28 @@ function PasswordRow({
           className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
           onClick={() => {
             onGenerate(index);
-            runReward();
           }}
-          disabled={isAnimating}
-          style={disabledStyle}
+          style={{ cursor: "pointer" }}
         >
           {t("generate_short", language)}
         </button>
         <img
           onClick={() => {
             onGenerate(index);
-            runReward();
           }}
           src={refreash}
           alt="refresh"
           className="flex mr-2 h-[15px] md:h-[20px]"
-          style={disabledStyle}
+          style={{ cursor: "pointer" }}
         />
       </div>
       <button
-        disabled={password?.length < 1}
+        disabled={password?.length < 1 || isAnimating}
         className="bg-[#2A4E63] w-[100%] -bottom-12 h-14 lg:w-[20%] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] py-[12px]"
         style={
-          password?.length < 1
-            ? { cursor: "not-allowed" }
-            : { cursor: "pointer" }
+          password?.length < 1 || isAnimating
+            ? { cursor: "not-allowed", opacity: 0.5 }
+            : copyDisabledStyle
         }
         onClick={() => onCopy(index)}
       >
@@ -413,6 +403,33 @@ export default function GeneratePassword() {
     }
   }, [language]);
 
+  const rewardTypes = ["confetti", "balloons", "emoji"];
+  const rewardQueue = useRef([]);
+  const { reward } = useReward("centerReward", "confetti", {
+    elementCount: 100,
+    spread: 70,
+    lifetime: 200,
+    startVelocity: 35,
+  });
+  const [isAnimating, setIsAnimating] = useState(false);
+  const ANIMATION_DURATION = 250; // ms (lifetime + запас)
+  
+  const runReward = (type = "confetti") => {
+    if (isAnimating) {
+      rewardQueue.current.push(type);
+      return;
+    }
+    setIsAnimating(true);
+    reward();
+    setTimeout(() => {
+      setIsAnimating(false);
+      if (rewardQueue.current.length > 0) {
+        const nextType = rewardQueue.current.shift();
+        runReward(nextType);
+      }
+    }, ANIMATION_DURATION);
+  };
+
   const handleCopyClick = (index) => {
     if (index >= 0 && index < passwords.length) {
       navigator.clipboard.writeText(passwords[index]);
@@ -426,6 +443,8 @@ export default function GeneratePassword() {
           prevSnackbars.filter((snackbar) => snackbar.id !== newSnackbar.id)
         );
       }, 500);
+      // Add confetti animation for single copy
+      runReward("confetti");
     }
   };
 
@@ -442,6 +461,8 @@ export default function GeneratePassword() {
         prevSnackbars.filter((snackbar) => snackbar.id !== newSnackbar.id)
       );
     }, 500);
+    // Add balloons animation for copy all
+    runReward("balloons");
   };
 
   const handleDownloadAllClick = () => {
@@ -453,31 +474,8 @@ export default function GeneratePassword() {
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
-  };
-
-  const rewardTypes = ["confetti", "balloons", "emoji"];
-  const rewardQueue = useRef([]);
-  const { reward } = useReward("centerReward", "confetti", {
-    elementCount: 100,
-    spread: 70,
-    lifetime: 200,
-    startVelocity: 35,
-  });
-  const [isAnimating, setIsAnimating] = useState(false);
-  const ANIMATION_DURATION = 250; // ms (lifetime + запас)
-  const runReward = () => {
-    if (isAnimating) {
-      rewardQueue.current.push("confetti");
-      return;
-    }
-    setIsAnimating(true);
-    reward();
-    setTimeout(() => {
-      setIsAnimating(false);
-      if (rewardQueue.current.length > 0) {
-        runReward();
-      }
-    }, ANIMATION_DURATION);
+    // Add emoji animation for download
+    runReward("emoji");
   };
 
   const handleGeneratePassword = (index) => {
@@ -507,7 +505,6 @@ export default function GeneratePassword() {
       onGenerate={handleGeneratePassword}
       onCopy={handleCopyClick}
       refreash={refreash}
-      runReward={runReward}
       isAnimating={isAnimating}
       isDarkMode={isDarkMode}
     />
@@ -680,11 +677,21 @@ export default function GeneratePassword() {
               {restPasswordInputs}
               {passwords.length >= 2 ? (
                 <div className="flex gap-3 mt-2">
-                  <Button className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer" onClick={handleCopyAllClick}>
+                  <Button 
+                    className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer" 
+                    onClick={handleCopyAllClick}
+                    disabled={isAnimating}
+                    style={isAnimating ? { opacity: 0.5, cursor: "not-allowed" } : {}}
+                  >
                     <FileCopyIcon sx={{ marginRight: 1 }} />
                     {t("copy_all", language)}
                   </Button>
-                  <Button className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer" onClick={handleDownloadAllClick}>
+                  <Button 
+                    className="bg-[#2A4E63] text-white font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer" 
+                    onClick={handleDownloadAllClick}
+                    disabled={isAnimating}
+                    style={isAnimating ? { opacity: 0.5, cursor: "not-allowed" } : {}}
+                  >
                     <CloudDownloadIcon sx={{ marginRight: 1 }} />
                     {t("download_all", language)}
                   </Button>
