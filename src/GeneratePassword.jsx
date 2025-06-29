@@ -323,9 +323,9 @@ const hreflangMap = {
 // Lazy load non-critical components
 const SeoText = lazy(() => import('./SeoText'));
 const SeoList = lazy(() => import('./SeoList'));
-const AdBanner = lazy(() => import('./Adbanner'));
-const AdBannerSecond = lazy(() => import('./AddbannerSecond'));
-const CookieConsentComponent = lazy(() => import('./components/CookieConsent'));
+const AdBanner = lazy(() => import('./components/Advertising/Adbanner'));
+const AdBannerSecond = lazy(() => import('./components/Advertising/AddbannerSecond'));
+const CookieConsentComponent = lazy(() => import('./components/CookieConsent/CookieConsent'));
 
 export default function GeneratePassword() {
   const { isDarkMode } = useContext(ThemeContext);
