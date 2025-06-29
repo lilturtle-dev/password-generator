@@ -744,7 +744,7 @@ export default function GeneratePassword() {
                   </div>
                 </div>
                 <div className="w-full mt-2">
-                  <span className="block text-[17px] md:text-[20px] font-normal text-[#2A4E63] dark:text-[#e0e0e0] border-2 border-[#e5f6ff] dark:border-[#05a9ff] rounded-lg px-4 py-2 mt-1">
+                  <span className="mb-2 block text-[17px] md:text-[20px] font-normal text-[#2A4E63] dark:text-[#e0e0e0] border-2 border-[#e5f6ff] dark:border-[#05a9ff] rounded-lg px-4 py-2 mt-1">
                     {t(passwordStandards[selectedStandard].description, language)}
                   </span>
                 </div>
