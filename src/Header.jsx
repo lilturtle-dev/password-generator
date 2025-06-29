@@ -169,9 +169,9 @@ const languageIconStyles = `
   }
   
   .external-link:hover {
-    color: #96DBFF;
+    color: #05a9ff;
     transform: translateY(-1px);
-    text-shadow: 0 2px 4px rgba(150, 219, 255, 0.3);
+    text-shadow: 0 2px 4px rgba(5, 169, 255, 0.3);
   }
   
   .external-link::after {

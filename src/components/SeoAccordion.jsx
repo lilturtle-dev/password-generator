@@ -40,7 +40,7 @@ const SeoAccordion = ({ language }) => {
                 <p className="text-[18px] text-[#071016] dark:text-[#e0e0e0] leading-relaxed" dangerouslySetInnerHTML={{ __html: t("seotext_why1", language) }} />
                 <p className="text-[18px] text-[#071016] dark:text-[#e0e0e0] leading-relaxed" dangerouslySetInnerHTML={{ __html: t("seotext_why2", language) }} />
                 <div className="bg-blue-50 dark:bg-[#2A4E63] p-4 rounded-lg">
-                  <h4 className="font-semibold text-[#111827] dark:text-[#96DBFF] mb-2">
+                  <h4 className="font-semibold text-[#111827] dark:text-[#e0e0e0] mb-2">
                     {t("seotext_features_title", language)}
                   </h4>
                   <ul className="text-[16px] text-[#071016] dark:text-[#e0e0e0] space-y-1">
@@ -69,7 +69,7 @@ const SeoAccordion = ({ language }) => {
             <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-8">
               {/* Column 1 - Basic Password Security */}
               <div className="bg-gray-50 dark:bg-[#23272f] p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#96DBFF] mb-4">
+                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0] mb-4">
                   {t('seolist_basic_password_security_title', language)}
                 </h3>
                 <div className="space-y-4">
@@ -80,7 +80,7 @@ const SeoAccordion = ({ language }) => {
               </div>
               {/* Column 2 - Advanced Security */}
               <div className="bg-blue-50 dark:bg-[#2A4E63] p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#96DBFF] mb-4">
+                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0] mb-4">
                   {t('seolist_advanced_security_title', language)}
                 </h3>
                 <div className="space-y-4">
@@ -91,7 +91,7 @@ const SeoAccordion = ({ language }) => {
               </div>
               {/* Column 3 - Best Practices */}
               <div className="bg-green-50 dark:bg-[#166534] p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#96DBFF] mb-4">
+                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0] mb-4">
                   {t('seolist_best_practices_title', language)}
                 </h3>
                 <div className="space-y-4">
@@ -105,7 +105,7 @@ const SeoAccordion = ({ language }) => {
             <div className="mt-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
               {/* Additional Security Tips */}
               <div className="bg-blue-50 dark:bg-[#2A4E63] p-6 rounded-lg h-full flex flex-col">
-                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#96DBFF] mb-4">
+                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0] mb-4">
                   {t('seolist_additional_security_tips_title', language)}
                 </h3>
                 <div className="space-y-4 flex-grow">
@@ -115,7 +115,7 @@ const SeoAccordion = ({ language }) => {
               </div>
               {/* Advanced Security Measures */}
               <div className="bg-green-50 dark:bg-[#166534] p-6 rounded-lg h-full flex flex-col">
-                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#96DBFF] mb-4">
+                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0] mb-4">
                   {t('seolist_advanced_security_measures_title', language)}
                 </h3>
                 <div className="space-y-4 flex-grow">
@@ -133,17 +133,22 @@ const SeoAccordion = ({ language }) => {
             {t('howtouse_title', language)}
           </AccordionTrigger>
           <AccordionContent>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-4">
-              {/* Left Column - Step by Step */}
-              <div className='space-y-6 h-full flex flex-col'>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end mt-4">
+              {/* Left Column - Basic Steps */}
+              <div className="space-y-6 h-full flex flex-col">
                 <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0]">
-                  {t('howtouse_steps_title', language)}
+                  {t('howtouse_simple_steps', language)}
                 </h3>
                 <div className='text-[18px] text-[#071016] dark:text-[#e0e0e0] leading-relaxed flex-grow'>
-                  <p dangerouslySetInnerHTML={{ __html: t('howtouse_intro', language) }} />
+                  <p className='font-bold py-4' dangerouslySetInnerHTML={{ __html: t('howtouse_intro', language) }} />
+                  <ol className='space-y-3 pl-4'>
+                    <li dangerouslySetInnerHTML={{ __html: t('howtouse_step1', language) }} />
+                    <li dangerouslySetInnerHTML={{ __html: t('howtouse_step2', language) }} />
+                    <li dangerouslySetInnerHTML={{ __html: t('howtouse_step3', language) }} />
+                  </ol>
                 </div>
                 <div className="bg-green-50 dark:bg-[#166534] p-4 rounded-lg">
-                  <h4 className="font-semibold text-[#111827] dark:text-[#96DBFF] mb-2">
+                  <h4 className="font-semibold text-[#111827] dark:text-[#e0e0e0] mb-2">
                     {t('howtouse_what_you_get', language)}
                   </h4>
                   <ul className="text-[16px] text-[#071016] dark:text-[#e0e0e0] space-y-1">
@@ -156,23 +161,29 @@ const SeoAccordion = ({ language }) => {
                 </div>
               </div>
               {/* Right Column - Security Tips */}
-              <div className='space-y-6 h-full flex flex-col'>
+              <div className="space-y-6 h-full flex flex-col">
                 <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0]">
-                  {t('howtouse_tips_title', language)}
+                  {t('howtouse_security_tips', language)}
                 </h3>
                 <div className='text-[18px] text-[#071016] dark:text-[#e0e0e0] leading-relaxed flex-grow'>
-                  <p dangerouslySetInnerHTML={{ __html: t('howtouse_tips_intro', language) }} />
+                  <p className='font-bold py-4' dangerouslySetInnerHTML={{ __html: t('howtouse_security_tips_title', language) }} />
+                  <ul className='space-y-3 pl-4'>
+                    <li dangerouslySetInnerHTML={{ __html: t('howtouse_tip1', language) }} />
+                    <li dangerouslySetInnerHTML={{ __html: t('howtouse_tip2', language) }} />
+                    <li dangerouslySetInnerHTML={{ __html: t('howtouse_tip3', language) }} />
+                    <li dangerouslySetInnerHTML={{ __html: t('howtouse_tip4', language) }} />
+                  </ul>
+                  <p className="mt-6" dangerouslySetInnerHTML={{ __html: t('howtouse_protect', language) }} />
                 </div>
                 <div className="bg-blue-50 dark:bg-[#2A4E63] p-4 rounded-lg">
-                  <h4 className="font-semibold text-[#111827] dark:text-[#96DBFF] mb-2">
-                    {t('howtouse_security_tips', language)}
+                  <h4 className="font-semibold text-[#111827] dark:text-[#e0e0e0] mb-2">
+                    {t('howtouse_best_practices', language)}
                   </h4>
                   <ul className="text-[16px] text-[#071016] dark:text-[#e0e0e0] space-y-1">
-                    <li>• {t('howtouse_tip1', language)}</li>
-                    <li>• {t('howtouse_tip2', language)}</li>
-                    <li>• {t('howtouse_tip3', language)}</li>
-                    <li>• {t('howtouse_tip4', language)}</li>
-                    <li>• {t('howtouse_tip5', language)}</li>
+                    <li>• <span dangerouslySetInnerHTML={{ __html: t('howtouse_best1', language) }} /></li>
+                    <li>• <span dangerouslySetInnerHTML={{ __html: t('howtouse_best2', language) }} /></li>
+                    <li>• <span dangerouslySetInnerHTML={{ __html: t('howtouse_best3', language) }} /></li>
+                    <li>• <span dangerouslySetInnerHTML={{ __html: t('howtouse_best4', language) }} /></li>
                   </ul>
                 </div>
               </div>
@@ -197,7 +208,7 @@ const SeoAccordion = ({ language }) => {
                   <p dangerouslySetInnerHTML={{ __html: t('aboutus_team', language) }} />
                 </div>
                 <div className="bg-blue-50 dark:bg-[#2A4E63] p-4 rounded-lg">
-                  <h4 className="font-semibold text-[#111827] dark:text-[#96DBFF] mb-2">
+                  <h4 className="font-semibold text-[#111827] dark:text-[#e0e0e0] mb-2">
                     {t('aboutus_mission_title', language)}
                   </h4>
                   <p className="text-[16px] text-[#071016] dark:text-[#e0e0e0]">
@@ -206,21 +217,22 @@ const SeoAccordion = ({ language }) => {
                 </div>
               </div>
               {/* Right Column - What We Offer */}
-              <div className='space-y-6 h-full flex flex-col'>
+              <div className="space-y-6 h-full flex flex-col">
                 <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0]">
-                  {t('aboutus_what_we_offer', language)}
+                  {t('aboutus_offer_title', language)}
                 </h3>
                 <div className='text-[18px] text-[#071016] dark:text-[#e0e0e0] leading-relaxed space-y-4 flex-grow'>
-                  <p dangerouslySetInnerHTML={{ __html: t('aboutus_services', language) }} />
-                  <p dangerouslySetInnerHTML={{ __html: t('aboutus_commitment', language) }} />
+                  <ul className='space-y-3'>
+                    <li dangerouslySetInnerHTML={{ __html: t('aboutus_offer_1', language) }} />
+                    <li dangerouslySetInnerHTML={{ __html: t('aboutus_offer_2', language) }} />
+                    <li dangerouslySetInnerHTML={{ __html: t('aboutus_offer_3', language) }} />
+                  </ul>
                 </div>
                 <div className="bg-green-50 dark:bg-[#166534] p-4 rounded-lg">
-                  <h4 className="font-semibold text-[#111827] dark:text-[#96DBFF] mb-2">
-                    {t('aboutus_values_title', language)}
+                  <h4 className="font-semibold text-[#111827] dark:text-[#e0e0e0] mb-2">
+                    {t('aboutus_why_title', language)}
                   </h4>
-                  <p className="text-[16px] text-[#071016] dark:text-[#e0e0e0]">
-                    {t('aboutus_values', language)}
-                  </p>
+                  <p className="text-[16px] text-[#071016] dark:text-[#e0e0e0]" dangerouslySetInnerHTML={{ __html: t('aboutus_why_1', language) }} />
                 </div>
               </div>
             </div>
@@ -241,7 +253,7 @@ const SeoAccordion = ({ language }) => {
               
               {/* NIST Compliance */}
               <div className="bg-blue-50 dark:bg-[#2A4E63] p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#96DBFF] mb-4">
+                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0] mb-4">
                   {t('nist_compliance_title', language)}
                 </h3>
                 <div className="text-[16px] text-[#071016] dark:text-[#e0e0e0] leading-relaxed" dangerouslySetInnerHTML={{ __html: t('nist_compliance_desc', language) }} />
@@ -249,7 +261,7 @@ const SeoAccordion = ({ language }) => {
 
               {/* PCI DSS Compliance */}
               <div className="bg-green-50 dark:bg-[#166534] p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#96DBFF] mb-4">
+                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0] mb-4">
                   {t('pci_dss_compliance_title', language)}
                 </h3>
                 <div className="text-[16px] text-[#071016] dark:text-[#e0e0e0] leading-relaxed" dangerouslySetInnerHTML={{ __html: t('pci_dss_compliance_desc', language) }} />
@@ -257,7 +269,7 @@ const SeoAccordion = ({ language }) => {
 
               {/* Security Features */}
               <div className="bg-gray-50 dark:bg-[#23272f] p-6 rounded-lg">
-                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#96DBFF] mb-4">
+                <h3 className="text-xl font-semibold text-[#111827] dark:text-[#e0e0e0] mb-4">
                   {t('security_features_title', language)}
                 </h3>
                 <div className="text-[16px] text-[#071016] dark:text-[#e0e0e0] leading-relaxed" dangerouslySetInnerHTML={{ __html: t('security_features_list', language) }} />

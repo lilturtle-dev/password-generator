@@ -72,9 +72,9 @@ const linkStyles = `
   }
   
   .external-link:hover {
-    color: #96DBFF;
+    color: #05a9ff;
     transform: translateY(-1px);
-    text-shadow: 0 2px 4px rgba(150, 219, 255, 0.3);
+    text-shadow: 0 2px 4px rgba(5, 169, 255, 0.3);
   }
   
   .external-link::after {
@@ -142,7 +142,7 @@ const Footer = ({ language }) => {
         <div className="flex lg:flex-row flex-col xs:flex-wrap lg:flex-nowrap w-full">
           <div className="text-[18px] md:w-full lg:w-1/2 lg:text-left md:text-center font-medium my-5 ml-2">
             {t('footer_copyright', language)} ©{" "}
-            <span className=" text-[#96DBFF] font-bold">
+            <span className=" text-[#05a9ff] font-bold">
               GeneratePasswordTo.Me{" "}
             </span>
             {currentYear}
@@ -154,7 +154,7 @@ const Footer = ({ language }) => {
                   {t('footer_working_with', language) + ' '}
                 </p>
                 <a
-                  className="external-link text-[18px] inline text-[#96DBFF] font-semibold cursor-pointer"
+                  className="external-link text-[18px] inline text-[#05a9ff] font-semibold cursor-pointer"
                   href={referalLink}
                   rel="nofollow"
                 >
