@@ -124,6 +124,44 @@
   background-color: var(--success-color) !important;
 }
 
+/* Прибирання бордера зі слайдера у чорній темі */
+.dark .MuiSlider-rail {
+  border: none !important;
+  outline: none !important;
+}
+
+.dark .css-14pt78w-MuiSlider-rail {
+  border: none !important;
+  outline: none !important;
+}
+
+/* Прибирання всіх меж та контурів слайдера у чорній темі */
+.dark .MuiSlider-root {
+  outline: none !important;
+  border: none !important;
+}
+
+.dark .MuiSlider-root * {
+  outline: none !important;
+  border: none !important;
+}
+
+.dark .MuiSlider-track {
+  outline: none !important;
+  border: none !important;
+}
+
+.dark .MuiSlider-thumb {
+  outline: none !important;
+  border: none !important;
+}
+
+.dark .css-1gv0vcd-MuiSlider-track,
+.dark .css-1t2bqnt {
+  outline: none !important;
+  border: none !important;
+}
+
 .dark .MuiCheckbox-root {
   color: var(--success-color) !important;
 }
