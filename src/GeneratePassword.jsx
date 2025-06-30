@@ -349,13 +349,82 @@ export default function GeneratePassword() {
   };
 
   const handleCheckboxChange = (characterSet) => {
+    let newSelectedCharacterSets;
+    
     if (selectedCharacterSets.includes(characterSet)) {
-      setSelectedCharacterSets(
-        selectedCharacterSets.filter((set) => set !== characterSet)
-      );
+      // Перевіряємо, чи не намагаємося зняти останню галочку
+      if (selectedCharacterSets.length <= 1) {
+        // Показуємо попередження, що не можна зняти останню галочку
+        const newSnackbar = {
+          id: new Date().getTime(),
+          message: t("warning_last_checkbox", language),
+        };
+        setSnackbars((prevSnackbars) => [...prevSnackbars, newSnackbar]);
+        setTimeout(() => {
+          setSnackbars((prevSnackbars) =>
+            prevSnackbars.filter((snackbar) => snackbar.id !== newSnackbar.id)
+          );
+        }, 3000);
+        return; // Не змінюємо налаштування
+      }
+      newSelectedCharacterSets = selectedCharacterSets.filter((set) => set !== characterSet);
     } else {
-      setSelectedCharacterSets([...selectedCharacterSets, characterSet]);
+      newSelectedCharacterSets = [...selectedCharacterSets, characterSet];
     }
+    
+    setSelectedCharacterSets(newSelectedCharacterSets);
+    
+    // Перевіряємо, чи поточні налаштування відповідають вибраному стандарту
+    const currentStandardConfig = passwordStandards[selectedStandard];
+    const standardSets = new Set(currentStandardConfig.requiredSets);
+    const selectedSets = new Set(newSelectedCharacterSets);
+    
+    // Якщо налаштування не відповідають стандарту, встановлюємо кастомний стандарт
+    const isStandardCompliant = currentStandardConfig.requiredSets.every(set => 
+      newSelectedCharacterSets.includes(set)
+    );
+    
+    if (!isStandardCompliant) {
+      setSelectedStandard('custom');
+    }
+    
+    // Генеруємо новий пароль з оновленими налаштуваннями
+    setTimeout(() => {
+      const updatedPasswords = [...passwords];
+      for (let i = 0; i < updatedPasswords.length; i++) {
+        let characters = "";
+        newSelectedCharacterSets.forEach((set) => {
+          characters += characterSets[set];
+        });
+        
+        if (characters.length === 0) {
+          updatedPasswords[i] = "";
+          // Показуємо попередження тільки один раз, якщо не вибрано жодного набору символів
+          if (i === 0) {
+            const newSnackbar = {
+              id: new Date().getTime(),
+              message: t("warning_no_characters", language),
+            };
+            setSnackbars((prevSnackbars) => [...prevSnackbars, newSnackbar]);
+            setTimeout(() => {
+              setSnackbars((prevSnackbars) =>
+                prevSnackbars.filter((snackbar) => snackbar.id !== newSnackbar.id)
+              );
+            }, 3000);
+          }
+          continue;
+        }
+        
+        let password = "";
+        for (let j = 0; j < passwordLength; j++) {
+          password += characters.charAt(
+            Math.floor(Math.random() * characters.length)
+          );
+        }
+        updatedPasswords[i] = password;
+      }
+      setPasswords(updatedPasswords);
+    }, 0);
   };
 
   const GeneratePasswords = useCallback(() => {
@@ -368,6 +437,12 @@ export default function GeneratePassword() {
         selectedCharacterSets.forEach((set) => {
           characters += characterSets[set];
         });
+        
+        if (characters.length === 0) {
+          generatedPasswords.push("");
+          continue;
+        }
+        
         let password = "";
         for (let j = 0; j < passwordLength; j++) {
           password += characters.charAt(
@@ -484,26 +559,45 @@ export default function GeneratePassword() {
     // Generate password with required characters from each set
     let password = "";
     
-    // First, add one character from each required set
-    standardConfig.requiredSets.forEach((set) => {
-      const chars = characterSets[set];
-      if (chars) {
-        password += chars.charAt(Math.floor(Math.random() * chars.length));
+    if (selectedStandard === 'custom') {
+      // Для кастомного стандарту генеруємо пароль тільки з вибраних наборів символів
+      let allCharacters = "";
+      selectedCharacterSets.forEach((set) => {
+        allCharacters += characterSets[set];
+      });
+      
+      if (allCharacters.length === 0) {
+        const updatedPasswords = [...passwords];
+        updatedPasswords[index] = "";
+        setPasswords(updatedPasswords);
+        return;
       }
-    });
-    
-    // Then fill the rest with random characters from all selected sets
-    let allCharacters = "";
-    selectedCharacterSets.forEach((set) => {
-      allCharacters += characterSets[set];
-    });
-    
-    // Add remaining characters to reach the desired length
-    for (let i = password.length; i < effectiveLength; i++) {
-      password += allCharacters.charAt(Math.floor(Math.random() * allCharacters.length));
+      
+      for (let i = 0; i < effectiveLength; i++) {
+        password += allCharacters.charAt(Math.floor(Math.random() * allCharacters.length));
+      }
+    } else {
+      // Для стандартних стандартів спочатку додаємо один символ з кожного обов'язкового набору
+      standardConfig.requiredSets.forEach((set) => {
+        const chars = characterSets[set];
+        if (chars) {
+          password += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+      });
+      
+      // Потім заповнюємо решту випадковими символами з усіх вибраних наборів
+      let allCharacters = "";
+      selectedCharacterSets.forEach((set) => {
+        allCharacters += characterSets[set];
+      });
+      
+      // Додаємо решту символів до бажаної довжини
+      for (let i = password.length; i < effectiveLength; i++) {
+        password += allCharacters.charAt(Math.floor(Math.random() * allCharacters.length));
+      }
     }
     
-    // Shuffle the password to avoid predictable patterns
+    // Перемішуємо пароль, щоб уникнути передбачуваних патернів
     password = password.split('').sort(() => Math.random() - 0.5).join('');
     
     const updatedPasswords = [...passwords];
@@ -590,6 +684,11 @@ export default function GeneratePassword() {
       minLength: 12,
       requiredSets: ["A-Z", "a-z", "0-9", "#$%"],
       description: "standard_pci_desc"
+    },
+    custom: {
+      minLength: 4,
+      requiredSets: [],
+      description: "standard_custom_desc"
     }
   };
 
@@ -597,8 +696,14 @@ export default function GeneratePassword() {
   const handleStandardChange = (standard) => {
     setSelectedStandard(standard);
     const standardConfig = passwordStandards[standard];
-    setPasswordLength(standardConfig.minLength);
-    setSelectedCharacterSets(standardConfig.requiredSets);
+    
+    if (standard === 'custom') {
+      // Для кастомного стандарту встановлюємо мінімальну довжину 4
+      setPasswordLength(Math.max(passwordLength, standardConfig.minLength));
+    } else {
+      setPasswordLength(standardConfig.minLength);
+      setSelectedCharacterSets(standardConfig.requiredSets);
+    }
   };
 
   return (
@@ -675,18 +780,51 @@ export default function GeneratePassword() {
                     {t("password_length", language)} {passwordLength}
                   </label>
                   <div className="flex items-center gap-4 w-full">
-                    <RemoveCircleOutlineIcon onClick={() => setPasswordLength((prev) => Math.max(passwordStandards[selectedStandard].minLength, prev - 1))} style={{ cursor: "pointer" }} />
+                    <RemoveCircleOutlineIcon onClick={() => {
+                      const newLength = Math.max(selectedStandard === 'custom' ? 4 : passwordStandards[selectedStandard].minLength, passwordLength - 1);
+                      setPasswordLength(newLength);
+                      
+                      // Якщо нова довжина не відповідає вибраному стандарту, переходимо на кастомний
+                      if (selectedStandard !== 'custom') {
+                        const standardConfig = passwordStandards[selectedStandard];
+                        if (newLength < standardConfig.minLength) {
+                          setSelectedStandard('custom');
+                        }
+                      }
+                    }} style={{ cursor: "pointer" }} />
                     <Slider 
                       value={passwordLength} 
-                      min={passwordStandards[selectedStandard].minLength} 
+                      min={selectedStandard === 'custom' ? 4 : passwordStandards[selectedStandard].minLength} 
                       max={100} 
-                      onChange={(e) => setPasswordLength(e.target.value)} 
+                      onChange={(e) => {
+                        const newLength = e.target.value;
+                        setPasswordLength(newLength);
+                        
+                        // Якщо нова довжина не відповідає вибраному стандарту, переходимо на кастомний
+                        if (selectedStandard !== 'custom') {
+                          const standardConfig = passwordStandards[selectedStandard];
+                          if (newLength < standardConfig.minLength) {
+                            setSelectedStandard('custom');
+                          }
+                        }
+                      }} 
                       aria-label="Password length slider" 
                       aria-describedby="password-length-label" 
                       valueLabelDisplay="auto" 
                       className="h-[15px]" 
                     />
-                    <AddCircleOutlineIcon onClick={() => setPasswordLength((prev) => Math.min(100, prev + 1))} style={{ cursor: "pointer" }} />
+                    <AddCircleOutlineIcon onClick={() => {
+                      const newLength = Math.min(100, passwordLength + 1);
+                      setPasswordLength(newLength);
+                      
+                      // Якщо нова довжина не відповідає вибраному стандарту, переходимо на кастомний
+                      if (selectedStandard !== 'custom') {
+                        const standardConfig = passwordStandards[selectedStandard];
+                        if (newLength < standardConfig.minLength) {
+                          setSelectedStandard('custom');
+                        }
+                      }
+                    }} style={{ cursor: "pointer" }} />
                   </div>
                 </div>
                 <div className="flex flex-col gap-3 items-start">
@@ -738,6 +876,12 @@ export default function GeneratePassword() {
                       onClick={() => handleStandardChange('pci')}
                     >
                       {t('standard_pci', language)}
+                    </button>
+                    <button
+                      className={`px-4 py-2 rounded-lg font-bold text-[16px] md:text-[18px] transition-all border-2 focus:outline-none ${selectedStandard === 'custom' ? 'border-[#2A4E63] bg-[#e5f6ff] dark:bg-[#05a9ff] text-[#2A4E63] dark:text-[#e0e0e0]' : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-[#374151] text-[#2A4E63] dark:text-[#e0e0e0]'}`}
+                      onClick={() => handleStandardChange('custom')}
+                    >
+                      {t('standard_custom', language)}
                     </button>
                   </div>
                 </div>

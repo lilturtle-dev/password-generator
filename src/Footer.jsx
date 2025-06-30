@@ -117,7 +117,7 @@ const Footer = ({ language }) => {
             className="w-6 h-6 mr-1 logo"
           />
         </div>
-        <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-xl font-medium">
+        {/* <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-xl font-medium">
           <li className="cursor-pointer">
             <a href="#aboutus" className="nav-link">
               {t('menu_aboutus', language)}
@@ -133,7 +133,7 @@ const Footer = ({ language }) => {
               {t('menu_guide', language)}
             </a>
           </li>
-        </ul>
+        </ul> */}
         {/* <ul className="flex items-center text-decoration-none gap-4 ">
           <li className=" cursor-pointer border-[1px] border-[#2A4E63]   w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={facebook} alt="Facebook social media icon" /></li>
           <li className=" cursor-pointer border-[1px] border-[#2A4E63]  w-16 h-16 items-center  flex justify-center rounded-full border-solid"><img src={twitter} alt="Twitter social media icon" /></li>

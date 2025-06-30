@@ -315,7 +315,7 @@ const Header = ({ onLanguageChange }) => {
     // onKeyDown={toggleDrawer(anchor, false)}
     >
       <List sx={{ px: "10px" }}>
-        {menuItems.map((menuItem) => (
+        {/* {menuItems.map((menuItem) => (
           <ListItem key={menuItem.href} disablePadding>
             <Link 
               href={menuItem.href} 
@@ -337,7 +337,7 @@ const Header = ({ onLanguageChange }) => {
           </ListItem>
         ))}
 
-        <Divider />
+        <Divider /> */}
         <ListItem>
           <InputLabel id="language-select-label" sx={{ width: '100%' }}>
             {getLanguageSelectionText(language)}
@@ -419,7 +419,7 @@ const Header = ({ onLanguageChange }) => {
           height={24}
         />
       </div>
-      <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
+      {/* <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
         <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
           <a href="#aboutus" className="nav-link">{t('menu_aboutus', language)}</a>
         </li>
@@ -445,7 +445,7 @@ const Header = ({ onLanguageChange }) => {
             {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
         </li>
-      </ul>
+      </ul> */}
 
       <select 
         name="Language" 

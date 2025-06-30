@@ -1852,5 +1852,57 @@
     "zh": "最少12个字符，1个大写+1个小写+1个数字+1个符号",
     "ja": "最小12文字、1大文字+1小文字+1数字+1記号",
     "pl": "Minimum 12 znaków, 1 wielka + 1 mała + 1 cyfra + 1 symbol"
+  },
+  "standard_custom": {
+    "ua": "Кастомний",
+    "en": "Custom",
+    "es": "Personalizado",
+    "fr": "Personnalisé",
+    "de": "Benutzerdefiniert",
+    "it": "Personalizzato",
+    "pt": "Personalizado",
+    "ru": "Пользовательский",
+    "zh": "自定义",
+    "ja": "カスタム",
+    "pl": "Niestandardowy"
+  },
+  "standard_custom_desc": {
+    "ua": "Мінімум 4 символи, власні налаштування символів",
+    "en": "Minimum 4 characters, custom character settings",
+    "es": "Mínimo 4 caracteres, configuración personalizada de caracteres",
+    "fr": "Minimum 4 caractères, paramètres personnalisés de caractères",
+    "de": "Mindestens 4 Zeichen, benutzerdefinierte Zeicheneinstellungen",
+    "it": "Minimo 4 caratteri, impostazioni personalizzate di caratteri",
+    "pt": "Mínimo 4 caracteres, configurações personalizadas de caracteres",
+    "ru": "Минимум 4 символа, пользовательские настройки символов",
+    "zh": "最少4个字符，自定义字符设置",
+    "ja": "最小4文字、カスタム文字設定",
+    "pl": "Minimum 4 znaki, niestandardowe ustawienia znaków"
+  },
+  "warning_no_characters": {
+    "ua": "Попередження: Не вибрано жодного набору символів. Виберіть хоча б один набір для генерації пароля.",
+    "en": "Warning: No character set selected. Please select at least one character set to generate a password.",
+    "es": "Advertencia: No se ha seleccionado ningún conjunto de caracteres. Seleccione al menos un conjunto de caracteres para generar una contraseña.",
+    "fr": "Avertissement: Aucun ensemble de caractères sélectionné. Veuillez sélectionner au moins un ensemble de caractères pour générer un mot de passe.",
+    "de": "Warnung: Kein Zeichensatz ausgewählt. Bitte wählen Sie mindestens einen Zeichensatz aus, um ein Passwort zu generieren.",
+    "it": "Avviso: Nessun set di caratteri selezionato. Seleziona almeno un set di caratteri per generare una password.",
+    "pt": "Aviso: Nenhum conjunto de caracteres selecionado. Selecione pelo menos um conjunto de caracteres para gerar uma senha.",
+    "ru": "Предупреждение: Не выбран ни один набор символов. Выберите хотя бы один набор символов для генерации пароля.",
+    "zh": "警告：未选择任何字符集。请至少选择一个字符集来生成密码。",
+    "ja": "警告：文字セットが選択されていません。パスワードを生成するには、少なくとも1つの文字セットを選択してください。",
+    "pl": "Ostrzeżenie: Nie wybrano żadnego zestawu znaków. Wybierz co najmniej jeden zestaw znaków, aby wygenerować hasło."
+  },
+  "warning_last_checkbox": {
+    "ua": "Попередження: Не можна зняти останню галочку. Залиште хоча б один набір символів для генерації пароля.",
+    "en": "Warning: Cannot uncheck the last checkbox. Please keep at least one character set for password generation.",
+    "es": "Advertencia: No se puede desmarcar la última casilla. Mantenga al menos un conjunto de caracteres para la generación de contraseñas.",
+    "fr": "Avertissement: Impossible de décocher la dernière case. Veuillez garder au moins un ensemble de caractères pour la génération de mots de passe.",
+    "de": "Warnung: Die letzte Checkbox kann nicht abgewählt werden. Bitte behalten Sie mindestens einen Zeichensatz für die Passwortgenerierung.",
+    "it": "Avviso: Non è possibile deselezionare l'ultima casella. Mantieni almeno un set di caratteri per la generazione di password.",
+    "pt": "Aviso: Não é possível desmarcar a última caixa. Mantenha pelo menos um conjunto de caracteres para geração de senhas.",
+    "ru": "Предупреждение: Нельзя снять последнюю галочку. Оставьте хотя бы один набор символов для генерации пароля.",
+    "zh": "警告：无法取消选中最后一个复选框。请至少保留一个字符集用于密码生成。",
+    "ja": "警告：最後のチェックボックスを外すことはできません。パスワード生成のために少なくとも1つの文字セットを残してください。",
+    "pl": "Ostrzeżenie: Nie można odznaczyć ostatniego pola wyboru. Zachowaj co najmniej jeden zestaw znaków do generowania hasła."
   }
 }
