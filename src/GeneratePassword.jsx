@@ -117,9 +117,9 @@ function PasswordRow({
         </div>
       </div>
       {/* For Mobile*/}
-      <div className="flex md:hidden h-14 items-center lg:justify-end justify-center flex-nowrap w-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px]">
+      <div className="flex md:hidden h-14 items-center justify-center flex-nowrap w-full bg-[#E5F6FF] lg:bg-transparent rounded-[40px] px-2">
         <button
-          className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 mx-2 whitespace-nowrap justify-center"
+          className="bg-[#E5F6FF] text-[#2A4E63] font-semibold hidden lg:flex text-[18px] lg:text-[20px] rounded-[60px] px-[16px] py-[12px] w-full my-2 lg:w-auto lg:px-6 lg:py-2 whitespace-nowrap justify-center"
           onClick={() => {
             onGenerate(index);
           }}
@@ -128,23 +128,24 @@ function PasswordRow({
           {t("generate", language)}
         </button>
         <button
-          className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 mx-2 whitespace-nowrap justify-center py-0 items-center px-2 h-full"
+          className="bg-[#E5F6FF] text-[#2A4E63] font-semibold text-[16px] md:text-[18px] flex lg:hidden lg:text-[24px] rounded-[60px] px-[8px] md:px-[16px] py-[10px] md:py-[12px] lg:my-0 whitespace-nowrap justify-center py-0 items-center px-4 h-full w-full"
           onClick={() => {
             onGenerate(index);
           }}
           style={{ cursor: "pointer" }}
         >
           {t("generate_short", language)}
+          <img
+            onClick={(e) => {
+              e.stopPropagation();
+              onGenerate(index);
+            }}
+            src={refreash}
+            alt="refresh"
+            className="flex h-[15px] md:h-[20px] ml-2"
+            style={{ cursor: "pointer" }}
+          />
         </button>
-        <img
-          onClick={() => {
-            onGenerate(index);
-          }}
-          src={refreash}
-          alt="refresh"
-          className="flex mr-2 h-[15px] md:h-[20px]"
-          style={{ cursor: "pointer" }}
-        />
       </div>
       <button
         disabled={password?.length < 1 || isAnimating}
