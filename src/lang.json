@@ -13,17 +13,17 @@
     "pl": "Potrzebujesz unikalnego, bezpiecznego hasła?"
   },
   "main_subtitle": {
-    "ua": "За допомогою 'Згенерувати пароль для мене' ви легко створите надійний пароль.",
-    "en": "With 'Generate Password To Me' you can create strong passwords easily.",
-    "es": "Con 'Generar contraseña para mí' puedes crear contraseñas seguras fácilmente.",
-    "fr": "Avec 'Générer un mot de passe pour moi', vous pouvez créer facilement des mots de passe forts.",
-    "de": "Mit 'Passwort für mich generieren' können Sie einfach starke Passwörter erstellen.",
-    "it": "Con 'Genera password per me' puoi creare facilmente password sicure.",
-    "pt": "Com 'Gerar senha para mim' você pode criar senhas fortes facilmente.",
-    "ru": "С помощью 'Сгенерировать пароль для меня' вы легко создадите надежный пароль.",
-    "zh": "使用'为我生成密码'，您可以轻松创建强密码。",
-    "ja": "'私のためのパスワードを生成'で、簡単に強力なパスワードを作成できます。",
-    "pl": "Z 'Generuj hasło dla mnie' możesz łatwo tworzyć silne hasła."
+    "ua": "За допомогою \"Згенерувати пароль для мене\" ви легко створите надійний пароль.",
+    "en": "With \"Generate Password To Me\" you can create strong passwords easily.",
+    "es": "Con \"Generar contraseña para mí\" puedes crear contraseñas seguras fácilmente.",
+    "fr": "Avec \"Générer un mot de passe pour moi\", vous pouvez créer facilement des mots de passe forts.",
+    "de": "Mit \"Passwort für mich generieren\" können Sie einfach starke Passwörter erstellen.",
+    "it": "Con \"Genera password per me\" puoi creare facilmente password sicure.",
+    "pt": "Com \"Gerar senha para mim\" você pode criar senhas fortes facilmente.",
+    "ru": "С помощью \"Сгенерировать пароль для меня\" вы легко создадите надежный пароль.",
+    "zh": "使用\"为我生成密码\"，您可以轻松创建强密码。",
+    "ja": "\"私のためのパスワードを生成\"で、簡単に強力なパスワードを作成できます。",
+    "pl": "Z \"Generuj hasło dla mnie\" możesz łatwo tworzyć silne hasła."
   },
   "generate": {
     "ua": "Генерувати",
@@ -674,17 +674,17 @@
     "pl": "Unikaj używania łatwo <strong>odgadywalnych informacji</strong>, takich jak Twoje imię lub data urodzenia."
   },
   "welcome_title": {
-    "ua": "Ласкаво просимо до Створення пароля онлайн!",
-    "en": "Welcome to Generate Password To Me!",
-    "es": "¡Bienvenido a Generar Contraseña Para Mí!",
-    "fr": "Bienvenue sur Générer un mot de passe pour moi !",
-    "de": "Willkommen bei Passwort für mich generieren!",
-    "it": "Benvenuto su Genera Password per Me!",
-    "pt": "Bem-vindo ao Gerar Senha para Mim!",
-    "ru": "Добро пожаловать в Создание пароля онлайн!",
-    "zh": "欢迎使用在线密码生成器！",
-    "ja": "オンラインパスワード生成へようこそ！",
-    "pl": "Witamy w Generowaniu Hasła Online!"
+    "ua": "Ласкаво просимо до \"Згенерувати пароль для мене\"!",
+    "en": "Welcome to \"Generate Password To Me\"!",
+    "es": "¡Bienvenido a \"Generar Contraseña Para Mí\"!",
+    "fr": "Bienvenue sur \"Générer un mot de passe pour moi\" !",
+    "de": "Willkommen bei \"Passwort für mich generieren\"!",
+    "it": "Benvenuto su \"Genera Password per Me\"!",
+    "pt": "Bem-vindo ao \"Gerar Senha para Mim\"!",
+    "ru": "Добро пожаловать в \"Сгенерировать пароль для меня\"!",
+    "zh": "欢迎使用\"为我生成密码\"！",
+    "ja": "\"私のためのパスワードを生成\"へようこそ！",
+    "pl": "Witamy w \"Generuj Hasło dla Mnie\"!"
   },
   "seotext_intro1": {
     "ua": "Ми тут, щоб надати вам <strong>безпечний</strong> і <strong>надійний</strong> спосіб створення <strong>надійних паролів</strong>.",

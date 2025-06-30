@@ -311,7 +311,7 @@ const Header = ({ onLanguageChange }) => {
     <Box
       sx={{ width: anchor === 'top' || anchor === 'bottom' ? 'auto' : 250 }}
       role="presentation"
-    //onClick={toggleDrawer(anchor, false)}
+    // onClick={toggleDrawer(anchor, false)}
     // onKeyDown={toggleDrawer(anchor, false)}
     >
       <List sx={{ px: "10px" }}>
@@ -412,15 +412,15 @@ const Header = ({ onLanguageChange }) => {
         <img
           src={isDarkMode ? LogoDark : Logo}
           alt="Generate Password To Me - Secure Password Generator Logo"
-          className="w-6 h-6 mr-1 logo"
+          className="w-[50%] h-6 mr-1 logo"
           loading="eager"
           decoding="async"
           width={24}
           height={24}
         />
       </div>
-      {/* <ul className="lg:flex items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
-        <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
+       <ul className="lg:flex justify-end w-[55%] items-center hidden text-decoration-none gap-5 text-[#071016] text-xl font-medium">
+        {/* <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
           <a href="#aboutus" className="nav-link">{t('menu_aboutus', language)}</a>
         </li>
         <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
@@ -428,7 +428,7 @@ const Header = ({ onLanguageChange }) => {
         </li>
         <li className="cursor-pointer transition-all duration-300 hover:text-[#2A4E63] hover:scale-105">
           <a href="#guide" className="nav-link">{t('menu_guide', language)}</a>
-        </li>
+        </li> */}
         <li>
           <IconButton 
             onClick={toggleTheme} 
@@ -445,7 +445,7 @@ const Header = ({ onLanguageChange }) => {
             {isDarkMode ? <Brightness7Icon /> : <Brightness4Icon />}
           </IconButton>
         </li>
-      </ul> */}
+      </ul>
 
       <select 
         name="Language" 
