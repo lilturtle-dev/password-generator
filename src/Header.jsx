@@ -296,8 +296,23 @@ const Header = ({ onLanguageChange }) => {
 
   const [state, setState] = React.useState({
     top: false,
-
   });
+
+  // Контроль overflow body при відкритті/закритті меню
+  useEffect(() => {
+    const isAnyDrawerOpen = Object.values(state).some(open => open);
+    
+    if (isAnyDrawerOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      document.body.style.overflowY = 'hidden';
+      
+      return () => {
+        document.body.style.overflow = originalOverflow || 'auto';
+        document.body.style.overflowY = 'auto';
+      };
+    }
+  }, [state]);
 
   const toggleDrawer = (anchor, open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
@@ -478,6 +493,13 @@ const Header = ({ onLanguageChange }) => {
               anchor={anchor}
               open={state[anchor]}
               onClose={toggleDrawer(anchor, false)}
+              sx={{
+                '& .MuiDrawer-paper': {
+                  width: { xs: '100vw', sm: 250 },
+                  maxWidth: { xs: '100vw', sm: 250 },
+                  boxSizing: 'border-box'
+                }
+              }}
             >
               {list(anchor)}
             </Drawer>

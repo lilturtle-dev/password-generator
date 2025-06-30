@@ -860,25 +860,25 @@ export default function GeneratePassword() {
               </div>
               {/* Password Standards Selector */}
               <div className="flex flex-col gap-2 mt-6">
-                <div className="flex flex-row items-center justify-between w-full gap-4">
+                <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between w-full gap-4">
                   <label className="text-[16px] md:text-[22px] text-[#2A4E63] whitespace-nowrap">
                     {t('password_standards_title', language)}
                   </label>
-                  <div className="flex flex-row gap-3">
+                  <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 w-full lg:w-auto">
                     <button
-                      className={`px-4 py-2 rounded-lg font-bold text-[16px] md:text-[18px] transition-all border-2 focus:outline-none ${selectedStandard === 'nist' ? 'border-[#2A4E63] bg-[#e5f6ff] dark:bg-[#05a9ff] text-[#2A4E63] dark:text-[#e0e0e0]' : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-[#374151] text-[#2A4E63] dark:text-[#e0e0e0]'}`}
+                      className={`px-3 sm:px-4 py-2 rounded-lg font-bold text-[14px] sm:text-[16px] md:text-[18px] transition-all border-2 focus:outline-none w-full sm:w-auto ${selectedStandard === 'nist' ? 'border-[#2A4E63] bg-[#e5f6ff] dark:bg-[#05a9ff] text-[#2A4E63] dark:text-[#e0e0e0]' : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-[#374151] text-[#2A4E63] dark:text-[#e0e0e0]'}`}
                       onClick={() => handleStandardChange('nist')}
                     >
                       {t('standard_nist', language)}
                     </button>
                     <button
-                      className={`px-4 py-2 rounded-lg font-bold text-[16px] md:text-[18px] transition-all border-2 focus:outline-none ${selectedStandard === 'pci' ? 'border-[#2A4E63] bg-[#e5f6ff] dark:bg-[#05a9ff] text-[#2A4E63] dark:text-[#e0e0e0]' : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-[#374151] text-[#2A4E63] dark:text-[#e0e0e0]'}`}
+                      className={`px-3 sm:px-4 py-2 rounded-lg font-bold text-[14px] sm:text-[16px] md:text-[18px] transition-all border-2 focus:outline-none w-full sm:w-auto ${selectedStandard === 'pci' ? 'border-[#2A4E63] bg-[#e5f6ff] dark:bg-[#05a9ff] text-[#2A4E63] dark:text-[#e0e0e0]' : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-[#374151] text-[#2A4E63] dark:text-[#e0e0e0]'}`}
                       onClick={() => handleStandardChange('pci')}
                     >
                       {t('standard_pci', language)}
                     </button>
                     <button
-                      className={`px-4 py-2 rounded-lg font-bold text-[16px] md:text-[18px] transition-all border-2 focus:outline-none ${selectedStandard === 'custom' ? 'border-[#2A4E63] bg-[#e5f6ff] dark:bg-[#05a9ff] text-[#2A4E63] dark:text-[#e0e0e0]' : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-[#374151] text-[#2A4E63] dark:text-[#e0e0e0]'}`}
+                      className={`px-3 sm:px-4 py-2 rounded-lg font-bold text-[14px] sm:text-[16px] md:text-[18px] transition-all border-2 focus:outline-none w-full sm:w-auto ${selectedStandard === 'custom' ? 'border-[#2A4E63] bg-[#e5f6ff] dark:bg-[#05a9ff] text-[#2A4E63] dark:text-[#e0e0e0]' : 'border-gray-200 dark:border-gray-600 bg-white dark:bg-[#374151] text-[#2A4E63] dark:text-[#e0e0e0]'}`}
                       onClick={() => handleStandardChange('custom')}
                     >
                       {t('standard_custom', language)}
@@ -886,30 +886,30 @@ export default function GeneratePassword() {
                   </div>
                 </div>
                 <div className="w-full mt-2">
-                  <span className="mb-2 block text-[17px] md:text-[20px] font-normal text-[#2A4E63] dark:text-[#e0e0e0] border-2 border-[#e5f6ff] dark:border-[#05a9ff] rounded-lg px-4 py-2 mt-1">
+                  <span className="mb-2 block text-[14px] sm:text-[17px] md:text-[20px] font-normal text-[#2A4E63] dark:text-[#e0e0e0] border-2 border-[#e5f6ff] dark:border-[#05a9ff] rounded-lg px-3 sm:px-4 py-2 mt-1">
                     {t(passwordStandards[selectedStandard].description, language)}
                   </span>
                 </div>
               </div>
               {restPasswordInputs}
               {passwords.length >= 2 ? (
-                <div className="flex gap-3 mt-2">
+                <div className="flex flex-col sm:flex-row gap-2 sm:gap-3 mt-2">
                   <Button 
-                    className={`${isDarkMode ? 'bg-[#05a9ff]' : 'bg-[#2A4E63]'} ${isDarkMode ? 'text-[#e0e0e0]' : 'text-white'} font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer`}
+                    className={`${isDarkMode ? 'bg-[#05a9ff]' : 'bg-[#2A4E63]'} ${isDarkMode ? 'text-[#e0e0e0]' : 'text-white'} font-semibold text-[14px] sm:text-[16px] md:text-[20px] rounded-[60px] px-[12px] sm:px-[16px] py-[10px] sm:py-[12px] cursor-pointer w-full sm:w-auto`}
                     onClick={handleCopyAllClick}
                     disabled={isAnimating}
                     style={isAnimating ? { opacity: 0.5, cursor: "not-allowed" } : {}}
                   >
-                    <FileCopyIcon sx={{ marginRight: 1 }} />
+                    <FileCopyIcon sx={{ marginRight: 1, fontSize: { xs: '18px', sm: '20px' } }} />
                     {t("copy_all", language)}
                   </Button>
                   <Button 
-                    className={`${isDarkMode ? 'bg-[#05a9ff]' : 'bg-[#2A4E63]'} ${isDarkMode ? 'text-[#e0e0e0]' : 'text-white'} font-semibold text-[16px] md:text-[20px] rounded-[60px] px-[16px] py-[12px] mx-2 cursor-pointer`}
+                    className={`${isDarkMode ? 'bg-[#05a9ff]' : 'bg-[#2A4E63]'} ${isDarkMode ? 'text-[#e0e0e0]' : 'text-white'} font-semibold text-[14px] sm:text-[16px] md:text-[20px] rounded-[60px] px-[12px] sm:px-[16px] py-[10px] sm:py-[12px] cursor-pointer w-full sm:w-auto`}
                     onClick={handleDownloadAllClick}
                     disabled={isAnimating}
                     style={isAnimating ? { opacity: 0.5, cursor: "not-allowed" } : {}}
                   >
-                    <CloudDownloadIcon sx={{ marginRight: 1 }} />
+                    <CloudDownloadIcon sx={{ marginRight: 1, fontSize: { xs: '18px', sm: '20px' } }} />
                     {t("download_all", language)}
                   </Button>
                 </div>
