@@ -602,7 +602,7 @@ export default function GeneratePassword() {
   };
 
   return (
-    <div className={`container ${language} mx-auto w-screen lg:w-full px-3 ${isDarkMode ? "dark" : ""}`}>
+    <div className={`container ${language} mx-auto px-3 ${isDarkMode ? "dark" : ""}`}>
       <div id="centerReward" style={{ position: "fixed", left: "50%", top: "50%", transform: "translate(-50%, -50%)", pointerEvents: "none", zIndex: 9999 }} />
       <Helmet>
         <title>{seoData.find((data) => data.language === language)?.title}</title>
