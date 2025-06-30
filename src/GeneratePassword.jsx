@@ -626,7 +626,7 @@ export default function GeneratePassword() {
         {renderedSnackbars}
         <main className="w-full">
           <Analytics />
-          <div className={`flex flex-col justify-center items-center mb-4 w-full lg:w-[100%] rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#1a1a1a]" : "bg-[#E5F6FF]"} lg:bg-[url('./images/vector-bg.svg')] lg:bg-no-repeat lg:bg-center lg:bg-cover lg:bg-blend-overlay`}>
+          <div className={`flex flex-col justify-center items-center mb-4 w-full rounded-72 pt-10 md:pt-32 ${isDarkMode ? "dark:bg-[#1a1a1a]" : "bg-[#E5F6FF]"} lg:bg-[url('./images/vector-bg.svg')] lg:bg-no-repeat lg:bg-center lg:bg-cover lg:bg-blend-overlay`}>
             <h1 className={`page-title mx-2 md:mb-2 text-[30px] lg:text-[50px] font-bold tracking-tight text-center ${isDarkMode ? 'text-[#e0e0e0]' : 'text-gray-900'}`}>
               {t("main_title", language)}
             </h1>
