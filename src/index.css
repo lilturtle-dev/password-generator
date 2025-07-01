@@ -193,10 +193,12 @@
 }
 
 /* Запобігання зміні розміру контейнера при відкритті модальних вікон */
-.container {
-  width: 100% !important;
-  max-width: 100% !important;
-  overflow-x: hidden !important;
+@media (min-width: 768px) {
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow-x: hidden !important;
+  } 
 }
 
 /* Обмеження максимальної ширини контейнера для ПК */
